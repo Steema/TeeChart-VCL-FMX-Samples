@@ -1,0 +1,12 @@
+*.dcu
+*.local
+*.otares
+*.exe
+*.~pas
+*.ddp
+*.~dfm
+TeeNew/__history/
+TeeNew/__recovery/
+TeeChartOffice/tmp/
+*.identcache
+*.~ddp
