@@ -1,6 +1,6 @@
 {**************************************************}
 {  Expression Evaluator and Series DataSource      }
-{  Copyright (c) 2010-2021 by Steema Software      }
+{  Copyright (c) 2010-2023 by Steema Software      }
 {**************************************************}
 unit TeeExpression;
 {$I TeeDefs.inc}

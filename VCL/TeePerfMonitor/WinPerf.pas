@@ -4,7 +4,7 @@
 {       Performance Data Helper Messages interface unit            }
 { 								   }
 { Portions created by Microsoft are 				   }
-{ Copyright (C) 1995-1999 Microsoft Corporation. 		   }
+{ Copyright (C) 1995-2023 Microsoft Corporation. 		   }
 { All Rights Reserved. 						   }
 { 								   }
 { The original file is: WinPerf.pas, released 3 Dec 1999. 	   }
