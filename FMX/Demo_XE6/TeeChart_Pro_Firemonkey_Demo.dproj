@@ -198,7 +198,7 @@
         <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <VerInfo_Keys>CompanyName=Steema Software;FileDescription=TeeChart Pro for FireMonkey demo;FileVersion=9.1.0.0;InternalName=;LegalCopyright=(c) 2011-2012 by Steema Software. All Rights Reserved.;LegalTrademarks=TeeChart(TM);OriginalFilename=;ProductName=TeeChart Pro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Steema Software;FileDescription=TeeChart Pro for FireMonkey demo;FileVersion=9.1.0.0;InternalName=;LegalCopyright=(c) 2011-2023 by Steema Software. All Rights Reserved.;LegalTrademarks=TeeChart(TM);OriginalFilename=;ProductName=TeeChart Pro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_DebugDCUs>true</DCC_DebugDCUs>
         <DCC_UnitSearchPath></DCC_UnitSearchPath>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
