@@ -299,7 +299,7 @@ inherited BarTransitions: TBarTransitions
         Chart = Chart1
         Fade = tfIn
         RotateMax = 360
-        TranslateStyle = None
+        TranslateStyle = ttNone
         ZoomStyle = tzIn
         Left = 32
         Top = 64

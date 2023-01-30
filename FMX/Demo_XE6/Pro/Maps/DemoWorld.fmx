@@ -204,7 +204,7 @@ inherited DemoWorldSeries: TDemoWorldSeries
     object ChartTool1: TMarksTipTool
       Format.CustomPosition = True
       Format.Left = 0
-      Format.TextAlignment = Center
+      Format.TextAlignment = taCenter
       Format.Top = 0
       Format.Visible = False
       HideDelay = 0
