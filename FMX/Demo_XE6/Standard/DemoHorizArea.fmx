@@ -7,14 +7,14 @@ inherited HorizAreaDemo: THorizAreaDemo
     end
   end
   object Chart1: TChart
-    Align = alClient
+    Align = Client
     Position.Point = '(0,57)'
     Width = 600.000000000000000000
     Height = 343.000000000000000000
     Title.Text.Strings = (
       'Horizontal Area Series')
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     TabOrder = 2
     ColorPaletteIndex = 13
     object Series1: THorizAreaSeries

@@ -57,11 +57,11 @@ inherited AnimationPieSeries: TAnimationPieSeries
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.MouseWheel = pmwNormal
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TPieSeries
@@ -71,7 +71,7 @@ inherited AnimationPieSeries: TAnimationPieSeries
       Marks.Callout.FullGradient = True
       Marks.Callout.Arrow.Fill.Color = claWhite
       Marks.Callout.Arrow.Visible = True
-      Marks.Brush.Kind = bkGradient
+      Marks.Brush.Kind = Gradient
       Marks.Brush.Gradient.Visible = True
       Marks.Frame.Color = x3D000000
       Marks.Frame.Fill.Color = x3D000000
@@ -84,19 +84,19 @@ inherited AnimationPieSeries: TAnimationPieSeries
       Bevel.UseBorder = False
       BevelPercent = 8
       EdgeStyle = edFlat
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver

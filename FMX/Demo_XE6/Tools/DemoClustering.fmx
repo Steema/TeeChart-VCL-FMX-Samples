@@ -6,7 +6,7 @@ object ClusteringDemo: TClusteringDemo
   ClientWidth = 725
   FormFactor.Width = 1366
   FormFactor.Height = 768
-  FormFactor.Devices = [dkDesktop, dkiPhone, dkiPad]
+  FormFactor.Devices = [Desktop, iPhone, iPad]
   OnCreate = FormCreate
   DesignerMobile = False
   DesignerWidth = 0
@@ -14,7 +14,7 @@ object ClusteringDemo: TClusteringDemo
   DesignerDeviceName = ''
   DesignerOrientation = 0
   object Splitter1: TSplitter
-    Align = alRight
+    Align = Right
     Cursor = crHSplit
     Height = 299.000000000000000000
     MinSize = 20.000000000000000000
@@ -39,9 +39,9 @@ object ClusteringDemo: TClusteringDemo
     View3D = False
     View3DOptions.Orthogonal = False
     View3DOptions.Zoom = 70
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     OnAfterDraw = Chart1AfterDraw
-    Align = alClient
+    Align = Client
     OnEnter = Chart1Enter
     OnExit = Chart1Exit
     TabOrder = 0
@@ -101,7 +101,7 @@ object ClusteringDemo: TClusteringDemo
     end
   end
   object Panel1: TPanel
-    Align = alTop
+    Align = Top
     Height = 121.000000000000000000
     Width = 725.000000000000000000
     TabOrder = 6
@@ -142,7 +142,7 @@ object ClusteringDemo: TClusteringDemo
       object ERandom: TEdit
         TabOrder = 1
         DisableFocusEffect = False
-        KeyboardType = vktDefault
+        KeyboardType = Default
         Password = False
         Text = '400'
         Position.X = 52.000000000000000000
@@ -302,7 +302,7 @@ object ClusteringDemo: TClusteringDemo
         Top = 24
       end
       object LBMethod: TListBox
-        Touch.InteractiveGestures = [igPan]
+        Touch.InteractiveGestures = [Pan]
         Height = 49.000000000000000000
         Position.X = 8.000000000000000000
         Position.Y = 21.000000000000000000
@@ -367,7 +367,7 @@ object ClusteringDemo: TClusteringDemo
     Position.Y = 121.000000000000000000
     Width = 725.000000000000000000
     Panel = Chart1
-    Align = alTop
+    Align = Top
     TabOrder = 3
     Top = 121
   end
@@ -378,10 +378,10 @@ object ClusteringDemo: TClusteringDemo
     Width = 725.000000000000000000
     Top = 510
     object StatusText: TText
-      Align = alLeft
+      Align = Left
       Color = claBlack
       Height = 19.000000000000000000
-      HorzTextAlign = taLeading
+      HorzTextAlign = Leading
       Padding.Left = 4.000000000000000000
       Position.X = 4.000000000000000000
       Width = 449.000000000000000000
@@ -389,7 +389,7 @@ object ClusteringDemo: TClusteringDemo
     end
   end
   object IrisDataSet: TMemo
-    Touch.InteractiveGestures = [igPan]
+    Touch.InteractiveGestures = [Pan]
     Height = 233.000000000000000000
     Position.X = 304.000000000000000000
     Position.Y = 136.000000000000000000
@@ -397,7 +397,7 @@ object ClusteringDemo: TClusteringDemo
     Visible = False
     Width = 169.000000000000000000
     DisableFocusEffect = False
-    KeyboardType = vktDefault
+    KeyboardType = Default
     Lines.Strings = (
       '5.1,3.5,1.4,0.2,Iris-setosa'
       '4.9,3.0,1.4,0.2,Iris-setosa'
@@ -551,8 +551,8 @@ object ClusteringDemo: TClusteringDemo
       '5.9,3.0,5.1,1.8,Iris-virginica')
   end
   object TreeView1: TTreeView
-    Touch.InteractiveGestures = [igPan]
-    Align = alRight
+    Touch.InteractiveGestures = [Pan]
+    Align = Right
     Height = 299.000000000000000000
     Position.X = 573.000000000000000000
     Position.Y = 154.000000000000000000

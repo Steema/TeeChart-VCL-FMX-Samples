@@ -88,8 +88,8 @@ inherited DemoLine: TDemoLine
     Gradient.Visible = True
     Title.Text.Strings = (
       'Line Strip Series with null points')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     PrintMargins = (
       0

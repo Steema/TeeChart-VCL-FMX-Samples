@@ -16,22 +16,22 @@ inherited DemoOrgSeries: TDemoOrgSeries
     Title.Text.Strings = (
       'Organizational Series')
     BottomAxis.Grid.Fill.Color = claSilver
-    BottomAxis.LabelsFormat.TextAlignment = taCenter
+    BottomAxis.LabelsFormat.TextAlignment = Center
     DepthAxis.Grid.Fill.Color = claSilver
-    DepthAxis.LabelsFormat.TextAlignment = taCenter
+    DepthAxis.LabelsFormat.TextAlignment = Center
     DepthTopAxis.Grid.Fill.Color = claSilver
-    DepthTopAxis.LabelsFormat.TextAlignment = taCenter
+    DepthTopAxis.LabelsFormat.TextAlignment = Center
     LeftAxis.Grid.Fill.Color = claSilver
-    LeftAxis.LabelsFormat.TextAlignment = taCenter
+    LeftAxis.LabelsFormat.TextAlignment = Center
     RightAxis.Grid.Fill.Color = claSilver
-    RightAxis.LabelsFormat.TextAlignment = taCenter
+    RightAxis.LabelsFormat.TextAlignment = Center
     TopAxis.Grid.Fill.Color = claSilver
-    TopAxis.LabelsFormat.TextAlignment = taCenter
-    Zoom.Brush.Kind = bkNone
+    TopAxis.LabelsFormat.TextAlignment = Center
+    Zoom.Brush.Kind = None
     Zoom.Pen.Mode = pmNotXor
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TOrgSeries

@@ -24,8 +24,8 @@ inherited ChartDataSetDemo: TChartDataSetDemo
     Legend.Visible = False
     Title.Text.Strings = (
       'Chart1')
-    Zoom.Brush.Kind = bkNone
-    Align = alLeft
+    Zoom.Brush.Kind = None
+    Align = Left
     TabOrder = 1
     ColorPaletteIndex = 1
     object Series1: THorizBarSeries
@@ -44,14 +44,14 @@ inherited ChartDataSetDemo: TChartDataSetDemo
     end
   end
   object Layout1: TLayout
-    Align = alClient
+    Align = Client
     Height = 343.000000000000000000
     Position.X = 400.000000000000000000
     Position.Y = 57.000000000000000000
     Width = 200.000000000000000000
     object StringGrid1: TStringGrid
-      Touch.InteractiveGestures = [igPan]
-      Align = alClient
+      Touch.InteractiveGestures = [Pan]
+      Align = Client
       Height = 318.000000000000000000
       StyleLookup = 'gridstyle'
       TabOrder = 0
@@ -87,7 +87,7 @@ inherited ChartDataSetDemo: TChartDataSetDemo
       end
     end
     object BindNavigator1: TBindNavigator
-      Align = alBottom
+      Align = Bottom
       Height = 25.000000000000000000
       Position.Y = 318.000000000000000000
       Width = 200.000000000000000000
@@ -100,7 +100,7 @@ inherited ChartDataSetDemo: TChartDataSetDemo
   object StyleBook1: TStyleBook
     Resource.Strings = (
       'object TLayout'
-      '  Align = alClient'
+      '  Align = Client'
       '  Position.Point = '#39'(0,33)'#39
       '  Width = 504.000000000000000000'
       '  Height = 448.000000000000000000'

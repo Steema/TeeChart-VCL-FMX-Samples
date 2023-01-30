@@ -5,14 +5,14 @@ object BaseForm: TBaseForm
   ClientWidth = 600
   FormFactor.Width = 1366
   FormFactor.Height = 768
-  FormFactor.Devices = [dkDesktop]
+  FormFactor.Devices = [Desktop]
   DesignerMobile = False
   DesignerWidth = 0
   DesignerHeight = 0
   DesignerDeviceName = ''
   DesignerOrientation = 0
   object Panel1: TPanel
-    Align = alTop
+    Align = Top
     Height = 57.000000000000000000
     Width = 600.000000000000000000
     TabOrder = 0

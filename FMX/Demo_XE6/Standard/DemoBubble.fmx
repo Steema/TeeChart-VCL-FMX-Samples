@@ -25,8 +25,8 @@ inherited BubbleSeriesDemo: TBubbleSeriesDemo
     Width = 600.000000000000000000
     Title.Text.Strings = (
       'TChart')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 5
     object Series1: TBubbleSeries
@@ -37,7 +37,7 @@ inherited BubbleSeriesDemo: TBubbleSeriesDemo
       Marks.ShapeStyle = fosRoundRectangle
       Marks.Visible = True
       ClickableLine = False
-      Pointer.Brush.Kind = bkGradient
+      Pointer.Brush.Kind = Gradient
       Pointer.Brush.Gradient.EndColor = claGreen
       Pointer.Brush.Gradient.Visible = True
       Pointer.Gradient.EndColor = claGreen

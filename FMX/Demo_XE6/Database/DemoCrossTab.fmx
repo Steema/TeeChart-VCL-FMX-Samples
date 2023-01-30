@@ -22,8 +22,8 @@ inherited CrossTabDemo: TCrossTabDemo
     Width = 600.000000000000000000
     Title.Text.Strings = (
       'TDBChart')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TBarSeries

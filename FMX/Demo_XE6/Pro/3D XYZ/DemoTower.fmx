@@ -7,13 +7,13 @@ inherited DemoTowerSeries: TDemoTowerSeries
     end
   end
   object Chart1: TChart
-    Align = alClient
+    Align = Client
     Position.Point = '(0,57)'
     Width = 600.000000000000000000
     Height = 343.000000000000000000
     Title.Text.Strings = (
       'Tower XYZ')
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TTowerSeries

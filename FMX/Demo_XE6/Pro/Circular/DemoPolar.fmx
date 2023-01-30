@@ -42,11 +42,11 @@ inherited DemoPolarSeries: TDemoPolarSeries
     TopAxis.Ticks.Fill.Color = claDarkgray
     TopAxis.TicksInner.Fill.Color = claDarkgray
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.MouseWheel = pmwNormal
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TPolarSeries
@@ -66,11 +66,11 @@ inherited DemoPolarSeries: TDemoPolarSeries
       AngleIncrement = 10.000000000000000000
       AngleValues.Name = 'AngleValues'
       AngleValues.Order = loAscending
-      Brush.Kind = bkGradient
+      Brush.Kind = Gradient
       Brush.Gradient.Direction = gdLeftRight
       Brush.Gradient.EndColor = xFFF9A51D
       Brush.Gradient.Visible = True
-      CircleBrush.Kind = bkGradient
+      CircleBrush.Kind = Gradient
       CircleBrush.Gradient.Direction = gdLeftRight
       CircleBrush.Gradient.EndColor = xFFF9A51D
       CircleBrush.Gradient.Visible = True

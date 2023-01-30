@@ -228,9 +228,9 @@ inherited BarTransitions: TBarTransitions
     TopAxis.Title.Font.Brush.Color = xFFDDDAD6
     TopAxis.Title.Pen.Color = claWhite
     TopAxis.Title.Pen.Fill.Color = claWhite
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.Pen.Fill.Color = claSilver
-    Align = alClient
+    Align = Client
     Color = xFFAE9C96
     TabOrder = 1
     ColorPaletteIndex = 15
@@ -299,7 +299,7 @@ inherited BarTransitions: TBarTransitions
         Chart = Chart1
         Fade = tfIn
         RotateMax = 360
-        TranslateStyle = ttNone
+        TranslateStyle = None
         ZoomStyle = tzIn
         Left = 32
         Top = 64

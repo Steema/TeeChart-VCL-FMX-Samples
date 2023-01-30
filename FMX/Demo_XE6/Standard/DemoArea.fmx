@@ -64,7 +64,7 @@ inherited DemoAreaSeries: TDemoAreaSeries
     object AlphaTrackBar1: TAlphaTrackBar
       DisableFocusEffect = False
       Height = 15.000000000000000000
-      Orientation = orHorizontal
+      Orientation = Horizontal
       Position.X = 384.000000000000000000
       Position.Y = 16.000000000000000000
       TabOrder = 4
@@ -78,8 +78,8 @@ inherited DemoAreaSeries: TDemoAreaSeries
     Width = 600.000000000000000000
     Title.Text.Strings = (
       'Area Series')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TAreaSeries

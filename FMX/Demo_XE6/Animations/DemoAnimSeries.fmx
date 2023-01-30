@@ -59,11 +59,11 @@ inherited AnimationSeriesValues: TAnimationSeriesValues
     TopAxis.MinorTicks.Fill.Color = claDarkgray
     TopAxis.Ticks.Fill.Color = claDarkgray
     TopAxis.TicksInner.Fill.Color = claDarkgray
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.MouseWheel = pmwNormal
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TBarSeries

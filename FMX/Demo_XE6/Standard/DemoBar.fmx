@@ -17,7 +17,7 @@ inherited DemoBarSeries: TDemoBarSeries
       Width = 100.000000000000000000
       OnChange = ComboBox1Change
       object ListBoxItem1: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.X = 5000.000000000000000000
         Position.Y = 5000.000000000000000000
@@ -25,7 +25,7 @@ inherited DemoBarSeries: TDemoBarSeries
         Width = 80.000000000000000000
       end
       object ListBoxItem2: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 18.000000000000000000
         IsSelected = True
         Position.Y = 19.000000000000000000
@@ -33,28 +33,28 @@ inherited DemoBarSeries: TDemoBarSeries
         Width = 75.000000000000000000
       end
       object ListBoxItem3: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 38.000000000000000000
         Text = 'Stacked'
         Width = 80.000000000000000000
       end
       object ListBoxItem4: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 57.000000000000000000
         Text = 'Stacked 100%'
         Width = 80.000000000000000000
       end
       object ListBoxItem5: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 76.000000000000000000
         Text = 'Side All'
         Width = 80.000000000000000000
       end
       object ListBoxItem6: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 95.000000000000000000
         Text = 'Self Stack'
@@ -71,28 +71,28 @@ inherited DemoBarSeries: TDemoBarSeries
       Width = 100.000000000000000000
       OnChange = ComboBox2Change
       object ListBoxItem7: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 18.000000000000000000
         IsSelected = True
         Text = 'Cube'
         Width = 75.000000000000000000
       end
       object ListBoxItem8: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 19.000000000000000000
         Text = 'Cylinder'
         Width = 80.000000000000000000
       end
       object ListBoxItem9: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 38.000000000000000000
         Text = 'Pyramid'
         Width = 80.000000000000000000
       end
       object ListBoxItem10: TListBoxItem
-        StyledSettings = [ssFamily, ssSize, ssStyle, ssFontColor, ssOther]
+        StyledSettings = [Family, Size, Style, FontColor, Other]
         Height = 19.000000000000000000
         Position.Y = 57.000000000000000000
         Text = 'Cone'
@@ -108,7 +108,7 @@ inherited DemoBarSeries: TDemoBarSeries
     Gradient.EndColor = xFFFCF199
     Gradient.StartColor = xFFFFE3E3
     Gradient.Visible = True
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.Direction = gdLeftRight
     Legend.Brush.Gradient.Visible = True
     Legend.CheckBoxes = True
@@ -118,8 +118,8 @@ inherited DemoBarSeries: TDemoBarSeries
     Title.Text.Strings = (
       'Bar Series')
     Title.Transparent = False
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     PrintMargins = (
       0

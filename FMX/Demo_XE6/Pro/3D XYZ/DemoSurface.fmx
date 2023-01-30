@@ -17,7 +17,7 @@ inherited DemoSurfaceSeries: TDemoSurfaceSeries
       Height = 33.000000000000000000
       Width = 600.000000000000000000
       Panel = Chart1
-      Align = alTop
+      Align = Top
       TabOrder = 1
     end
   end
@@ -29,7 +29,7 @@ inherited DemoSurfaceSeries: TDemoSurfaceSeries
     BackWall.Transparent = False
     BottomWall.Size = 10
     LeftWall.Size = 10
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.StartColor = xFF134795
     Legend.Brush.Gradient.Visible = True
     RightWall.Size = 10
@@ -40,8 +40,8 @@ inherited DemoSurfaceSeries: TDemoSurfaceSeries
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 64
     View3DOptions.Zoom = 65
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TSurfaceSeries
@@ -51,7 +51,7 @@ inherited DemoSurfaceSeries: TDemoSurfaceSeries
       Marks.ShapeStyle = fosRoundRectangle
       Marks.Visible = False
       PaletteStyle = psRainbow
-      SideBrush.Kind = bkNone
+      SideBrush.Kind = None
       XValues.Name = 'X'
       XValues.Order = loNone
       YValues.Name = 'Y'

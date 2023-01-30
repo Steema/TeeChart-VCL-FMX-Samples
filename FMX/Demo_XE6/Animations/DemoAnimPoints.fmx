@@ -59,11 +59,11 @@ inherited AnimationPoints: TAnimationPoints
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.MouseWheel = pmwNormal
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TPointSeries

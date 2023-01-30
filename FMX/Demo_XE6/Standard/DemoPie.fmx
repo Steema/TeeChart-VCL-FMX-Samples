@@ -9,7 +9,7 @@ inherited DemoPieSeries: TDemoPieSeries
   inherited Panel1: TPanel
     object TrackBar1: TTrackBar
       Height = 19.000000000000000000
-      Orientation = orHorizontal
+      Orientation = Horizontal
       Position.X = 168.000000000000000000
       Position.Y = 16.000000000000000000
       TabOrder = 1
@@ -37,7 +37,7 @@ inherited DemoPieSeries: TDemoPieSeries
     object TrackBar2: TTrackBar
       Height = 19.000000000000000000
       Max = 360.000000000000000000
-      Orientation = orHorizontal
+      Orientation = Horizontal
       Position.X = 328.000000000000000000
       Position.Y = 16.000000000000000000
       TabOrder = 4
@@ -61,7 +61,7 @@ inherited DemoPieSeries: TDemoPieSeries
     Gradient.Direction = gdLeftRight
     Gradient.EndColor = xFFD9D9C9
     Gradient.Visible = True
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.Visible = True
     Legend.RoundSize = 6
     Legend.ShapeStyle = fosRoundRectangle
@@ -78,8 +78,8 @@ inherited DemoPieSeries: TDemoPieSeries
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TPieSeries
@@ -91,19 +91,19 @@ inherited DemoPieSeries: TDemoPieSeries
       XValues.Order = loAscending
       YValues.Name = 'Pie'
       YValues.Order = loNone
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver

@@ -6,7 +6,7 @@ object ExportDemo: TExportDemo
   ClientWidth = 703
   FormFactor.Width = 320
   FormFactor.Height = 480
-  FormFactor.Devices = [dkDesktop, dkiPhone, dkiPad]
+  FormFactor.Devices = [Desktop, iPhone, iPad]
   OnCreate = FormCreate
   DesignerMobile = False
   DesignerWidth = 0
@@ -14,7 +14,7 @@ object ExportDemo: TExportDemo
   DesignerDeviceName = ''
   DesignerOrientation = 0
   object Panel1: TPanel
-    Align = alLeft
+    Align = Left
     Height = 387.000000000000000000
     Width = 329.000000000000000000
     TabOrder = 0
@@ -22,7 +22,7 @@ object ExportDemo: TExportDemo
   object Chart1: TChart
     Height = 387.000000000000000000
     Width = 369.000000000000000000
-    BackWall.Brush.Kind = bkGradient
+    BackWall.Brush.Kind = Gradient
     BackWall.Brush.Gradient.EndColor = xFFB9B950
     BackWall.Brush.Gradient.StartColor = xFF232F19
     BackWall.Brush.Gradient.Visible = True
@@ -31,7 +31,7 @@ object ExportDemo: TExportDemo
     Gradient.EndColor = xFF888885
     Gradient.StartColor = xFF101548
     Gradient.Visible = True
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.Direction = gdFromTopLeft
     Legend.Brush.Gradient.StartColor = xFF9F8C8C
     Legend.Brush.Gradient.Visible = True
@@ -74,11 +74,11 @@ object ExportDemo: TExportDemo
     TopAxis.MinorTicks.Fill.Color = claDarkgray
     TopAxis.Ticks.Fill.Color = claDarkgray
     TopAxis.TicksInner.Fill.Color = claDarkgray
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.MouseWheel = pmwNormal
     Zoom.Pen.Width = 3.000000000000000000
     Zoom.Pen.Fill.Color = claWhite
-    Align = alClient
+    Align = Client
     Color = xFFBA1F1F
     TabOrder = 1
     ColorPaletteIndex = 10
@@ -92,7 +92,7 @@ object ExportDemo: TExportDemo
       Marks.Callout.FullGradient = True
       Marks.Callout.Arrow.Fill.Color = claWhite
       Marks.Callout.Arrow.Visible = True
-      Marks.Brush.Kind = bkGradient
+      Marks.Brush.Kind = Gradient
       Marks.Brush.Gradient.StartColor = xFFA79090
       Marks.Brush.Gradient.Visible = True
       Marks.Shadow.Color = xFF4C4C4C
@@ -107,7 +107,7 @@ object ExportDemo: TExportDemo
     end
   end
   object Splitter1: TSplitter
-    Align = alLeft
+    Align = Left
     Cursor = crHSplit
     Height = 387.000000000000000000
     MinSize = 20.000000000000000000

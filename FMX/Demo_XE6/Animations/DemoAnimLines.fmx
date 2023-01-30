@@ -204,9 +204,9 @@ inherited ProgressiveLines: TProgressiveLines
     TopAxis.Title.Pen.Color = xFF0F9FB4
     TopAxis.Title.Pen.Fill.Color = xFF0F9FB4
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.Pen.Fill.Color = claSilver
-    Align = alClient
+    Align = Client
     Color = xFF152737
     TabOrder = 1
     object Series1: TLineSeries

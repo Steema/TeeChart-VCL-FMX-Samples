@@ -7,7 +7,7 @@ inherited DemoSurface3DSeries: TDemoSurface3DSeries
     end
   end
   object Viewport3D1: TViewport3D
-    Align = alClient
+    Align = Client
     Position.Point = '(0,57)'
     Width = 600.000000000000000000
     Height = 343.000000000000000000
@@ -39,7 +39,7 @@ inherited DemoSurface3DSeries: TDemoSurface3DSeries
         View3DOptions.VertOffset = -71
         View3DOptions.Zoom = 0
         Zoom.Allow = False
-        Zoom.Brush.Kind = bkNone
+        Zoom.Brush.Kind = None
         BevelOuter = bvNone
         Color = claNull
         TabOrder = 0
@@ -49,7 +49,7 @@ inherited DemoSurface3DSeries: TDemoSurface3DSeries
           Marks.Callout.Brush.Color = claBlack
           Marks.Callout.Arrow.Visible = True
           Marks.Visible = False
-          SideBrush.Kind = bkNone
+          SideBrush.Kind = None
           XValues.Name = 'X'
           XValues.Order = loNone
           YValues.Name = 'Y'
@@ -68,7 +68,7 @@ inherited DemoSurface3DSeries: TDemoSurface3DSeries
       Ambient = xFF202020
       Diffuse = xFFA0A0A0
       ConstantAttenuation = 1.000000000000000000
-      LightType = ltPoint
+      LightType = Point
       Specular = claWhite
       SpotCutOff = 180.000000000000000000
       Quanternion = '(0,0,0,1)'
@@ -83,7 +83,7 @@ inherited DemoSurface3DSeries: TDemoSurface3DSeries
       Ambient = xFF202020
       Diffuse = xFFA0A0A0
       ConstantAttenuation = 1.000000000000000000
-      LightType = ltSpot
+      LightType = Spot
       Specular = claWhite
       SpotCutOff = 60.000000000000000000
       SpotExponent = 4.000000000000000000

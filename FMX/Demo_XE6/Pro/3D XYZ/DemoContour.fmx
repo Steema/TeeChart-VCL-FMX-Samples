@@ -25,14 +25,14 @@ inherited DemoContourSeries: TDemoContourSeries
     end
   end
   object Chart1: TChart
-    Align = alClient
+    Align = Client
     Position.Point = '(0,57)'
     Width = 600.000000000000000000
     Height = 343.000000000000000000
     Title.Text.Strings = (
       'Contour')
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: TContourSeries
@@ -58,7 +58,7 @@ inherited DemoContourSeries: TDemoContourSeries
       YValues.Order = loNone
       ZValues.Name = 'Z'
       ZValues.Order = loNone
-      Brush.Kind = bkNone
+      Brush.Kind = None
     end
   end
 end

@@ -28,8 +28,8 @@ inherited PrintDemo: TPrintDemo
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
-    Align = alLeft
+    Zoom.Brush.Kind = None
+    Align = Left
     TabOrder = 1
     PrintMargins = (
       15
@@ -46,19 +46,19 @@ inherited PrintDemo: TPrintDemo
       XValues.Order = loAscending
       YValues.Name = 'Pie'
       YValues.Order = loNone
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver
@@ -70,7 +70,7 @@ inherited PrintDemo: TPrintDemo
     end
   end
   object Splitter1: TSplitter
-    Align = alLeft
+    Align = Left
     Cursor = crHSplit
     Height = 343.000000000000000000
     MinSize = 20.000000000000000000
@@ -85,7 +85,7 @@ inherited PrintDemo: TPrintDemo
     SmoothBitmap = False
     Gradient.EndColor = xFFC5C58D
     Gradient.Visible = True
-    Align = alClient
+    Align = Client
     TabOrder = 3
   end
 end

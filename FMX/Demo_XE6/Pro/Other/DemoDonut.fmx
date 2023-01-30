@@ -17,13 +17,13 @@ inherited DemoDonutSeries: TDemoDonutSeries
       Height = 15.000000000000000000
       TabOrder = 3
       Max = 100.000000000000000000
-      Orientation = orHorizontal
+      Orientation = Horizontal
       Value = 50.000000000000000000
       OnChange = TrackBar1Change
     end
   end
   object Chart1: TChart
-    Align = alClient
+    Align = Client
     Position.Point = '(0,57)'
     Width = 600.000000000000000000
     Height = 343.000000000000000000
@@ -33,7 +33,7 @@ inherited DemoDonutSeries: TDemoDonutSeries
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     TabOrder = 2
     ColorPaletteIndex = 13
     object Series1: TDonutSeries
@@ -45,19 +45,19 @@ inherited DemoDonutSeries: TDemoDonutSeries
       YValues.Name = 'Pie'
       YValues.Order = loNone
       ExplodeBiggest = 25
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver

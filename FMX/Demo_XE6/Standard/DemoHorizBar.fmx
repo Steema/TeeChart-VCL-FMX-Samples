@@ -68,8 +68,8 @@ inherited HorizBarDemo: THorizBarDemo
     Legend.CheckBoxes = True
     Title.Text.Strings = (
       'Horizontal Bar Series')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Align = Client
     TabOrder = 1
     ColorPaletteIndex = 13
     object Series1: THorizBarSeries

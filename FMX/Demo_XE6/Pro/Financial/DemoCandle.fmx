@@ -132,7 +132,7 @@ inherited DemoCandleSeries: TDemoCandleSeries
     object ChartTool1: TMarksTipTool
       Format.CustomPosition = True
       Format.Left = 0
-      Format.TextAlignment = taCenter
+      Format.TextAlignment = Center
       Format.Top = 0
       Format.Visible = False
       HideDelay = 0
