@@ -14,7 +14,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeGDIPlus;
 
 type
   TSeriesAreaStackGroups = class(TBaseForm)
