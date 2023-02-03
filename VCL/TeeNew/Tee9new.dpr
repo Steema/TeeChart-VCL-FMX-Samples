@@ -632,7 +632,10 @@ uses
   XE2_OnlyAvail in 'XE2_OnlyAvail.pas' {XE2OnlyAvail},
   Tool_ScrollPager in 'Tool_ScrollPager.pas' {Tool_ScrollPagerForm},
   Tool_CustomLegendSGrid in 'Tool_CustomLegendSGrid.pas' {TTool_CustomLegendSGridForm},
-  Legend_Tester in 'Legend_Tester.pas' {LegendTester};
+  Legend_Tester in 'Legend_Tester.pas' {LegendTester},
+  Series_Squarified in 'Series_Squarified.pas' {SquarifiedBasic},
+  Squarified_FileSystem in 'Squarified_FileSystem.pas',
+  Series_SquarifiedFileSystem in 'Series_SquarifiedFileSystem.pas' {SquarifiedFileSystem};
 
 {$R *.res}
 
