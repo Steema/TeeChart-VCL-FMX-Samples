@@ -1,0 +1,154 @@
+inherited DemoSquarifiedSeries: TDemoSquarifiedSeries
+  Caption = 'Squarified Map'
+  ClientHeight = 564
+  ClientWidth = 906
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    Size.Width = 906.000000000000000000
+    object EditFolder: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      Position.X = 116.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 313.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnChangeTracking = EditFolderChangeTracking
+    end
+    object ButtonGO: TButton
+      Enabled = False
+      Position.X = 447.000000000000000000
+      Position.Y = 16.000000000000000000
+      TabOrder = 2
+      Text = '&Go !'
+      OnClick = ButtonGOClick
+    end
+    object Label1: TLabel
+      AutoSize = True
+      Position.X = 545.000000000000000000
+      Position.Y = 21.000000000000000000
+      Size.Width = 0.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Squarified FileSystem')
+    View3D = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    OnAfterDraw = Chart1AfterDraw
+    Align = Client
+    TabOrder = 1
+    Size.Width = 786.000000000000000000
+    Size.Height = 472.000000000000000000
+    Size.PlatformDefault = False
+    OnMouseMove = Chart1MouseMove
+    ColorPaletteIndex = 1
+  end
+  object Panel2: TPanel
+    Align = Left
+    Position.Y = 57.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 472.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object CBBorders: TCheckBox
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 96.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '&Borders'
+      OnChange = CBBordersChange
+    end
+    object CBMarks: TCheckBox
+      Position.X = 8.000000000000000000
+      Position.Y = 35.000000000000000000
+      Size.Width = 96.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '&Marks'
+      OnChange = CBMarksChange
+    end
+    object CBViewMode: TComboBox
+      Items.Strings = (
+        'Hierarchy'
+        'Flat')
+      ItemIndex = 0
+      Position.X = 8.000000000000000000
+      Position.Y = 81.000000000000000000
+      TabOrder = 2
+      OnChange = CBViewModeChange
+    end
+    object LabelView: TLabel
+      FocusControl = CBViewMode
+      Position.X = 8.000000000000000000
+      Position.Y = 60.000000000000000000
+      Text = '&View mode:'
+      TabOrder = 3
+    end
+    object Label2: TLabel
+      FocusControl = CBColorBy
+      Position.X = 8.000000000000000000
+      Position.Y = 112.000000000000000000
+      Size.Width = 104.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = '&Color by:'
+      TabOrder = 4
+    end
+    object CBColorBy: TComboBox
+      Items.Strings = (
+        'None'
+        'File Size'
+        'Level'
+        'Extension')
+      ItemIndex = 0
+      Position.X = 8.000000000000000000
+      Position.Y = 133.000000000000000000
+      TabOrder = 5
+      OnChange = CBColorByChange
+    end
+    object ListBox1: TListBox
+      Position.X = 8.000000000000000000
+      Position.Y = 172.000000000000000000
+      Size.Width = 93.000000000000000000
+      Size.Height = 199.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      OnChange = ListBox1Change
+      Viewport.Width = 89.000000000000000000
+      Viewport.Height = 195.000000000000000000
+    end
+  end
+  object Panel3: TPanel
+    Align = Bottom
+    Position.Y = 529.000000000000000000
+    Size.Width = 906.000000000000000000
+    Size.Height = 35.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object LFile: TLabel
+      AutoSize = True
+      Position.X = 12.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 0.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+end

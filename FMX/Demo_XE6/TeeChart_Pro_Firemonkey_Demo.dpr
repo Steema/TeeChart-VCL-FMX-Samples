@@ -54,7 +54,9 @@ uses
   DisplayAngle in 'Pro\Gauges\DisplayAngle.pas' {DisplayAngleForm},
   LCDGauges in 'Pro\Gauges\LCDGauges.pas' {LCDGauges},
   DemoAnimBars in 'Animations\DemoAnimBars.pas' {BarTransitions},
-  DemoAnimLines in 'Animations\DemoAnimLines.pas' {ProgressiveLines};
+  DemoAnimLines in 'Animations\DemoAnimLines.pas' {ProgressiveLines},
+  DemoSquarified in 'Pro\Other\DemoSquarified.pas' {DemoSquarifiedSeries},
+  Squarified_FileSystem in 'Pro\Other\Squarified_FileSystem.pas';
 
 {$R *.res}
 
