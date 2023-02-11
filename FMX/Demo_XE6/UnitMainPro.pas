@@ -42,6 +42,7 @@ type
     TreeViewItem52: TTreeViewItem;
     TreeViewItem53: TTreeViewItem;
     TreeViewItem54: TTreeViewItem;
+    TreeViewItem55: TTreeViewItem;
   private
     { Private declarations }
   public
