@@ -636,7 +636,8 @@ uses
   Series_Squarified in 'Series_Squarified.pas' {SquarifiedBasic},
   Squarified_FileSystem in 'Squarified_FileSystem.pas',
   Series_SquarifiedFileSystem in 'Series_SquarifiedFileSystem.pas' {SquarifiedFileSystem},
-  Series_Equalizer in 'Series_Equalizer.pas' {EqualizerSeriesForm};
+  Series_Equalizer in 'Series_Equalizer.pas' {EqualizerSeriesForm},
+  Function_Vortex in 'Function_Vortex.pas' {VortexFunctionForm};
 
 {$R *.res}
 
