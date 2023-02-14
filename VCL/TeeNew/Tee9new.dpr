@@ -635,7 +635,8 @@ uses
   Legend_Tester in 'Legend_Tester.pas' {LegendTester},
   Series_Squarified in 'Series_Squarified.pas' {SquarifiedBasic},
   Squarified_FileSystem in 'Squarified_FileSystem.pas',
-  Series_SquarifiedFileSystem in 'Series_SquarifiedFileSystem.pas' {SquarifiedFileSystem};
+  Series_SquarifiedFileSystem in 'Series_SquarifiedFileSystem.pas' {SquarifiedFileSystem},
+  Series_Equalizer in 'Series_Equalizer.pas' {EqualizerSeriesForm};
 
 {$R *.res}
 
