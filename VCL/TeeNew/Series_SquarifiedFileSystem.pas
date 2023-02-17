@@ -4,7 +4,13 @@ unit Series_SquarifiedFileSystem;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
+  {$IFNDEF LINUX}
+  Windows, Messages,
+  {$ENDIF}
+  SysUtils, Classes, Graphics, Controls, Forms,
+  {$IFDEF D6}
+  Types,
+  {$ENDIF}
   Dialogs, TeeGDIPlus, StdCtrls, TeCanvas, TeeProcs, TeEngine, Chart,
   ExtCtrls, TeeSquarifiedMap, TeeEdit, Base;
 
