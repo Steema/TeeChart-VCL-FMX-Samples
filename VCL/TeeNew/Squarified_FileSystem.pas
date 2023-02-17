@@ -74,7 +74,7 @@ end;
 function GetFileSize(const APath:String):Int64;
 var  I: TWin32FileAttributeData;
 begin
-  if GetFileAttributesEx(PChar(APath), GetFileExInfoStandard, @I) then
+  if GetFileAttributesEx(PChar(APath), GetFileExInfoStandard, PWin32FileAttributeData(@I)) then
      result := (I.nFileSizeHigh shl 32) + I.nFileSizeLow
   else
      result := -1;
