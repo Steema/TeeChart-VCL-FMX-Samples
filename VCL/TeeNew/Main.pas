@@ -57,7 +57,7 @@ uses
    TeeConst,
 
    {$IFNDEF TEELITE}
-   TeeTools,
+   TeeTools,              
    {$ENDIF}
 
    {$IFDEF D16}
@@ -66,8 +66,7 @@ uses
    Series_LabelsBinding,
    {$ENDIF}
 
-   //Base, TeeGDIPlus, TeePNGImage {, System.ImageList, Vcl.Imaging.pngimage};
-   Base, TeeGDIPlus;//, System.ImageList, Vcl.Imaging.pngimage, frxClass;
+   Base, TeeGDIPlus;
 
 Const
   TeeRegistryKey = '\Software\Steema Software\TeeChart Pro v'+TeeChartVersion+' VCL';
@@ -114,10 +113,8 @@ type
     Exportall1: TMenuItem;
     TabForm: TTabSheet;
     Memo3: TMemo;
-    N2: TMenuItem;
     CanvasGDI1: TMenuItem;
     CanvasOpenGL1: TMenuItem;
-    N3: TMenuItem;
     ExporttoHTML1: TMenuItem;
     FullScreenChart1: TMenuItem;
     CanvasAntiAlias1: TMenuItem;
@@ -150,7 +147,7 @@ type
     Panel3: TPanel;
     CBoxGDIPlus: TCheckBox;
     PageControl1: TPageControl;
-    TabSheet2: TTabSheet;
+    TabAllFeatures: TTabSheet;
     TreeView2: TTreeView;
     TabSearch: TTabSheet;
     Panel1: TPanel;
@@ -164,6 +161,10 @@ type
     Image1: TImage;
     BNext: TSpeedButton;
     BPrevious: TSpeedButton;
+    ExporttoPDF1: TMenuItem;
+    SavePDFDialog: TSaveDialog;
+    AsFormat1: TMenuItem;
+    GDI1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure TreeView1Change(Sender: TObject; Node: TTreeNode);
     procedure BNextClick(Sender: TObject);
@@ -190,7 +191,6 @@ type
     procedure MemoSupportChange(Sender: TObject);
     procedure BSupportClick(Sender: TObject);
     procedure Exportall1Click(Sender: TObject);
-    procedure CanvasGDI1Click(Sender: TObject);
     procedure CanvasOpenGL1Click(Sender: TObject);
     procedure ExporttoHTML1Click(Sender: TObject);
     procedure FullScreenChart1Click(Sender: TObject);
@@ -213,6 +213,8 @@ type
     procedure spMaximizeClick(Sender: TObject);
     procedure sbNormalClick(Sender: TObject);
     procedure sbCloseClick(Sender: TObject);
+    procedure ExporttoPDF1Click(Sender: TObject);
+    procedure GDI1Click(Sender: TObject);
   private
      { Private declarations }
      OldCodeFile     : String;
@@ -372,6 +374,7 @@ Uses {$IFDEF LINUX}
      {$ENDIF}
 
      {$IFNDEF TEELITE}
+     TeePDFCanvas,
      Export_PDF,
      Export_GIF,
      Export_JPEG,
@@ -619,7 +622,7 @@ begin
   //StatusBar1.Color := Draw3D3.Gradient.StartColor;
   //Color := Draw3D3.Gradient.StartColor;
 
-  PageControl1.ActivePage:=TabSheet2;
+  PageControl1.ActivePage:=TabAllFeatures;
   LoadTree(TreeView2,Memo2);
 
   {$IFNDEF CLX}
@@ -748,10 +751,10 @@ end;
 
 Function TTeeNewForm.TheTree:TTreeView;
 begin
-  if PageControl1.ActivePage=TabSheet2 then result:=TreeView2
-  {else
-  if PageControl1.ActivePage=TabSheet2 then result:=TreeView2}
-                                       else result:=TreeSearch;
+  if PageControl1.ActivePage=TabAllFeatures then
+     result:=TreeView2
+  else
+     result:=TreeSearch;
 end;
 
 procedure TTeeNewForm.BNextClick(Sender: TObject);
@@ -995,7 +998,7 @@ begin
     else
     //if not FindItem(TreeView1) then
        if FindItem(TreeView2) then
-          PageControl1.ActivePage:=TabSheet2;
+          PageControl1.ActivePage:=TabAllFeatures;
 
     Timer2.Enabled:=False;
   end
@@ -1939,11 +1942,6 @@ begin
   ShowForm(TheTree);
 end;
 
-procedure TTeeNewForm.CanvasGDI1Click(Sender: TObject);
-begin
-  ChangeCanvas(ncGDI);
-end;
-
 procedure TTeeNewForm.CanvasOpenGL1Click(Sender: TObject);
 begin
   ChangeCanvas(ncOpenGL);
@@ -2125,10 +2123,7 @@ var tmpSelec : TTeeExportFormat;
     stI:=TStringList.Create;
     stI.Add('<html><head><title>'+Caption+'</title></head><body>');
 
-    {PageControl1.ActivePage:=TabSheet1;
-    Process(TreeView1);}
-
-    PageControl1.ActivePage:=TabSheet2;
+    PageControl1.ActivePage:=TabAllFeatures;
     Process(TreeView2);
 
     st.Free;
@@ -2489,6 +2484,148 @@ begin
   else
     // Function not implemented: can't be running on Wow64
     Result := False;
+end;
+
+procedure TTeeNewForm.GDI1Click(Sender: TObject);
+begin
+  ChangeCanvas(ncGDI);
+end;
+
+procedure TTeeNewForm.ExporttoPDF1Click(Sender: TObject);
+{$IFNDEF TEELITE}
+
+  procedure PaintLines(const ALines:TStrings; const ACanvas:TTeeCanvas);
+  var t, tmp : Integer;
+  begin
+    ACanvas.Font.Size:=24;
+    tmp:=ACanvas.FontHeight;
+
+    for t:=0 to ALines.Count-1 do
+        ACanvas.TextOut(10,t*tmp,ALines[t]);
+  end;
+
+  procedure RemoveBorders(const APanel:TCustomTeePanel);
+  begin
+    if APanel.Color=clBtnFace then
+    begin
+      if (not (APanel is TCustomTeePanelExtended)) or
+         (not TCustomTeePanelExtended(APanel).Gradient.Visible) then
+      begin
+        APanel.BevelInner:=bvNone;
+        APanel.BevelOuter:=bvNone;
+      end;
+    end;
+  end;
+
+  procedure SearchChartAndMemo(var APanel:TCustomTeePanel; var AMemo:TMemo);
+  var t : Integer;
+  begin
+    AMemo:=nil;
+    APanel:=nil;
+
+    with TheForm do
+    for t:=0 to ControlCount-1 do
+    begin
+      if (APanel=nil) and (Controls[t] is TCustomTeePanel) then
+      begin
+        APanel:=Controls[t] as TCustomTeePanel;
+        RemoveBorders(APanel);
+      end
+      else
+      if Controls[t] is TMemo then
+         AMemo:=TMemo(Controls[t]);
+
+      if Assigned(APanel) and Assigned(AMemo) then
+         break;
+    end;
+  end;
+
+  procedure AddFormToPDF(const PDF:TPDFExportFormat);
+  var tmpMemo : TMemo;
+      tmpPanel : TCustomTeePanel;
+
+      tmpCanvas : TPDFCanvas;
+      tmpR : TRect;
+  begin
+    SearchChartAndMemo(tmpPanel,tmpMemo);
+
+    if Assigned(tmpPanel) then
+    begin
+      PDF.Document.NewPage;
+
+      tmpCanvas:=TPDFCanvas.CreatePage(PDF.Document,PDF.Document.PageCount-1);
+
+      if Assigned(tmpMemo) then
+         PaintLines(tmpMemo.Lines,tmpCanvas);
+
+      tmpR:=tmpPanel.BoundsRect;
+
+      OffsetRect(tmpR,20,20);
+
+      PDF.Draw(tmpCanvas,tmpPanel,tmpR);
+
+      tmpCanvas.Free;
+    end;
+  end;
+
+  procedure Process(const PDF:TPDFExportFormat; const ATree:TTreeView);
+  var t : Integer;
+      t1 : Cardinal;
+  begin
+    t1:=GetTickCount;
+
+    for t:=0 to ATree.Items.Count-1 do
+    begin
+      ATree.Selected:=ATree.Items[t];
+
+      StatusBar1.SimpleText:=IntToStr(1+t)+'/'+
+               IntToStr(ATree.Items.Count)+' '+ATree.Selected.Text;
+
+      Application.ProcessMessages;
+
+      if HasForm(ATree.Selected) then
+         AddFormToPDF(PDF);
+    end;
+
+    StatusBar1.SimpleText:='Elapsed: '+IntToStr(GetTickCount-t1)+' msec.';
+  end;
+
+var PDF : TPDFExportFormat;
+begin
+  if SavePDFDialog.Execute then
+  begin
+    Screen.Cursor:=crHourGlass;
+    try
+      PageControl1.ActivePage:=TabAllFeatures;
+
+      PDF:=TPDFExportFormat.Create;
+      try
+        PDF.Orientation:=poLandscape;
+
+        PDF.Height:=Self.Width;
+        PDF.Width:=Self.Height;
+
+        Process(PDF,TreeView2);
+
+        // Create a dummy Panel to skip an exception when calling SaveToFile
+        PDF.Panel:=TCustomTeePanel.Create(nil);
+        try
+          PDF.SaveToFile(SavePDFDialog.FileName);
+        finally
+          PDF.Panel.Free; // <-- free the dummy panel
+        end;
+      finally
+        PDF.Free;
+      end;
+    finally
+      Screen.Cursor:=crDefault;
+    end;
+
+    TeeGotoURL(Handle, 'file:///'+SavePDFDialog.FileName);
+  end;
+{$ELSE}
+begin
+{$ENDIF}
 end;
 
 end.
