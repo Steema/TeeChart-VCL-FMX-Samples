@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeCanvas, TeeProcs, Chart, StatChar;
+  Base, TeEngine, Series, TeCanvas, TeeProcs, Chart, StatChar, TeeGDIPlus;
 
 type
   TPerimeterDemo = class(TBaseForm)
@@ -22,6 +22,7 @@ type
     Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,8 +40,6 @@ begin
   Series2.XValues.Order:=loNone;
   Series2.DataSource:=Series1;
   Series2.FunctionType:=TPerimeterFunction.Create(Self);  // StatChar.pas unit
-
-  Button1Click(Self);
 end;
 
 procedure TPerimeterDemo.Button1Click(Sender: TObject);
@@ -53,6 +52,16 @@ begin
       Series1.AddXY(Random(100)*Random(10),Random(100)*Random(10));
 
   Series2.FunctionType.ReCalculate;
+end;
+
+procedure TPerimeterDemo.FormShow(Sender: TObject);
+begin
+  inherited;
+
+  // Calculate Perimeter *after* the Chart has been displayed for first time
+
+  Chart1.Draw;
+  Button1Click(Self);
 end;
 
 initialization
