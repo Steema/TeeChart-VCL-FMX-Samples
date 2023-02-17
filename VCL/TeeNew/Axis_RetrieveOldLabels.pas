@@ -4,10 +4,12 @@ unit Axis_RetrieveOldLabels;
 interface
 
 uses
+  {$IFNDEF LINUX}
   Windows, Messages,
+  {$ENDIF}
   SysUtils, Classes,
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  Base, TeeProcs, TeEngine, Chart, Series, MyPoint;
+  Base, TeeProcs, TeEngine, Chart, Series, MyPoint, TeeGDIPlus;
 
 type
   TAxis_RetrieveOldLabelsForm = class(TBaseForm)
