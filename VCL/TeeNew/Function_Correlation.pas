@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, CurvFitt, TeEngine, Series, TeeProcs, Chart;
+  Base, CurvFitt, TeEngine, Series, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TCorrelationFunctionDemo = class(TBaseForm)
@@ -24,6 +24,8 @@ type
     Series3: TLineSeries;
     TeeFunction2: TTrendFunction;
     Button1: TButton;
+    Label1: TLabel;
+    Coeficient: TLabel;
     procedure CheckBox1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -49,12 +51,14 @@ end;
 procedure TCorrelationFunctionDemo.Button1Click(Sender: TObject);
 begin
   Series1.FillSampleValues;
+
+  Coeficient.Caption:=FloatToStr(TeeFunction1.Coefficient(Series1));
 end;
 
 procedure TCorrelationFunctionDemo.FormCreate(Sender: TObject);
 begin
   inherited;
-  Series1.FillSampleValues;
+  Button1Click(Self);
 end;
 
 initialization
