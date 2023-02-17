@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart;
+  Base, TeEngine, Series, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TGrayScaleForm = class(TBaseForm)
@@ -51,14 +51,20 @@ begin
 end;
 
 procedure TGrayScaleForm.Chart1AfterDraw(Sender: TObject);
+var tmpBitmap : TBitmap;
 begin
   {$IFDEF CLX}
   if Assigned(CBMethod) then
   {$ENDIF}
   if CheckBox1.Checked then { do gray scale... }
-     TeeGrayScale( (Chart1.Canvas as TTeeCanvas3D).Bitmap,
-                   CheckBox2.Checked,
-                   CBMethod.ItemIndex);
+  begin
+    tmpBitmap:=(Chart1.Canvas as TTeeCanvas3D).Bitmap;
+
+    // If the current Canvas uses the Bitmap (double-buffered canvas) then:
+
+    if tmpBitmap<>nil then
+       TeeGrayScale(tmpBitmap,CheckBox2.Checked,CBMethod.ItemIndex);
+  end;
 end;
 
 procedure TGrayScaleForm.FormCreate(Sender: TObject);
