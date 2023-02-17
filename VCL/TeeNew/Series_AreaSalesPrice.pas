@@ -13,8 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeComma,
-  TeeDataTableTool;
+  Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeComma, TeCanvas,
+  TeeDataTableTool, TeeGDIPlus;
 
 type
   TAreaSalesPrice = class(TBaseForm)
