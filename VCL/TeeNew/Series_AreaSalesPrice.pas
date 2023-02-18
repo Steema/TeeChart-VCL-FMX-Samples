@@ -176,7 +176,7 @@ end;
 procedure TAreaSalesPrice.FormResize(Sender: TObject);
 begin
   inherited;
-  Chart1.TeeCreateBitmap; //Necessary so that marks have valid positions
+  Chart1.TeeCreateBitmap.Free; //Necessary so that marks have valid positions
 end;
 
 procedure TAreaSalesPrice.Chart1UndoZoom(Sender: TObject);
