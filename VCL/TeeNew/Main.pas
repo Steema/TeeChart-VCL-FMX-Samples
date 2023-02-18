@@ -628,6 +628,7 @@ begin
   {$IFNDEF CLX}
   //TreeView1.HotTrack:=True;
   TreeView2.HotTrack:=True;
+  TreeSearch.HotTrack:=True;
 
   {$IFDEF D7}
   Panel2.ParentBackground:=False;
