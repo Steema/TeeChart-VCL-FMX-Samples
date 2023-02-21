@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeBoxPlot, TeeProcs, Chart;
+  Base, TeEngine, Series, TeeBoxPlot, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TBoxPlotForm = class(TBaseForm)
@@ -40,6 +40,7 @@ implementation
 procedure TBoxPlotForm.FormCreate(Sender: TObject);
 begin
   inherited;
+
   Series1.AddArray([3,6,8,15,19,21]);
   Series2.AddArray([3,6,8,15,19,21]);
   Series3.AddArray([3,6,8,15,19,21]);
@@ -50,6 +51,7 @@ var tmp : TChartSeriesClass;
 begin
   if CheckBox1.Checked then tmp:=TBoxSeries
                        else tmp:=THorizBoxSeries;
+
   ChangeAllSeriesType(Chart1,tmp);
 end;
 
