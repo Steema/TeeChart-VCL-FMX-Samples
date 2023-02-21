@@ -1,9 +1,9 @@
 object ActivityGaugeForm: TActivityGaugeForm
   Left = 192
   Top = 125
+  Width = 411
+  Height = 405
   Caption = 'Animated Activity Gauge with TeeChart'
-  ClientHeight = 366
-  ClientWidth = 378
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object ActivityGaugeForm: TActivityGaugeForm
   object Chart1: TChart
     Left = 0
     Top = 0
-    Width = 378
-    Height = 327
+    Width = 395
+    Height = 325
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = 7895160
     BackWall.Brush.Gradient.StartColor = 4605510
@@ -114,6 +114,7 @@ object ActivityGaugeForm: TActivityGaugeForm
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 14
     object Series1: TDonutSeries
+      HoverElement = []
       Marks.Font.Color = clWhite
       Marks.Transparent = True
       Marks.Visible = False
@@ -155,6 +156,7 @@ object ActivityGaugeForm: TActivityGaugeForm
       DonutPercent = 47
     end
     object Series2: TDonutSeries
+      HoverElement = []
       Marks.Visible = False
       Marks.Tail.Margin = 2
       SeriesColor = 65456
@@ -190,6 +192,7 @@ object ActivityGaugeForm: TActivityGaugeForm
       DonutPercent = 64
     end
     object Series3: TDonutSeries
+      HoverElement = []
       Marks.Visible = False
       Marks.Tail.Margin = 2
       SeriesColor = 10158300
@@ -238,15 +241,24 @@ object ActivityGaugeForm: TActivityGaugeForm
       Shape.Transparent = True
     end
   end
-  object Button1: TButton
+  object Panel1: TPanel
     Left = 0
-    Top = 327
-    Width = 378
-    Height = 39
+    Top = 325
+    Width = 395
+    Height = 41
     Align = alBottom
-    Caption = 'Start !'
+    BevelOuter = bvNone
     TabOrder = 1
-    OnClick = Button1Click
+    OnResize = Panel1Resize
+    object Button1: TButton
+      Left = 0
+      Top = 1
+      Width = 393
+      Height = 39
+      Caption = 'Start !'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
   end
   object Timer1: TTimer
     Enabled = False
