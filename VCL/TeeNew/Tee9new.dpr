@@ -17,7 +17,9 @@ program Tee9New;
 //
 
 uses
+  {$IFDEF FASTMM}
   FastMM4,
+  {$ENDIF}
   Forms,
   Main in 'Main.pas' {TeeNewForm},
   Base in 'Base.pas' {BaseForm},
@@ -636,7 +638,8 @@ uses
   Series_SquarifiedFileSystem in 'Series_SquarifiedFileSystem.pas' {SquarifiedFileSystem},
   Series_Equalizer in 'Series_Equalizer.pas' {EqualizerSeriesForm},
   Function_Vortex in 'Function_Vortex.pas' {VortexFunctionForm},
-  Function_Lagrange in 'Function_Lagrange.pas' {Lagrange_Function};
+  Function_Lagrange in 'Function_Lagrange.pas' {Lagrange_Function},
+  Series_Violin in 'Series_Violin.pas' {ViolinSeriesForm};
 
 {$R *.res}
 
