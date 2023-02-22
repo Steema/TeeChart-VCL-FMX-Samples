@@ -626,7 +626,6 @@ begin
   LoadTree(TreeView2,Memo2);
 
   {$IFNDEF CLX}
-  //TreeView1.HotTrack:=True;
   TreeView2.HotTrack:=True;
   TreeSearch.HotTrack:=True;
 
@@ -797,9 +796,6 @@ begin
      if Node.Expanded then result:= 1
                       else result:= 0
   else
-  {if Node.TreeView=TreeView1 then
-     result:= 2
-  else}
      result:= 3;
 end;
 
@@ -947,7 +943,6 @@ procedure TTeeNewForm.FormDestroy(Sender: TObject);
 begin
   StoreSearchCombo;
 
-  //ClearTreeNodes(TreeView1);
   ClearTreeNodes(TreeView2);
 
   {$IFNDEF LINUX}
@@ -997,18 +992,12 @@ begin
       Close;
     end
     else
-    //if not FindItem(TreeView1) then
-       if FindItem(TreeView2) then
-          PageControl1.ActivePage:=TabAllFeatures;
+    if FindItem(TreeView2) then
+       PageControl1.ActivePage:=TabAllFeatures;
 
     Timer2.Enabled:=False;
   end
   else TreeView2.Selected:=TreeView2.Items[0];
-
-  {$IFDEF CLX}
-  // Fix CLX bug, when showing a TreeView...
-  TTreeViewAccess(TreeView1).UpdateControl;
-  {$ENDIF}
 
   TrimWorkingSet;
 end;
@@ -1554,7 +1543,6 @@ begin
 
             tmpForms:=TList.Create;
             try
-              //DoSearchTree(TreeView1,0);
               DoSearchTree(TreeView2,50);
             finally
               tmpForms.Free;

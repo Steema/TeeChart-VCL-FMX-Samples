@@ -639,7 +639,8 @@ uses
   Series_Equalizer in 'Series_Equalizer.pas' {EqualizerSeriesForm},
   Function_Vortex in 'Function_Vortex.pas' {VortexFunctionForm},
   Function_Lagrange in 'Function_Lagrange.pas' {Lagrange_Function},
-  Series_Violin in 'Series_Violin.pas' {ViolinSeriesForm};
+  Series_Violin in 'Series_Violin.pas' {ViolinSeriesForm},
+  Function_KDE in 'Function_KDE.pas' {KDEFunctionForm};
 
 {$R *.res}
 
