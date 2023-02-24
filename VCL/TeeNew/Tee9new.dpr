@@ -640,7 +640,10 @@ uses
   Function_Vortex in 'Function_Vortex.pas' {VortexFunctionForm},
   Function_Lagrange in 'Function_Lagrange.pas' {Lagrange_Function},
   Series_Violin in 'Series_Violin.pas' {ViolinSeriesForm},
-  Function_KDE in 'Function_KDE.pas' {KDEFunctionForm};
+  Function_KDE in 'Function_KDE.pas' {KDEFunctionForm},
+  Series_Activity in 'Series_Activity.pas' {ActivitySeriesForm},
+  Series_ActivityDonut in 'Series_ActivityDonut.pas' {ActivityGaugeForm},
+  Export_PDF_Multiple in 'Export_PDF_Multiple.pas' {PDFMultipleForm};
 
 {$R *.res}
 
