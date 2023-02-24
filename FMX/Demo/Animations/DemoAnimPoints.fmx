@@ -1,0 +1,93 @@
+inherited AnimationPoints: TAnimationPoints
+  Caption = 'BaseForm1'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object Play: TButton
+      Position.X = 168.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Play'
+      OnClick = PlayClick
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Gradient.EndColor = xFFD2D2B8
+    Gradient.Visible = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Random Points Animation')
+    BottomAxis.Grid.Color = claGray
+    BottomAxis.Grid.Fill.Color = claGray
+    Chart3DPercent = 40
+    DepthAxis.Grid.Color = claGray
+    DepthAxis.Grid.Fill.Color = claGray
+    DepthTopAxis.Grid.Color = claGray
+    DepthTopAxis.Grid.Fill.Color = claGray
+    LeftAxis.Grid.Color = claGray
+    LeftAxis.Grid.Fill.Color = claGray
+    RightAxis.Grid.Color = claGray
+    RightAxis.Grid.Fill.Color = claGray
+    TopAxis.Grid.Color = claGray
+    TopAxis.Grid.Fill.Color = claGray
+    View3D = False
+    View3DOptions.Elevation = 315
+    View3DOptions.Orthogonal = False
+    View3DOptions.Perspective = 0
+    View3DOptions.Rotation = 360
+    Zoom.Brush.Kind = None
+    Zoom.MouseWheel = pmwNormal
+    Zoom.Pen.Color = claWhite
+    Zoom.Pen.Fill.Color = claWhite
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: TPointSeries
+      HoverElement = [heCurrent]
+      ColorEachPoint = True
+      HorizAxis = aBothHorizAxis
+      VertAxis = aBothVertAxis
+      ClickableLine = False
+      Pointer.Brush.Gradient.Direction = gdRadial
+      Pointer.Brush.Gradient.EndColor = xFF4466A3
+      Pointer.Brush.Gradient.MidColor = x00EDE7E7
+      Pointer.Brush.Gradient.RadialX = -19
+      Pointer.Brush.Gradient.RadialY = -16
+      Pointer.Brush.Gradient.StartColor = xFFF4F4F6
+      Pointer.Gradient.Direction = gdRadial
+      Pointer.Gradient.EndColor = xFF4466A3
+      Pointer.Gradient.MidColor = x00EDE7E7
+      Pointer.Gradient.RadialX = -19
+      Pointer.Gradient.RadialY = -16
+      Pointer.Gradient.StartColor = xFFF4F4F6
+      Pointer.HorizSize = 7
+      Pointer.InflateMargins = True
+      Pointer.Shadow.HorizSize = 2
+      Pointer.Shadow.VertSize = 2
+      Pointer.Shadow.Visible = True
+      Pointer.Style = psCircle
+      Pointer.VertSize = 7
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+      Data = {
+        00190000000000000000F8764000000000003076400000000000487C40000000
+        00001880400000000000E07A400000000000F480400000000000B87F40000000
+        0000B87F400000000000207C4000000000006078400000000000D87840000000
+        0000F87B4000000000007C804000000000008482400000000000187F40000000
+        0000187F400000000000407F4000000000007879400000000000688040000000
+        0000607D400000000000307B40000000000058814000000000004C8340000000
+        0000407F400000000000808140}
+    end
+  end
+end

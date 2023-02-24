@@ -1,0 +1,100 @@
+inherited AnimationPieSeries: TAnimationPieSeries
+  Caption = 'BaseForm1'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object Play: TButton
+      Position.X = 168.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Play'
+      OnClick = PlayClick
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Gradient.EndColor = xFFD2D2B8
+    Gradient.Visible = True
+    Legend.Symbol.Gradient.EndColor = xFF2B406B
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'TChart')
+    BottomAxis.Grid.Color = claGray
+    BottomAxis.Grid.Fill.Color = claGray
+    Chart3DPercent = 40
+    DepthAxis.Grid.Color = claGray
+    DepthAxis.Grid.Fill.Color = claGray
+    DepthTopAxis.Grid.Color = claGray
+    DepthTopAxis.Grid.Fill.Color = claGray
+    LeftAxis.Grid.Color = claGray
+    LeftAxis.Grid.Fill.Color = claGray
+    RightAxis.Grid.Color = claGray
+    RightAxis.Grid.Fill.Color = claGray
+    TopAxis.Grid.Color = claGray
+    TopAxis.Grid.Fill.Color = claGray
+    View3DOptions.Elevation = 315
+    View3DOptions.Orthogonal = False
+    View3DOptions.Perspective = 0
+    View3DOptions.Rotation = 360
+    Zoom.Brush.Kind = None
+    Zoom.MouseWheel = pmwNormal
+    Zoom.Pen.Color = claWhite
+    Zoom.Pen.Fill.Color = claWhite
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: TPieSeries
+      HoverElement = []
+      Marks.Brush.Kind = Gradient
+      Marks.Brush.Gradient.Visible = True
+      Marks.Frame.Color = x3D000000
+      Marks.Frame.Fill.Color = x3D000000
+      Marks.Tail.Margin = 2
+      XValues.Order = loNone
+      YValues.Name = 'Pie'
+      YValues.Order = loNone
+      Frame.InnerBrush.Kind = Gradient
+      Frame.InnerBrush.Gradient.EndColor = claGray
+      Frame.InnerBrush.Gradient.MidColor = claWhite
+      Frame.InnerBrush.Gradient.StartColor = xFF404040
+      Frame.InnerBrush.Gradient.Visible = True
+      Frame.InnerBrush.BackColor = claRed
+      Frame.MiddleBrush.Kind = Gradient
+      Frame.MiddleBrush.Gradient.EndColor = xFF828282
+      Frame.MiddleBrush.Gradient.MidColor = claWhite
+      Frame.MiddleBrush.Gradient.StartColor = claGray
+      Frame.MiddleBrush.Gradient.Visible = True
+      Frame.MiddleBrush.BackColor = claYellow
+      Frame.OuterBrush.Kind = Gradient
+      Frame.OuterBrush.Gradient.EndColor = xFF404040
+      Frame.OuterBrush.Gradient.MidColor = claWhite
+      Frame.OuterBrush.Gradient.StartColor = claSilver
+      Frame.OuterBrush.Gradient.Visible = True
+      Frame.OuterBrush.BackColor = claGreen
+      Frame.Width = 4
+      Bevel.Percent = 8
+      Bevel.UseBorder = False
+      BevelPercent = 8
+      EdgeStyle = edFlat
+      Gradient.Direction = gdFromBottomLeft
+      Gradient.EndColor = xFF4E97A8
+      Gradient.StartColor = xFFAEF7FF
+      Gradient.Visible = True
+      GradientBright = 96
+      OtherSlice.Legend.Title.Font.StyleExt = {00070000000000000004000000}
+      OtherSlice.Legend.Visible = False
+      Data = {
+        04050000000000000000A07940FF04000000436172730000000000808B40FF06
+        00000050686F6E65730000000000607E40FF060000005461626C657300000000
+        00A88640FF080000004D6F6E69746F72730000000000F08640FF050000004C61
+        6D7073}
+    end
+  end
+end
