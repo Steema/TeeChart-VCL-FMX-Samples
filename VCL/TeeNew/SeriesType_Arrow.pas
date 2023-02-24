@@ -22,11 +22,13 @@ type
     CheckBox1: TCheckBox;
     Timer1: TTimer;
     CheckBox2: TCheckBox;
+    CheckBox4: TCheckBox;
     procedure CheckBox3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
+    procedure CheckBox4Click(Sender: TObject);
   private
     { Private declarations }
    procedure AddRandomArrows;
@@ -50,6 +52,7 @@ end;
 procedure TArrowSeriesForm.FormCreate(Sender: TObject);
 begin
   inherited;
+
   With Series1 do
   Begin
     ArrowWidth:=32;
@@ -57,6 +60,7 @@ begin
     XValues.DateTime:=False;
     YValues.DateTime:=False;
   end;
+
   AddRandomArrows;
 end;
 
@@ -67,6 +71,7 @@ begin
   With Series1 do
   Begin
     Clear;
+
     for t:=1 to 40 do
     begin
       x0:=Random( 1000 );
@@ -94,6 +99,7 @@ procedure TArrowSeriesForm.Timer1Timer(Sender: TObject);
 var t:Integer;
 begin
   Timer1.Enabled:=False;
+
   With Series1 do
   Begin
     for t:=0 to Count-1 do
@@ -103,14 +109,21 @@ begin
       EndXValues[t]  :=EndXValues[t]+Random(100)-50.0;
       EndYValues[t]  :=EndYValues[t]+Random(100)-50.0;
     End;
+
     Repaint;
   End;
+
   Timer1.Enabled:=True;
 end;
 
 procedure TArrowSeriesForm.CheckBox2Click(Sender: TObject);
 begin
-  Chart1.View3D:=CheckBox2.Checked
+  Chart1.View3D:=CheckBox2.Checked;
+end;
+
+procedure TArrowSeriesForm.CheckBox4Click(Sender: TObject);
+begin
+  Series1.Filled:=CheckBox4.Checked;
 end;
 
 initialization
