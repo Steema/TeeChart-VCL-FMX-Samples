@@ -14,7 +14,8 @@ uses
   {$ENDIF}
   {$ENDIF}
   
-  Data.Bind.DBLinks, FMXTee.Bind.DBLinks;
+  Data.Bind.DBLinks, FMXTee.Bind.DBLinks, System.Rtti, System.Bindings.Outputs,
+  Fmx.Bind.Editors, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TChartLiveBindings = class(TBaseForm)

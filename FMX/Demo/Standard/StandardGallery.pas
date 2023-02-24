@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base,
-  FMXTee.Chart.GalleryPanel, FMXTee.Editor.Chart;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, Base,
+  FMXTee.Chart.GalleryPanel, FMXTee.Editor.Chart, FMX.Controls.Presentation;
 
 type
   TStandardDemo = class(TBaseForm)
@@ -37,7 +37,7 @@ begin
   inherited;
   Gallery:=TChartGalleryPanel.Create(Self);
   Gallery.Parent:=Self;
-  Gallery.Align:=TAlignLayout.alClient;
+  Gallery.Align:=TAlignLayout.Client;
 
   Gallery.CreateGalleryPage(TeeMsg_GalleryStandard);
 end;

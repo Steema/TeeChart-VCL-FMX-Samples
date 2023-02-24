@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TBaseForm = class(TForm)

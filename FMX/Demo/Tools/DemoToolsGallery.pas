@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Tools, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Objects,
-  FMXTee.Tools.GalleryDemos, FMXTee.Tools.Gallery;
+  FMXTee.Tools.GalleryDemos, FMXTee.Tools.Gallery, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TDemoTools = class(TBaseForm)

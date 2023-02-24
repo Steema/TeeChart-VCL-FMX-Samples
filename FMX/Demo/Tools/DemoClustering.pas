@@ -9,7 +9,8 @@ uses
   FMXTee.Series.Point3D, FMXTee.Engine, FMXTee.Series, FMXTee.Procs,
   FMXTee.Chart, FMX.ListBox, FMX.Memo, FMXTee.Commander, FMX.Layouts, FMX.Edit,
   FMX.TreeView, FMXTee.Tools.Clustering, FMXTee.Functions.Clustering,
-  FMX.Platform, FMX.Objects;
+  FMX.Platform, FMX.Objects, FMX.Memo.Types, FMX.ScrollBox, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TClusteringDemo = class(TForm)
@@ -80,7 +81,7 @@ uses
   {$IFDEF D17}
   System.UIConsts,
   {$ENDIF}
-  FMXTee.Editor.Tools, FMXTee.Canvas;
+  FMXTee.Editor.Tools, FMXTee.Canvas, FMX.Graphics;
 
 procedure TClusteringDemo.FillTree(const c:TCluster; ShowCount:Boolean);
 
@@ -294,7 +295,7 @@ var Cluster : TCluster;
 begin
   if TreeView1.Selected<>nil then
   begin
-    Chart1.Canvas.Brush.Kind:=TBrushKind.bkNone;
+    Chart1.Canvas.Brush.Kind:=TBrushKind.None;
     Chart1.Canvas.Pen.Width:=3;
     Chart1.Canvas.Pen.Color:=claBlack;
 

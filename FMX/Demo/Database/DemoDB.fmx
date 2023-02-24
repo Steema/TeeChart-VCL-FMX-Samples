@@ -1,31 +1,40 @@
 inherited DemoDBChart: TDemoDBChart
   Caption = 'Form1'
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    object Label1: TLabel [0]
+    Align = Top
+    object Label1: TLabel
       AutoSize = True
-      Height = 13.500000000000000000
       Position.X = 120.000000000000000000
       Position.Y = 20.000000000000000000
+      Size.Width = 321.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.WordWrap = False
       Text = 'Chart Series connected to a ClientDataSet, summarizing data'
-      Width = 309.500000000000000000
-      WordWrap = False
     end
   end
   object DBChart1: TDBChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'TDBChart')
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     View3DOptions.Elevation = 315
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TPieSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = True
+      HoverElement = []
+      Marks.Tail.Margin = 2
       DataSource = ClientDataSet1
       XLabelsSource = 'PaymentMethod'
       XValues.Order = loAscending
@@ -33,162 +42,31 @@ inherited DemoDBChart: TDemoDBChart
       YValues.Name = 'Pie'
       YValues.Order = loNone
       YValues.ValueSource = '#sum#AmountPaid'
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver
       Frame.OuterBrush.Gradient.Visible = True
       Frame.OuterBrush.BackColor = claGreen
-      Frame.Visible = False
       Frame.Width = 4
+      OtherSlice.Legend.Title.Font.StyleExt = {00070000000000000004000000}
       OtherSlice.Legend.Visible = False
     end
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
-    Aggregates = <>
-    AggregatesActive = False
-    Constraints = <>
-    DisableStringTrim = False
-    FieldDefs = <
-      item
-        Name = 'OrderNo'
-        Attributes = [faUnNamed]
-        DataType = ftFloat
-      end
-      item
-        Name = 'CustNo'
-        Attributes = [faRequired, faUnNamed]
-        DataType = ftFloat
-      end
-      item
-        Name = 'SaleDate'
-        Attributes = [faUnNamed]
-        DataType = ftDateTime
-      end
-      item
-        Name = 'ShipDate'
-        Attributes = [faUnNamed]
-        DataType = ftDateTime
-      end
-      item
-        Name = 'EmpNo'
-        Attributes = [faRequired, faUnNamed]
-        DataType = ftInteger
-      end
-      item
-        Name = 'ShipToContact'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'ShipToAddr1'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 30
-      end
-      item
-        Name = 'ShipToAddr2'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 30
-      end
-      item
-        Name = 'ShipToCity'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'ShipToState'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'ShipToZip'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'ShipToCountry'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'ShipToPhone'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'ShipVIA'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 7
-      end
-      item
-        Name = 'PO'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'Terms'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 6
-      end
-      item
-        Name = 'PaymentMethod'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 7
-      end
-      item
-        Name = 'ItemsTotal'
-        Attributes = [faUnNamed]
-        DataType = ftCurrency
-      end
-      item
-        Name = 'TaxRate'
-        Attributes = [faUnNamed]
-        DataType = ftFloat
-      end
-      item
-        Name = 'Freight'
-        Attributes = [faUnNamed]
-        DataType = ftCurrency
-      end
-      item
-        Name = 'AmountPaid'
-        Attributes = [faUnNamed]
-        DataType = ftCurrency
-      end>
-    IndexDefs = <>
-    FetchOnDemand = True
-    ObjectView = True
-    Params = <>
-    ReadOnly = False
-    StoreDefs = False
-    Left = 336
-    Top = 96
-    Data = {
+    PersistDataPacket.Data = {
       4A4C00009619E0BD01000000180000001500CD000000030000009802074F7264
       65724E6F080004001000000006437573744E6F08000400140000000853616C65
       446174650800080010000000085368697044617465080008001000000005456D
@@ -800,5 +678,10 @@ inherited DemoDBChart: TDemoDBChart
       000000000000109D4000000000003EAC40000006A866A1CC4209000000035550
       53066E657420333005436865636B000000000040504000000000000000000000
       0000000000000000000000000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 336
+    Top = 96
   end
 end

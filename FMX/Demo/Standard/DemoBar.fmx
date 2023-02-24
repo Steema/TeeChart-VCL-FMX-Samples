@@ -1,150 +1,113 @@
 inherited DemoBarSeries: TDemoBarSeries
   Caption = 'Bar Series'
   OnCreate = FormCreate
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    inherited BEdit: TButton
-      Position.Point = '(16,16)'
-    end
     object ComboBox1: TComboBox
-      Position.Point = '(120,16)'
-      Width = 100.000000000000000000
-      Height = 22.000000000000000000
-      TabOrder = 1
       ItemIndex = 1
-      Placement = plBottom
+      Position.X = 120.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
       OnChange = ComboBox1Change
       object ListBoxItem1: TListBoxItem
-        Position.Point = '(5000,5000)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.X = 5000.000000000000000000
+        Position.Y = 5000.000000000000000000
         TabOrder = 0
-        IsChecked = False
-        IsSelected = False
         Text = 'Normal'
       end
       object ListBoxItem2: TListBoxItem
-        Position.Point = '(0,19)'
-        Width = 75.000000000000000000
-        Height = 18.000000000000000000
-        HitTest = False
-        TabOrder = 1
-        IsChecked = False
         IsSelected = True
+        Position.Y = 19.000000000000000000
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
         Text = 'Side'
       end
       object ListBoxItem3: TListBoxItem
-        Position.Point = '(0,38)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 38.000000000000000000
         TabOrder = 2
-        IsChecked = False
-        IsSelected = False
         Text = 'Stacked'
       end
       object ListBoxItem4: TListBoxItem
-        Position.Point = '(0,57)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 57.000000000000000000
         TabOrder = 3
-        IsChecked = False
-        IsSelected = False
         Text = 'Stacked 100%'
       end
       object ListBoxItem5: TListBoxItem
-        Position.Point = '(0,76)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 76.000000000000000000
         TabOrder = 4
-        IsChecked = False
-        IsSelected = False
         Text = 'Side All'
       end
       object ListBoxItem6: TListBoxItem
-        Position.Point = '(0,95)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 95.000000000000000000
         TabOrder = 5
-        IsChecked = False
-        IsSelected = False
         Text = 'Self Stack'
       end
     end
     object ComboBox2: TComboBox
-      Position.Point = '(248,16)'
-      Width = 100.000000000000000000
-      Height = 22.000000000000000000
-      TabOrder = 2
       ItemIndex = 0
-      Placement = plBottom
+      Position.X = 248.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
       OnChange = ComboBox2Change
       object ListBoxItem7: TListBoxItem
-        Width = 75.000000000000000000
-        Height = 18.000000000000000000
-        HitTest = False
-        TabOrder = 0
-        IsChecked = False
         IsSelected = True
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
         Text = 'Cube'
       end
       object ListBoxItem8: TListBoxItem
-        Position.Point = '(0,19)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 19.000000000000000000
         TabOrder = 1
-        IsChecked = False
-        IsSelected = False
         Text = 'Cylinder'
       end
       object ListBoxItem9: TListBoxItem
-        Position.Point = '(0,38)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 38.000000000000000000
         TabOrder = 2
-        IsChecked = False
-        IsSelected = False
         Text = 'Pyramid'
       end
       object ListBoxItem10: TListBoxItem
-        Position.Point = '(0,57)'
-        Width = 80.000000000000000000
-        Height = 19.000000000000000000
-        HitTest = False
+        Position.Y = 57.000000000000000000
         TabOrder = 3
-        IsChecked = False
-        IsSelected = False
         Text = 'Cone'
       end
     end
   end
   object Chart1: TChart
-    Align = alClient
-    Position.Point = '(0,57)'
-    Width = 600.000000000000000000
-    Height = 343.000000000000000000
     BackWall.Transparency = 10
     BackWall.Transparent = False
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Gradient.EndColor = xFFFCF199
     Gradient.StartColor = xFFFFE3E3
     Gradient.Visible = True
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.Direction = gdLeftRight
     Legend.Brush.Gradient.Visible = True
     Legend.CheckBoxes = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Color = xFFE72020
     Title.Font.Size = 13.000000000000000000
     Title.ShapeStyle = fosRoundRectangle
     Title.Text.Strings = (
       'Bar Series')
     Title.Transparent = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     PrintMargins = (
       0
       0
@@ -152,11 +115,9 @@ inherited DemoBarSeries: TDemoBarSeries
       0)
     ColorPaletteIndex = 13
     object Series1: TBarSeries
+      HoverElement = []
       HorizAxis = aTopAxis
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = True
+      Marks.OnTop = True
       VertAxis = aRightAxis
       XValues.Name = 'X'
       XValues.Order = loNone
@@ -164,11 +125,9 @@ inherited DemoBarSeries: TDemoBarSeries
       YValues.Order = loNone
     end
     object Series2: TBarSeries
+      HoverElement = []
       HorizAxis = aTopAxis
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = True
+      Marks.OnTop = True
       VertAxis = aRightAxis
       XValues.Name = 'X'
       XValues.Order = loNone

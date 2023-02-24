@@ -1,44 +1,48 @@
 inherited DemoContourSeries: TDemoContourSeries
   Caption = 'Contour'
   OnCreate = FormCreate
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    inherited BEdit: TButton
-      Position.Point = '(16,16)'
-    end
     object CheckBox1: TCheckBox
-      Position.Point = '(128,16)'
-      Width = 97.000000000000000000
-      Height = 19.000000000000000000
-      TabOrder = 1
       IsChecked = True
+      Position.X = 128.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
       Text = 'Level Marks'
       OnChange = CheckBox1Change
     end
     object CheckBox2: TCheckBox
-      Position.Point = '(240,16)'
-      Width = 120.000000000000000000
-      Height = 19.000000000000000000
+      Position.X = 240.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 3
-      IsChecked = False
       Text = 'Smooth'
       OnChange = CheckBox2Change
     end
   end
   object Chart1: TChart
-    Align = alClient
-    Position.Point = '(0,57)'
-    Width = 600.000000000000000000
-    Height = 343.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'Contour')
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TContourSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
+      HoverElement = []
+      Brush.Kind = None
       Marks.Transparent = True
       Marks.Visible = True
       NumLevels = 12
@@ -53,12 +57,11 @@ inherited DemoContourSeries: TDemoContourSeries
       Pointer.Visible = False
       XValues.Name = 'X'
       XValues.Order = loNone
-      YPosition = 0.189598284286995300
+      YPosition = 0.194576998455699500
       YValues.Name = 'Y'
       YValues.Order = loNone
       ZValues.Name = 'Z'
       ZValues.Order = loNone
-      Brush.Kind = bkNone
     end
   end
 end

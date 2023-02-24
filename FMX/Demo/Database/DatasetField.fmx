@@ -1,29 +1,38 @@
 inherited DatasetDemo: TDatasetDemo
   Caption = 'BaseForm1'
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    object Label1: TLabel [0]
+    Align = Top
+    object Label1: TLabel
       AutoSize = True
-      Height = 13.500000000000000000
       Position.X = 120.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.WordWrap = False
       Text = 'Simple charting of a DataSet field'
-      Width = 171.500000000000000000
-      WordWrap = False
     end
   end
   object DBChart1: TDBChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'TDBChart')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TBarSeries
+      HoverElement = []
       ColorEachPoint = True
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
       Marks.Style = smsValue
-      Marks.Visible = True
+      Marks.OnTop = True
       DataSource = ClientDataSet1
       XLabelsSource = 'NAME'
       XValues.Name = 'X'
@@ -34,49 +43,7 @@ inherited DatasetDemo: TDatasetDemo
     end
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
-    Aggregates = <>
-    AggregatesActive = False
-    Constraints = <>
-    DisableStringTrim = False
-    FieldDefs = <
-      item
-        Name = 'NAME'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'SIZE'
-        Attributes = [faUnNamed]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'WEIGHT'
-        Attributes = [faUnNamed]
-        DataType = ftSmallint
-      end
-      item
-        Name = 'AREA'
-        Attributes = [faUnNamed]
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'BMP'
-        Attributes = [faUnNamed]
-        DataType = ftTypedBinary
-        Size = 1
-      end>
-    IndexDefs = <>
-    FetchOnDemand = True
-    ObjectView = True
-    Params = <>
-    ReadOnly = False
-    StoreDefs = False
-    Left = 88
-    Top = 112
-    Data = {
+    PersistDataPacket.Data = {
       7FBA01009619E0BD010000001800000005000700000003000000A500044E414D
       450100490010000100055749445448020002000A000453495A45020001001000
       0000065745494748540200010010000000044152454101004900100001000557
@@ -3618,5 +3585,10 @@ inherited DatasetDemo: TDatasetDemo
       2AA3A312AA23AA0A2032AA3131AA232AA3101A23883800313131313313131303
       031313313131313130000B0770080000BBBBBBB0000BB8800000110312A32AAA
       2A313E}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 88
+    Top = 112
   end
 end

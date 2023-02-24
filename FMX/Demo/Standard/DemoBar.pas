@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Engine, FMXTee.Series,
-  FMXTee.Procs, FMXTee.Chart, Base, FMX.ListBox;
+  FMXTee.Procs, FMXTee.Chart, Base, FMX.ListBox, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TDemoBarSeries = class(TBaseForm)

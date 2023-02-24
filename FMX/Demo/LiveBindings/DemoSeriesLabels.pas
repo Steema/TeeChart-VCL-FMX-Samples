@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, System.Rtti, System.Bindings.Outputs, Data.Bind.Components,
   Data.Bind.DBScope, Data.DB, FMXTee.Engine, FMXTee.Series, FMXTee.Procs,
-  FMXTee.Chart;
+  FMXTee.Chart, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TSeriesLabelsBinding = class(TBaseForm)

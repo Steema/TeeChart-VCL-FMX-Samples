@@ -1,78 +1,88 @@
 inherited PrintDemo: TPrintDemo
   Caption = 'BaseForm1'
   OnCreate = FormCreate
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    object Button1: TButton [0]
-      DisableFocusEffect = False
-      Height = 22.000000000000000000
+    object Button1: TButton
       Position.X = 136.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Print...'
-      Width = 80.000000000000000000
       OnClick = Button1Click
     end
   end
   object Chart1: TChart
+    Position.Y = 57.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Legend.Alignment = laTop
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'TChart')
     View3DOptions.Elevation = 315
     View3DOptions.Orthogonal = False
     View3DOptions.Perspective = 0
     View3DOptions.Rotation = 360
-    Zoom.Brush.Kind = bkNone
-    Align = alLeft
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Left
+    TabOrder = 1
+    Size.Width = 400.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     PrintMargins = (
       15
-      34
+      35
       15
-      34)
+      35)
     ColorPaletteIndex = 13
     object Series1: TPieSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = True
+      HoverElement = []
+      Marks.Tail.Margin = 2
       XValues.Order = loAscending
       YValues.Name = 'Pie'
       YValues.Order = loNone
-      Frame.InnerBrush.Kind = bkGradient
+      Frame.InnerBrush.Kind = Gradient
       Frame.InnerBrush.Gradient.EndColor = claGray
       Frame.InnerBrush.Gradient.MidColor = claWhite
       Frame.InnerBrush.Gradient.StartColor = xFF404040
       Frame.InnerBrush.Gradient.Visible = True
       Frame.InnerBrush.BackColor = claRed
-      Frame.MiddleBrush.Kind = bkGradient
+      Frame.MiddleBrush.Kind = Gradient
       Frame.MiddleBrush.Gradient.EndColor = xFF828282
       Frame.MiddleBrush.Gradient.MidColor = claWhite
       Frame.MiddleBrush.Gradient.StartColor = claGray
       Frame.MiddleBrush.Gradient.Visible = True
       Frame.MiddleBrush.BackColor = claYellow
-      Frame.OuterBrush.Kind = bkGradient
+      Frame.OuterBrush.Kind = Gradient
       Frame.OuterBrush.Gradient.EndColor = xFF404040
       Frame.OuterBrush.Gradient.MidColor = claWhite
       Frame.OuterBrush.Gradient.StartColor = claSilver
       Frame.OuterBrush.Gradient.Visible = True
       Frame.OuterBrush.BackColor = claGreen
-      Frame.Visible = False
       Frame.Width = 4
+      OtherSlice.Legend.Title.Font.StyleExt = {00070000000000000004000000}
       OtherSlice.Legend.Visible = False
     end
   end
   object Splitter1: TSplitter
-    Align = alLeft
+    Align = Left
     Cursor = crHSplit
-    Height = 343.000000000000000000
     MinSize = 20.000000000000000000
     Position.X = 400.000000000000000000
     Position.Y = 57.000000000000000000
-    Width = 5.000000000000000000
+    Size.Width = 5.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
   end
   object TeePreviewPanel1: TTeePreviewPanel
     Panel = Chart1
     SmoothBitmap = False
     Gradient.EndColor = xFFC5C58D
     Gradient.Visible = True
-    Align = alClient
+    Align = Client
+    TabOrder = 3
   end
 end

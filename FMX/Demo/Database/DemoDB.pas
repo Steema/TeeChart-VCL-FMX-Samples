@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Data.DB, Datasnap.DBClient,
   FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.DBChart,
-  FMXTee.Editor.Chart, FMXTee.Editor.DBSummary, Base;
+  FMXTee.Editor.Chart, FMXTee.Editor.DBSummary, Base, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TDemoDBChart = class(TBaseForm)

@@ -1,53 +1,58 @@
 inherited FunctionsDemo: TFunctionsDemo
   Caption = 'BaseForm1'
   OnCreate = FormCreate
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    object Button1: TButton [0]
-      DisableFocusEffect = False
-      Height = 22.000000000000000000
+    Align = Top
+    object Button1: TButton
       Position.X = 136.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Randomize'
-      Width = 80.000000000000000000
       OnClick = Button1Click
     end
   end
   object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Legend.Alignment = laBottom
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'TChart')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TLineSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = False
+      HoverElement = [heCurrent]
+      Brush.BackColor = x00FFFFFF
       Pointer.InflateMargins = True
       Pointer.Style = psRectangle
-      Pointer.Visible = False
       XValues.Name = 'X'
       XValues.Order = loAscending
       YValues.Name = 'Y'
       YValues.Order = loNone
     end
     object Series2: TLineSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
+      HoverElement = [heCurrent]
       Marks.Visible = True
-      DataSource = Series1
       Title = 'Average of Series1'
+      Brush.BackColor = x00FFFFFF
       Pointer.InflateMargins = True
       Pointer.Style = psRectangle
-      Pointer.Visible = False
       XValues.Name = 'X'
       XValues.Order = loNone
       YValues.Name = 'Y'
       YValues.Order = loNone
+      DataSources = (
+        'Series1')
       object TeeFunction1: TAverageTeeFunction
-        CalcByValue = False
       end
     end
   end

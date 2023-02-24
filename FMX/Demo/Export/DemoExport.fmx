@@ -1,60 +1,65 @@
 object ExportDemo: TExportDemo
   Left = 0
   Top = 0
-  BiDiMode = bdLeftToRight
   Caption = 'TeeChart Export'
-  ClientHeight = 387
-  ClientWidth = 703
-  Transparency = False
-  Visible = False
+  ClientHeight = 549
+  ClientWidth = 907
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
   OnCreate = FormCreate
-  StyleLookup = 'backgroundstyle'
+  DesignerMasterStyle = 0
   object Panel1: TPanel
-    Align = alLeft
-    Width = 329.000000000000000000
-    Height = 387.000000000000000000
+    Align = Left
+    Size.Width = 329.000000000000000000
+    Size.Height = 549.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 0
   end
   object Chart1: TChart
-    Align = alClient
-    Position.Point = '(334,0)'
-    Width = 369.000000000000000000
-    Height = 387.000000000000000000
-    BackWall.Brush.Kind = bkGradient
+    BackWall.Brush.Kind = Gradient
     BackWall.Brush.Gradient.EndColor = xFFF7F7D3
     BackWall.Brush.Gradient.StartColor = xFF232F19
     BackWall.Brush.Gradient.Visible = True
     BackWall.Transparent = False
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Gradient.EndColor = xFF888885
     Gradient.StartColor = xFF101548
     Gradient.Visible = True
-    Legend.Brush.Kind = bkGradient
+    Legend.Brush.Kind = Gradient
     Legend.Brush.Gradient.StartColor = xFF1B1616
     Legend.Brush.Gradient.Visible = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Font.Size = 34.659999847412110000
     Title.Font.Color = xFFE0E0FA
+    Title.Font.Brush.Color = xFFE0E0FA
     Title.Text.Strings = (
       'TChart Export')
-    BottomAxis.LabelsFont.Color = xFFE9E5E5
-    LeftAxis.LabelsFont.Family = 'Times New Roman'
-    LeftAxis.LabelsFont.Size = 14.859999656677250000
-    LeftAxis.LabelsFont.Color = xFFECE6E6
-    Zoom.Brush.Kind = bkNone
+    BottomAxis.LabelsFormat.Font.Color = xFFE9E5E5
+    BottomAxis.LabelsFormat.Font.Brush.Color = xFFE9E5E5
+    LeftAxis.LabelsFormat.Font.Family = 'Times New Roman'
+    LeftAxis.LabelsFormat.Font.Size = 14.859999656677250000
+    LeftAxis.LabelsFormat.Font.Color = xFFECE6E6
+    LeftAxis.LabelsFormat.Font.Brush.Color = xFFECE6E6
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
     Color = xFFBA1F1F
     TabOrder = 1
+    Size.Width = 573.000000000000000000
+    Size.Height = 549.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 10
     object Series1: THorizBarSeries
+      HoverElement = []
       BarBrush.Gradient.Direction = gdLeftRight
       BarPen.Visible = False
       ColorEachPoint = True
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Brush.Kind = bkGradient
+      Marks.Brush.Kind = Gradient
       Marks.Brush.Gradient.StartColor = xFF7D0303
       Marks.Brush.Gradient.Visible = True
-      Marks.ShapeStyle = fosRoundRectangle
-      Marks.Visible = True
+      Marks.OnTop = True
       BarStyle = bsCilinder
       Gradient.Direction = gdLeftRight
       Sides = 88
@@ -65,12 +70,12 @@ object ExportDemo: TExportDemo
     end
   end
   object Splitter1: TSplitter
-    Align = alLeft
+    Align = Left
     Cursor = crHSplit
-    Position.Point = '(329,0)'
-    Width = 5.000000000000000000
-    Height = 387.000000000000000000
-    TabOrder = 11
     MinSize = 20.000000000000000000
+    Position.X = 329.000000000000000000
+    Size.Width = 5.000000000000000000
+    Size.Height = 549.000000000000000000
+    Size.PlatformDefault = False
   end
 end

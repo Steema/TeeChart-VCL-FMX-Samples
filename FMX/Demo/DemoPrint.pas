@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Procs, FMXTee.Chart, FMXTee.Series, FMXTee.Print.PreviewPanel;
+  FMXTee.Procs, FMXTee.Chart, FMXTee.Series, FMXTee.Print.PreviewPanel,
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TPrintDemo = class(TBaseForm)

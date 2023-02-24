@@ -50,7 +50,7 @@ uses
 {$R *.res}
 
 begin
-  AniFrameRate:=100;
+//  AniFrameRate:=100;
 
   {$IFOPT D+}
   ReportMemoryLeaksOnShutdown:=True;

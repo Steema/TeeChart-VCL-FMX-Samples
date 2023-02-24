@@ -7,13 +7,20 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series, Data.DB, FMXTee.Dataset, FMX.Layouts, FMX.Grid, FMXTee.Procs,
   FMXTee.Chart, Fmx.Bind.Navigator, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
+
+  System.Rtti, FMX.Grid.Style, Data.Bind.Controls,
+  System.Bindings.Outputs, FMX.ScrollBox, FMX.StdCtrls,
+  FMX.Controls.Presentation,
+
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope,
+
   Data.Bind.DBLinks, Fmx.Bind.DBLinks
   {$IFNDEF MACOS}
   {$IFNDEF CPUX64}
   , MidasLib
   {$ENDIF}
-  {$ENDIF};
+  {$ENDIF}
+  ;
 
 type
   TChartDataSetDemo = class(TBaseForm)

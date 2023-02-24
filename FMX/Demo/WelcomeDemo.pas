@@ -6,7 +6,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Types3D, FMXTee.Engine,
-  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D, FMX.Ani;
+  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D, FMX.Ani,
+  System.Math.Vectors, FMX.Controls3D, FMX.Forms3D;
 
 type
   TWelcomeForm = class(TForm3D)

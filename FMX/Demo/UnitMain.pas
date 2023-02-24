@@ -6,7 +6,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Objects, FMX.TreeView,
-  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.Ani, FMX.ListBox;
+  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.Ani, FMX.ListBox, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TMainForm = class(TForm)
@@ -73,7 +74,8 @@ uses
   {$IFDEF D17}
   FMX.Styles,
   {$ENDIF}
-  FMX.Types3D, Base, FMXTee.About, FMXTee.Editor.Stroke, System.IOUtils;
+  FMX.Types3D, Base, FMXTee.About, FMXTee.Editor.Stroke, System.IOUtils,
+  FMX.Viewport3D, FMX.Forms3D;
 
 procedure TMainForm.Button1Click(Sender: TObject);
 begin
@@ -232,7 +234,7 @@ begin
         tmpV:=TViewport3D.Create(LastForm);
         EmbeddForm(LastForm,tmpV);
         tmpV.Color:=TCustomForm3D(LastForm).Color;
-        tmpV.Align:=TAlignLayout.alClient;
+        tmpV.Align:=TAlignLayout.Client;
         tmpV.Parent:=PanelDemo;
       end
       else

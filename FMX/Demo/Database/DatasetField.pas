@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series, Data.DB, Datasnap.DBClient, FMXTee.Procs, FMXTee.Chart,
-  FMXTee.DBChart, FMXTee.Editor.DBChart;
+  FMXTee.DBChart, FMXTee.Editor.DBChart, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDatasetDemo = class(TBaseForm)

@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, UnitMain, FMX.TreeView,
-  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.ListBox, FMX.Objects;
+  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.ListBox, FMX.Objects,
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TMainFormPro = class(TMainForm)

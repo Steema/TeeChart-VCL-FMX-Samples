@@ -6,13 +6,13 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series.Surface, FMXTee.Series.Map, FMXTee.Series.World, FMXTee.Procs,
-  FMXTee.Chart, FMX.Objects;
+  FMXTee.Chart, FMX.Objects, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDemoWorldSeries = class(TBaseForm)
     Chart1: TChart;
-    Series1: TWorldSeries;
     Text1: TText;
+    Series1: TWorldSeries;
     procedure FormCreate(Sender: TObject);
     procedure Chart1MouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Single);

@@ -1,16 +1,16 @@
 inherited StandardDemo: TStandardDemo
   Caption = 'BaseForm1'
   OnCreate = FormCreate
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    inherited BEdit: TButton
-      Position.Point = '(16,16)'
-    end
     object View3D: TCheckBox
-      Position.Point = '(240,16)'
-      Width = 120.000000000000000000
-      Height = 19.000000000000000000
-      TabOrder = 1
       IsChecked = True
+      Position.X = 240.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
       Text = 'View 3D'
       OnChange = View3DChange
     end

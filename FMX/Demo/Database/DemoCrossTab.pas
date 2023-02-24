@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.DBChart, FMXTee.Chart.Crosstab, Data.DB, Datasnap.DBClient,
-  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Editor.CrossTab;
+  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Editor.CrossTab,
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TCrossTabDemo = class(TBaseForm)

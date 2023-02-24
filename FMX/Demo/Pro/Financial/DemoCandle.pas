@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series, FMXTee.Series.OHLC, FMXTee.Series.Candle, FMXTee.Procs,
-  FMXTee.Chart, FMX.ListBox;
+  FMXTee.Chart, FMX.ListBox, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDemoCandleSeries = class(TBaseForm)

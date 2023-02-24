@@ -5,7 +5,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Series.Surface, FMX.Types3D, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D;
+  FMXTee.Series.Surface, FMX.Types3D, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D,
+  System.Math.Vectors, FMX.Controls3D, FMX.Viewport3D, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TDemoSurface3DSeries = class(TBaseForm)

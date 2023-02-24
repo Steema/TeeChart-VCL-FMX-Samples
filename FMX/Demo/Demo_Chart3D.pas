@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Series, FMXTee.Engine,
   FMX.Types3D, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D, FMX.Edit,
-  FMXTee.Editor.Chart3D;
+  FMXTee.Editor.Chart3D, System.Math.Vectors, FMX.Controls3D, FMX.Viewport3D,
+  FMX.EditBox, FMX.ComboTrackBar, FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDemoChart3D = class(TForm)

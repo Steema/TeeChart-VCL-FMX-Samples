@@ -1,67 +1,76 @@
 object WelcomeForm: TWelcomeForm
-  BiDiMode = bdLeftToRight
-  Caption = 'Form1'
-  ClientHeight = 400
-  ClientWidth = 600
   Left = 0
   Top = 0
-  Transparency = False
-  Visible = False
-  OnCreate = FormCreate
+  Caption = 'Form1'
   Color = xFFCFB08F
+  ClientHeight = 400
+  ClientWidth = 600
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
   OnRender = Form3DRender
+  DesignerMasterStyle = 0
   object Chart3D1: TChart3D
-    Position.Point = '(-0.25236314535141,-0.732038915157318,-1)'
-    RotationAngle.Point = '(-16.9782867431641,0,0)'
+    Position.X = -0.252363145351409900
+    Position.Y = -0.732038915157318100
+    Position.Z = -1.000000000000000000
+    RotationAngle.X = 343.021728515625000000
     Width = 20.607603073120120000
     Height = 13.741946220397950000
     Depth = 2.000001907348633000
-    Opacity = 1.000000000000000000
     OnDblClick = Chart3D1DblClick
     OnCreateChart = Chart3D1CreateChart
     Quanternion = '(-0.147622019052505,0,0,0.989043891429901)'
     object Chart3DChart1: TChart
-      Position.Point = '(8,8)'
-      Width = 400.000000000000000000
-      Height = 250.000000000000000000
-      Visible = False
-      BackWall.Brush.Kind = bkGradient
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      BackWall.Brush.Kind = Gradient
       BackWall.Brush.Gradient.Visible = True
       BackWall.Color = xFFE4E7FA
       BackWall.Size = 3
       BackWall.Transparent = False
       BottomWall.Size = 3
+      Foot.Font.StyleExt = {00040000000200000004000000}
       LeftWall.Size = 3
+      Legend.Title.Font.StyleExt = {00070000000000000004000000}
       RightWall.Size = 3
+      SubFoot.Font.StyleExt = {00040000000200000004000000}
       Title.Font.Family = 'Courier New'
       Title.Font.Size = 20.000000000000000000
       Title.Font.Style = [fsBold]
+      Title.Font.StyleExt = {00070000000000000004000000}
       Title.Text.Strings = (
         'Welcome to TeeChart')
-      BottomAxis.LabelsFont.Style = [fsBold]
-      BottomAxis.LabelsFont.Shadow.HorizSize = 1
-      BottomAxis.LabelsFont.Shadow.VertSize = 1
+      BottomAxis.LabelsFormat.Font.Style = [fsBold]
+      BottomAxis.LabelsFormat.Font.Shadow.HorizSize = 1
+      BottomAxis.LabelsFormat.Font.Shadow.VertSize = 1
+      BottomAxis.LabelsFormat.Font.StyleExt = {00070000000000000004000000}
       Chart3DPercent = 100
-      View3DOptions.Elevation = -17
+      View3DOptions.Elevation = 343
       View3DOptions.HorizOffset = -25
       View3DOptions.Orthogonal = False
       View3DOptions.Rotation = 0
       View3DOptions.VertOffset = -73
       View3DOptions.Zoom = 10
       Zoom.Allow = False
-      Zoom.Brush.Kind = bkNone
+      Zoom.Brush.Kind = None
+      Zoom.Pen.Fill.Color = claSilver
       BevelOuter = bvNone
       Color = claNull
       TabOrder = 0
+      Visible = False
+      Size.Width = 400.000000000000000000
+      Size.Height = 250.000000000000000000
+      Size.PlatformDefault = False
       ColorPaletteIndex = 7
       object Series1: TBarSeries
-        Marks.Arrow.Visible = True
-        Marks.Callout.Brush.Color = claBlack
-        Marks.Callout.Arrow.Visible = True
-        Marks.BackColor = claWhite
-        Marks.Color = claWhite
+        HoverElement = []
         Marks.Font.Style = [fsBold, fsItalic]
-        Marks.Visible = True
+        Marks.Font.StyleExt = {00070000000200000004000000}
+        Marks.BackColor = claWhite
+        Marks.OnTop = True
+        Marks.Color = claWhite
         ValueFormat = '#,##0'
         MultiBar = mbNone
         XValues.Name = 'X'
@@ -70,10 +79,9 @@ object WelcomeForm: TWelcomeForm
         YValues.Order = loNone
       end
       object Series2: TBarSeries
-        Marks.Arrow.Visible = True
-        Marks.Callout.Brush.Color = claBlack
-        Marks.Callout.Arrow.Visible = True
+        HoverElement = []
         Marks.Visible = False
+        Marks.OnTop = True
         ValueFormat = '#,##0.#'
         MultiBar = mbNone
         XValues.Name = 'X'
@@ -86,49 +94,65 @@ object WelcomeForm: TWelcomeForm
       Enabled = True
       Delay = 5.000000000000000000
       Duration = 20.000000000000000000
-      Interpolation = itElastic
       Loop = True
-      StopValue = 360.000000000000000000
       PropertyName = 'RotationAngle.Y'
+      StartValue = 0.000000000000000000
+      StopValue = 360.000000000000000000
     end
     object FloatAnimation2: TFloatAnimation
       AutoReverse = True
       Enabled = True
       Duration = 10.000000000000000000
       Loop = True
+      PropertyName = 'Position.Z'
       StartValue = -3.000000000000000000
       StopValue = 7.000000000000000000
-      PropertyName = 'Position.Z'
     end
   end
   object Light1: TLight
-    Position.Point = '(-6.24379920959473,-6.69361209869385,-4.2964916229248)'
-    RotationAngle.Point = '(-35,-0.253153681755066,0)'
+    Color = xFFAEAEAE
+    LightType = Directional
+    SpotCutOff = 180.000000000000000000
+    Position.X = -6.243799209594727000
+    Position.Y = -6.693612098693848000
+    Position.Z = -4.296491622924805000
+    RotationAngle.X = 325.000000000000000000
+    RotationAngle.Y = 335.885375976562500000
     Width = 1.000000000000000000
     Height = 1.000000000000000000
     Depth = 1.000000000000000000
-    Opacity = 1.000000000000000000
-    LightType = ltSpot
     Quanternion = 
-      '(-0.300704807043076,-0.0019597290083766,0.00102004420477897,0.95' +
-      '3713953495026)'
+      '(0.293858110904694,0.201137006282806,-0.0638115033507347,-0.9322' +
+      '65341281891)'
   end
   object Light2: TLight
-    Position.Point = '(2.70758867263794,1.22632086277008,-5.1973991394043)'
+    Color = claWhite
+    LightType = Directional
+    SpotCutOff = 180.000000000000000000
+    Position.X = 2.707588672637939000
+    Position.Y = 1.226320862770081000
+    Position.Z = -5.197399139404297000
+    RotationAngle.X = 71.009925842285160000
+    RotationAngle.Y = 343.233551025390600000
+    RotationAngle.Z = 337.463562011718800000
     Width = 1.000000000000000000
     Height = 1.000000000000000000
     Depth = 1.000000000000000000
-    Opacity = 1.000000000000000000
-    LightType = ltPoint
-    Quanternion = '(0,0,0,1)'
+    Quanternion = 
+      '(0.586683571338654,-0.228670045733452,-0.0743292272090912,0.7732' +
+      '96296596527)'
   end
   object Light3: TLight
-    Position.Point = '(9.81942558288574,-4.17744255065918,-2.03313541412354)'
+    Color = claWhite
+    LightType = Directional
+    SpotCutOff = 180.000000000000000000
+    Position.X = 7.514128208160400000
+    Position.Y = -2.527682781219482000
+    Position.Z = -2.033135414123535000
+    RotationAngle.X = 189.388488769531300000
     Width = 1.000000000000000000
     Height = 1.000000000000000000
     Depth = 1.000000000000000000
-    Opacity = 1.000000000000000000
-    LightType = ltPoint
-    Quanternion = '(0,0,0,1)'
+    Quanternion = '(0.996645450592041,0,0,-0.0818379074335098)'
   end
 end

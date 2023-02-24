@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMX.Objects,
-  FMXTee.Engine, FMXTee.Series, FMXTee.Series.Donut, FMXTee.Procs, FMXTee.Chart;
+  FMXTee.Engine, FMXTee.Series, FMXTee.Series.Donut, FMXTee.Procs, FMXTee.Chart,
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDemoDonutSeries = class(TBaseForm)
