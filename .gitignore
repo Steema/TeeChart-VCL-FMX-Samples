@@ -9,3 +9,10 @@ VCL/TeeNew/Tee9new.drc
 VCL/TeeNew/Tee9new.map
 VCL/TeeNew/Tee9new.rsm
 VCL/TeeNew/Tee9new_MemoryManager_EventLog.txt
+FMX/Demo/__history/
+FMX/Demo/Database/__history/
+FMX/Demo/Database/ChartAsDataset.vlb
+FMX/Demo/Export/__history/
+__history/*
+__history
+*.vlb
