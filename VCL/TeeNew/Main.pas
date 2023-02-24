@@ -2542,7 +2542,7 @@ procedure TTeeNewForm.ExporttoPDF1Click(Sender: TObject);
     begin
       PDF.Document.NewPage;
 
-      tmpCanvas:=TPDFCanvas.CreatePage(PDF.Document,PDF.Document.PageCount-1);
+      tmpCanvas:=TPDFCanvas.CreatePage(PDF.Document);
 
       if Assigned(tmpMemo) then
          PaintLines(tmpMemo.Lines,tmpCanvas);
@@ -2596,13 +2596,7 @@ begin
 
         Process(PDF,TreeView2);
 
-        // Create a dummy Panel to skip an exception when calling SaveToFile
-        PDF.Panel:=TCustomTeePanel.Create(nil);
-        try
-          PDF.SaveToFile(SavePDFDialog.FileName);
-        finally
-          PDF.Panel.Free; // <-- free the dummy panel
-        end;
+        PDF.SaveToFile(SavePDFDialog.FileName,nil,False);
       finally
         PDF.Free;
       end;
