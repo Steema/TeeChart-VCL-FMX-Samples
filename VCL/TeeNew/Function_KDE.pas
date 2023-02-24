@@ -17,8 +17,10 @@ type
     Chart2: TChart;
     Series2: TLineSeries;
     Button1: TButton;
+    Button2: TButton;
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -30,6 +32,9 @@ type
 implementation
 
 {$R *.dfm}
+
+uses
+  TeeFuncEdit;
 
 procedure TKDEFunctionForm.FormShow(Sender: TObject);
 begin
@@ -48,6 +53,11 @@ end;
 procedure TKDEFunctionForm.Button1Click(Sender: TObject);
 begin
   Series1.FillSampleValues;
+end;
+
+procedure TKDEFunctionForm.Button2Click(Sender: TObject);
+begin
+  TTeeFuncEditor.EditFunction(Self,KDE);
 end;
 
 initialization
