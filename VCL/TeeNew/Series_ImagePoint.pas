@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   ExtDlgs,
   {$ENDIF}
-  Base, TeCanvas, TeEngine, Series, ImaPoint, TeeProcs, Chart;
+  Base, TeCanvas, TeEngine, Series, ImaPoint, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TImagePointForm = class(TBaseForm)
@@ -27,10 +27,13 @@ type
     Label3: TLabel;
     Edit2: TEdit;
     UpDown2: TUpDown;
+    Label4: TLabel;
+    ScrollBar1: TScrollBar;
     procedure Image1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure Edit2Change(Sender: TObject);
+    procedure ScrollBar1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +78,11 @@ end;
 procedure TImagePointForm.Edit2Change(Sender: TObject);
 begin
   if Showing then Series1.Pointer.VertSize:=UpDown2.Position
+end;
+
+procedure TImagePointForm.ScrollBar1Change(Sender: TObject);
+begin
+  Series1.Pointer.Picture.Angle:=ScrollBar1.Position;
 end;
 
 initialization
