@@ -642,7 +642,8 @@ uses
   Series_Activity in 'Series_Activity.pas' {ActivitySeriesForm},
   Series_ActivityDonut in 'Series_ActivityDonut.pas' {ActivityGaugeForm},
   Export_PDF_Multiple in 'Export_PDF_Multiple.pas' {PDFMultipleForm},
-  Series_DoubleHorizBar in 'Series_DoubleHorizBar.pas' {BaseForm1};
+  Series_DoubleHorizBar in 'Series_DoubleHorizBar.pas' {BaseForm1},
+  Export_Chart_as_String in 'Export_Chart_as_String.pas' {ExportChartString};
 
 {$R *.res}
 
