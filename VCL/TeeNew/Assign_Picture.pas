@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeePolar, TeeProcs, Chart;
+  Base, TeEngine, Series, TeePolar, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TAssignPicture = class(TBaseForm)
@@ -23,6 +23,7 @@ type
     Splitter1: TSplitter;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +47,12 @@ end;
 procedure TAssignPicture.Button1Click(Sender: TObject);
 begin
   Image1.Picture.Assign(Chart1);
+end;
+
+procedure TAssignPicture.FormShow(Sender: TObject);
+begin
+  inherited;
+  Image1.Width:=Width div 2;
 end;
 
 initialization
