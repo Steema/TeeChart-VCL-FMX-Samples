@@ -36,6 +36,7 @@ type
     Edit2: TEdit;
     UDSpot: TUpDown;
     CBDefaultSpot: TCheckBox;
+    CB3d: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure bEditClick(Sender: TObject);
     procedure TBXDirectionChange(Sender: TObject);
@@ -44,6 +45,7 @@ type
     procedure Edit2Change(Sender: TObject);
     procedure CBDefaultSpotClick(Sender: TObject);
     procedure cbLightChange(Sender: TObject);
+    procedure CB3dClick(Sender: TObject);
   private
     { Private declarations }
     procedure UpdateOptions(light : TGLLightSource);
@@ -159,6 +161,11 @@ begin
     1 : UpdateOptions(TeeOpenGL1.Light1);
     2 : UpdateOptions(TeeOpenGL1.Light2);
   end;
+end;
+
+procedure TOpenGLLightDirection.CB3dClick(Sender: TObject);
+begin
+  Chart1.View3D:=CB3d.Checked;
 end;
 
 initialization
