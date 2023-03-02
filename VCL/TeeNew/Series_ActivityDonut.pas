@@ -8,6 +8,11 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms,
+
+  {$IFDEF D16}
+  System.UITypes,
+  {$ENDIF}
+
   Dialogs, TeeGDIPlus, TeEngine, TeeTools, Series, TeeDonut, ExtCtrls,
   TeeProcs, Chart, StdCtrls, Base;
 
