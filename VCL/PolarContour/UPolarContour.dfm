@@ -1,9 +1,9 @@
 object Form14: TForm14
-  Left = 0
-  Top = 0
+  Left = 504
+  Top = 199
+  Width = 844
+  Height = 611
   Caption = 'TeeChart Polar Contour Series Example'
-  ClientHeight = 572
-  ClientWidth = 828
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,12 +21,10 @@ object Form14: TForm14
     Top = 0
     Width = 828
     Height = 33
+    Panel = Chart1
     Align = alTop
     ParentShowHint = False
     TabOrder = 0
-    ExplicitLeft = 224
-    ExplicitTop = 288
-    ExplicitWidth = 400
   end
   object Chart1: TChart
     Left = 0
@@ -89,11 +87,9 @@ object Form14: TForm14
     Color = clWhite
     TabOrder = 1
     Anchors = [akLeft, akTop, akRight, akBottom]
-    ExplicitTop = 39
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TPolarContourSeries
-      HoverElement = []
       XValues.Name = 'Angle'
       XValues.Order = loNone
       YValues.Name = 'Radius'

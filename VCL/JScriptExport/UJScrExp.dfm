@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 0
-  Top = 0
+  Left = 339
+  Top = 128
+  Width = 1053
+  Height = 645
   Caption = 'TeeChart HTML5 Javascript export formats'
-  ClientHeight = 606
-  ClientWidth = 1037
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,7 +25,6 @@ object Form1: TForm1
     Align = alTop
     ParentShowHint = False
     TabOrder = 0
-    ExplicitTop = -5
     object Button4: TButton
       Left = 553
       Top = 2
@@ -104,7 +103,7 @@ object Form1: TForm1
       DefaultCanvas = 'TGDIPlusCanvas'
       ColorPaletteIndex = 13
       object Series1: TBarSeries
-        HoverElement = []
+        Marks.OnTop = True
         XValues.Name = 'X'
         XValues.Order = loAscending
         YValues.Name = 'Bar'

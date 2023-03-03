@@ -16,3 +16,4 @@ FMX/Demo/Export/__history/
 __history/*
 __history
 *.vlb
+output/

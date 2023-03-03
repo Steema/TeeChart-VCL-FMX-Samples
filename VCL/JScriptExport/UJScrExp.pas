@@ -3,11 +3,11 @@ unit UJScrExp;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VclTee.TeeGDIPlus, Vcl.StdCtrls,
-  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, Vcl.ExtCtrls, VCLTee.TeeComma,
-  VCLTee.Series, VCLTee.TeeHTML5Canvas, VCLTee.TeeJavascriptEditor, VCLTee.TeeJavascript,
-  Vcl.ComCtrls, ShellAPI;
+  Windows, Messages, SysUtils, Classes, Graphics,
+  Controls, Forms, Dialogs, TeeGDIPlus, StdCtrls,
+  TeEngine, TeeProcs, Chart, ExtCtrls, TeeComma,
+  Series, TeeHTML5Canvas, TeeJavascriptEditor, TeeJavascript,
+  ComCtrls, ShellAPI;
 
   //TeeChart HTML5 Javascript export formats.
   //VCLTee.TeeHTML5Canvas: canvas methods, moveTo,lineTo,etc, converted to jscript html5-canvas instructions.
@@ -72,7 +72,8 @@ begin
 
   //add some modifications
   CustCodeStr := TStringlist.Create;
-  CustCodeStr.Add('  addFeatures('+exporter.ChartName+');');
+// TODO: addFeatures is missing.
+// CustCodeStr.Add('  addFeatures('+exporter.ChartName+');');
   exporter.CustomCode := CustCodeStr;
 
   //add some source links
@@ -92,6 +93,8 @@ var exporter:  THTML5ExportFormat;
 begin
   //HTML5 Canvas fixed graphic
   exporter:=  THTML5ExportFormat.Create;
+
+  ForceDirectories(AppDir + 'output');
 
   TeeSaveToHTML5File(Chart1,AppDir + 'output\1_HTML5_Canvas_Chart.htm', DesWidth, DesHeight);
 

@@ -5,10 +5,10 @@ unit UPolarContour;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VclTee.TeeGDIPlus, Vcl.StdCtrls,
-  VCLTee.TeEngine, VCLTee.Series, VCLTee.TeePolar, VCLTee.TeePolarContour,
-  VCLTee.TeeProcs, VCLTee.Chart, Vcl.ExtCtrls, VCLTee.TeeComma, TeeSurfa;
+  Windows, Messages, SysUtils, Classes, Graphics,
+  Controls, Forms, Dialogs, TeeGDIPlus, StdCtrls,
+  TeEngine, Series, TeePolar, TeePolarContour,
+  TeeProcs, Chart, ExtCtrls, TeeComma, TeeSurfa;
 
 
 const
