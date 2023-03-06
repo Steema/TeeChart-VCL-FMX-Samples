@@ -144,8 +144,6 @@ type
     Draw3D7: TDraw3D;
     sbNormal: TSpeedButton;
     sbClose: TSpeedButton;
-    Panel3: TPanel;
-    CBoxGDIPlus: TCheckBox;
     PageControl1: TPageControl;
     TabAllFeatures: TTabSheet;
     TreeView2: TTreeView;
@@ -165,6 +163,7 @@ type
     SavePDFDialog: TSaveDialog;
     AsFormat1: TMenuItem;
     GDI1: TMenuItem;
+    CBoxGDIPlus: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure TreeView1Change(Sender: TObject; Node: TTreeNode);
     procedure BNextClick(Sender: TObject);

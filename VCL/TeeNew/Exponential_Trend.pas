@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, CurvFitt, Series, TeEngine, TeeProcs, Chart;
+  Base, CurvFitt, Series, TeEngine, TeeProcs, Chart, TeeGDIPlus;
 
 type
   TExponentialTrendForm = class(TBaseForm)
