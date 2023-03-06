@@ -589,10 +589,6 @@ begin
   Caption:=Application.Title;
   {$ENDIF}
 
-  {$IFDEF D7}
-  Panel3.ParentBackground:=True;
-  {$ENDIF}
-  
   LabelWWW.Transparent:=True;  // <--- To solve D7 VCL design-time bug
 
   // QC 19859
