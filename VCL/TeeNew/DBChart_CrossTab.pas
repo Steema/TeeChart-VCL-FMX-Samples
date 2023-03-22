@@ -20,7 +20,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons, Grids, DBGrids, DBCtrls, DBTables,
   {$ENDIF}
-  Base_DBChart, Db, TeeProcs, TeEngine, Chart, Series, TeeGDIPlus;
+  Base_DBChart, Db, TeeProcs, TeEngine, Chart, Series, TeeGDIPlus, DBChart;
 
 type
   TDBChartCrossTab = class(TForm)
@@ -38,16 +38,18 @@ type
     DBNavigator1: TDBNavigator;
     RadioGroup1: TRadioGroup;
     Button1: TButton;
-    CheckBox1: TCheckBox;
+    CBActive: TCheckBox;
     procedure RadioGroup1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure CheckBox1Click(Sender: TObject);
+    procedure CBActiveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Chart1DblClick(Sender: TObject);
   private
     { Private declarations }
     Dimension1 : String;
     Dimension2 : String;
+
     Procedure CrossTab;
   public
     { Public declarations }
@@ -61,9 +63,10 @@ implementation
 {$R *.xfm}
 {$ENDIF}
 
-{ Include the TeeCross unit }
+{ Include the TeeDBCrossTab unit }
 
-uses TeeDBCrosstab;
+uses
+  TeeDBCrossTab, EditChar;
 
 { refresh the Chart showing the "sum" or the "count"... }
 procedure TDBChartCrossTab.RadioGroup1Click(Sender: TObject);
@@ -99,17 +102,25 @@ begin
   FillDataSet(Table1,Series1,Dimension1,Dimension2,'AmountPaid',Summary);
 end;
 
-procedure TDBChartCrossTab.CheckBox1Click(Sender: TObject);
+procedure TDBChartCrossTab.CBActiveClick(Sender: TObject);
 begin
-  Table1.Open;
-  RadioGroup1.Enabled:=True;
-  Button1.Enabled:=True;
-  CrossTab;
+  Table1.Active:=CBActive.Checked;
+
+  RadioGroup1.Enabled:=Table1.Active;
+  Button1.Enabled:=Table1.Active;
+
+  if Table1.Active then
+     CrossTab;
 end;
 
 procedure TDBChartCrossTab.FormShow(Sender: TObject);
 begin
   CheckTable(Table1);
+end;
+
+procedure TDBChartCrossTab.Chart1DblClick(Sender: TObject);
+begin
+  EditChart(Self,Chart1);
 end;
 
 initialization

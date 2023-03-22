@@ -345,6 +345,7 @@ Uses {$IFDEF LINUX}
      DBChart_LocateRecord,
      DBChart_MasterDetail,
      DBChart_CrossTab,
+     TeeDBCrossTabEditor,
      DBChart_SingleRecord,
      {$ENDIF}
 
@@ -415,7 +416,7 @@ Uses {$IFDEF LINUX}
      TeeExceptionDialog,
      {$ENDIF}
 
-     EditChar, TeePenDlg, TeeExport, TeeStringsEditor, TeeBrushDlg;
+     EditChar, TeePenDlg, TeeExport, TeeStringsEditor, TeeBrushDlg, TeeImport;
      
 Const
   FolderSeparator = {$IFDEF LINUX} '/' {$ELSE} '\' {$ENDIF} ;
