@@ -17,7 +17,7 @@ uses
 
   jpeg,
 
-  TeeFilters, TeeFiltersEditor, TeeGDIPlus;
+  TeeFilters, TeeFiltersEditor;
 
 type
   TImageFilteredDemo = class(TBaseForm)
@@ -47,7 +47,7 @@ begin
   // Show the filters editor dialog, and if user click "OK"
   // invalidate the Image (force repaint)
 
-  if ShowFiltersEditor(Self, ImageFiltered1.Picture.Graphic,
+  if TFiltersEditor.ShowEditor(Self, ImageFiltered1.Picture.Graphic,
                        ImageFiltered1.Filters) then
   begin
     ImageFiltered1.Invalidate;

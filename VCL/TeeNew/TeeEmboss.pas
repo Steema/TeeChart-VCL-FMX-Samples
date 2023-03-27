@@ -50,11 +50,14 @@ implementation
 {$R *.xfm}
 {$ENDIF}
 
+uses
+  TeePenDlg;
+
 procedure TTeeEmbossForm.BColorClick(Sender: TObject);
 var AColor: TColor;
     t: Integer;
 begin
-  EditColorDialog(Self, AColor);
+  TButtonColor.EditColor(Self, AColor);
 
   for t := 0 to 2 do
     Embosses[t].Color:=AColor;

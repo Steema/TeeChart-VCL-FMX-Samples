@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeTools, TeeProcs, Chart, TeeEdit, TeeOpenGL,
-  TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeeTools, TeeProcs, Chart, TeeEdit, TeeOpenGL;
 
 type
   TWallTransparency = class(TBaseForm)

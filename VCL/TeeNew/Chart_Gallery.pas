@@ -45,7 +45,7 @@ begin
   Gallery.P1.Visible:=False;
 
   {$IFDEF CLX}
-  AddFormTo(Gallery,Self);
+  TTeeVCL.AddFormTo(Gallery,Self);
   {$ELSE}
   With Gallery do
   begin

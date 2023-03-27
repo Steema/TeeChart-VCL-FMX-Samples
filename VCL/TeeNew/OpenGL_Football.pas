@@ -423,12 +423,13 @@ end;
 
 procedure TOpenGLFootBall.Button1Click(Sender: TObject);
 begin
-  With Draw3D1 do Color:=EditColor(Self,Color);
+  With Draw3D1 do
+       Color:=TButtonColor.Edit(Self,Color);
 end;
 
 procedure TOpenGLFootBall.Button2Click(Sender: TObject);
 begin
-  FGreen:=EditColor(Self,FGreen);
+  FGreen:=TButtonColor.Edit(Self,FGreen);
   Draw3D1.Repaint;
 end;
 
@@ -439,13 +440,13 @@ end;
 
 procedure TOpenGLFootBall.Button3Click(Sender: TObject);
 begin
-  FLines:=EditColor(Self,FLines);
+  FLines:=TButtonColor.Edit(Self,FLines);
   Draw3D1.Repaint;
 end;
 
 procedure TOpenGLFootBall.Button4Click(Sender: TObject);
 begin
-  FBall:=EditColor(Self,FBall);
+  FBall:=TButtonColor.Edit(Self,FBall);
   Draw3D1.Repaint;
 end;
 

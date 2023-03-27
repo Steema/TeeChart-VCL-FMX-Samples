@@ -46,7 +46,7 @@ implementation
 {$ENDIF}
 
 uses
-  TeeBrushDlg;
+  TeeBrushDlg, TeeEdiFont;
 
 procedure TMarksItemText.FormCreate(Sender: TObject);
 begin
@@ -70,7 +70,7 @@ end;
 
 procedure TMarksItemText.Button1Click(Sender: TObject);
 begin
-  EditTeeFont(Self,Series1.Marks.Item[UpDown1.Position].Font);
+  TTeeFontEditor.Edit(Self,Series1.Marks.Item[UpDown1.Position].Font);
 end;
 
 procedure TMarksItemText.CheckBox1Click(Sender: TObject);

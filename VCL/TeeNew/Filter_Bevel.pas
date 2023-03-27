@@ -17,7 +17,7 @@ uses
 
   jpeg,
 
-  TeeFilters, TeeGDIPlus;
+  TeeFilters;
 
 type
   TFilterBevel = class(TBaseForm)
@@ -52,7 +52,7 @@ uses
 
 procedure TFilterBevel.bFiltersClick(Sender: TObject);
 begin
-  ShowFiltersEditor(Self, Chart1.BackImage);
+  TFiltersEditor.ShowEditor(Self, Chart1.BackImage);
 end;
 
 procedure TFilterBevel.FormCreate(Sender: TObject);

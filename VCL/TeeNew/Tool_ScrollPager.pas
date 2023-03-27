@@ -15,9 +15,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
   Grids,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeScrollPagerTool, Series,
-  TeeGDIPlus;
-
+  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeScrollPagerTool, Series;
 
 type
   TTool_ScrollPagerForm = class(TBaseForm)

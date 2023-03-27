@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeePreviewPanel, TeeProcs, TeEngine, Chart, Series, TeeGDIPlus;
+  Base, TeePreviewPanel, TeeProcs, TeEngine, Chart, Series;
 
 type
   TPrintPreviewMulti = class(TBaseForm)

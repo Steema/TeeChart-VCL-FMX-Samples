@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeCanvas, TeeProcs, Chart, StatChar, TeeGDIPlus;
+  Base, TeEngine, Series, TeCanvas, TeeProcs, Chart, StatChar;
 
 type
   TPerimeterDemo = class(TBaseForm)

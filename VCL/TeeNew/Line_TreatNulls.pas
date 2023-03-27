@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeeFrameTool, TeCanvas,
-  TeeGDIPlus;
+  TeePenDlg;
 
 type
   TLineTreatNulls = class(TBaseForm)

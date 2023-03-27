@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas;
 
 type
   TCanvasSmoothStretch = class(TBaseForm)

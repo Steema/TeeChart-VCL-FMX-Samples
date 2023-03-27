@@ -39,7 +39,7 @@ uses TeeEdiGrad;
 
 procedure TCircledGradient.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Series1.CircleGradient);
+  TTeeGradientEditor.Edit(Self,Series1.CircleGradient);
 end;
 
 procedure TCircledGradient.FormCreate(Sender: TObject);

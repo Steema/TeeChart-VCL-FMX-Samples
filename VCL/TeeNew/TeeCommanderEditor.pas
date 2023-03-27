@@ -97,7 +97,7 @@ begin
     ToList.Style:=lbOwnerDrawFixed;
   end;
 
-  AddFormTo(SelectForm,Self);
+  TTeeVCL.AddFormTo(SelectForm,Self);
 end;
 
 {$IFDEF CLX}

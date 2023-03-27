@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeTriSurface, TeeTools, TeeProcs, Chart,
-  TeeOpenGL, TeeGDIPlus;
+  TeeOpenGL;
 
 type
   TTriSurfaceHidding = class(TBaseForm)

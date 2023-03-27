@@ -22,7 +22,7 @@ uses
   TeeAntiAlias,
   {$ENDIF}
 
-  Chart, TeeGDIPlus;
+  Chart;
 
 type
   TBannerText=packed record

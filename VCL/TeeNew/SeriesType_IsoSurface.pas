@@ -15,7 +15,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeSurfa, TeeLegendPalette,
-  TeePenDlg, TeeTools, TeeGDIPlus;
+  TeePenDlg, TeeTools;
 
 type
   TSeriesTypeIsoSurface = class(TBaseForm)

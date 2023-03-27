@@ -11,7 +11,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeCanvas, TeeComma, TeEngine, Series, StatChar, TeeProcs, Chart;
+  Base, TeCanvas, TeeComma, TeEngine, Series, StatChar, TeeProcs, Chart,
+  TeePenDlg;
 
 type
   THistogramYOriginForm = class(TBaseForm)

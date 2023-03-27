@@ -9,7 +9,7 @@ uses
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
 
-  Base, TeeGDIPlus, TeEngine, Series, TeeBoxPlot, TeeProcs, Chart;
+  Base, TeEngine, Series, TeeBoxPlot, TeeProcs, Chart;
 
 type
   TViolinSeriesForm = class(TBaseForm)

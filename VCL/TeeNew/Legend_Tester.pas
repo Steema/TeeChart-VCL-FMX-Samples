@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeGDIPlus, TeeProcs, TeEngine, Chart;
+  Base, TeeProcs, TeEngine, Chart;
 
 type
   TLegendTester = class(TBaseForm)

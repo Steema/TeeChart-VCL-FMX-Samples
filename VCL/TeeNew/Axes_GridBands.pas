@@ -45,12 +45,12 @@ uses TeeBrushDlg;
 
 procedure TAxesGridBands.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,BandTool.Band1);
+  TBrushDialog.Edit(Self,BandTool.Band1);
 end;
 
 procedure TAxesGridBands.Button2Click(Sender: TObject);
 begin
-  EditChartBrush(Self,BandTool.Band2);
+  TBrushDialog.Edit(Self,BandTool.Band2);
 end;
 
 procedure TAxesGridBands.CheckBox1Click(Sender: TObject);
@@ -71,7 +71,7 @@ begin
   // cosmetic examples:
   with BandTool do
   begin
-    GetTeeBrush(0,Band1.Image.Bitmap);
+    TBrushDialog.GetTeeBrush(0,Band1.Image.Bitmap);
     Band1.Color:=clBlue;
 
     Band2.Style:=bsCross;

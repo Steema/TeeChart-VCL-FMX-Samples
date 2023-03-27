@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, Pie_MarksLegSize,
-  TeeGDIPlus;
+  Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, Pie_MarksLegSize;
 
 type
   TPieMarksVertCenter = class(TPieMarksLegSize)

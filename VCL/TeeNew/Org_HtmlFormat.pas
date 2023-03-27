@@ -15,7 +15,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeOrgSeries, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, TeeOrgSeries;
 
 type
   TOrgHtmlFormatForm = class(TBaseForm)

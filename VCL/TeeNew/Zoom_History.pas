@@ -61,7 +61,7 @@ end;
 
 procedure TZoomHistory.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Chart1.Zoom.Brush);
+  TBrushDialog.Edit(Self,Chart1.Zoom.Brush);
 end;
 
 procedure TZoomHistory.CheckBox1Click(Sender: TObject);

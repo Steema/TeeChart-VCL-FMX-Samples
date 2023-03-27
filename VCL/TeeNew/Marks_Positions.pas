@@ -15,7 +15,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons,
   {$ENDIF}
-  Base, TeEngine, TeeTools, Series, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, TeeTools, Series, TeeProcs, Chart;
 
 type
   TMarksPositions = class(TBaseForm)

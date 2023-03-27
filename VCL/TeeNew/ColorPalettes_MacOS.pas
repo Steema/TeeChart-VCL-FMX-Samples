@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeSurfa, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeSurfa,
+  TeePenDlg;
 
 type
   TColorPalettesMacOS = class(TBaseForm)

@@ -57,7 +57,7 @@ procedure TTreemapAddFolderForm.Button1Click(Sender: TObject);
 var tmpDir : String;
 begin
   tmpDir:='';
-  if TeeSelectFolder('Folder to plot as a TreeMap','',tmpDir) then
+  if TTeeVCL.SelectFolder('Folder to plot as a TreeMap','',tmpDir) then
   begin
     Chart1.Title.Text[0]:=tmpDir;
     AddFolder(tmpDir, CheckBox1.Checked);

@@ -79,7 +79,7 @@ end;
 
 procedure TSeriesDataSetForm.DBGrid1EditButtonClick(Sender: TObject);
 begin
-  SeriesDataSet1Color.AsInteger:=EditColor(Self,SeriesDataSet1Color.AsInteger);
+  SeriesDataSet1Color.AsInteger:=TButtonColor.Edit(Self,SeriesDataSet1Color.AsInteger);
 end;
 
 initialization

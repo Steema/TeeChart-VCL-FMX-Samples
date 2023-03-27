@@ -14,8 +14,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, Grids,
   {$ENDIF}
-  Base, TeeEdit, TeeProcs, TeEngine, Chart, Series, TeeInspector,
-  TeeGDIPlus;
+  Base, TeeEdit, TeeProcs, TeEngine, Chart, Series, TeeInspector;
 
 type
   TInspectorForm = class(TBaseForm)

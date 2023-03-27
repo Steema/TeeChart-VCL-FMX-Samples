@@ -47,7 +47,7 @@ begin
 
   With Chart1.Gradient do
   begin
-    MidColor:=EditColor(Self,MidColor);
+    MidColor:=TButtonColor.Edit(Self,MidColor);
     Shape1.Brush.Color:=MidColor;
     CheckBox1.Checked:=Chart1.Gradient.MidColor=clNone;
   end;

@@ -7,7 +7,7 @@ uses
   Windows, Messages,
   SysUtils, Classes,
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, 
-  Base, TeEngine, Series, TeeProcs, Chart, TeeFunci, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeeFunci;
 
 type
   TModeFunctionDemo = class(TBaseForm)

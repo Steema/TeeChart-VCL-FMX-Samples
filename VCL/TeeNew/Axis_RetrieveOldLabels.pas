@@ -9,7 +9,7 @@ uses
   {$ENDIF}
   SysUtils, Classes,
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  Base, TeeProcs, TeEngine, Chart, Series, MyPoint, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, MyPoint;
 
 type
   TAxis_RetrieveOldLabelsForm = class(TBaseForm)

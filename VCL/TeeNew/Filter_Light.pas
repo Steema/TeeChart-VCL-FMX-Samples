@@ -15,8 +15,8 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls,
   {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas,
-  TeeAntiAlias, TeePolar, TeeRose, TeeLighting, TeeGDIPlus,
-  TeeNumericGauge, TeeLinearGauge, TeeCircularGauge;
+  TeeAntiAlias, TeePolar, TeeRose, TeeLighting,
+  TeeNumericGauge, TeeLinearGauge, TeeCircularGauge, TeePenDlg;
 
 type
   TFilterLight = class(TBaseForm)

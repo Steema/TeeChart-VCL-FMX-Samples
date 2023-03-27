@@ -42,7 +42,7 @@ Uses TeeEdiGrad, TeCanvas;
 
 procedure TFontGradient.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Chart1.Title.Font.Gradient);
+  TTeeGradientEditor.Edit(Self,Chart1.Title.Font.Gradient);
 end;
 
 procedure TFontGradient.CheckBox1Click(Sender: TObject);

@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeShape;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeShape,
+  TeePenDlg;
 
 type
   TSeriesShapeTransparency = class(TBaseForm)

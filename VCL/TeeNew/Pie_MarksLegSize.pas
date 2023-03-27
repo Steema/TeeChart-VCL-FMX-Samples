@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
 
 type
   TPieMarksLegSize = class(TBaseForm)

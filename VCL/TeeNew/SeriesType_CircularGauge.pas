@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, TeeNumericGauge, TeeLinearGauge, TeeCircularGauge,
-  TeeProcs, Chart, TeeGDIPlus;
+  TeeProcs, Chart;
 
 type
   TSeriesCircularGauge = class(TBaseForm)

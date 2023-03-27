@@ -15,7 +15,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeSurfa, TeeTools,
-  TeeGriEd;
+  TeeGriEd, TeePenDlg;
 
 type
   TSeriesInvertPalette = class(TBaseForm)

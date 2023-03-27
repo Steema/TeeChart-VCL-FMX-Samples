@@ -70,7 +70,7 @@ end;
 
 procedure TSeriesContourFilled.Button2Click(Sender: TObject);
 begin
-  EditChartBrush(Self, Series1.Brush)
+  TBrushDialog.Edit(Self, Series1.Brush)
 end;
 
 procedure TSeriesContourFilled.Button1Click(Sender: TObject);

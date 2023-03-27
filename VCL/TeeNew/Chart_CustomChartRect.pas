@@ -16,7 +16,7 @@ uses
   {$IFDEF D6}
   Types,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools;
 
 type
   TChartCustomChartRect = class(TBaseForm)

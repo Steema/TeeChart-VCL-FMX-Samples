@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   ExtDlgs,
   {$ENDIF}
-  Base, TeCanvas, TeEngine, Series, ImaPoint, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeCanvas, TeEngine, Series, ImaPoint, TeeProcs, Chart;
 
 type
   TImagePointForm = class(TBaseForm)

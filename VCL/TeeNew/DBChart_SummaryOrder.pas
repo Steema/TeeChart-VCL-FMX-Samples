@@ -13,8 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base_DBChart, TeeProcs, TeEngine, Chart, DBChart, TeCanvas, DB, DBTables,
-  Series;
+  Base_DBChart, TeeProcs, TeEngine, Chart, DBChart, DB, DBTables,
+  Series, TeCanvas, TeePenDlg;
 
 type
   TDBSummaryOrder = class(TBaseDBChart)

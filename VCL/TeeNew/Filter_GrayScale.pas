@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeeFilters, TeCanvas,
-  TeeAntiAlias;
+  TeeAntiAlias, TeePenDlg;
 
 type
   TFilterGrayScale = class(TBaseForm)

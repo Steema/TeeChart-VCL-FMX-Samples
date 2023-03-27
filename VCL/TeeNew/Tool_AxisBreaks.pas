@@ -167,7 +167,7 @@ end;
 
 procedure TTool_AxisBreaksForm.BBrushClick(Sender: TObject);
 begin
-  EditChartBrush(Self,a.Brush);
+  TBrushDialog.Edit(Self,a.Brush);
 end;
 
 procedure TTool_AxisBreaksForm.Chart1AfterDraw(Sender: TObject);

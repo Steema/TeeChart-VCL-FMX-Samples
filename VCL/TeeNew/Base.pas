@@ -13,9 +13,6 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  {$IFNDEF CLX}
-  TeeGDIPlus,
-  {$ENDIF}
   TeEngine, Series, TeeProcs, Chart;
 
 type
@@ -50,7 +47,7 @@ Uses
   TeeOpenGL,
   TeeAntiAlias,
   {$ENDIF}
-  TeCanvas, TeeGLCanvas, EditChar;
+  TeCanvas, TeeGLCanvas, EditChar, TeeGDIPlus;
 
 // Trick:
 // Double-clicking any Memo on any form shows the chart editor

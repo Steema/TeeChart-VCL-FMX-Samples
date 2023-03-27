@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeePoin3, Series, TeeProcs, Chart, TeeComma,
-  TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeePoin3, Series, TeeProcs, Chart, TeeComma;
 
 type
   TPoint3DEvent = class(TBaseForm)

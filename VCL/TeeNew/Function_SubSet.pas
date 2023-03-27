@@ -16,7 +16,7 @@ uses
   Buttons,
   {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeeSubsetEditor, TeCanvas,
-  TeeFunci;
+  TeeFunci, TeePenDlg;
 
 type
   TSubSetFunctionForm = class(TBaseForm)

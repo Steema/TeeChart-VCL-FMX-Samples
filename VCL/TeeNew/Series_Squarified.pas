@@ -8,7 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, TeeGDIPlus, TeeProcs, TeEngine, Chart, StdCtrls, ExtCtrls,
+  Dialogs, TeeProcs, TeEngine, Chart, StdCtrls, ExtCtrls,
   Base, TeeSquarifiedMap;
 
 type

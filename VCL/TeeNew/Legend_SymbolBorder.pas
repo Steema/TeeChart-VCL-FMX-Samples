@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeCanvas, TeePenDlg, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, Series, TeCanvas, TeePenDlg, TeeProcs, Chart;
 
 type
   TLegendSymbolBorder = class(TBaseForm)

@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeDownSampling, Series, TeCanvas;
+  Base, TeeProcs, TeEngine, Chart, TeeDownSampling, Series, TeCanvas,
+  TeePenDlg;
 
 type
   TDownSampling = class(TBaseForm)

@@ -10,9 +10,9 @@ uses
   SysUtils, Classes, ExtCtrls, StdCtrls, ComCtrls,
   Graphics, Controls, Forms, Dialogs, Base,
 
-  TeeGDIPlus, TeeProcs, TeEngine, Chart, Series,
+  TeeProcs, TeEngine, Chart, Series,
 
-  CurvFitt;  // <-- CurvFitt is the unit with TLagrandeFunction
+  CurvFitt;  // <-- CurvFitt is the unit with TLagrangeFunction
 
 type
   TLagrange_Function = class(TBaseForm)

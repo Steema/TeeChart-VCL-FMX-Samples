@@ -16,7 +16,7 @@ uses
   {$IFNDEF LINUX}
   Jpeg,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeePolar, TeeRose, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeePolar, TeeRose;
 
 type
   TLegendImage = class(TBaseForm)

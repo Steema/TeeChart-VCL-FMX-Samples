@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeePolar, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, Series, TeePolar, TeeProcs, Chart;
 
 type
   TAssignPicture = class(TBaseForm)

@@ -34,9 +34,12 @@ implementation
 {$R *.xfm}
 {$ENDIF}
 
+uses
+  TeePenDlg;
+  
 procedure TEditorColor.Button1Click(Sender: TObject);
 begin
-  Chart1.Color:=EditColor(Self,Chart1.Color);
+  Chart1.Color:=TButtonColor.Edit(Self,Chart1.Color);
 end;
 
 procedure TEditorColor.FormCreate(Sender: TObject);

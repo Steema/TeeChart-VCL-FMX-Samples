@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeComma, TeeEdiGrad,
-  TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeComma, TeeEdiGrad;
 
 type
   TCommanderGradient = class(TBaseForm)

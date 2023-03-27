@@ -47,7 +47,7 @@ end;
 procedure TLegendGenFormat.FormShow(Sender: TObject);
 begin
   inherited;
-  InsertTeeObjectForm(PageControl1,Chart1.Legend).RefreshControls(Chart1.Legend);
+  TFormTeeShape.InsertObjectForm(PageControl1,Chart1.Legend).RefreshControls(Chart1.Legend);
 end;
 
 initialization

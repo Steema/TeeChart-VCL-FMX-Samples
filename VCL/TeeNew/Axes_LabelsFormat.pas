@@ -74,7 +74,7 @@ begin
     Free;
   end;
 
-//  EditTeeCustomShape(Self,LabelsFormat);
+//  TFormTeeShape.Edit(Self,LabelsFormat);
 end;
 
 procedure TAxesLabelsFormat.FormCreate(Sender: TObject);

@@ -14,7 +14,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeeProcs, Chart;
 
 const
   // Hard coded values for this specific format

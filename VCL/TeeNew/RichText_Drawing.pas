@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, ComCtrls, StdCtrls, RichEdit,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart;
 
 type
   TRichTextDrawing = class(TBaseForm)

@@ -16,7 +16,7 @@ uses
   {$IFNDEF LINUX}
   Jpeg,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart;
 
 type
   TBackWallImage = class(TBaseForm)
@@ -59,7 +59,7 @@ end;
 
 procedure TBackWallImage.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Chart1.BackWall.Brush)
+  TBrushDialog.Edit(Self,Chart1.BackWall.Brush)
 end;
 
 initialization

@@ -15,7 +15,7 @@ uses
   {$ENDIF}
   jpeg,
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, Buttons, CandleCh,
-  TeeFiltersEditor, TeeFilters, TeeGDIPlus;
+  TeeFiltersEditor, TeeFilters;
 
 
 type
@@ -67,7 +67,7 @@ end;
 
 procedure TColorBandPictureForm.bFiltersClick(Sender: TObject);
 begin
-  ShowFiltersEditor(Self,Charttool1.Picture);
+  TFiltersEditor.ShowEditor(Self,Charttool1.Picture);
 end;
 
 procedure TColorBandPictureForm.bEditClick(Sender: TObject);

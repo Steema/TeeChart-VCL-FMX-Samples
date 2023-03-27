@@ -14,7 +14,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, ArrowCha, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, ArrowCha;
 
 type
   TSeriesArrowPercent = class(TBaseForm)

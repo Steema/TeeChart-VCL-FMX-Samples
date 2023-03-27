@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeCanvas, Series, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, TeCanvas, Series, TeePenDlg;
 
 type
   TBeveledAxes = class(TBaseForm)

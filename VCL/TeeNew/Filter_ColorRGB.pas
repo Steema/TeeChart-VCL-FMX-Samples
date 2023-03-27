@@ -90,7 +90,7 @@ end;
 
 procedure TFilterColorRGB.bFiltersClick(Sender: TObject);
 begin
-  if ShowFiltersEditor(Self,AntialiasTool.Bitmap,AntialiasTool.Filters) then
+  if TFiltersEditor.ShowEditor(Self,AntialiasTool.Bitmap,AntialiasTool.Filters) then
      AntialiasTool.Repaint;
 end;
 

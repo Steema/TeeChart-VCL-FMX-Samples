@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeeProcs, Chart;
 
 type
   TColorGridRealtime = class(TBaseForm)

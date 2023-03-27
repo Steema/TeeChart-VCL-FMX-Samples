@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart;
 
 type
   TCanvas180Rotation = class(TBaseForm)

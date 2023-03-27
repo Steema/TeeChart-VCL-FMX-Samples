@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, OHLChart, CandleCh, TeeProcs, Chart, TeCanvas,
-  TeeGDIPlus;
+  Base, TeEngine, Series, OHLChart, CandleCh, TeeProcs, Chart, TeCanvas;
 
 type
   TLegendWidths = class(TBaseForm)

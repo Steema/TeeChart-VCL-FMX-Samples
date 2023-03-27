@@ -11,7 +11,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeePenDlg;
 
 type
   TBarMarksOnBarForm = class(TBaseForm)

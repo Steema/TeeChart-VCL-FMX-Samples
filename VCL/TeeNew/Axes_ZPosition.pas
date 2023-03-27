@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeePenDlg;
 
 type
   TAxesZPosition = class(TBaseForm)

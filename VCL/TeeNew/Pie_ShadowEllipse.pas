@@ -16,7 +16,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeGDIPlus, TeeTools;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeTools,
+  TeePenDlg;
 
 type
   TPieShadowEllipse = class(TBaseForm)

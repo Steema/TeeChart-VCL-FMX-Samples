@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeePenDlg;
 
 type
   TMarksCallouts = class(TBaseForm)

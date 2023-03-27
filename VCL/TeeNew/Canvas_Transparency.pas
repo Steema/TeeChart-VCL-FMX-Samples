@@ -16,7 +16,7 @@ uses
   {$IFNDEF LINUX}
   Jpeg,
   {$ENDIF}
-  Base, TeEngine, Series, BubbleCh, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, Series, BubbleCh, TeeProcs, Chart;
 
 type
   TTransparencyForm = class(TBaseForm)

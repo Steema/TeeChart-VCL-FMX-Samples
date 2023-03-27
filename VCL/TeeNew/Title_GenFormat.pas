@@ -47,7 +47,7 @@ end;
 procedure TTitleGenFormat.FormShow(Sender: TObject);
 begin
   inherited;
-  InsertTeeObjectForm(PageControl1,Chart1.Title).RefreshControls(Chart1.Title);
+  TFormTeeShape.InsertObjectForm(PageControl1,Chart1.Title).RefreshControls(Chart1.Title);
 end;
 
 initialization

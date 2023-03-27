@@ -54,7 +54,7 @@ end;
 
 procedure TZoomPen.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Chart1.Zoom.Brush);
+  TBrushDialog.Edit(Self,Chart1.Zoom.Brush);
 end;
 
 initialization

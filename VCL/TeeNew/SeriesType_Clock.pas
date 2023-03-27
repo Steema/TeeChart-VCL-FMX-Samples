@@ -18,7 +18,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeePolar, TeeRose, TeeProcs, Chart,
-  TeeGDIPlus, TeeNumericGauge, TeeLinearGauge, TeeCircularGauge;
+  TeeNumericGauge, TeeLinearGauge, TeeCircularGauge;
 
 type
   TClockSeriesForm = class(TBaseForm)

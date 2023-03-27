@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeComma, TeCanvas,
-  TeeDataTableTool, TeeGDIPlus;
+  TeeDataTableTool;
 
 type
   TAreaSalesPrice = class(TBaseForm)

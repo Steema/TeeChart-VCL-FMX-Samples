@@ -39,7 +39,7 @@ uses
 
 procedure TEditorFontsTab.Button1Click(Sender: TObject);
 begin
-  EditTeeFontEx(Self,Chart1.Axes.Left.LabelsFont);
+  TTeeFontEditor.Edit(Self,Chart1.Axes.Left.LabelsFont);
 end;
 
 initialization

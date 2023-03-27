@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeCanvas, TeEngine, Series, TeeProcs, Chart;
 
 type
   TCanvasUnicodeTextOut = class(TBaseForm)

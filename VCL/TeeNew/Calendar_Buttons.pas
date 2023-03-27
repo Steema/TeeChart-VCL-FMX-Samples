@@ -18,8 +18,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons,
   {$ENDIF}
-  Base, TeEngine, TeeCalendar, TeeProcs, Chart, TeCanvas, EditChar,
-  TeeGDIPlus;
+  Base, TeEngine, TeeCalendar, TeeProcs, Chart, TeCanvas, EditChar;
 
 type
   TCalendarButtons = class(TBaseForm)

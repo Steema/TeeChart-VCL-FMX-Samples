@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  TeeProcs, TeEngine, Chart, TeeEdit, TeeGDIPlus;
+  TeeProcs, TeEngine, Chart, TeeEdit;
 
 type
   TBasicFeatures = class(TForm)

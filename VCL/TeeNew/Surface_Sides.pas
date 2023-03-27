@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeeSurfa, TeeGDIPlus {, TeeGDIPlus};
+  Base, TeeProcs, TeEngine, Chart, Series, TeeSurfa {};
 
 type
   TSurfaceSides = class(TBaseForm)
@@ -59,7 +59,7 @@ end;
 
 procedure TSurfaceSides.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Series1.SideBrush);
+  TBrushDialog.Edit(Self,Series1.SideBrush);
 end;
 
 initialization

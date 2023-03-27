@@ -14,7 +14,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeOpenGL, TeeTools;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeOpenGL, TeeTools,
+  TeePenDlg;
 
 type
   TAxisLineModeForm = class(TBaseForm)

@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeePoin3, TeeProcs, Chart, TeCanvas, TeeTools,
-  TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeePoin3, TeeProcs, Chart, TeCanvas, TeeTools;
 
 type
   TXYZGridding = class(TBaseForm)

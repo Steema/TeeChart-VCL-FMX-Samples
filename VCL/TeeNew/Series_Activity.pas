@@ -8,8 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, Base, TeeGDIPlus, TeEngine, TeeTools, Series, TeeDonut,
-  TeeActivityGauge, TeeProcs, Chart, ExtCtrls, StdCtrls, TeeActivityDonut;
+  Dialogs, Base, TeEngine, TeeTools, Series, TeeDonut,
+  TeeActivityGauge, TeeProcs, Chart, ExtCtrls, StdCtrls;
 
 type
   TActivitySeriesForm = class(TBaseForm)

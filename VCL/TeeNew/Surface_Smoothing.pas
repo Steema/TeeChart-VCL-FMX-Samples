@@ -13,8 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeTools, TeeOpenGL,
-  TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeTools, TeeOpenGL;
 
 type
   TSurfaceSmoothing = class(TBaseForm)

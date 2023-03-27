@@ -15,7 +15,7 @@ uses
   {$ENDIF}
   jpeg,
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeSurfa,
-  TeeLegendPalette, TeeGDIPlus;
+  TeeLegendPalette;
 
 type
   TLegendPaletteToolForm = class(TBaseForm)

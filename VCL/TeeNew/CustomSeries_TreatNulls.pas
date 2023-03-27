@@ -14,7 +14,8 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart,
-  TeePolar, TeeAntiAlias, TeePolarGrid, TeeRose, TeeWindRoseEditor;
+  TeePolar, TeeAntiAlias, TeePolarGrid, TeeRose, TeeWindRoseEditor,
+  TeePenDlg;
 
 type
   TCustomSeriesTreatNulls = class(TBaseForm)

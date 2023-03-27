@@ -22,7 +22,7 @@ uses
   {$IFNDEF CLX}
   jpeg,
   {$ENDIF}
-  TeeProcs, Chart, TeeOpenGL, TeeGDIPlus;
+  TeeProcs, Chart, TeeOpenGL;
 
 type
   TColorGridBitmap = class(TBaseForm)

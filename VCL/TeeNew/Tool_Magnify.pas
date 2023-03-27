@@ -13,9 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeeTools,TeeMagnifyTool,
-  TeeGDIPlus;
-
+  Base, TeEngine, Series, TeeProcs, Chart, TeeTools,TeeMagnifyTool;
 
 type
   TMagnifyToolForm = class(TBaseForm)

@@ -18,7 +18,7 @@ uses
 
   jpeg,
   
-  TeeFilters, TeeGDIPlus;
+  TeeFilters;
 
 type
   TFilterHueLumSat = class(TBaseForm)

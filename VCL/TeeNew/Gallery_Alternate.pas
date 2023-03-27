@@ -38,7 +38,7 @@ procedure TGalleryAlternate.FormShow(Sender: TObject);
 begin
   Gallery:=TTeeGalleryForm.Create(Self);
   Gallery.Align:=alClient;
-  AddFormTo(Gallery,Self);
+  TTeeVCL.AddFormTo(Gallery,Self);
 end;
 
 procedure TGalleryAlternate.FormDestroy(Sender: TObject);

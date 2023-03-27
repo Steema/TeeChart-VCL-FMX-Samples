@@ -75,7 +75,7 @@ end;
 
 procedure TPolarZones.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Series1.CircleGradient);
+  TTeeGradientEditor.Edit(Self,Series1.CircleGradient);
 end;
 
 procedure TPolarZones.CheckBox1Click(Sender: TObject);

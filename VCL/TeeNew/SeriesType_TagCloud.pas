@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls,
   {$ENDIF}
   Base, TeEngine, TeeTools, TeeSurfa, TeeTagCloud, TeeProcs, Chart,
-  TeeEdiFont, TeCanvas;
+  TeeEdiFont, TeCanvas, TeePenDlg;
 
 type
   TSeriesTagCloud = class(TBaseForm)
@@ -53,7 +53,7 @@ implementation
 
 procedure TSeriesTagCloud.Button1Click(Sender: TObject);
 begin
-  EditTeeFontEx(Self,Series1.Font);
+  TTeeFontEditor.Edit(Self,Series1.Font);
 end;
 
 procedure TSeriesTagCloud.Edit1Change(Sender: TObject);

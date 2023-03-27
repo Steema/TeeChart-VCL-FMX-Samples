@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, 
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
 
 type
   TIsometricAxis = class(TBaseForm)

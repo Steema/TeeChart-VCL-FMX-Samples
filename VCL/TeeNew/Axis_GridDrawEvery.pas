@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, BubbleCh, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, BubbleCh,
+  TeePenDlg;
 
 type
   TAxisGridDrawEveryForm = class(TBaseForm)

@@ -53,12 +53,12 @@ end;
 
 procedure THighLowForm.Button1Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Series1.HighBrush);
+  TBrushDialog.Edit(Self,Series1.HighBrush);
 end;
 
 procedure THighLowForm.Button2Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Series1.LowBrush);
+  TBrushDialog.Edit(Self,Series1.LowBrush);
 end;
 
 initialization

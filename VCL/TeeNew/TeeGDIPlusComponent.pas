@@ -14,7 +14,8 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   {$ENDIF}
   TeEngine, Series, TeeProcs, Chart, TeeTools, TeeComma, TeCanvas,
-  Base, TeeNumericGauge, TeeLinearGauge, TeeCircularGauge, TeeGDIPlus;
+  Base, TeeNumericGauge, TeeLinearGauge, TeeCircularGauge,
+  TeePenDlg, TeeGDIPlus;
 
 // Sample project showing the TTeeGDIPlus to render TeeChart
 // controls using Microsoft GDI+ Plus dlls.

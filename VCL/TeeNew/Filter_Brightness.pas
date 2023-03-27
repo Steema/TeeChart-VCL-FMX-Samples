@@ -17,7 +17,7 @@ uses
 
   jpeg,
 
-  TeeFilters, TeeGDIPlus;
+  TeeFilters;
 
 type
   TFilterBrightness = class(TBaseForm)

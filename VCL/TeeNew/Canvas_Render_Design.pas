@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, Series, BubbleCh, TeeProcs, Chart, TeeTools, TeeSubChart,
-  TeeThemes, TeeComma, TeCanvas, TeeGDIPlus, TeeSurfa;
+  TeeThemes, TeeComma, TeCanvas, TeeSurfa;
 
 type
   TCanvasRenderDesign = class(TBaseForm)

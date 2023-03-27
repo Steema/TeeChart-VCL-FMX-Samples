@@ -17,7 +17,7 @@ uses
   {$IFDEF D17}
   System.Types,
   {$ENDIF}
-  TeeProcs, TeeDraw3D, TeeComma, TeeOpenGL, TeeGLCanvas, TeeGDIPlus;
+  TeeProcs, TeeDraw3D, TeeComma, TeeOpenGL, TeeGLCanvas;
 
 type
   TDraw3DCanvas = class(TForm)

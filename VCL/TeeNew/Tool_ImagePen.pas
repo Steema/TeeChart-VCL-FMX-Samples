@@ -17,7 +17,7 @@ uses
 
   jpeg,
 
-  TeeTools, GanttCh, TeeGDIPlus;
+  TeeTools, GanttCh;
 
 type
   TToolImagePen = class(TBaseForm)

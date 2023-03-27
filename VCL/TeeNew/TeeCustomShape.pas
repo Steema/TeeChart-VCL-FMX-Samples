@@ -16,7 +16,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart;
 
 type
   TCustomShape = class(TBaseForm)
@@ -93,7 +93,7 @@ end;
 
 procedure TCustomShape.Button1Click(Sender: TObject);
 begin
-  EditTeeCustomShape(Self,Shape);
+  TFormTeeShape.Edit(Self,Shape);
 end;
 
 procedure TCustomShape.ScrollBar1Change(Sender: TObject);

@@ -52,7 +52,7 @@ end;
 
 procedure TBackWallGradient.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Chart1.BackWall.Gradient);
+  TTeeGradientEditor.Edit(Self,Chart1.BackWall.Gradient);
 end;
 
 procedure TBackWallGradient.CheckBox2Click(Sender: TObject);

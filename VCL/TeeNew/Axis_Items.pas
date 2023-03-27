@@ -105,7 +105,7 @@ end;
 
 procedure TAxisItemsDemo.Button1Click(Sender: TObject);
 begin
-  EditTeeCustomShape(Self,Chart1.Axes.Left.Items[UpDown1.Position].Format);
+  TFormTeeShape.Edit(Self,Chart1.Axes.Left.Items[UpDown1.Position].Format);
 end;
 
 procedure TAxisItemsDemo.SetDemoControls;

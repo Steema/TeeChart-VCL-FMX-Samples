@@ -47,7 +47,7 @@ end;
 procedure TMarksGenFormat.FormShow(Sender: TObject);
 begin
   inherited;
-  InsertTeeObjectForm(PageControl1,Series1.Marks).RefreshControls(Series1.Marks);
+  TFormTeeShape.InsertObjectForm(PageControl1,Series1.Marks).RefreshControls(Series1.Marks);
 end;
 
 initialization

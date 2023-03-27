@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series;
 
 type
   TAreaGradient = class(TBaseForm)
@@ -43,7 +43,7 @@ Uses TeeEdiGrad;
 
 procedure TAreaGradient.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Series1.AreaChartBrush.Gradient);
+  TTeeGradientEditor.Edit(Self,Series1.AreaChartBrush.Gradient);
 end;
 
 procedure TAreaGradient.FormCreate(Sender: TObject);

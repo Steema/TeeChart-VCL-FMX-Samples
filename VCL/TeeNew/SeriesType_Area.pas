@@ -16,7 +16,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeCanvas, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeCanvas;
 
 type
   TAreaSeriesForm = class(TBaseForm)

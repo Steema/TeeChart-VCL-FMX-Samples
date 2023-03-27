@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, Series, OHLChart, CandleCh, TeeProcs, Chart, TeCanvas,
-  TeeGDIPlus, TeeTools;
+  TeeTools;
 
 type
   TCandleOnGetPointer = class(TBaseForm)

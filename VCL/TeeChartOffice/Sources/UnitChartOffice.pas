@@ -85,7 +85,8 @@ uses
   TeeLighting, TeeLegendScrollbar, TeeDesignOptions, TeeFilters,
   TeeToolsGalleryDemos, TeeWorldSeriesEditor, TeeGDIPlus,
   TeeClusteringToolEditor, TeeImportData,
-  TeeAnimate, TeeAnimations, TeeSurfa, TeeLegendPalette, DB;
+  TeeAnimate, TeeAnimations, TeeSurfa, TeeLegendPalette, DB,
+  TeePenDlg;
 
 type
   {$IFDEF CLX}
@@ -966,9 +967,9 @@ Uses
 
      TeePCX, TeeGLEditor, TeeJPEG, TeeGIF, TeePNG, TeePDFCanvas,
 
-     TeeDBEdit, TypInfo, TeePenDlg, TeeConst, TeeEdiGrad, TeeProCo,
+     TeeDBEdit, TypInfo, TeeConst, TeeEdiGrad, TeeProCo,
      TeeBrushDlg, TeeEdiTitl, TeeAnnToolEdit,
-     TeeExpForm, TeeDragPoint, TeeSourceEdit, TeeGally,
+     TeeExpForm, TeeDragPoint, TeeSourceEdit, TeeGally, TeeEdiFont,
 
      { Languages Unit }
      TeeOfficeConstants, TeeChartOfficeConstants,
@@ -3131,7 +3132,7 @@ end;
 
 procedure TMainForm.SBOutlineClick(Sender: TObject);
 begin { change the selected Font Outline pen }
-  if EditChartPen(Self,IPanelFont.OutLine) then
+  if TPenDialog.Edit(Self,IPanelFont.OutLine) then
      TeeModified;
 end;
 
@@ -3176,7 +3177,7 @@ Function TMainForm.DoEditColor(AColor:TColor; Var Changed:Boolean):TColor;
 var tmpOld : TColor;
 begin { show the color dialog. Return Changed parameter }
   tmpOld:=AColor;
-  result:=EditColor(Self,AColor);
+  result:=TButtonColor.Edit(Self,AColor);
   Changed:=result<>tmpOld;
 end;
 
@@ -3662,14 +3663,14 @@ end;
 
 procedure TMainForm.Dividinglines1Click(Sender: TObject);
 begin { toogle Legend dividing lines }
-  if EditChartPen(Self,DBChart1.Legend.DividingLines) then
+  if TPenDialog.Edit(Self,DBChart1.Legend.DividingLines) then
      TeeModified;
 end;
 
 procedure TMainForm.LegendGradientClick(Sender: TObject);
 begin { edit the Legend gradient }
   With DBChart1.Legend do
-  if EditTeeGradient(Self,Gradient) then
+  if TTeeGradientEditor.Edit(Self,Gradient) then
   begin
     if Gradient.Visible then Transparent:=False;
     TeeModified;
@@ -3748,7 +3749,7 @@ end;
 procedure TMainForm.LegendBorderClick(Sender: TObject);
 begin { edit the Legend border pen }
   with DBChart1.Legend do
-  if EditChartPen(Self,Pen) then
+  if TPenDialog.Edit(Self,Pen) then
   begin
     if Pen.Visible then Transparent:=False;
     TeeModified;
@@ -3758,7 +3759,7 @@ end;
 procedure TMainForm.TitleBorderClick(Sender: TObject);
 begin { edit the selected Title border pen }
   With Selector.SelectedTitle do
-  if EditChartPen(Self,Pen) then
+  if TPenDialog.Edit(Self,Pen) then
   begin
     if Pen.Visible then Transparent:=False;
     TeeModified;
@@ -3775,7 +3776,7 @@ end;
 procedure TMainForm.TitleGradientClick(Sender: TObject);
 begin { edit the selected Title Gradient }
   With Selector.SelectedTitle do
-  if EditTeeGradient(Self,Gradient) then
+  if TTeeGradientEditor.Edit(Self,Gradient) then
   begin
     if Gradient.Visible then Transparent:=False;
     TeeModified;
@@ -4031,13 +4032,13 @@ end;
 
 procedure TMainForm.PanelGradientClick(Sender: TObject);
 begin { edit Chart panel gradient... }
-  if EditTeeGradient(Self,DBChart1.Gradient) then
+  if TTeeGradientEditor.Edit(Self,DBChart1.Gradient) then
      TeeModified;
 end;
 
 procedure TMainForm.PanelBorderClick(Sender: TObject);
 begin { edit Chart panel border pen... }
-  if EditChartPen(Self,DBChart1.Border) then
+  if TPenDialog.Edit(Self,DBChart1.Border) then
      TeeModified;
 end;
 
@@ -4124,7 +4125,7 @@ end;
 procedure TMainForm.AnnBorderClick(Sender: TObject);
 begin { edit selected Annotation border }
   with Selector.Annotation.Shape do
-  if EditChartPen(Self,Pen) then
+  if TPenDialog.Edit(Self,Pen) then
   begin
     if Pen.Visible then Transparent:=False;
     TeeModified;
@@ -4151,7 +4152,7 @@ end;
 procedure TMainForm.AnnGradientClick(Sender: TObject);
 begin { edit selected Annotation Gradient }
   With Selector.Annotation.Shape do
-  if EditTeeGradient(Self,Gradient) then
+  if TTeeGradientEditor.Edit(Self,Gradient) then
   begin
     if Gradient.Visible then Transparent:=False;
     TeeModified;
@@ -4209,13 +4210,13 @@ end;
 
 procedure TMainForm.Arrow1Click(Sender: TObject);
 begin { edit Series Marks Arrow pen }
-  if EditChartPen(Self,Selector.Series.Marks.Arrow) then
+  if TPenDialog.Edit(Self,Selector.Series.Marks.Arrow) then
      TeeModified;
 end;
 
 procedure TMainForm.MarksBorderClick(Sender: TObject);
 begin { edit Series Marks border }
-  if EditChartPen(Self,Selector.Series.Marks.Frame) then
+  if TPenDialog.Edit(Self,Selector.Series.Marks.Frame) then
      TeeModified;
 end;
 
@@ -4237,7 +4238,7 @@ end;
 procedure TMainForm.MarksGradientClick(Sender: TObject);
 begin { edit Series Marks Gradient }
   with Selector.Series.Marks do
-  if EditTeeGradient(Self,Gradient) then
+  if TTeeGradientEditor.Edit(Self,Gradient) then
   begin
     if Gradient.Visible then Transparent:=False;
     TeeModified;
@@ -4300,19 +4301,19 @@ end;
 
 procedure TMainForm.Ticks1Click(Sender: TObject);
 begin { edit selected Axis Ticks pen }
-  if EditChartPen(Self,Selector.Part.AAxis.Ticks) then
+  if TPenDialog.Edit(Self,Selector.Part.AAxis.Ticks) then
      TeeModified;
 end;
 
 procedure TMainForm.Grid1Click(Sender: TObject);
 begin { edit selected Axis Grid lines pen }
-  if EditChartPen(Self,Selector.Part.AAxis.Grid) then
+  if TPenDialog.Edit(Self,Selector.Part.AAxis.Grid) then
      TeeModified;
 end;
 
 procedure TMainForm.Axisline1Click(Sender: TObject);
 begin  { edit selected Axis line pen }
-  if EditChartPen(Self,Selector.Part.AAxis.Axis) then
+  if TPenDialog.Edit(Self,Selector.Part.AAxis.Axis) then
      TeeModified;
 end;
 
@@ -4589,7 +4590,7 @@ end;
 
 procedure TMainForm.LegendFontClick(Sender: TObject);
 begin { edit Legend font }
-  if EditTeeFont(Self,DBChart1.Legend.Font) then
+  if TTeeFontEditor.Edit(Self,DBChart1.Legend.Font) then
      TeeModified;
 end;
 
@@ -4636,7 +4637,7 @@ end;
 
 procedure TMainForm.Frame1Click(Sender: TObject);
 begin { edit Chart BackWall border frame pen }
-  if EditChartPen(Self,DBChart1.Frame) then
+  if TPenDialog.Edit(Self,DBChart1.Frame) then
      TeeModified;
 end;
 
@@ -4652,7 +4653,7 @@ end;
 
 procedure TMainForm.AxisFontClick(Sender: TObject);
 begin { edit selected Axis Labels Font }
-  if EditTeeFont(Self,Selector.Part.AAxis.LabelsFont) then
+  if TTeeFontEditor.Edit(Self,Selector.Part.AAxis.LabelsFont) then
      TeeModified;
 end;
 
@@ -4665,7 +4666,7 @@ end;
 
 procedure TMainForm.PopupLineBorderClick(Sender: TObject);
 begin { edit selected series (line,bar,horiz.bar,pie) border }
-  if EditChartPen(Self,Selector.Series.Pen) then
+  if TPenDialog.Edit(Self,Selector.Series.Pen) then
      TeeModified;
 end;
 
@@ -4700,7 +4701,7 @@ end;
 
 procedure TMainForm.WallBorderClick(Sender: TObject);
 begin { edit selected Wall border pen }
-  if EditChartPen(Self,Selector.Wall.Pen) then
+  if TPenDialog.Edit(Self,Selector.Wall.Pen) then
      TeeModified;
 end;
 
@@ -4722,7 +4723,7 @@ end;
 
 procedure TMainForm.WallGradientClick(Sender: TObject);
 begin { edit selected Back Wall gradient }
-  if EditTeeGradient(Self,Selector.Wall.Gradient) then
+  if TTeeGradientEditor.Edit(Self,Selector.Wall.Gradient) then
   begin
     if Selector.Wall.Gradient.Visible then
        Selector.Wall.Transparent:=False;
@@ -4769,7 +4770,7 @@ end;
 
 procedure TMainForm.PopupLinePatternClick(Sender: TObject);
 begin { edit selected Series pattern Brush }
-  if EditChartBrush(Self,Selector.Series.Brush) then
+  if TBrushDialog.Edit(Self,Selector.Series.Brush) then
      TeeModified;
 end;
 
@@ -4802,7 +4803,7 @@ end;
 
 procedure TMainForm.BarGradientClick(Sender: TObject);
 begin { edit selected Bar Gradient }
-  if EditTeeGradient(Self,TCustomBarSeries(Selector.Series).Gradient,True,True) then
+  if TTeeGradientEditor.Edit(Self,TCustomBarSeries(Selector.Series).Gradient,True,True) then
      TeeModified;
 end;
 
@@ -4833,7 +4834,7 @@ end;
 
 procedure TMainForm.AxisMinorGridClick(Sender: TObject);
 begin { edit Axis Minor Grid pen... }
-  if EditChartPen(Self,Selector.Part.AAxis.MinorGrid) then
+  if TPenDialog.Edit(Self,Selector.Part.AAxis.MinorGrid) then
      TeeModified;
 end;
 
@@ -5039,7 +5040,9 @@ begin { convert the Chart to text format }
         tmp:=TChartPreview.Create(Self);
         tmp.BClose.Hide;
         tmp.TeePreviewPanel1.Panel:=DBChart1;
-        AddFormTo(tmp,TabPrint);
+
+        TTeeVCL.AddFormTo(tmp,TabPrint);
+
         tmp.Align:=alClient;
       finally
         Screen.Cursor:=crDefault;
@@ -5233,7 +5236,7 @@ end;
 
 procedure TMainForm.PopupLineOutlineClick(Sender: TObject);
 begin { edit selected line series outline border }
-  if EditChartPen(Self,TLineSeries(Selector.Series).OutLine) then
+  if TPenDialog.Edit(Self,TLineSeries(Selector.Series).OutLine) then
      TeeModified;
 end;
 
@@ -5306,19 +5309,19 @@ end;
 
 procedure TMainForm.MarksFontClick(Sender: TObject);
 begin  { edit selected Series Marks font }
-  if EditTeeFont(Self,Selector.Series.Marks.Font) then
+  if TTeeFontEditor.Edit(Self,Selector.Series.Marks.Font) then
      TeeModified;
 end;
 
 procedure TMainForm.TitleFontClick(Sender: TObject);
 begin  { edit selected Title font }
-  if EditTeeFont(Self,Selector.SelectedTitle.Font) then
+  if TTeeFontEditor.Edit(Self,Selector.SelectedTitle.Font) then
      TeeModified;
 end;
 
 procedure TMainForm.AnnoFontClick(Sender: TObject);
 begin { edit selected Annotation font }
-  if EditTeeFont(Self,Selector.Annotation.Shape.Font) then
+  if TTeeFontEditor.Edit(Self,Selector.Annotation.Shape.Font) then
      TeeModified;
 end;
 
@@ -5765,7 +5768,7 @@ end;
 
 procedure TMainForm.extfont1Click(Sender: TObject);
 begin
-  EditTeeFont(Self,ChartGrid1.Font);
+  TTeeFontEditor.Edit(Self,ChartGrid1.Font);
 
   with TBitmap.Create,Canvas do
   try
@@ -5960,7 +5963,7 @@ begin
 
     tmpFunc.ChartGalleryPanel1.FunctionsVisible:=True;
 
-    AddFormTo(tmpFunc,TabFunctions);
+    TTeeVCL.AddFormTo(tmpFunc,TabFunctions);
     tmpFunc.Align:=alClient;
   end
   else
@@ -6078,8 +6081,8 @@ begin
     IGrid.Align:=alClient;
 
     IGrid.CBFormatChange(IGrid);
-    
-    AddFormTo(IGrid,TabSheet1);
+
+    TTeeVCL.AddFormTo(IGrid,TabSheet1);
   end;
 end;
 

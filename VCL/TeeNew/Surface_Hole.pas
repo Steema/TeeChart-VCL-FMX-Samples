@@ -15,7 +15,7 @@ uses
   Buttons,
   {$ENDIF}
   SysUtils, Classes,
-  TeEngine, TeeSurfa, TeeProcs, Chart, TeeComma, TeeGDIPlus;
+  TeEngine, TeeSurfa, TeeProcs, Chart, TeeComma;
 
 type
   TSurfaceHolesForm = class(TForm)

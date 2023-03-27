@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   ExtDlgs,
   {$ENDIF}
-  Base, TeEngine, Series, ImaPoint, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, Series, ImaPoint, TeeProcs, Chart;
 
 type
   TDeltaPointForm = class(TBaseForm)

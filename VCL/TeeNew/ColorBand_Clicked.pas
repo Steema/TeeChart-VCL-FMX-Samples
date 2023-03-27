@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeTools, TeeProcs, Chart, TeeGDIPlus;
+  Base, TeEngine, TeeTools, TeeProcs, Chart;
 
 type
   TColorBandClicked = class(TBaseForm)

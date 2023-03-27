@@ -18,7 +18,7 @@ uses
   TeEngine, Series, TeeProcs,
   Chart, TeeTree, TeCanvas, TeePoin3, TeeComma, TeeOpenGL,
   TeeThemeEditor, EditChar, TeeMapSeries, TeeTools, TeeLinkTool, TeeSurfa,
-  TeeGDIPlus, TeePrevi;
+  TeePrevi, TeePenDlg, TeeGDIPlus;
 
 type
   TClusteringDemo = class(TForm)

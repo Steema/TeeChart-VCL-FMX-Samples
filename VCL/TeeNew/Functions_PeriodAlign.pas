@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, StatChar;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, StatChar,
+  TeePenDlg;
 
 type
   TFunctionsPeriod = class(TBaseForm)

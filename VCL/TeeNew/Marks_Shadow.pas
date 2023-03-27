@@ -64,7 +64,7 @@ procedure TMarksShadow.Shape1MouseUp(Sender: TObject; Button: TMouseButton;
 begin
   With Shape1.Brush do
   begin
-    Color:=EditColor(Self,Color);
+    Color:=TButtonColor.Edit(Self,Color);
     Series1.Marks.Shadow.Color:=Color;
   end;
 end;

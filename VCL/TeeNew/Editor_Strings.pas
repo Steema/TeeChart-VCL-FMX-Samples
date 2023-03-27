@@ -43,7 +43,7 @@ var tmp : string;
 begin
   tmp:=ChartTool1.Text;
 
-  if TeeEditStrings(Self,tmp) then
+  if TStringsEditor.Edit(Self,tmp) then
      ChartTool1.Text:=tmp;
 end;
 

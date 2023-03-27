@@ -11,8 +11,8 @@ uses
   {$IFDEF D6}
   Types,
   {$ENDIF}
-  Dialogs, TeeGDIPlus, StdCtrls, TeCanvas, TeeProcs, TeEngine, Chart,
-  ExtCtrls, TeeSquarifiedMap, TeeEdit, Base;
+  Dialogs, StdCtrls, TeCanvas, TeeProcs, TeEngine, Chart,
+  ExtCtrls, TeeSquarifiedMap, TeeEdit, Base, TeePenDlg;
 
 type
   TSquarifiedFileSystem = class(TBaseForm)

@@ -14,10 +14,6 @@ uses
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   {$ENDIF}
 
-  {$IFNDEF CLX}
-  TeeGDIPlus,
-  {$ENDIF}
-
   Base, TeEngine, Series, TeeDonut, TeeProcs, Chart, TeCanvas;
 
 type
@@ -50,7 +46,8 @@ implementation
 {$R *.xfm}
 {$ENDIF}
 
-uses TeeEdiGrad;
+uses
+  TeeEdiGrad, TeeGDIPlus;
 
 procedure TPieLightingForm.CBEdgeStyleChange(Sender: TObject);
 begin

@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ActnList,
   {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeSurfa, TeeChartActions, TeeTools,
-  TeeLegendPalette, TeeGDIPlus;
+  TeeLegendPalette;
 
 type
   TRotationCenter = class(TBaseForm)

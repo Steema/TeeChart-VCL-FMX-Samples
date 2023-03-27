@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, TeeEdit, TeeLisB, TeCanvas, Series, TeeEditCha;
+  Base, TeeProcs, TeEngine, Chart, TeeEdit, TeeLisB, TeCanvas, Series, TeeEditCha,
+  TeePenDlg;
 
 type
   TSeriesGroupsForm = class(TBaseForm)

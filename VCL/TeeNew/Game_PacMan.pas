@@ -28,7 +28,7 @@ uses
   Menus, Buttons,
   {$ENDIF}
   Base, IniFiles, TeeProcs, TeEngine, Chart, Series, BubbleCh,
-  TeePenDlg, EditChar, TeeGDIPlus;
+  TeePenDlg, EditChar;
 
 Const MaxMonsters=20;
 

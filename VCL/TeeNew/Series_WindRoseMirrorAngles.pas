@@ -13,7 +13,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeePolar, TeeRose;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeePolar, TeeRose,
+  TeePenDlg;
 
 type
   TSeriesWindRoseMirrorAngles = class(TBaseForm)

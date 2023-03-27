@@ -15,8 +15,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart,
-  TeeTools, CandleCh, OHLChart, TeCanvas, TeePenDlg, TeeBrushDlg,
-  TeeGDIPlus;
+  TeeTools, CandleCh, OHLChart, TeCanvas, TeePenDlg, TeeBrushDlg;
 
 type
   TSeriesTypeDarvas = class(TBaseForm)
@@ -107,7 +106,7 @@ end;
 
 procedure TSeriesTypeDarvas.Button2Click(Sender: TObject);
 begin
-  EditChartBrush(Self,Darvas.BoxBrush);
+  TBrushDialog.Edit(Self,Darvas.BoxBrush);
 end;
 
 initialization

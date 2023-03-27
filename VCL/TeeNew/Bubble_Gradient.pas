@@ -53,7 +53,7 @@ end;
 
 procedure TBubbleGradient.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Series1.Pointer.Gradient,True,False)
+  TTeeGradientEditor.Edit(Self,Series1.Pointer.Gradient,True,False)
 end;
 
 // Expand horizontal axis to fit first and last bubble...

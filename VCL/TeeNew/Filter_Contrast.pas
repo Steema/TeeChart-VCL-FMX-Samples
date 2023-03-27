@@ -75,7 +75,7 @@ end;
 
 procedure TFilterContrast.bFiltersClick(Sender: TObject);
 begin
-  if ShowFiltersEditor(Self, ChartTool1.Bitmap, ChartTool1.Filters) then
+  if TFiltersEditor.ShowEditor(Self, ChartTool1.Bitmap, ChartTool1.Filters) then
      ChartTool1.Repaint;
 end;
 

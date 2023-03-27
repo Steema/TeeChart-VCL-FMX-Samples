@@ -36,7 +36,7 @@ uses
   TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeComma, TeeDataSubset,
   TeeCreateFlatFile, TeeTools, TeeAxisScroll,
   TeeBrushdlg, TeeThemes, TeeThemeEditor, TeePNG, TeeJPEG, TeeGIF, Base,
-  TeeGDIPlus;
+  TeePenDlg;
 
 
 // Pending:

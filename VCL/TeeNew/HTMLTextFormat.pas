@@ -10,7 +10,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeeTools, TeeGDIPlus;
+  Base, TeeProcs, TeEngine, Chart, Series, TeeTools;
 
 type
   THTMLTextFormatForm = class(TBaseForm)

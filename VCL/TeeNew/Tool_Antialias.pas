@@ -17,7 +17,7 @@ uses
   jpeg,
 
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeFilters,
-  TeeFiltersEditor, TeeAntiAlias, TeeGDIPlus;
+  TeeFiltersEditor, TeeAntiAlias;
 
 type
   TAntialiasToolForm = class(TBaseForm)

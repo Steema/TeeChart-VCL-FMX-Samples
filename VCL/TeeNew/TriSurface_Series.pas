@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeCanvas, TeEngine, TeeSurfa, TeeTriSurface, TeeProcs,
-  Chart, TeePenDlg, TeeGDIPlus;
+  Chart, TeePenDlg;
 
 type
   TTriSurfaceForm = class(TBaseForm)

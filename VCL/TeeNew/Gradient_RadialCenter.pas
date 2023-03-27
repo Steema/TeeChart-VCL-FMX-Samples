@@ -53,7 +53,7 @@ end;
 
 procedure TGradientRadial.Button1Click(Sender: TObject);
 begin
-  EditTeeGradient(Self,Chart1.Walls.Back.Gradient)
+  TTeeGradientEditor.Edit(Self,Chart1.Walls.Back.Gradient)
 end;
 
 initialization

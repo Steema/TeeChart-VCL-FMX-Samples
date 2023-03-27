@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, CurvFitt, TeEngine, Series, TeeProcs, Chart, TeeGDIPlus;
+  Base, CurvFitt, TeEngine, Series, TeeProcs, Chart;
 
 type
   TCorrelationFunctionDemo = class(TBaseForm)

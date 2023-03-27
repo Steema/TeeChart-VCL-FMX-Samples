@@ -13,7 +13,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeTools, TeeGDIPlus;
+  Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeTools;
 
 type
   TSurfaceFloatOther = class(TBaseForm)

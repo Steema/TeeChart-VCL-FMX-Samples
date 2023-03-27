@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeProcs, Chart, EditChar, TeCanvas, TeeTools,
-  TeeGDIPlus;
+  TeePenDlg;
 
 type
   TTowerSeriesForm = class(TBaseForm)

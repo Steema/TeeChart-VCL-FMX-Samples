@@ -14,7 +14,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools, TeeSurfa;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools, TeeSurfa,
+  TeePenDlg;
 
 type
   TToolRotateInertia_Cursor = class(TBaseForm)
@@ -49,7 +50,7 @@ implementation
 {$ENDIF}
 
 uses
-  EditChar, TeePenDlg, TeeMouseCursor;
+  EditChar, TeeMouseCursor;
 
 procedure TToolRotateInertia_Cursor.FormCreate(Sender: TObject);
 begin

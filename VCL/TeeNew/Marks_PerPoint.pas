@@ -53,7 +53,7 @@ end;
 
 procedure TMarksPerPoint.Button1Click(Sender: TObject);
 begin
-  EditTeeCustomShape(Self,Series1.Marks[UpDown1.Position]);
+  TFormTeeShape.Edit(Self,Series1.Marks[UpDown1.Position]);
 end;
 
 procedure TMarksPerPoint.FormCreate(Sender: TObject);

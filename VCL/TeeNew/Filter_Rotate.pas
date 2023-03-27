@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
   {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeAntiAlias,
-  TeeFilters, TeeDonut;
+  TeeFilters, TeeDonut, TeePenDlg;
 
 type
   TFilterRotate = class(TBaseForm)

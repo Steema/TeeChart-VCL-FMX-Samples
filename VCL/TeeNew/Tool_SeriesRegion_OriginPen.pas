@@ -14,7 +14,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeSeriesRegion,
-  TeCanvas, TeeGDIPlus, TeePenDlg;
+  TeCanvas, TeePenDlg;
 
 
 type

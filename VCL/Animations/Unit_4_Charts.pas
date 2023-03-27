@@ -145,7 +145,7 @@ procedure TFormFourCharts.FormShow(Sender: TObject);
 begin
   IAnims:=TFormTeeAnimations.Create(Self);
   IAnims.Align:=alClient;
-  AddFormTo(IAnims,Panel4,Chart1.Animations);
+  TTeeVCL.AddFormTo(IAnims,Panel4,Chart1.Animations);
 end;
 
 procedure TFormFourCharts.Button2Click(Sender: TObject);

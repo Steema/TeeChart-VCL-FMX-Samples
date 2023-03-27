@@ -66,7 +66,7 @@ uses
    Series_LabelsBinding,
    {$ENDIF}
 
-   Base, TeeGDIPlus;
+   Base, TeePenDlg;
 
 Const
   TeeRegistryKey = '\Software\Steema Software\TeeChart Pro v'+TeeChartVersion+' VCL';
@@ -416,8 +416,9 @@ Uses {$IFDEF LINUX}
      TeeExceptionDialog,
      {$ENDIF}
 
-     EditChar, TeePenDlg, TeeExport, TeeStringsEditor, TeeBrushDlg, TeeImport;
-     
+     EditChar, TeeExport, TeeStringsEditor, TeeBrushDlg,
+     TeeNumericGauge, TeeEdiFont;
+
 Const
   FolderSeparator = {$IFDEF LINUX} '/' {$ELSE} '\' {$ENDIF} ;
 
@@ -1304,7 +1305,7 @@ var tmpDir : String;
 begin
   {$IFNDEF LINUX}
   tmpDir:='';
-  if TeeSelectFolder('Folder with TeeChart Pro v'+TeeChartVersion+
+  if TTeeVCL.SelectFolder('Folder with TeeChart Pro v'+TeeChartVersion+
                      ' Demo Sources','',tmpDir) then
   begin
     StringToRegistry('DemoPath',tmpDir);
@@ -2220,7 +2221,7 @@ begin
          st.Add(NodePathText(Selected));
     end;
 
-    TeeEditStrings(Self,st,True);
+    TStringsEditor.Edit(Self,st,True);
   finally
     st.Free;
   end;
@@ -2234,9 +2235,9 @@ end;
 procedure TTeeNewForm.Font1Click(Sender: TObject);
 begin
   {$IFDEF D12}
-  EditTeeFont(Self,Application.DefaultFont);
+  TTeeFontEditor.Edit(Self,Application.DefaultFont);
   {$ELSE}
-  EditTeeFont(Self,Font);
+  TTeeFontEditor.Edit(Self,Font);
   {$ENDIF}
 end;
 

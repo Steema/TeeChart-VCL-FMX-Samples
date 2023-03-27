@@ -14,7 +14,7 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
   {$ENDIF}
-  Base, TeEngine, Series, TeeProcs, Chart, TeeVolumePipe, TeeGDIPlus;
+  Base, TeEngine, Series, TeeProcs, Chart, TeeVolumePipe;
 
 type
   TSeriesTypeVolumePipe = class(TBaseForm)

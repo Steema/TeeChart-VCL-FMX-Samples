@@ -29,7 +29,6 @@ type
     CBPieExp: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     SelectForm : TSelectListForm;
@@ -97,7 +96,7 @@ begin
     ToList.Style:=lbOwnerDrawFixed;
   end;
 
-  AddFormTo(SelectForm,Self);
+  TTeeVCL.AddFormTo(SelectForm,Self);
 end;
 
 {$IFDEF CLX}
@@ -221,11 +220,6 @@ begin
   Commander.LabelValues:=CBTextHint.Checked;
   Commander.EnablePieExploding:=CBPieExp.Checked;
   TCommanderAccess(Commander).RepositionControls;
-end;
-
-procedure TCommanderEditor.Button1Click(Sender: TObject);
-begin
-
 end;
 
 end.

@@ -16,7 +16,7 @@ uses
   jpeg,
   Base, TeEngine, Series, GanttCh, TeeProcs, Chart, ArrowCha, BubbleCh,
   OHLChart, CandleCh,
-  TeePDFOptions, TeeGDIPlus;  // <-- To show the PDF Export editor dialog
+  TeePDFOptions;  // <-- To show the PDF Export editor dialog
 
 type
   TPDFExportForm = class(TBaseForm)

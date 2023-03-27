@@ -14,7 +14,8 @@ uses
   {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls,
   {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools, TeeLegendScrollBar;
+  Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools, TeeLegendScrollBar,
+  TeePenDlg;
 
 type
   TToolLegendScrollBarThumb = class(TBaseForm)

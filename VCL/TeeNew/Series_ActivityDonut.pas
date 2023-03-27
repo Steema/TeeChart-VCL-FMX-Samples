@@ -13,7 +13,7 @@ uses
   System.UITypes,
   {$ENDIF}
 
-  Dialogs, TeeGDIPlus, TeEngine, TeeTools, Series, TeeDonut, ExtCtrls,
+  Dialogs, TeEngine, TeeTools, Series, TeeDonut, ExtCtrls,
   TeeProcs, Chart, StdCtrls, Base;
 
 type
