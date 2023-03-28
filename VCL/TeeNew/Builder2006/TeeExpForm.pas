@@ -31,10 +31,6 @@ uses
   {$ENDIF}
   Classes,
 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons,
   FileCtrl,
@@ -44,10 +40,6 @@ uses
   DBCtrls,
   {$ENDIF}
   DBTables,
-  {$IFDEF CLX}
-  QDBCtrls,
-  {$ENDIF}
-  {$ENDIF}
   {$ENDIF}
 
   SysUtils,
@@ -171,9 +163,7 @@ type
 
     {$IFNDEF NOUSE_BDE}
     PreviewChart : TDBChart;
-    {$IFNDEF CLX}
     Table1       : TTable;
-    {$ENDIF}
     {$ELSE}
     PreviewChart : TChart;
     {$ENDIF}
@@ -215,11 +205,7 @@ uses {$IFNDEF NOUSE_BDE}
      {$ENDIF}
      TeeAbout, TeeStore, TeeURL, Series, TeePenDlg, Math;
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 { page numbers }
 const
@@ -322,9 +308,7 @@ begin
   RGDatabase.Items.Delete(0);
   {$ELSE}
 
-  {$IFNDEF CLX}
   Table1:=TTable.Create(Self);
-  {$ENDIF}
   {$ENDIF}
 
   SpeedButton1.Visible:=True;
@@ -443,9 +427,6 @@ procedure TTeeDlgWizard.NextClick(Sender: TObject);
 var t       : Integer;
     tmpData : TDataSet;
 {$ENDIF}
-{$IFDEF CLR}
-var tmpChart : TCustomChart;
-{$ENDIF}
 begin
   case PageControl.ActivePage.PageIndex of
     pgStyle:  {$IFNDEF NOUSE_BDE}
@@ -470,9 +451,6 @@ begin
 
                 PageControl.ActivePage := PageControl.Pages[pgFields];
 
-                {$IFDEF CLX}
-                tmpData:=nil;
-                {$ELSE}
                 if StyleBDE then tmpData:=Table1 else
                    {$IFDEF TEEENTERPRISE}
                    tmpData:=ADOQuery
@@ -480,16 +458,13 @@ begin
                    tmpData:=nil
                    {$ENDIF}
                    ;
-                {$ENDIF}
 
                 tmpData.Close;
 
                 if StyleBDE then
                 begin
-                  {$IFNDEF CLX}
                   Table1.DatabaseName:=CBAlias.Text;
                   Table1.TableName:=CBTables.Text;
-                  {$ENDIF}
                 end
                 {$IFDEF TEEENTERPRISE}
                 else
@@ -539,12 +514,7 @@ begin
                     end;
     pgFile : begin
                CreatePreviewChart;
-               {$IFDEF CLR}
-               tmpChart:=TCustomChart(PreviewChart);
-               LoadChart(tmpChart);
-               {$ELSE}
                LoadChart(TCustomChart(PreviewChart));
-               {$ENDIF}
                PageControl.ActivePage := PageControl.Pages[pgPreviewChart];
                CheckPreviewOptions;
              end;
@@ -665,10 +635,8 @@ begin
     begin
       { this should be done BEFORE setting ParentChart ! }
 
-      {$IFNDEF CLR}
       if SubIndex<>-1 then { sub-gallery style... }
          TSeriesAccess(tmpSeries).SetSubGallery(tmpSeries,SubIndex);
-      {$ENDIF}
 
       { now set the Chart... }
       ParentChart:=AChart;
@@ -731,14 +699,10 @@ begin
 
   if Assigned(ATable) then
   begin
-    {$IFDEF CLX}
-    AChart.Title.Text.Add(CBTables.Text);
-    {$ELSE}
     if ATable is TTable then
        AChart.Title.Text.Add(TTable(ATable).TableName)
     else
        AChart.Title.Text.Add(CBTables.Text);
-    {$ENDIF}
 
     if ShowData and (AChart is TDBChart) then TDBChart(AChart).RefreshData;
   end
@@ -781,18 +745,14 @@ end;
 
 procedure TTeeDlgWizard.HelpButtonClick(Sender: TObject);
 begin
-  {$IFNDEF CLX}
   Application.HelpJump('TeeChart_Wizard');  { <-- dont translate }
-  {$ENDIF}
 end;
 
 procedure TTeeDlgWizard.TryChangeFolder(const S:String);
 begin
   {$I-}
   ChDir(S);
-  {$IFNDEF CLR}
   if IOResult<>0 then ;
-  {$ENDIF}
   {$I+}
 end;
 
@@ -840,12 +800,8 @@ begin
 
   if RGDatabase.ItemIndex=0 then
   begin
-    {$IFDEF CLX}
-    tmp:=nil;
-    {$ELSE}
     if StyleBDE then tmp:=Table1
                 else {$IFDEF TEEENTERPRISE}tmp:=ADOQuery{$ELSE}tmp:=nil{$ENDIF}
-    {$ENDIF}
   end
   else
      tmp:=nil;
@@ -875,30 +831,13 @@ begin
 end;
 
 type
-  TGalleryAccess=class(TChartGalleryPanel)
-  {$IFDEF CLR}
-  private
-    procedure DoKeyDown(var Key: Word; Shift: TShiftState);
-  end
-  {$ENDIF}
-  ;
-
-{$IFDEF CLR}
-procedure TGalleryAccess.DoKeyDown(var Key: Word; Shift: TShiftState);
-begin
-  KeyDown(Key,Shift);
-end;
-{$ENDIF}
+  TGalleryAccess=class(TChartGalleryPanel);
 
 procedure TTeeDlgWizard.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if PageControl.ActivePage=TabSheet1 then
-     {$IFDEF CLR}
-     TGalleryAccess(tmpGallery).DoKeyDown(Key,Shift);
-     {$ELSE}
      TGalleryAccess(tmpGallery).KeyDown(Key,Shift);
-     {$ENDIF}
 end;
 
 procedure TTeeDlgWizard.CBTablesChange(Sender: TObject);
@@ -914,9 +853,7 @@ begin
   try
     try
       if StyleBDE then
-         {$IFNDEF CLX}
          Session.GetTableNames(CBAlias.Text,'',True,False,CBTables.Items)
-         {$ENDIF}
       else
       begin
       {$IFDEF TEEENTERPRISE}
@@ -940,18 +877,7 @@ begin
 end;
 
 Function TeeSelectFolder(const Caption,Root:String; var Folder:String):Boolean;
-Var tmpDir : {$IFDEF K3}WideString
-             {$ELSE}
-             {$IFDEF D7}
-               {$IFDEF CLX}
-                  WideString
-               {$ELSE}
-                  String
-               {$ENDIF}
-             {$ELSE}
-               String
-             {$ENDIF}
-             {$ENDIF};
+var tmpDir : String;
 begin
   tmpDir:=Folder;
 
@@ -1017,9 +943,7 @@ begin
 
   if StyleBDE then
   begin
-    {$IFNDEF CLX}
     Session.GetAliasNames(CBAlias.Items);
-    {$ENDIF}
     CBAlias.Text:=BackupDir;
   end
   {$IFDEF TEEENTERPRISE}

@@ -8,12 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls, DB,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, DBTables,
-  {$ENDIF}
-  Base, TeeProcs, TeEngine, Chart, DBChart, Series;
+  Base, TeeProcs, TeEngine, Chart, DBChart, Series, DB;
 
 type
   TBaseDBChart = class(TForm)
@@ -28,10 +24,6 @@ type
     { Public declarations }
   end;
 
-  {$IFDEF CLX}
-  TTable=TDataSet;
-  {$ENDIF}
-
 procedure CheckTable(ATable:TTable);
 
 implementation
@@ -45,15 +37,14 @@ var tmp : TStringList;
 begin
   tmp:=TStringList.Create;
   try
-    {$IFNDEF CLX}
     Session.GetAliasNames(tmp);
+
     if tmp.IndexOf(ATable.DatabaseName)=-1 then
     begin
       if tmp.IndexOf('BCDEMOS')=-1 then
          Raise Exception.Create('Database BDE Alias "BCDEMOS" cannot be found.');
       ATable.DatabaseName:='BCDEMOS';
     end;
-    {$ENDIF}
   finally
     tmp.Free;
   end;

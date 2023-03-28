@@ -13,13 +13,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons, QGrids, QDBGrids, QDBCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons, Grids, DBGrids, DBCtrls, DBTables,
-  {$ENDIF}
   Base_DBChart, Db, TeeProcs, TeEngine, Chart, Series, DBChart;
 
 type

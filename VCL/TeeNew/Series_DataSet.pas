@@ -8,16 +8,11 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons, QGrids, QDBGrids, QDBCtrls, Types,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons, Grids, DBGrids, DBCtrls,
-  {$ENDIF}
   Base, Db, TeeProcs, TeEngine, Chart, TeeSurfa, TeeData, TeeTools, DBChart,
   TeePenDlg;
-
+  
 type
   TSeriesDataSetForm = class(TBaseForm)
     Series1: TSurfaceSeries;

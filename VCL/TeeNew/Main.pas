@@ -40,10 +40,8 @@ uses
    TeeThemeEditor,
    {$ENDIF}
 
-   {$IFDEF D7}
    Themes,
-   {$ENDIF}
-   
+
    TeeConst,
 
    {$IFNDEF TEELITE}
@@ -542,9 +540,7 @@ begin
   TreeView2.HotTrack:=True;
   TreeSearch.HotTrack:=True;
 
-  {$IFDEF D7}
   Panel2.ParentBackground:=False;
-  {$ENDIF}
 
   PageExample.HotTrack:=True;
 
@@ -552,8 +548,8 @@ begin
      WindowState:=wsMaximized
   else
   begin
-    Width:=Min(Screen.{$IFDEF D7}WorkAreaWidth{$ELSE}Width{$ENDIF},980);
-    Height:=Min(Screen.{$IFDEF D7}WorkAreaHeight{$ELSE}Height{$ENDIF},700);
+    Width:=Min(Screen.WorkAreaWidth,980);
+    Height:=Min(Screen.WorkAreaHeight,700);
   end;
 
   ChangeCanvas(ncGDIPlus); //init TeeChart in GDI+
@@ -565,12 +561,8 @@ begin
   with StyleServices do
        result:=(not Available) and (not Enabled);
   {$ELSE}
-  {$IFDEF D7}
   with ThemeServices do
        result:=(not ThemesAvailable) and (not ThemesEnabled);
-  {$ELSE}
-  result:=False;
-  {$ENDIF}
   {$ENDIF}
 end;
 

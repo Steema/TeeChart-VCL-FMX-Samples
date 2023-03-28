@@ -8,12 +8,8 @@ unit UnitChartOffice;
 
 interface
 
-{$IFNDEF CLX}
-{$IFDEF D7}
 {$IFNDEF D16}
 {.$DEFINE TEEUSEMENUACTIONS}
-{$ENDIF}
-{$ENDIF}
 {$ENDIF}
 
 {$IFDEF WIN64}
@@ -26,15 +22,10 @@ uses
   {$ENDIF}
   SysUtils, Classes,
 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QButtons, QExtCtrls, QGrids,
-  QComCtrls, QImgList, QMenus, Types, Qt,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, Grids,
   ComCtrls, ToolWin, ImgList, Menus,
   {$IFDEF D9}
   Types,
-  {$ENDIF}
   {$ENDIF}
 
   {$IFDEF D16}
@@ -55,23 +46,15 @@ uses
   TeeOpenGL,
   {$ENDIF}
 
-  {$IFDEF D7}
   {$IFNDEF D10}
   XPMan,
-  {$ENDIF}
   {$ENDIF}
 
   TeePreviewPanel,
   TeeEdiSeri,
   TeeSelectorTool, TeeRecentFiles, TeeConfig, TeeTools,
 
-  {$IFDEF D7}
   TeeGDIPlusEditor,
-  {$ELSE}
-    {$IFNDEF BCB}
-    TeeGDIPlusEditor,
-    {$ENDIF}
-  {$ENDIF}
 
   TeeThemeEditor,
 
@@ -89,11 +72,6 @@ uses
   TeePenDlg;
 
 type
-  {$IFDEF CLX}
-  TCustomRichEdit=TMemo;
-  TRichEdit=TCustomRichEdit;
-  {$ENDIF}
-
   TEnableJustify=(ejNo,ejAll,ejNoCenter);
 
   TMainForm = class(TForm)
@@ -753,13 +731,8 @@ type
       Series: TCustomChartSeries);
     procedure ShapeBorderColorMouseUp(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-    {$IFDEF CLX}
-    procedure ComboPenStyleDrawItem(Sender: TObject; Index: Integer;
-      Rect: TRect; State: TOwnerDrawState; var Handled: Boolean);
-    {$ELSE}
     procedure ComboPenStyleDrawItem(Control: TWinControl; Index: Integer;
       Rect: TRect; State: TOwnerDrawState);
-    {$ENDIF}
     procedure ComboPenStyleChange(Sender: TObject);
     procedure BorderWidthChange(Sender: TObject);
     procedure Borders1Click(Sender: TObject);
@@ -916,9 +889,7 @@ type
     Function  ToogleModified(Item: TMenuItem):Boolean;
     Procedure TranslateMainForm;
 
-    {$IFNDEF CLX}
     procedure WMDROPFILES(var Message: TWMDROPFILES); message WM_DROPFILES;
-    {$ENDIF}
   public
     { Public declarations }
     Procedure LoadChart(Const AFileName:String);
@@ -935,11 +906,7 @@ Procedure TrimWorkingSet;
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 {$R TeeOfficeBmps.res}
 
@@ -984,17 +951,13 @@ Uses
 
      {$IFNDEF LINUX}
      TeeUpdateVersion,
-     {$IFNDEF CLX}
      {$IFNDEF NOUSE_BDE}
      TeeNewDataSet,
-     {$ENDIF}
      {$ENDIF}
      TeeWebGallery,
      {$ENDIF}
 
-     {$IFNDEF CLX}
      TeeHighLight,
-     {$ENDIF}
 
      {$IFNDEF LINUX}
      TeeXML, 
@@ -1554,11 +1517,6 @@ begin { initialization when form is shown }
   { get list of installed Fonts }
   ComboFonts.Items:=Screen.Fonts;
 
-  {$IFDEF CLX}
-  ComboFonts.Sorted:=True;
-  ComboFonts.Items.Add('Helvetica');
-  {$ENDIF}
-
   { Setup the Font toolbar button bitmaps }
   with ImageList3 do
   begin
@@ -1604,11 +1562,7 @@ begin { initialization when form is shown }
   { re-order some TeeCommander buttons }
   With TCommanderAccess(TeeCommander1) do
   begin
-    {$IFDEF CLX}
-    tmp:=2;
-    {$ELSE}
     tmp:=1;
-    {$ENDIF}
 
     { create the "e-mail" button }
     tmpButton:=CreateButton(0,SendTo1Click,TeeMsg_EMail,'',0);
@@ -1846,7 +1800,7 @@ Var tmp : TFileStream;
 begin { load a Chart from file, and setup several things }
 
   if not FileExists(AFileName) then
-     Raise EFOpenError.CreateFmt({$IFDEF D7}SFOpenErrorEx{$ELSE}'Cannot open file "%s". %s'{$ENDIF},
+     Raise EFOpenError.CreateFmt(SFOpenErrorEx,
                [ExpandFileName(AFileName), SysErrorMessage(GetLastError)]);
 
   { first reset the chart (empty) }
@@ -2456,7 +2410,6 @@ begin { initialization }
 
   Inspector.DefaultColWidth:=100;
 
-  {$IFNDEF CLX}
   Text1.Default:=True;
   Edit2.Default:=True;
   Edit3.Default:=True;
@@ -2464,27 +2417,17 @@ begin { initialization }
   Edit5.Default:=True;
   Edit6.Default:=True;
   EditAnnotation.Default:=True;
-  {$ENDIF}
-
 
   Smooth1.OnClick:=Smooth1Click;
-  
-  OpenDialog1.Options:=[ {$IFNDEF CLX}
-                         ofHideReadOnly,
-                         {$ENDIF}
+
+  OpenDialog1.Options:=[ ofHideReadOnly,
                          ofFileMustExist,
-                         {$IFNDEF CLX}
                          ofCreatePrompt,
-                         {$ENDIF}
                          ofEnableSizing];
 
   SaveDialog1.Options:=[ ofOverwritePrompt,
-                         {$IFNDEF CLX}
                          ofHideReadOnly,
-                         {$ENDIF}
                          ofEnableSizing];
-
-  {$IFNDEF CLX}
 
   { set scrolling box bars as Flat }
   with ScrollBox2 do
@@ -2495,7 +2438,6 @@ begin { initialization }
 
   { default tabs at bottom }
   PageControl1.TabPosition:=tpBottom;
-  {$ENDIF}
 
   {$IFNDEF LINUX}
   TeeOpenGL1:=TTeeOpenGL.Create(Self);
@@ -2511,12 +2453,9 @@ begin { initialization }
   // to fit more series...
 
   with TChartListBoxAccess(ChartListBox1) do ItemHeight:=ItemHeight-2;
-  {$IFNDEF CLX}
 
   { tell Windows to accept dragged files from Explorer }
   DragAcceptFiles(Handle,True);
-
-  {$ENDIF}
 
   { redirect the TeeCommander toolbar "hints" to status bar }
   TeeCommander1.OnSetLabel:=TeeCommander1SetLabel;
@@ -2921,8 +2860,6 @@ procedure TMainForm.ImportfromWeb1Click(Sender: TObject);
 begin { Show the Web Chart Gallery or load a Chart from a web URL pointing
         to a *.tee file }
 
-  {$IFNDEF CLX}
-
   With TWebGallery.Create(nil) do
   try
     URL.Text:=ChartWebSource1.URL;
@@ -2937,8 +2874,6 @@ begin { Show the Web Chart Gallery or load a Chart from a web URL pointing
   finally
     Free;
   end;
-
-  {$ENDIF}
 end;
 
 type TSeriesAccess=class(TChartSeries);
@@ -3896,14 +3831,11 @@ begin
 end;
 
 procedure TMainForm.EditDataSetClick(Sender: TObject);
-{$IFNDEF CLX}
 {$IFNDEF NOUSE_BDE}
 var tmp     : TChartSeries;
     tmpData : TComponent;
 {$ENDIF}
-{$ENDIF}
 begin { show DataSet dialog to edit current dataset }
-  {$IFNDEF CLX}
   {$IFNDEF NOUSE_BDE}
   tmp:=TFormTeeSeries(TButton(Sender).Owner).TheSeries;
 
@@ -3936,17 +3868,13 @@ begin { show DataSet dialog to edit current dataset }
     Free;
   end;
   {$ENDIF}
-  {$ENDIF}
 end;
 
 procedure TMainForm.NewDataSetClick(Sender: TObject);
-{$IFNDEF CLX}
 {$IFNDEF NOUSE_BDE}
 var tmp : TDataSet;
 {$ENDIF}
-{$ENDIF}
 begin { create a new DataSet dialog }
-  {$IFNDEF CLX}
   {$IFNDEF NOUSE_BDE}
   With TNewDataSet.Create(nil) do
   try
@@ -3972,7 +3900,6 @@ begin { create a new DataSet dialog }
   finally
     Free;
   end;
-  {$ENDIF}
   {$ENDIF}
 end;
 
@@ -4044,9 +3971,7 @@ end;
 
 procedure TMainForm.TeeChartHelp1Click(Sender: TObject);
 begin { show main Help }
-  {$IFNDEF CLX}
   Application.HelpCommand(HELP_INDEX,0);
-  {$ENDIF}
 end;
 
 procedure TMainForm.OnlineSupport1Click(Sender: TObject);
@@ -4380,8 +4305,6 @@ begin { show a dialog to update the current version }
   {$ENDIF}
 end;
 
-{$IFNDEF CLX}
-
 // Open *.tee files mouse-dropped from Windows Explorer
 procedure TMainForm.WMDROPFILES(var Message: TWMDROPFILES);
 var FileName : Array[0..255] of Char;
@@ -4394,8 +4317,6 @@ begin
        LoadChart(FileName); { load dropped file }
   end;
 end;
-
-{$ENDIF}
 
 procedure TMainForm.Color4Click(Sender: TObject);
 var Changed : Boolean;
@@ -5011,12 +4932,8 @@ begin { convert the Chart to text format }
           tmpInput.Position:=0;
           MemoText.Lines.LoadFromStream(tmpInput);
 
-          {$IFNDEF CLX}
-
           { highlight }
           TeeHighLightRichEdit(MemoText);
-
-          {$ENDIF}
         finally
           tmpInput.Free;
         end;
@@ -5205,11 +5122,7 @@ procedure TMainForm.StatusBar1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 var tmpRect : TRect;
 begin { change cursor when mouse is over status bar second (color) panel }
-  {$IFDEF CLX}
-  tmpRect:=TeeRect(0,0,0,0);
-  {$ELSE}
   SendMessage(StatusBar1.Handle, SB_GETRECT, 1, Integer(@tmpRect));
-  {$ENDIF}
 
   if PointInRect(tmpRect,X,Y) then
      StatusBar1.Cursor:=crHandPoint
@@ -5283,14 +5196,12 @@ end;
 
 procedure TMainForm.BottomTabClick(Sender: TObject);
 begin { set Tabs position }
-  {$IFNDEF CLX}
   if Sender=LeftTab then PageControl1.TabPosition:=tpLeft else
   if Sender=RightTab then PageControl1.TabPosition:=tpRight else
   if Sender=TopTab then PageControl1.TabPosition:=tpTop else
                         PageControl1.TabPosition:=tpBottom;
 
   TMenuItem(Sender).Checked:=True;
-  {$ENDIF}
 end;
 
 procedure TMainForm.SelectorResizing(Sender: TObject);
@@ -5376,9 +5287,7 @@ end;
 
 procedure TMainForm.Whatsthis1Click(Sender: TObject);
 begin { show the "?" cursor to obtain help when clicking }
-  {$IFNDEF CLX}
   DefWindowProc(Handle, WM_SYSCOMMAND, SC_CONTEXTHELP, 0);
-  {$ENDIF}
 end;
 
 procedure TMainForm.ChartEditor1Show(Sender: TObject);
@@ -5408,31 +5317,18 @@ begin { Change the Selected Pen color }
   end;
 end;
 
-{$IFDEF CLX}
-procedure TMainForm.ComboPenStyleDrawItem(Sender: TObject; Index: Integer;
-      Rect: TRect; State: TOwnerDrawState; var Handled: Boolean);
-{$ELSE}
 procedure TMainForm.ComboPenStyleDrawItem(Control: TWinControl;
   Index: Integer; Rect: TRect; State: TOwnerDrawState);
-{$ENDIF}
 var tmp : TColor;
 begin { Draw Pen styles at Combo items }
   if (SelectedBorder<>nil) then
   With TControlCanvas(ComboPenStyle.Canvas) do
   begin
-    {$IFDEF CLX}
-    Brush.Style:=bsSolid;
-    if (odFocused in State) or (odSelected in State) then
-       Brush.Color:=clHighLight;
-    {$ENDIF}
-
     FillRect(Rect);
 
     if Index<>ComboPenStyle.Items.Count-1 then
     begin
-      {$IFNDEF CLX}
       if Index<>ComboPenStyle.Items.Count-2 then
-      {$ENDIF}
          Pen.Style:=TPenStyle(Index);
 
       Pen.Color:=SelectedBorder.Color;
@@ -5448,10 +5344,8 @@ begin { Draw Pen styles at Combo items }
                                 else Pen.Color:=clWhite;
       end;
 
-      {$IFNDEF CLX}
       if IsWindowsNT and (Index=ComboPenStyle.Items.Count-2) then
          Pen.Handle:=TeeCreatePenSmallDots(Pen.Color);
-      {$ENDIF}
 
       MoveTo(Rect.Left+4,Rect.Top+8);
       LineTo(Rect.Right-4,Rect.Top+8);
@@ -5655,13 +5549,10 @@ begin { show / hide the Data Sources panel }
 end;
 
 procedure TMainForm.SBNewDataSourceClick(Sender: TObject);
-{$IFNDEF CLX}
 {$IFNDEF NOUSE_BDE}
 var tmp : TDataSet;
 {$ENDIF}
-{$ENDIF}
 begin { show the Data Source dialog to add a new Data Source }
-  {$IFNDEF CLX}
   {$IFNDEF NOUSE_BDE}
   With TNewDataSet.Create(nil) do
   try
@@ -5675,7 +5566,6 @@ begin { show the Data Source dialog to add a new Data Source }
   finally
     Free;
   end;
-  {$ENDIF}
   {$ENDIF}
 end;
 
@@ -5691,7 +5581,6 @@ end;
 
 procedure TMainForm.SBEditSourceClick(Sender: TObject);
 begin  { show the Data Source editor dialog to edit the selected Data Source }
-  {$IFNDEF CLX}
   {$IFNDEF NOUSE_BDE}
   With TNewDataSet.Create(nil) do
   try
@@ -5703,7 +5592,6 @@ begin  { show the Data Source editor dialog to edit the selected Data Source }
   finally
     Free;
   end;
-  {$ENDIF}
   {$ENDIF}
 end;
 

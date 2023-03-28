@@ -13,11 +13,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls,
-  {$ENDIF}
   TeeColorLineEditor, TeCanvas, TeePenDlg, TeEngine, TeeTools, ComCtrls,
   ExtCtrls;
 
@@ -57,11 +53,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Uses TeeConst, Chart, TeeChartOfficeConstants;
 

@@ -10,11 +10,7 @@ uses {$IFNDEF LINUX}
      Windows,
      {$ENDIF}
      Classes, SysUtils,
-     {$IFDEF CLX}
-     QMenus, QForms, QExtCtrls, QActnList, QActnMan, QActnMenus,
-     {$ELSE}
      Menus, Forms, ExtCtrls, ActnList, ActnMan, ActnMenus,
-     {$ENDIF}
      XPStyleActnCtrls, StdStyleActnCtrls, CustomizeDlg, ActnColorMaps;
 
 type

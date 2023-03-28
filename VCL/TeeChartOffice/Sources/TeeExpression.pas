@@ -12,11 +12,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   {$IFDEF D18}
   System.Types,
   {$ENDIF}
@@ -92,11 +88,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Uses
    TeeChartOfficeConstants

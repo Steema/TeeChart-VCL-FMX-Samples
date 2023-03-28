@@ -2,11 +2,7 @@ program TeeMaps;
 {$I TeeDefs.inc}
 
 uses
-  {$IFDEF CLX}
-  QForms,
-  {$ELSE}
   Forms,
-  {$ENDIF}
   UnitTestSHP in 'UnitTestSHP.pas' {Form1};
 
 {$R *.res}

@@ -12,12 +12,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  Types,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   TeeComma, TeeProcs, TeeSelectList;
 
 type
@@ -32,14 +27,10 @@ type
   private
     { Private declarations }
     SelectForm : TSelectListForm;
+
     Procedure ApplyChanges;
-    {$IFDEF CLX}
-    procedure ListDrawItem(Sender: TObject;
- Index: Integer; Rect: TRect; State: TOwnerDrawState; var Handled: Boolean);
-    {$ELSE}
     procedure ListDrawItem(Control: TWinControl;
               Index: Integer; Rect: TRect; State: TOwnerDrawState);
-    {$ENDIF}
   public
     { Public declarations }
     Commander : TTeeCommander;
@@ -49,18 +40,10 @@ procedure TeeCommanderEdit(AOwner:TComponent; ACommander:TTeeCommander);
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
-Uses TeeProco, 
-     {$IFDEF CLX}
-     QButtons,
-     {$ELSE}
-     Buttons, 
-     {$ENDIF}
+Uses TeeProco,
+     Buttons,
      TeePenDlg;
 
 procedure TeeCommanderEdit(AOwner:TComponent; ACommander:TTeeCommander);
@@ -99,21 +82,14 @@ begin
   TTeeVCL.AddFormTo(SelectForm,Self);
 end;
 
-{$IFDEF CLX}
-procedure TCommanderEditor.ListDrawItem(Sender: TObject;
- Index: Integer; Rect: TRect; State: TOwnerDrawState; var Handled: Boolean);
-{$ELSE}
 procedure TCommanderEditor.ListDrawItem(Control: TWinControl;
               Index: Integer; Rect: TRect; State: TOwnerDrawState);
-{$ENDIF}
-{$IFNDEF CLX}
 var tmp  : TComponent;
     tmpB : TBitmap;
     tmpR : TRect;
-{$ENDIF}
 begin
-  {$IFNDEF CLX}
   tmp:=TComponent(TListBox(Control).Items.Objects[Index]);
+
   With TListBox(Control).Canvas do
   begin
     Brush.Style:=bsSolid;
@@ -163,7 +139,6 @@ begin
     Brush.Style:=bsClear;
     TextOut(Rect.Left+26,Rect.Top+3,TListBox(Control).Items[Index]);
   end;
-  {$ENDIF}
 end;
 
 procedure TCommanderEditor.FormShow(Sender: TObject);

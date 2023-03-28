@@ -4,24 +4,15 @@ unit TeeHighLight;
 interface
 
 Uses 
-  {$IFDEF CLX}
-  QComCtrls, StdCtrls
-  {$ELSE}
-  ComCtrls
-  {$ENDIF};
-
-{$IFDEF CLX}
-type
-  TCustomRichEdit=TMemo;
-  TRichEdit=TCustomRichEdit;
-{$ENDIF}
+  ComCtrls;
 
 { parses the RichEdit text and tags keywords }
 Procedure TeeHighLightRichEdit(RichEdit:TCustomRichEdit);
 
 implementation
 
-Uses SysUtils, {$IFDEF CLX}QGraphics{$ELSE}Graphics{$ENDIF};
+Uses
+  SysUtils, Graphics;
 
 Procedure TeeHighLightRichEdit(RichEdit:TCustomRichEdit);
 var p   : Integer;
@@ -65,7 +56,6 @@ var p   : Integer;
 
         While tmp[p]<>'}' do Inc(p);
 
-        {$IFNDEF CLX}
         With RichEdit do
         begin
           SelLength:=p-SelStart;
@@ -79,7 +69,6 @@ var p   : Integer;
           SelStart:=0;
           SelLength:=0;
         end;
-        {$ENDIF}
 
       end
       else Inc(p);
@@ -108,7 +97,6 @@ begin
   p:=1;
   tmp:=RichEdit.Lines.Text;
 
-  {$IFNDEF CLX}
   RichEdit.SelStart:=0;
   RichEdit.SelLength:=Length(tmp);
   RichEdit.SelAttributes.Style:=[];
@@ -116,8 +104,6 @@ begin
   While p<Length(tmp) do
      if NextWordIsKeyword then
         RichEdit.SelAttributes.Style:=[fsBold];
-
-  {$ENDIF}
 
   RichEdit.SelStart:=0;
   RichEdit.SelLength:=0;

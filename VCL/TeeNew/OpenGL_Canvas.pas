@@ -8,16 +8,14 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
+
   {$IFDEF LINUX}
   OpenGLLinux,
   {$ELSE}
   OpenGL2,
   {$ENDIF}
-  {$ENDIF}
+
   TeeProcs, TeCanvas, TeeOpenGL, TeeComma, Chart, TeeGLCanvas, TeeSurfa,
   TeeEditPro, TeEngine;
 

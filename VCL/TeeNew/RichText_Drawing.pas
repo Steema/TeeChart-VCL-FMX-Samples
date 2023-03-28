@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QComCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, ComCtrls, StdCtrls, RichEdit,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart;
 
 type

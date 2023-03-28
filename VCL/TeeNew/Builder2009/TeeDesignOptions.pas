@@ -10,11 +10,7 @@ interface
 
 uses
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls,
-  {$ENDIF}
   TeCanvas,
   {$IFNDEF TEELITE}
   TeeTranslate,
@@ -88,13 +84,7 @@ uses {$IFNDEF TEELITE}
      {$ENDIF}
      TeeConst, Chart, Series, TeeGally;
 
-{$IFNDEF CLX}
-{$IFNDEF LCL}
 {$R *.DFM}
-{$ENDIF}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TOptionsForm.Button1Click(Sender: TObject);
 begin

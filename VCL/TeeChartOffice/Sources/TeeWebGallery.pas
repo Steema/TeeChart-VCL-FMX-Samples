@@ -12,11 +12,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   SysUtils, Classes;
 
 type
@@ -41,11 +37,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Uses TeeOfficeConstants, TeeChartOfficeConstants, TeeUpdateVersion,
      {$IFNDEF LINUX}

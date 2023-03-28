@@ -48,10 +48,10 @@ type
 implementation
 
 {$IFNDEF LCL}
+{$R *.dfm}
 {$ELSE}
 {$R *.lfm}
 {$ENDIF}
-{$R *.dfm}
 
 uses
   Registry,
@@ -175,6 +175,18 @@ end;
 
 function IDEVersion:String;
 begin
+  {$IFDEF D28}result:='RAD X11.3 Alexandria'; Exit;{$ENDIF}
+  {$IFDEF D27}result:='RAD X10.4 Sydney'; Exit;{$ENDIF}
+  {$IFDEF D26}result:='RAD X10.3 Rio'; Exit;{$ENDIF}
+  {$IFDEF D25}result:='RAD X10.2 Tokyo'; Exit;{$ENDIF}
+  {$IFDEF D24}result:='RAD X10.1 Berlin'; Exit;{$ENDIF}
+  {$IFDEF D23}result:='RAD X10 Seattle'; Exit;{$ENDIF}
+  {$IFDEF D22}result:='RAD XE8'; Exit;{$ENDIF}
+  {$IFDEF D21}result:='RAD XE7'; Exit;{$ENDIF}
+  {$IFDEF D20}result:='RAD XE6'; Exit;{$ENDIF}
+  {$IFDEF D19}result:='RAD XE5'; Exit;{$ENDIF}
+  {$IFDEF D18}result:='RAD XE4'; Exit;{$ENDIF}
+  {$IFDEF D17}result:='RAD XE3'; Exit;{$ENDIF}
   {$IFDEF D16}result:='RAD XE2'; Exit;{$ENDIF}
   {$IFDEF D15}result:='RAD XE'; Exit;{$ENDIF}
   {$IFDEF D14}result:='RAD 2010'; Exit;{$ENDIF}

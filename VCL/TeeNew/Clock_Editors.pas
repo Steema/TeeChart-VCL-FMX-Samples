@@ -1,9 +1,7 @@
 unit Clock_Editors;
 {$I TeeDefs.inc}
 
-{$IFDEF D7}
 {$WARN SYMBOL_DEPRECATED OFF}
-{$ENDIF}
 
 interface
 

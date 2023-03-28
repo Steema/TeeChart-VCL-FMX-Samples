@@ -8,12 +8,8 @@ unit TeeRecentFiles;
 
 interface
 
-Uses Classes,
-     {$IFDEF CLX}
-     QMenus
-     {$ELSE}
-     Menus
-     {$ENDIF};
+Uses
+  Classes, Menus;
 
 type
   TRecentFilesNotifyEvent=procedure(Const FileName:String) of object;

@@ -51,6 +51,13 @@ begin
    19: result:='XE5';
    20: result:='XE6';
    21: result:='XE7';
+   22: result:='XE8';
+   23: result:='RX10 Seattle';
+   24: result:='RX10.1 Berlin';
+   25: result:='RX10.2 Tokyo';
+   26: result:='RX10.3 Rio';
+   27: result:='RX10.4 Sydney';
+   28: result:='RX11.3 Alexandria';
   else
     result:='BAD VERSION NUM: '+TeeStr(VersionNum);
   end;
@@ -165,6 +172,18 @@ begin
   result:=IDEName(25);
   {$ENDIF}
 
+  {$IFDEF D26}
+  result:=IDEName(26);
+  {$ENDIF}
+
+  {$IFDEF D27}
+  result:=IDEName(27);
+  {$ENDIF}
+
+  {$IFDEF D28}
+  result:=IDEName(28);
+  {$ENDIF}
+  
   result:=result+' '+PlatformToString;
 end;
 

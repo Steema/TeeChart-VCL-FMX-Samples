@@ -7,11 +7,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls,
-  {$ENDIF}
   SysUtils, Classes;
 
 type

@@ -12,21 +12,14 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, Math, ActnList,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QComCtrls, QGrids,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ComCtrls, Grids,
   Buttons,
-  {$ENDIF}
   TeEngine, TeeSurfa, TeeMapSeries, TeeProcs, Chart, TeeComma, TeCanvas,
   DB,
   {$IFNDEF NOUSE_BDE}
   DBTables,
   {$ENDIF}
-  {$IFDEF D7}
   XPMan,
-  {$ENDIF}
   TeeInspector, TeeObjectInspector, TeeLisB, TeeLegendScrollBar, TeeTools,
 
   TeeGLEditor,
@@ -174,11 +167,7 @@ implementation
 uses
   TeeSHP, TeeMapSeriesEdit, TeeExport;
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 function WhereIsFile(const FileName:String):String;
 begin
@@ -354,9 +343,7 @@ begin
   begin
     Align:=alBottom;
 
-    {$IFNDEF CLX}
     DoubleBuffered:=True;
-    {$ENDIF}
 
     Height:=160;
     
@@ -372,11 +359,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  {$IFNDEF CLX}
-  {$IFDEF D6}
   Height:=Min(600,Screen.WorkAreaHeight-20);
-  {$ENDIF}
-  {$ENDIF}
 
   Old:=-1;
   StatusBar1.SimpleText:='';
@@ -385,10 +368,8 @@ begin
 
   PageControl1.ActivePage:=TabSheet1;
 
-  {$IFNDEF CLX}
   PageControl1.DoubleBuffered:=True;
   ChartListBox1.DoubleBuffered:=True;
-  {$ENDIF}
 
   {$IFDEF NOUSE_BDE}
   CheckBox2.Enabled:=False;
@@ -625,12 +606,8 @@ begin
     With BottomAxis do XRange:=Maximum-Minimum;
     With LeftAxis do YRange:=Maximum-Minimum;
 
-    {$IFDEF CLX}
-    XYScreen:=1024.0/768.0;
-    {$ELSE}
     XYScreen:=1.0*(GetDeviceCaps(Canvas.Handle,HORZSIZE)/Screen.Width)/
                   (GetDeviceCaps(Canvas.Handle,VERTSIZE)/Screen.Height);
-    {$ENDIF}
 
     tmpX:=(XRange/ChartWidth);
     tmpY:=(YRange/ChartHeight)*XYScreen;
@@ -735,10 +712,6 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 begin
   Button1Click(Self);
-
-  {$IFDEF CLX}
-  ChartListBox1.Selected[0]:=True;
-  {$ENDIF}
 end;
 
 procedure TForm1.SpeedButton2Click(Sender: TObject);

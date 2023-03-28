@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ComCtrls,
-  {$ENDIF}
   TeEngine, Series, TeeProcs, Chart, TeeComma, TeePerfCounter, TeeLisB,
   TeCanvas, StatChar, TeeGauges, CandleCh, TeeTools, TeeThemeEditor,
   TeePNG, TeePCX, TeeGIF, TeeJPEG, TeeVMLCanvas, TeePSCanvas, TeePDFCanvas,
@@ -99,11 +95,7 @@ var
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 uses TeeDonut;
 
@@ -218,7 +210,7 @@ end;
 procedure TMainForm.CmdSelectCounterClick(Sender: TObject);
 var PathBuffer : TCounterPathBuffer;
 begin
-  if TCounterItem.PerfDialog({$IFDEF CLX}0{$ELSE}Handle{$ENDIF}, PathBuffer) then
+  if TCounterItem.PerfDialog(Handle, PathBuffer) then
      AddNewCounter(PathBuffer);
 end;
 

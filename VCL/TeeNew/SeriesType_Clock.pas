@@ -1,9 +1,7 @@
 unit SeriesType_Clock;
 {$I TeeDefs.inc}
 
-{$IFDEF D7}
 {$WARN SYMBOL_DEPRECATED OFF}
-{$ENDIF}
 
 interface
 

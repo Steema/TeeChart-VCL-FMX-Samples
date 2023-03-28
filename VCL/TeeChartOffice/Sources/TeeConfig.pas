@@ -8,11 +8,7 @@ unit TeeConfig;
 interface
 
 uses Classes,
-     {$IFDEF CLX}
-     QForms,
-     {$ELSE}
      Forms,
-     {$ENDIF}
      TypInfo;
 
 type
