@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QComCtrls, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
-  {$ENDIF}
   TeEngine, Series, TeeProcs, Chart;
 
 type
@@ -36,11 +32,7 @@ var
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Uses
   {$IFNDEF TEELITE}
@@ -77,11 +69,9 @@ begin
     ncAntiAlias : Chart1.Canvas:=TAntiAliasCanvas.Create; // Obsolete
   {$ENDIF}
 
-  {$IFNDEF CLX}
     ncGDIPlus   : if not (Chart1.Canvas is TGLCanvas) then // <-- For demos with default OpenGL Canvas, do not change it !
                      if not (Chart1.Canvas is TGDIPlusCanvas) then // <-- Do not assign a GDI+ canvas if it already is !
                          Chart1.Canvas:=TGDIPlusCanvas.Create;
-  {$ENDIF}
   else
     Chart1.Canvas:=TTeeCanvas3D.Create;
   end;

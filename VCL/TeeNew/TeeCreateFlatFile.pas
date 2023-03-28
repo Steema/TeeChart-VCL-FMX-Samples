@@ -51,11 +51,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TFormCreateFile.CreateSampleFile(const TheFileName:String; NumSamples:Integer;
                                            ProgressProc:TProgressProc=nil);

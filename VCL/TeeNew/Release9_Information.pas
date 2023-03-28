@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QButtons, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
 
 type
@@ -26,11 +22,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 initialization
   RegisterClass(TRelease9Information);

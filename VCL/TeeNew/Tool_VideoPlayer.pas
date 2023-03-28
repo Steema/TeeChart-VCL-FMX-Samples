@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, TeeVideoPlayer;
   
 
@@ -38,11 +34,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TVideoPlayerToolForm.FormCreate(Sender: TObject);
 begin

@@ -73,11 +73,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 { Draw the 3D objects at the AfterDraw event of the Chart1 }
 procedure TOpenGLCanvas.Chart1AfterDraw(Sender: TObject);

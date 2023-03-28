@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Series, TeEngine, TeeProcs, Chart, TeeLisB, TeeComma;
 
 type
@@ -45,11 +41,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TListBoxForm.CheckBox4Click(Sender: TObject);
 begin

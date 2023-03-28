@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, BubbleCh,
   TeePenDlg;
 
@@ -35,11 +31,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TAxisGridDrawEveryForm.Edit1Change(Sender: TObject);
 begin

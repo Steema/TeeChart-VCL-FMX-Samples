@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeCanvas, TeePenDlg, TeeProcs, Chart;
 
 type
@@ -32,11 +28,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TLegendSymbolBorder.FormCreate(Sender: TObject);
 begin

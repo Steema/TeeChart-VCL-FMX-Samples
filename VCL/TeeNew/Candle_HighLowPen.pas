@@ -11,11 +11,7 @@ uses
   {$IFDEF D16}
   System.UITypes,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, OHLChart, CandleCh, TeCanvas,
   TeePenDlg, TeeProcs, Chart;
 
@@ -36,11 +32,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TCandleHighLowPen.FormCreate(Sender: TObject);
 begin

@@ -9,15 +9,12 @@ program Tee9New;
 //  {$IFDEF FASTMM}
 //  FastMM4,
 //  {$ENDIF}
-//  {$IFDEF CLX}
-//  QForms,
-//  {$ELSE}
-//  Forms,
-//  {$ENDIF}
 //
 
 uses
+  {$IFDEF FASTMM}
   FastMM4,
+  {$ENDIF}
   Forms,
   Main in 'Main.pas' {TeeNewForm},
   Base in 'Base.pas' {BaseForm},
@@ -642,8 +639,9 @@ uses
   Series_Activity in 'Series_Activity.pas' {ActivitySeriesForm},
   Series_ActivityDonut in 'Series_ActivityDonut.pas' {ActivityGaugeForm},
   Export_PDF_Multiple in 'Export_PDF_Multiple.pas' {PDFMultipleForm},
-  Series_DoubleHorizBar in 'Series_DoubleHorizBar.pas' {BaseForm1},
-  Export_Chart_as_String in 'Export_Chart_as_String.pas' {ExportChartString};
+  Series_DoubleHorizBar in 'Series_DoubleHorizBar.pas' {DoubleHorizBarSeriesForm},
+  Export_Chart_as_String in 'Export_Chart_as_String.pas' {ExportChartString},
+  Series_EquiVolume in 'Series_EquiVolume.pas' {EquiVolumeSeriesForm};
 
 {$R *.res}
 

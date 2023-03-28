@@ -8,18 +8,11 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList, QGrids,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
   Grids,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeCustomLegendTool, Series,
   TeeTools, TeCanvas,
-  {$IFDEF D6}
   DateUtils,
-  {$ENDIF}
   EditChar;
 
 
@@ -36,29 +29,11 @@ type
     procedure ClickTool(Sender:TAnnotationTool; Button:TMouseButton; Shift: TShiftState; X, Y: Integer);
   public
     { Public declarations }
-
   end;
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
-
-{$IFNDEF D6}
-function MonthOf(const AValue: TDateTime): Word;
-var LYear, LDay: Word;
-begin
-  DecodeDate(AValue, LYear, Result, LDay);
-end;
-
-function Today: TDateTime;
-begin
-  Result := Date;
-end;
-{$ENDIF}
 
 var
   CustomLegendTool : TCustomLegendTool;

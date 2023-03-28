@@ -6,11 +6,7 @@ interface
 uses
   Windows, Messages,
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QComCtrls, QExtCtrls, QButtons,
-  {$ELSE}
   StdCtrls, ExtCtrls, Controls, Graphics, Forms, Dialogs,
-  {$ENDIF}
   Base, TeEngine, TeeTools, Series, TeeProcs, Chart;
 
 type
@@ -31,11 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses
   EditChar;

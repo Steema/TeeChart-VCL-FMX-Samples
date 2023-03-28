@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeTools, TeeSurfa;
 
 type
@@ -37,11 +33,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.XFM}
-{$ENDIF}
 
 procedure TSurfaceFastBrush.Button1Click(Sender: TObject);
 var StartTime, EndTime : Cardinal;

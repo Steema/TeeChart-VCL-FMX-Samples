@@ -4,15 +4,11 @@ unit Template_Chart;
 interface
 
 uses
-  {$IFNDEF CLX}
+  {$IFNDEF LINUX}
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QActnList,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ActnList,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeChartActions;
 
 type
@@ -34,11 +30,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Uses TeeStore;
 

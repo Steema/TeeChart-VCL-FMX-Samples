@@ -4,7 +4,9 @@ unit Series_DoubleHorizBar;
 interface
 
 uses
+  {$IFNDEF LINUX}
   Windows, Messages,
+  {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, Base, TeEngine, Series, TeeDoubleHorizBar, ComCtrls,
   StdCtrls, TeeProcs, Chart, ExtCtrls, TeeSubChart;

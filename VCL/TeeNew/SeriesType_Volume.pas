@@ -11,11 +11,7 @@ uses
   {$IFDEF D16}
   System.UITypes,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeCanvas, TeePenDlg, TeEngine, Series, CandleCh, TeeProcs, Chart;
 
 type
@@ -34,11 +30,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Uses EditChar;
 

@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeePoin3, TeeProcs, Chart, TeCanvas, TeeTools;
 
 type
@@ -35,11 +31,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 Procedure Gridding(Source:TCustom3DSeries; Dest:TCustom3DGridSeries; GridSize:Integer);
 Const MaxDistance=1E+300;

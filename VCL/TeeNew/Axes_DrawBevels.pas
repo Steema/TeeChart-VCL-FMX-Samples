@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QComCtrls, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeCanvas, Series, TeePenDlg;
 
 type
@@ -37,11 +33,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 // This routine draws a bevel around TeeChart axes
 procedure DrawBevelAroundAxes(Chart:TCustomChart; Style:TBevelCut; Size:Integer);

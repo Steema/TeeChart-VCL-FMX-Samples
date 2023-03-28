@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QComCtrls, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
-  {$ENDIF}
 
   Base, TeEngine, Series, TeeDonut, TeeProcs, Chart, TeCanvas;
 
@@ -40,11 +36,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses
   TeeEdiGrad, TeeGDIPlus;
@@ -77,10 +69,8 @@ begin
   begin
     Series1.BevelPercent:=UDBevelPercent.Position;
 
-    {$IFNDEF CLX}
     if Series1.ParentChart.Canvas is TGDIPlusCanvas then
        EnableControls(UDBevelPercent.Position > 0,[LEdgeStyle,CBEdgeStyle]);
-    {$ENDIF}
   end;
 end;
 
@@ -113,10 +103,8 @@ begin
     EnableControls(ParentChart.View3D,[LTransparency,UDTransparency, ETransparency]);
     EnableControls(ParentChart.View3D,[LBevelPercent,UDBevelPercent, EBevelPercent]);
 
-    {$IFNDEF CLX}
     EnableControls(ParentChart.Canvas is TGDIPlusCanvas,[LEdgeStyle,CBEdgeStyle]);
-    {$ENDIF}
-    
+
     if CBEdgeStyle.Enabled then
        EnableControls(UDBevelPercent.Position > 0,[LEdgeStyle,CBEdgeStyle]);
   end;

@@ -8,12 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   ExtDlgs,
-  {$ENDIF}
   Base, Chart, TeEngine, Series, TeeProcs, TeeEdiGene, TeePreviewPanel,
   TeeNavigator;
 
@@ -36,11 +32,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TPrintPagesForm.Button1Click(Sender: TObject);
 begin
@@ -59,9 +51,7 @@ begin
   inherited;
 
   PrintDialog1:=TPrintDialog.Create(Self);
-  {$IFNDEF CLX}
   PrintDialog1.Options:=[poPageNums];
-  {$ENDIF}
 
   Series1.FillSampleValues(20);
   ChartPageNavigator1.EnableButtons;

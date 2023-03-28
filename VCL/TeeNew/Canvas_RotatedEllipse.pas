@@ -11,11 +11,7 @@ uses
   {$IFDEF D8}
   Types,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeTools;
 
 type
@@ -38,11 +34,7 @@ implementation
 
 uses TeCanvas;
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TCanvasRotatedEllipse.Chart1AfterDraw(Sender: TObject);
 var P : TPointArray;

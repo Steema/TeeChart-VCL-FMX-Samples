@@ -8,15 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QComCtrls,
-  Types,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeTools, TeCanvas;
 
 type
@@ -44,11 +37,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TContourSmooth.CheckBox1Click(Sender: TObject);
 begin

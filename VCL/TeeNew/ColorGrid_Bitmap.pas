@@ -8,20 +8,12 @@ uses
   Windows, Messages,
   {$ENDIF}
 
-  {$IFDEF UCL}
-  UGraphics, UControls, UForms, UDialogs, UStdCtrls, UComCtrls, UExtCtrls,
-  {$ELSE}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QComCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls, ExtDlgs,
-  {$ENDIF}
-  {$ENDIF}
 
   SysUtils, Classes, Base, TeCanvas, TeePenDlg, TeEngine, TeeSurfa,
-  {$IFNDEF CLX}
+
   jpeg,
-  {$ENDIF}
+
   TeeProcs, Chart, TeeOpenGL;
 
 type
@@ -50,11 +42,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TColorGridBitmap.FormCreate(Sender: TObject);
 begin
@@ -126,7 +114,7 @@ end;
 
 procedure TColorGridBitmap.Image1Click(Sender: TObject);
 begin
-  with {$IFDEF CLX}TOpenDialog{$ELSE}TOpenPictureDialog{$ENDIF}.Create(Self) do
+  with TOpenPictureDialog.Create(Self) do
   try
     if Execute then
     begin

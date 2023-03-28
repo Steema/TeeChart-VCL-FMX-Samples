@@ -7,11 +7,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   SysUtils, Classes,
   TeeProcs, TeeDraw3D, TeEngine, Series, Chart;
 
@@ -47,11 +43,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TWelcomeAllForm.FormShow(Sender: TObject);
 var t : Integer;

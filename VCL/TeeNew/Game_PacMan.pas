@@ -20,13 +20,8 @@ uses
   {$IFDEF D16}
   System.UITypes,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QMenus, QButtons, Types, Qt, QTypes,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Menus, Buttons,
-  {$ENDIF}
   Base, IniFiles, TeeProcs, TeEngine, Chart, Series, BubbleCh,
   TeePenDlg, EditChar;
 
@@ -153,11 +148,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Uses Math, TeCanvas;
 
@@ -996,13 +987,13 @@ begin
   OldDirection:=ManDir;
 
   Case Key of
-    {$IFDEF CLX}Key_Left {$ELSE}VK_LEFT {$ENDIF} :  ManDir:=pdLeft;
-    {$IFDEF CLX}Key_Right{$ELSE}VK_RIGHT{$ENDIF} :  ManDir:=pdRight;
-    {$IFDEF CLX}Key_Up   {$ELSE}VK_UP   {$ENDIF} :  ManDir:=pdTop;
-    {$IFDEF CLX}Key_Down {$ELSE}VK_DOWN {$ENDIF} :  ManDir:=pdBottom;
-    Ord('Z'):  Zoomed1Click(Self);
-    Ord('3'):  N3Dimensions1Click(Self);
-    Ord('A'):  ShowAxis1Click(Self);
+    VK_LEFT  :  ManDir:=pdLeft;
+    VK_RIGHT :  ManDir:=pdRight;
+    VK_UP    :  ManDir:=pdTop;
+    VK_DOWN  :  ManDir:=pdBottom;
+    Ord('Z') :  Zoomed1Click(Self);
+    Ord('3') :  N3Dimensions1Click(Self);
+    Ord('A') :  ShowAxis1Click(Self);
   else
     exit;
   end;

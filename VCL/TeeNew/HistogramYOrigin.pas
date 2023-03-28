@@ -5,12 +5,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeCanvas, TeeComma, TeEngine, Series, StatChar, TeeProcs, Chart,
   TeePenDlg;
 
@@ -39,11 +34,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure THistogramYOriginForm.CBUseOriginClick(Sender: TObject);
 begin

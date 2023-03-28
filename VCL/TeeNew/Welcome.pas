@@ -10,11 +10,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls, QMenus,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Menus,
-  {$ENDIF}
   TeEngine, Series, TeCanvas, TeeProcs,
 
   {$IFNDEF TEELITE}
@@ -73,11 +69,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 const MaxFontSize=40;
 
@@ -243,10 +235,6 @@ begin
     DeltaY:=-1;
     SomeText:='Visit our Web Site !';
   end;
-
-  {$IFDEF CLX}
-  Timer1.Interval:=100; { CLX is much slower than VCL, so lets increment delay }
-  {$ENDIF}
 
   Timer1.Enabled:=True;  { start animation... }
 end;

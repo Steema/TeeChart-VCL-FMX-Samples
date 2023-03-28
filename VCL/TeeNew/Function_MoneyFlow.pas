@@ -5,12 +5,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, CandleCh, Series, OHLChart, StatChar;
 
 type
@@ -33,11 +28,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 uses
   TeeFuncEdit, EditChar;

@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeePenDlg;
 
 type
@@ -32,11 +28,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TMouseWheelForm.FormCreate(Sender: TObject);
 begin
@@ -54,12 +46,10 @@ procedure TMouseWheelForm.FormShow(Sender: TObject);
 begin
   inherited;
 
-  {$IFNDEF CLX}
   if Mouse.WheelPresent then
      LabelMouse.Caption:='Mouse Wheel present.'
   else
      LabelMouse.Caption:='VCL tells your Mouse has no Wheel.';
-  {$ENDIF}
 end;
 
 procedure TMouseWheelForm.ComboFlat1Change(Sender: TObject);

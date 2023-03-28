@@ -7,11 +7,7 @@ uses {$IFNDEF LINUX}
      Windows,
      {$ENDIF}
      Classes,
-     {$IFDEF CLX}
-     QGraphics, Types,
-     {$ELSE}
      Graphics,
-     {$ENDIF}
      TeEngine, Series;
 
 

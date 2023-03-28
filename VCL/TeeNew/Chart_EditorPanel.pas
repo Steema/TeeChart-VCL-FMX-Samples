@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeeEdit, TeeProcs, TeEngine, Chart, Series, TeeTools;
 
 type
@@ -38,11 +34,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TChartEditorPanelForm.FormCreate(Sender: TObject);
 begin
@@ -64,28 +56,22 @@ begin
   { change the tabs position }
   With ChartEditorPanel1.Editor.MainPage do
   Case ComboBox1.ItemIndex of
-    0: {$IFNDEF CLX}TabPosition:=tpTop{$ENDIF};
+    0: TabPosition:=tpTop;
     1: begin
          Style:=tsTabs;
-         {$IFNDEF CLX}
          TabPosition:=tpBottom;
-         {$ENDIF}
 
          ComboBox2.ItemIndex:=0;
        end;
     2: begin
          Style:=tsTabs;
-         {$IFNDEF CLX}
          TabPosition:=tpLeft;
-         {$ENDIF}
 
          ComboBox2.ItemIndex:=0;
        end;
     3: begin
          Style:=tsTabs;
-         {$IFNDEF CLX}
          TabPosition:=tpRight;
-         {$ENDIF}
 
          ComboBox2.ItemIndex:=0;
        end;
@@ -99,17 +85,13 @@ begin
   Case ComboBox2.ItemIndex of
     0: Style:=tsTabs;
     1: begin
-         {$IFNDEF CLX}
          TabPosition:=tpTop;
-         {$ENDIF}
          Style:=tsButtons;
 
          ComboBox1.ItemIndex:=0;  // Only allowed at Top
        end;
     2: begin
-         {$IFNDEF CLX}
          TabPosition:=tpTop;
-         {$ENDIF}
          Style:=tsFlatButtons;
 
          ComboBox1.ItemIndex:=0;  // Only allowed at Top

@@ -36,11 +36,7 @@ procedure CheckTable(ATable:TTable);
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Uses EditChar, DBEditCh;  { to show Database DBChart editor dialogs }
 

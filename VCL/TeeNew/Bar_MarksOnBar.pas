@@ -5,12 +5,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeePenDlg;
 
 type
@@ -46,11 +41,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TBarMarksOnBarForm.cbMarksOnBarClick(Sender: TObject);
 begin

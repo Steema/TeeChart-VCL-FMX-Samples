@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QGrids, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, Grids, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeChartGrid, TeeProcs, Chart;
 
 type
@@ -31,11 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TChartGrid3D.FormCreate(Sender: TObject);
 begin

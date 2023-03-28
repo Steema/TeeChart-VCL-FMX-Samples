@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeProcs, Chart, EditChar, TeCanvas, TeeTools,
   TeePenDlg;
 
@@ -36,11 +32,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TTowerSeriesForm.FormCreate(Sender: TObject);
 var x,z:Integer;

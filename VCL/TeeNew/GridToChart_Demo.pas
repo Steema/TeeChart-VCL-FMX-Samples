@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QGrids, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, Grids, StdCtrls, ExtCtrls,
-  {$ENDIF}
   TeeProcs, TeEngine, Chart, Series, TeeTools, TeeDragPoint;
 
 type
@@ -39,11 +35,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 // Creates Series and fills them with data from Grid parameter.
 // "SeriesClass" parameter specifies chart style.

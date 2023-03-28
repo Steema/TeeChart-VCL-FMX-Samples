@@ -20,10 +20,8 @@ uses
    SysUtils, Classes, Math,
 
    {$IFNDEF D9} // Delphi 2005 error: VERSIONINFO resource duplicated at midas.res
-   {$IFDEF D6}  // Delphi 5 does not include MidasLib.dcu
    {$IFNDEF CPUX64}
    //MidasLib,
-   {$ENDIF}
    {$ENDIF}
    {$ENDIF}
 
@@ -31,17 +29,9 @@ uses
    System.UITypes,
    {$ENDIF}
 
-   {$IFDEF CLX}
-   QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-   QComCtrls, QMenus, QButtons, Types, TeeURL, QTypes,
-   QImgList,
-   {$ELSE}
    Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
    ComCtrls, Menus, Buttons, RichEdit,
    ImgList,
-   {$IFDEF D7}
-   {$ENDIF}
-   {$ENDIF}
 
    jpeg,
 
@@ -83,10 +73,6 @@ Const
   sc_DnRightsize = $f008;
 
 type
-  {$IFDEF CLX}
-  TRichEdit=class(TMemo);
-  {$ENDIF}
-
   TTeeFormInfo=class
   public
     FormClass : TFormClass;
@@ -226,9 +212,7 @@ type
      FullScreen      : TFullScreenTool;
      {$ENDIF}
 
-     {$IFNDEF CLX}
      FindDialog      : TFindDialog;
-     {$ENDIF}
 
      {$IFDEF STEEMAVERSION}
      procedure AppException(Sender:TObject; E:Exception);
@@ -242,14 +226,10 @@ type
      function CurrentTeePanel:TCustomTeePanel;
      function CustomBorder:Boolean;
      Procedure DoSearch;
-     Function ImageIndex(const Node:TTreeNode):Integer;
-
-     {$IFNDEF CLX}
      procedure FindDialogFind(Sender: TObject);
+     Function ImageIndex(const Node:TTreeNode):Integer;
      procedure RichEditKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-     {$ENDIF}
-
+                               Shift: TShiftState);
      procedure ShowForm(const ATree:TTreeView);
      procedure ShowFormClass(const AClass: TFormClass);
      Procedure ShowFormText;
@@ -257,10 +237,8 @@ type
      Procedure TeeShowAboutBoxDemo(Const ACaption:String=''; Const AVersion:String='';
                           Const AExtra:String='');
 
-     {$IFNDEF CLX}
   protected
      procedure CreateParams(var Params: TCreateParams) ; override;
-     {$ENDIF}
   public
      { Public declarations }
 
@@ -285,15 +263,9 @@ function IsWindows64Bit: Boolean;
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
-{$IFDEF D6}
 {$WARN UNIT_PLATFORM OFF}
-{$ENDIF}
 
 Uses {$IFDEF LINUX}
      IniFiles,
@@ -312,7 +284,6 @@ Uses {$IFDEF LINUX}
      {$ENDIF}
      {$ENDIF}
 
-     {$IFNDEF CLX}   // Database Examples not available in CLX
      TeeChartWizardDemo,
 
      {$IFNDEF NOUSE_BDE}
@@ -369,10 +340,6 @@ Uses {$IFDEF LINUX}
      TeeDemoGDIPlus,
      {$ENDIF}
 
-     {$ELSE}
-     CLX_NotAvail,
-     {$ENDIF}
-
      {$IFNDEF TEELITE}
      TeePDFCanvas,
      Export_PDF,
@@ -382,7 +349,7 @@ Uses {$IFDEF LINUX}
      Series_XMLSource,
      Series_XMLSourceWeb,
      {$ENDIF}
-     
+
      {$IFNDEF TEELITE}
 
      {$IFNDEF CPUX64}
@@ -443,33 +410,7 @@ procedure TTeeNewForm.FormCreate(Sender: TObject);
       tmpUnit  : String;
       tmp      : TStringStream;
       FormInfo : TTeeFormInfo;
-      {$IFDEF CLX}
-      tmpLine  : Integer;
-      tmpPos   : Integer;
-      s        : String;
-      {$ENDIF}
  begin
-    {$IFDEF CLX}
-    with AMemo.Lines do
-    begin
-      BeginUpdate;
-      for tmpLine:=0 to Count-1 do
-      begin
-        s:=Strings[tmpLine];
-        for tmpPos:=1 to Length(s) do
-        if s[tmpPos]=' ' then s[tmpPos]:=#9
-                         else break;
-        Strings[tmpLine]:=s;
-      end;
-      EndUpdate;
-    end;
-
-    {$IFDEF D6}
-    ActivateClassGroup(TControl);
-    {$ENDIF}
-
-    {$ENDIF}
-
     tmp:=TStringStream.Create(AMemo.Lines.Text);
     try
       ATree.Visible:=False;
@@ -527,28 +468,6 @@ procedure TTeeNewForm.FormCreate(Sender: TObject);
             tmpClass:='TCPU64BitNoAvail';
           {$ENDIF}
 
-          {$IFDEF CLX}
-          if StringIn(tmpClass, [ 'TBaseDBChart',
-                                  'TDBChartSpeed',
-                                  'TDBChartSummary',
-                                  'TDBChartOrder',
-                                  'TDBChartRecordLocate',
-                                  'TLinkedTablesForm',
-                                  'TDBChartCrossTab',
-                                  'TDBChartAny',
-                                  'TDBChartSingleRecord',
-                                  'TDBChartAgg',
-                                  'TDBSummaryOrder',
-                                  'TSeriesDataSetForm',
-                                  'TChartEditorHideDataSets',
-                                  'TChartWizardDemo',
-                                  'TDBCrossTabSourceDemo',
-                                  'TRichTextDrawing',
-                                  'TGDIPlusForm',
-                                  'TChartDataSetDemo']) then
-               tmpClass:='TCLXNotAvail';
-          {$ENDIF}
-
           {$IFDEF D8TeeStandard}
           if StringIn(tmpClass, [ 'TDBChartRecordLocate',
                                   'TLinkedTablesForm',
@@ -596,18 +515,16 @@ begin
   // QC 19859
   {$IFNDEF D11}
 
-  {$IFNDEF CLX}
   if IsWindows64Bit then
   begin
     PageExample.OwnerDraw:=False;
     PageControl1.OwnerDraw:=False;
   end;
-  {$ENDIF}
 
   {$ENDIF}
 
   if CustomBorder then
-     Borderstyle := {$IFDEF CLX}fbsNone{$ELSE}bsNone{$ENDIF}
+     Borderstyle := bsNone
   else
   begin
     spMinimize.Hide;
@@ -622,14 +539,11 @@ begin
   PageControl1.ActivePage:=TabAllFeatures;
   LoadTree(TreeView2,Memo2);
 
-  {$IFNDEF CLX}
   TreeView2.HotTrack:=True;
   TreeSearch.HotTrack:=True;
 
   {$IFDEF D7}
   Panel2.ParentBackground:=False;
-  {$ENDIF}
-
   {$ENDIF}
 
   PageExample.HotTrack:=True;
@@ -638,14 +552,8 @@ begin
      WindowState:=wsMaximized
   else
   begin
-    {$IFDEF CLX}
-    Width:=Min(Screen.Width,980);
-    Height:=Min(Screen.Height,700);
-
-    {$ELSE}
     Width:=Min(Screen.{$IFDEF D7}WorkAreaWidth{$ELSE}Width{$ENDIF},980);
     Height:=Min(Screen.{$IFDEF D7}WorkAreaHeight{$ELSE}Height{$ENDIF},700);
-    {$ENDIF}
   end;
 
   ChangeCanvas(ncGDIPlus); //init TeeChart in GDI+
@@ -671,10 +579,6 @@ begin
   { create and insert a Form, then show it... }
   TheForm:=AClass.Create(Self);
 
-  {$IFDEF CLX}
-  AddFormTo(TheForm,TabExample);
-  {$ELSE}
-
   with TheForm do
   begin
     Visible:=False;
@@ -683,7 +587,6 @@ begin
     Align:=alClient;
     Show;
   end;
-  {$ENDIF}
 end;
 
 Function TTeeNewForm.HasForm(const ANode:TTreeNode):Boolean;
@@ -949,10 +852,6 @@ begin
   {$ENDIF}
 end;
 
-{$IFDEF CLX}
-type  TTreeViewAccess=class(TTreeView);
-{$ENDIF}
-
 procedure TTeeNewForm.FormShow(Sender: TObject);
 var tmp : String;
 
@@ -1042,7 +941,6 @@ begin
      result:='';
 end;
 
-{$IFNDEF CLX}
 Procedure HighLight(const RichEdit:TCustomRichEdit; const ACommentColor:TColor);
 var p   : Integer;
     Len : Integer;
@@ -1170,7 +1068,6 @@ begin
     RichEdit.Lines.EndUpdate;
   end;
 end;
-{$ENDIF}
 
 Function TTeeNewForm.CreateRichEdit(const AParent:TWinControl):TRichEdit;
 begin
@@ -1186,10 +1083,8 @@ begin
     Font.Size:=9;
     Parent:=AParent;
 
-    {$IFNDEF CLX}
     OnKeyDown:=RichEditKeyDown;
     PlainText:=True;  // 5.02
-    {$ENDIF}
   end;
 end;
 
@@ -1201,11 +1096,7 @@ end;
 
 Procedure TTeeNewForm.ShowFormText;
 var tmpForm : TFileStream;
-
-    {$IFNDEF CLX}
     tmpOutput : TMemoryStream;
-    {$ENDIF}
-
     tmpFileName : String;
 begin
   CheckRegistry;
@@ -1218,18 +1109,10 @@ begin
 
     tmpFileName:=CodePath+FolderSeparator+CodeFile;
 
-    {$IFDEF CLX}
-    tmpFileName:=tmpFileName+'.xfm';
-    {$ELSE}
     tmpFileName:=tmpFileName+'.dfm';
-    {$ENDIF}
 
     tmpForm:=TFileStream.Create(tmpFileName,fmOpenRead);
     try
-      {$IFDEF CLX}
-      RichEditForm.Lines.LoadFromStream(tmpForm);
-      {$ELSE}
-
       tmpOutput:=TMemoryStream.Create;
       try
         tmpForm.Position:=0;
@@ -1239,14 +1122,10 @@ begin
         tmpOutput.Position:=0;
         RichEditForm.Lines.LoadFromStream(tmpOutput);
 
-        {$IFNDEF CLX}
         HighLight(RichEditForm,clNavy);
-        {$ENDIF}
       finally
         tmpOutput.Free;
       end;
-
-      {$ENDIF}
     finally
       tmpForm.Free;
     end;
@@ -1270,9 +1149,7 @@ begin
       RichEditCode.Lines.LoadFromFile(UnitFileName);
       StatusBar1.SimpleText:=UnitFileName;
 
-      {$IFNDEF CLX}
       HighLight(RichEditCode,clNavy);
-      {$ENDIF}
 
       RichEditCode.SetFocus;
 
@@ -1330,7 +1207,7 @@ begin
   end;
 end;
 
-type TTeeCustomMemo={$IFDEF CLX}TMemo{$ELSE}TCustomMemo{$ENDIF};
+type TTeeCustomMemo=TCustomMemo;
 
 Procedure TTeeNewForm.DoSearch;
 
@@ -1437,12 +1314,10 @@ var tmpProg  : TProgressBar;
          try
            if tmpForm is TBaseForm then
               result:=SearchInMemo(TBaseForm(tmpForm).Memo1)
-           {$IFNDEF CLX}
            {$IFNDEF NOUSE_BDE}
            else
            if tmpForm is TBaseDBChart then
               result:=SearchInMemo(TBaseDBChart(tmpForm).Memo1)
-           {$ENDIF}
            {$ENDIF}
            else
               result:=SearchInForm(tmpForm);
@@ -1583,7 +1458,6 @@ begin
   DoSearch;
 end;
 
-{$IFNDEF CLX}
 procedure TTeeNewForm.RichEditKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -1636,7 +1510,6 @@ begin
     end;
   end;
 end;
-{$ENDIF}
 
 procedure TTeeNewForm.PopupMenu1Popup(Sender: TObject);
 begin
@@ -1693,7 +1566,7 @@ begin
       lpFiles := nil;
     end;
 
-    MError:=MapiSendMail(0, {$IFDEF CLX}0{$ELSE}Application.Handle{$ENDIF},
+    MError:=MapiSendMail(0, Application.Handle,
       MapiMessage,
       MAPI_LOGON_UI or MAPI_NEW_SESSION, 0);
 
@@ -1806,7 +1679,7 @@ end;
 
 procedure TTeeNewForm.BSupportClick(Sender: TObject);
 begin
-  TeeGotoURL({$IFDEF CLX}nil{$ELSE}0{$ENDIF},
+  TeeGotoURL(0,
      'http://www.teechart.net/support/search.php?keywords='+MemoSupport.Text);
 
 //  SendEmail(MemoSupport.Text,LabelTopic.Caption)
@@ -1950,9 +1823,7 @@ begin
     try
       sCode.LoadFromFile(CodePath+FolderSeparator+CodeFile+'.pas');
 
-      {$IFNDEF CLX}
       //HighLight(sCode,clNavy);
-      {$ENDIF}
 
       st.Add('<br><br><b>'+CodeFile+'.pas</b><br><br>');
       st.Add('<font name="Courier">');
@@ -1970,11 +1841,7 @@ begin
 
     tmpFileName:=CodePath+FolderSeparator+CodeFile;
 
-    {$IFDEF CLX}
-    tmpFileName:=tmpFileName+'.xfm';
-    {$ELSE}
     tmpFileName:=tmpFileName+'.dfm';
-    {$ENDIF}
 
     tmpForm:=TFileStream.Create(tmpFileName,fmOpenRead);
     try
@@ -2254,7 +2121,6 @@ procedure TTeeNewForm.Draw3D1MouseDown(Sender: TObject;
 begin
   ReleaseCapture;
 
-  {$IFNDEF CLX}
   if y<2 then
    begin
     if x<4 then
@@ -2266,7 +2132,6 @@ begin
    end
   else
    Perform(wm_SysCommand, sc_DragMove, 0)
-  {$ENDIF}
 end;
 
 procedure TTeeNewForm.SpeedButton1Click(Sender: TObject);
@@ -2318,7 +2183,6 @@ procedure TTeeNewForm.Draw3D2MouseDown(Sender: TObject;
 begin
   ReleaseCapture;
 
-  {$IFNDEF CLX}
   if y<2 then
    begin
     if x<4 then
@@ -2330,7 +2194,6 @@ begin
    end
   else
    Perform(wm_SysCommand, sc_DragMove, 0)
-  {$ENDIF}
 end;
 
 procedure TTeeNewForm.PageExampleDrawTab(Control: TCustomTabControl;
@@ -2364,7 +2227,6 @@ begin
 
 end;
 
-{$IFNDEF CLX}
 //no border BUT resizable
 procedure TTeeNewForm.CreateParams(var Params: TCreateParams) ;
 begin
@@ -2376,7 +2238,6 @@ begin
     Params.Style := Params.Style or WS_SIZEBOX;
   end;
 end;
-{$ENDIF}
 
 procedure TTeeNewForm.spMinimizeClick(Sender: TObject);
 begin
@@ -2384,13 +2245,9 @@ begin
 end;
 
 procedure TTeeNewForm.FormResize(Sender: TObject);
-{$IFNDEF CLX}
 var
   rgn: HRGN;
-{$ENDIF}
 begin
-  {$IFNDEF CLX}
-
   if CustomBorder then
   begin
     rgn := CreateRoundRectRgn(0,// x-coordinate of the region's upper-left corner
@@ -2402,7 +2259,6 @@ begin
 
     SetWindowRgn(Handle, rgn, True);
   end;
-  {$ENDIF}
 end;
 
 function getHeightOfTaskBar : integer;

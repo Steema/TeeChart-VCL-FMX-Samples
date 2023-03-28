@@ -7,11 +7,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QGrids,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Grids,
-  {$ENDIF}
   SysUtils, Classes;
 
 type
@@ -25,11 +21,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 initialization
   RegisterClass(TPropertyAliases);

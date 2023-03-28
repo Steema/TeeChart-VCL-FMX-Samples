@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeFunci, Series, TeeProcs, Chart;
 
 type
@@ -25,7 +21,6 @@ type
     LabelAverage: TLabel;
     procedure CheckBox1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     Procedure SetLabelAverage;
@@ -35,11 +30,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TAverageFunctionNulls.CheckBox1Click(Sender: TObject);
 begin
@@ -87,14 +78,6 @@ begin
   Series1.Marks.Style:=smsValue;
 
   SetLabelAverage;
-end;
-
-procedure TAverageFunctionNulls.FormShow(Sender: TObject);
-begin
-  inherited;
-  {$IFDEF CLX}
-  Series1.CheckDataSource;
-  {$ENDIF}
 end;
 
 initialization

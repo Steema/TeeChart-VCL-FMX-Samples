@@ -8,13 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QGrids,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Grids,
-  {$ENDIF}
   Chart_Grid, TeeChartGrid, TeeNavigator, TeCanvas, TeEngine, Series,
   TeeProcs, Chart;
 
@@ -32,11 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TChartGridColors.CheckBox3Click(Sender: TObject);
 begin

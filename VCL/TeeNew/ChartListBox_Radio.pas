@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QComCtrls, QStdCtrls, QExtCtrls,
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls, 
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   Base, TeeLisB, TeeProcs, TeEngine, Chart, Series;
 
 type
@@ -37,11 +33,7 @@ var
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TChartListBoxRadio.Chart1AfterDraw(Sender: TObject);
 var wasFalse: Boolean;

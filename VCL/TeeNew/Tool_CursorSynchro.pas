@@ -9,15 +9,7 @@ uses
   {$ENDIF}
   SysUtils, Classes,
 
-  {$IFDEF UCL}
-  UGraphics, UControls, UForms, UDialogs, UExtCtrls, UStdCtrls, UComCtrls,
-  {$ELSE}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
-  {$ENDIF}
 
   Base, TeEngine, TeeTools, Series, TeeProcs, Chart;
 
@@ -49,11 +41,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 // This procedure synchronizes two cursors.
 // "Source" is the original cursor, and "Dest" the cursor

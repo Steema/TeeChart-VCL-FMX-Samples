@@ -8,12 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
-  {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeSurfa, TeeTools,
   TeeGriEd, TeePenDlg;
 
@@ -43,11 +38,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 function TSeriesInvertPalette.Series1GetYValue(Sender: TChartSeries; X,
   Z: Integer): Double;

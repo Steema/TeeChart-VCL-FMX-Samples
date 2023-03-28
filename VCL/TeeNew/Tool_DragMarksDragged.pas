@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, 
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, 
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   Base, TeeProcs, TeEngine, Chart, Series, BubbleCh, TeeTools;
 
 type
@@ -38,11 +34,7 @@ implementation
 uses 
   Math;
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TDragMarksToolDraggedForm.ChartTool1DraggedMark(
   Sender: TDragMarksTool; Index: Integer; Button: TMouseButton;

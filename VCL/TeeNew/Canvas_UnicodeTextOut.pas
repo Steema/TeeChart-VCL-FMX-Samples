@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart;
 
 type
@@ -26,22 +22,15 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TCanvasUnicodeTextOut.Chart1AfterDraw(Sender: TObject);
-{$IFNDEF CLX}
 var UnicodeString : WideString;
-{$ENDIF}
 begin
   inherited;
 
-{$IFNDEF CLX}
-
   SetLength(UnicodeString, 19);
+
   UnicodeString[ 1] := WideChar($0152);
   UnicodeString[ 2] := WideChar($03E0);
   UnicodeString[ 3] := WideChar($0416);
@@ -61,7 +50,7 @@ begin
   UnicodeString[17] := WideChar($2103);
   UnicodeString[18] := WideChar($3020);
   UnicodeString[19] := WideChar($FFFD);
-  
+
   with Chart1.Canvas.Font do
   begin
     Size:=15;
@@ -70,7 +59,6 @@ begin
 
   TextOutW(Chart1.Canvas.Handle, 10, 10, PWideChar(UnicodeString),
                                          Length(UnicodeString));
-{$ENDIF}
 end;
 
 initialization

@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeEngine, TeePieTool, Series, TeeProcs, Chart, TeCanvas, TeePenDlg,
   EditChar;
 
@@ -37,11 +33,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TPieToolDemo.Chart1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);

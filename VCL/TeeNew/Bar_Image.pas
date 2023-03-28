@@ -8,13 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList,
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  ImgList,
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
   Base, TeeProcs, TeEngine, Chart, Series;
 
 type
@@ -33,11 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TBarImage.FormCreate(Sender: TObject);
 begin

@@ -10,11 +10,7 @@ uses
   
   SysUtils, Classes,
 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeOrgSeries;
 
 type
@@ -31,13 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$IFNDEF LCL}
-{$R *.DFM}
-{$ENDIF}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses
   TeeJpeg, EditChar;

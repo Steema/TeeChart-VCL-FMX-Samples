@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QComCtrls, QStdCtrls, QExtCtrls, 
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls, 
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls,
   Base, TeeProcs, TeEngine, Chart, TeeSurfa;
 
 type
@@ -31,11 +27,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TDepthTopAxisForm.CheckBox1Click(Sender: TObject);
 begin

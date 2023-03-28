@@ -8,14 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QButtons, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
-  {$ENDIF}
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas, TeeTools;
 
 type
@@ -35,11 +29,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TChartCustomChartRect.bCustomClick(Sender: TObject);
 begin

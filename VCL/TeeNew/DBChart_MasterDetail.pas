@@ -49,11 +49,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TLinkedTablesForm.DataSource1DataChange(Sender: TObject;
   Field: TField);

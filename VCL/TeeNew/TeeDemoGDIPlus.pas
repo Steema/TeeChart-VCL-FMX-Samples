@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   TeEngine, Series, TeeProcs, Chart, TeeTools, TeeComma, TeCanvas,
   Base, TeePenDlg, TeeGDIPlus;
 
@@ -42,11 +38,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TGDIPlusForm.RadioGroup1Click(Sender: TObject);
 begin

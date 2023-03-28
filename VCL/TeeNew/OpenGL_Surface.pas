@@ -10,11 +10,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   SysUtils, Classes,
   TeEngine, TeeSurfa, TeePoin3, TeeProcs, Chart, TeeComma, TeeOpenGL,
   TeeEditPro;
@@ -81,11 +77,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses {$IFDEF LINUX}
      OpenGLLinux,

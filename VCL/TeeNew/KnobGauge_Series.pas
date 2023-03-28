@@ -8,15 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
-  {$ENDIF}
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeKnobGauge,
   TeeNumericGauge;
 
@@ -54,11 +47,7 @@ implementation
 
 uses Math;
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TKnobGauge_SeriesForm.FormCreate(Sender: TObject);
 begin

@@ -8,12 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
-  {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeDonut;
 
 type
@@ -31,11 +26,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TCanvasCustonShapePicture.FormCreate(Sender: TObject);
 var i: integer;

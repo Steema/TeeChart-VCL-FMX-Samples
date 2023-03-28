@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, 
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, 
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   Base, TeeProcs, TeEngine, Chart, Series, TeCanvas;
 
 type
@@ -31,11 +27,7 @@ type
 
 implementation
 
-{$IFDEF CLX}
-{$R *.xfm}
-{$ELSE}
 {$R *.dfm}
-{$ENDIF}
 
 // Call this function with a Chart or DBChart component
 // to adjust the axis scales isometrically:
@@ -57,12 +49,8 @@ begin
 
     tmpX:=(XRange/ChartWidth);
 
-    {$IFDEF CLX}
-    XYScreen:=1024.0/768.0;  //TODO
-    {$ELSE}
     XYScreen:=1.0*(GetDeviceCaps(Canvas.Handle,HORZSIZE)/Screen.Width)/
                   (GetDeviceCaps(Canvas.Handle,VERTSIZE)/Screen.Height);
-    {$ENDIF}
 
     With Vertical do YRange:=Maximum-Minimum;
 

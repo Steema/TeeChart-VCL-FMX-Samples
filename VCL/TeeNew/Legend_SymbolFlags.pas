@@ -11,12 +11,7 @@ uses
   {$IFDEF D16}
   System.UITypes,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeePenDlg;
 
 type
@@ -37,11 +32,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TLegendSymbolDraw.FormCreate(Sender: TObject);
 begin

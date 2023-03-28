@@ -8,9 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms,
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
   Dialogs, StdCtrls, TeCanvas, TeeProcs, TeEngine, Chart,
   ExtCtrls, TeeSquarifiedMap, TeeEdit, Base, TeePenDlg;
 

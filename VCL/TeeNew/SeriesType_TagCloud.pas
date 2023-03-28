@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QComCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeEngine, TeeTools, TeeSurfa, TeeTagCloud, TeeProcs, Chart,
   TeeEdiFont, TeCanvas, TeePenDlg;
 
@@ -45,11 +41,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TSeriesTagCloud.Button1Click(Sender: TObject);
 begin

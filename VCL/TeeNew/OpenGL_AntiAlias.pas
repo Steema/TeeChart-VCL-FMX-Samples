@@ -8,12 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
-  {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeOpenGL, TeeGLEditor,
   TeePenDlg, TeeTools, TeeSurfa, TeeGLCanvas;
 
@@ -60,11 +55,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses
   OpenGL2, Math;

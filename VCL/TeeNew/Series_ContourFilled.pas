@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeSurfa, TeeBrushDlg, EditChar,
   TeeTools, TeCanvas, TeePenDlg;
 
@@ -40,11 +36,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TSeriesContourFilled.CheckBox1Click(Sender: TObject);
 begin

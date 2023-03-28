@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QComCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ComCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeeLinearGauge, TeEngine, TeeNumericGauge, TeeProcs, Chart,
   EditChar, TeeTools, TeeLinkTool;
 
@@ -35,11 +31,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TLEDGauges.Button1Click(Sender: TObject);
 begin

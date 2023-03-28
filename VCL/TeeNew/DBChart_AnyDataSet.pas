@@ -31,11 +31,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TDBChartAny.CheckBox1Click(Sender: TObject);
 begin

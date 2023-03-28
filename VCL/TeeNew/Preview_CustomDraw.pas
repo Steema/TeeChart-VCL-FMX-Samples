@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$ENDIF}
   Base, TeePreviewPanel, TeeProcs, TeEngine, Chart;
 
 type
@@ -31,11 +27,7 @@ implementation
 
 uses TeCanvas;
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TPreviewCustomDraw.TeePreviewPanel1AfterDraw(Sender: TObject);
 begin

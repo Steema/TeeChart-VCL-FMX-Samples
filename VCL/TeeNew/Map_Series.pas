@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QActnList,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ActnList,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeMapSeries, TeeProcs, Chart, TeeChartActions;
 
 type
@@ -42,11 +38,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Procedure TMapSeriesForm.AddSampleShapes;
 

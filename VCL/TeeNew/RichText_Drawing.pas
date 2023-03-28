@@ -29,11 +29,7 @@ Procedure DrawRichText(Chart:TCustomTeePanel; const RichText:String; R:TRect); o
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TRichTextDrawing.Chart1AfterDraw(Sender: TObject);
 var RichText : String;

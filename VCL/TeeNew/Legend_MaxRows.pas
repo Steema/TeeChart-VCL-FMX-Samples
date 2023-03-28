@@ -5,12 +5,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, TeCanvas, Chart;
 
 type
@@ -29,11 +24,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TLegendMaxRowsForm.Edit1Change(Sender: TObject);
 begin

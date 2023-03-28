@@ -26,11 +26,7 @@ var
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TGalleryPanelForm.FormCreate(Sender: TObject);
 begin

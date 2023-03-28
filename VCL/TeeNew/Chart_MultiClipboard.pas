@@ -8,12 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  Types,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}  
   Base, TeeProcs, TeEngine, Chart, Series;
 
 type
@@ -34,13 +29,10 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
-Uses {$IFDEF CLX}QClipbrd{$ELSE}Clipbrd{$ENDIF};
+Uses
+  Clipbrd;
 
 procedure TChartMultiClipboard.FormCreate(Sender: TObject);
 begin

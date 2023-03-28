@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   jpeg,
   Base, TeEngine, Series, TeeProcs, Chart, TeeTools, Buttons, CandleCh,
   TeeFiltersEditor, TeeFilters;
@@ -44,11 +40,7 @@ implementation
 
 uses EditChar;
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TColorBandPictureForm.SpeedButton1Click(Sender: TObject);
 begin

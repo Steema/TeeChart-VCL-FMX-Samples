@@ -8,13 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QImgList, QGrids,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, ImgList,
   Grids,
-  {$ENDIF}
   Base, TeEngine, TeeSurfa, TeeProcs, Chart, TeeCustomLegendTool, Series;
 
 
@@ -43,11 +38,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 uses
   TeeThemes, Math, TeeTools, EditChar;

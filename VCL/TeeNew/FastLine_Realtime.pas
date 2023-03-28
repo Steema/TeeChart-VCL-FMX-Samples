@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QButtons, QExtCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ExtCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, Series;
 
 type
@@ -44,11 +40,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TFastDeleteRealtime.FormCreate(Sender: TObject);
 begin
@@ -91,14 +83,10 @@ begin
 
   // Speed tips:
 
-  {$IFNDEF CLX}
-
   // When using only a single thread, disable locking:
   Chart1.Canvas.ReferenceCanvas.Pen.OwnerCriticalSection:=nil;
   Series1.LinePen.OwnerCriticalSection:=nil;
   Series2.LinePen.OwnerCriticalSection:=nil;
-
-  {$ENDIF}
 
   // For Windows NT, 2000 and XP only:
   // Speed realtime painting with solid pens of width 1.

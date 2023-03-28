@@ -8,11 +8,7 @@ uses
   Windows, Messages, 
   {$ENDIF}
   SysUtils, Classes, 
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, 
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, 
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   Base, TeeProcs, TeEngine, Chart, TeeSurfa, TeePoin3, TeeTools;
 
 type
@@ -35,11 +31,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TCursorSnapStyleToolForm.FormCreate(Sender: TObject);
 begin

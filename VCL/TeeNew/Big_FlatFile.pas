@@ -28,11 +28,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QStdCtrls, QExtCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls, ComCtrls,
-  {$ENDIF}
   TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeComma, TeeDataSubset,
   TeeCreateFlatFile, TeeTools, TeeAxisScroll,
   TeeBrushdlg, TeeThemes, TeeThemeEditor, TeePNG, TeeJPEG, TeeGIF, Base,
@@ -120,11 +116,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 uses
   TeeLegendScrollBarEditor;

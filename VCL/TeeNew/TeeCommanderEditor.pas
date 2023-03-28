@@ -50,11 +50,7 @@ procedure TeeCommanderEdit(AOwner:TComponent; ACommander:TTeeCommander);
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Uses TeeProco, 
      {$IFDEF CLX}

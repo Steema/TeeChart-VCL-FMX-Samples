@@ -8,12 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls, Buttons,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeCircularGauge;
 
 type
@@ -50,11 +45,7 @@ implementation
 
 uses TeeSpline, Math;
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TCircularGaugeLGaugeForm.FormCreate(Sender: TObject);
 begin

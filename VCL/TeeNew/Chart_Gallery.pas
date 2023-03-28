@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeePenDlg, TeeProcs, TeEngine, Chart, Series, TeeGally;
 
 type
@@ -28,11 +24,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TChartGallery.FormCreate(Sender: TObject);
 begin
@@ -44,16 +36,12 @@ begin
   Gallery:=TTeeGallery.Create(Self);
   Gallery.P1.Visible:=False;
 
-  {$IFDEF CLX}
-  TTeeVCL.AddFormTo(Gallery,Self);
-  {$ELSE}
   With Gallery do
   begin
     Align:=alClient;
     BorderStyle:=bsNone;
     Parent:=Self;
   end;
-  {$ENDIF}
 end;
 
 procedure TChartGallery.FormShow(Sender: TObject);

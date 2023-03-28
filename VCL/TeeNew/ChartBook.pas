@@ -8,11 +8,7 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeCanvas, TeEngine, Series, TeeProcs, Chart, TeeChartBook, TeeThemes,
   TeePenDlg;
 
@@ -40,11 +36,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TChartBookForm.FormCreate(Sender: TObject);
 begin
@@ -63,12 +55,7 @@ begin
     AddChart.AddSeries(TAreaSeries).FillSampleValues;
     AddChart.AddSeries(TPieSeries).FillSampleValues;
 
-    {$IFDEF CLX}
-    Label1.Visible:=False;
-    ComboFlat1.Visible:=False;
-    {$ELSE}
     TabPosition:=tpLeft;
-    {$ENDIF}
 
     ActiveToolbar.BevelInner:=bvNone;
     ActiveToolbar.BevelOuter:=bvNone;
@@ -79,9 +66,7 @@ end;
 
 procedure TChartBookForm.ComboFlat1Change(Sender: TObject);
 begin
-  {$IFNDEF CLX}
   Book.TabPosition:=TTabPosition(ComboFlat1.ItemIndex);
-  {$ENDIF}
 end;
 
 procedure TChartBookForm.CheckBox1Click(Sender: TObject);

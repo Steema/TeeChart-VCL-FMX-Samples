@@ -31,9 +31,6 @@ type
     { Public declarations }
   end;
 
-var
-  ExportChartString: TExportChartString;
-
 implementation
 
 {$R *.dfm}
@@ -46,6 +43,8 @@ begin
   Memo2.Lines.Text:=SaveChartToString(Chart1);
 
   Memo3.Lines.Text:=TSeriesDataText.From(Chart1);
+
+  Button2.Enabled:=Memo2.Lines.Text<>'';
 end;
 
 procedure TExportChartString.Button2Click(Sender: TObject);

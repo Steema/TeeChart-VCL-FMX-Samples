@@ -36,11 +36,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TDBCrossTabSourceDemo.FormShow(Sender: TObject);
 begin

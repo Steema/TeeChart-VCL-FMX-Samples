@@ -33,11 +33,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TXMLSourceDemo.FormCreate(Sender: TObject);
 begin

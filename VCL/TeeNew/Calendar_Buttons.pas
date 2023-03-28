@@ -8,16 +8,9 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons, Types,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
   Buttons,
-  {$ENDIF}
   Base, TeEngine, TeeCalendar, TeeProcs, Chart, TeCanvas, EditChar;
 
 type
@@ -43,11 +36,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 procedure TCalendarButtons.CheckBox1Click(Sender: TObject);
 begin

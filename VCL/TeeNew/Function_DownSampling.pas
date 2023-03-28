@@ -8,11 +8,7 @@ uses
   Windows,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  {$ENDIF}
   Base, TeeProcs, TeEngine, Chart, TeeDownSampling, Series, TeCanvas,
   TeePenDlg;
 
@@ -45,11 +41,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
 
 procedure TDownSampling.ComboBox1Change(Sender: TObject);
 begin

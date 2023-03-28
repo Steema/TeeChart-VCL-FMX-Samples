@@ -7,13 +7,7 @@ uses
   {$IFNDEF LINUX}
   Windows, Messages,
   {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls, QComCtrls,
-  QButtons,
-  {$ELSE}
-  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,
-  Buttons,
-  {$ENDIF}
+  Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls, ComCtrls,  Buttons,
   SysUtils, Classes,
   TeEngine, CurvFitt, Series, TeeProcs, Chart, TeeFunci, TeeComma, TeeTools;
 
@@ -55,11 +49,7 @@ type
 
 implementation
 
-{$IFNDEF CLX}
-{$R *.DFM}
-{$ELSE}
-{$R *.xfm}
-{$ENDIF}
+{$R *.dfm}
 
 Procedure TDynamicTrend.ResizeFunction(AFunction:TCustomFittingFunction; APos:Longint);
 begin

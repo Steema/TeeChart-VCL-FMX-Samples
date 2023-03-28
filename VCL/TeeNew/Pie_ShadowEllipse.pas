@@ -8,14 +8,8 @@ uses
   Windows, Messages,
   {$ENDIF}
   SysUtils, Classes,
-  {$IFDEF D6}
   Types,
-  {$ENDIF}
-  {$IFDEF CLX}
-  QGraphics, QControls, QForms, QDialogs, QExtCtrls, QStdCtrls,
-  {$ELSE}
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
-  {$ENDIF}
   Base, TeEngine, Series, TeeProcs, Chart, TeCanvas, TeeTools,
   TeePenDlg;
 
@@ -43,11 +37,7 @@ Procedure DrawEllipseShadow(Canvas:TTeeCanvas; Color:TColor; R:TRect);
 
 implementation
 
-{$IFNDEF CLX}
 {$R *.dfm}
-{$ELSE}
-{$R *.XFM}
-{$ENDIF}
 
 uses Math;
 
