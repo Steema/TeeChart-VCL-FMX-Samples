@@ -12,9 +12,7 @@ program Tee9New;
 //
 
 uses
-  {$IFDEF FASTMM}
   FastMM4,
-  {$ENDIF}
   Forms,
   Main in 'Main.pas' {TeeNewForm},
   Base in 'Base.pas' {BaseForm},
@@ -641,7 +639,9 @@ uses
   Export_PDF_Multiple in 'Export_PDF_Multiple.pas' {PDFMultipleForm},
   Series_DoubleHorizBar in 'Series_DoubleHorizBar.pas' {DoubleHorizBarSeriesForm},
   Export_Chart_as_String in 'Export_Chart_as_String.pas' {ExportChartString},
-  Series_EquiVolume in 'Series_EquiVolume.pas' {EquiVolumeSeriesForm};
+  Series_EquiVolume in 'Series_EquiVolume.pas' {EquiVolumeSeriesForm},
+  Spark_Series in 'Spark_Series.pas' {SparkChartForm},
+  ChartLayout_Demo in 'ChartLayout_Demo.pas' {ChartLayoutDemo};
 
 {$R *.res}
 
