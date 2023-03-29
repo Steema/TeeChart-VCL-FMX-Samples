@@ -5,7 +5,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, TeeGDIPlus, TeEngine, TeeSurfa, TeeMapSeries, TeeWorldSeries,
+  Dialogs, TeEngine, TeeSurfa, TeeMapSeries, TeeWorldSeries,
   ExtCtrls, TeeProcs, Chart, StdCtrls, TeeComma, TeeLisB, TeeTree, TeeTools,
   EditChar, TeeWorldSeriesEditor, TeCanvas, Series, TeeOpenGL, TeeGLEditor,
   TeeAnimate, TeeAnimations, TeeGLCanvas, Menus, BubbleCh, TeeMapSeriesEdit,

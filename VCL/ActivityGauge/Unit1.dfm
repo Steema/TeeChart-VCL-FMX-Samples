@@ -114,7 +114,6 @@ object ActivityGaugeForm: TActivityGaugeForm
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 14
     object Series1: TDonutSeries
-      HoverElement = []
       Marks.Font.Color = clWhite
       Marks.Transparent = True
       Marks.Visible = False
@@ -156,7 +155,6 @@ object ActivityGaugeForm: TActivityGaugeForm
       DonutPercent = 47
     end
     object Series2: TDonutSeries
-      HoverElement = []
       Marks.Visible = False
       Marks.Tail.Margin = 2
       SeriesColor = 65456
@@ -192,7 +190,6 @@ object ActivityGaugeForm: TActivityGaugeForm
       DonutPercent = 64
     end
     object Series3: TDonutSeries
-      HoverElement = []
       Marks.Visible = False
       Marks.Tail.Margin = 2
       SeriesColor = 10158300

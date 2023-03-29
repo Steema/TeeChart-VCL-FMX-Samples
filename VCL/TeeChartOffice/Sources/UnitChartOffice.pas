@@ -66,7 +66,7 @@ uses
   {$ENDIF}
 
   TeeLighting, TeeLegendScrollbar, TeeDesignOptions, TeeFilters,
-  TeeToolsGalleryDemos, TeeWorldSeriesEditor, TeeGDIPlus,
+  TeeToolsGalleryDemos, TeeWorldSeriesEditor, 
   TeeClusteringToolEditor, TeeImportData,
   TeeAnimate, TeeAnimations, TeeSurfa, TeeLegendPalette, DB,
   TeePenDlg;

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, TeeGDIPlus, StdCtrls, TeEngine, TeeAnimations, Series, TeeProcs,
+  Dialogs, StdCtrls, TeEngine, TeeAnimations, Series, TeeProcs,
   Chart, ComCtrls, ExtCtrls, TeeComma, TeeAnimate, TeeTools, TeCanvas,
   
   // Using TreeAnimate purpose is to test anim items from TeeTree, to verify

@@ -4,8 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  TeeProcs, TeEngine, Chart, DBChart, ExtCtrls, StdCtrls, DB, DBTables,
-  TeeGDIPlus;
+  TeeProcs, TeEngine, Chart, DBChart, ExtCtrls, StdCtrls, DB, DBTables;
 
 type
   TBaseDBChart = class(TForm)

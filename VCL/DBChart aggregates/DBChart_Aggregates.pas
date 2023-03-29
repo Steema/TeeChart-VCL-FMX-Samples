@@ -8,7 +8,7 @@ uses
   Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   Base_DBChart, TeeProcs, TeEngine, Chart, DBChart, Db,
   DBTables, DBClient, Provider, Series, DBEditCh, EditChar,
-  TeeEditPro, TeeGDIPlus;
+  TeeEditPro;
 
 type
   TDBChartAggregate = class(TBaseDBChart)

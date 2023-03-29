@@ -12,7 +12,7 @@ uses
   TeEngine, Series, TeeProcs, Chart, TeeComma, TeePerfCounter, TeeLisB,
   TeCanvas, StatChar, TeeGauges, CandleCh, TeeTools, TeeThemeEditor,
   TeePNG, TeePCX, TeeGIF, TeeJPEG, TeeVMLCanvas, TeePSCanvas, TeePDFCanvas,
-  TeeSVGCanvas, TeePenDlg, TeeGDIPlus;
+  TeeSVGCanvas, TeePenDlg;
 
 type
   TMainForm = class(TForm)

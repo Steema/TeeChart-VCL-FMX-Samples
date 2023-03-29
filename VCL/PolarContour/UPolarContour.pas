@@ -6,7 +6,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics,
-  Controls, Forms, Dialogs, TeeGDIPlus, StdCtrls,
+  Controls, Forms, Dialogs, StdCtrls,
   TeEngine, Series, TeePolar, TeePolarContour,
   TeeProcs, Chart, ExtCtrls, TeeComma, TeeSurfa;
 

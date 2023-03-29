@@ -17,7 +17,7 @@ uses
   ADODB,
   {$ENDIF}
   Dialogs, StdCtrls, ExtCtrls, Buttons, TeCanvas, ActiveX, ComObj, OleCtnrs,
-  ComCtrls, Grids, TeeGDIPlus, TeeProcs, TeEngine, Chart, Math, TeePenDlg,
+  ComCtrls, Grids, TeeProcs, TeEngine, Chart, Math, TeePenDlg,
   TeeChartGrid, Menus;
 
 type

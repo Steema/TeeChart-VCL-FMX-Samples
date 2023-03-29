@@ -32,7 +32,7 @@ uses
   TeeFlexCanvas, TeeWorldSeriesEditor,
   TeePSCanvas, TeeVMLCanvas, TeeLighting, TeeEdiGrad, TeeOpenGL, TeeURL,
   TeeSeriesTextEd, Series, TeeChartActions, TeeWorldSeries, TeeVRML3D,
-  TeeGDIPlus, Menus;
+  Menus;
 
 type
   TForm1 = class(TForm)

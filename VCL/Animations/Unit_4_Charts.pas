@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, TeeGDIPlus, Series, TeEngine, TeeProcs, Chart, ExtCtrls,
+  Dialogs, Series, TeEngine, TeeProcs, Chart, ExtCtrls,
   StdCtrls, TeeAnimate, TeeAnimations, TeeTools, TeCanvas, TeeEditAnimations,
   TeePenDlg, EditChar;
 
