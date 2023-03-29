@@ -25,10 +25,10 @@ type
     { Public declarations }
   end;
 
-  TNewCanvasStyle=(ncGDI, ncOpenGL, ncAntiAlias, ncGDIPlus);
+  TNewCanvasStyle=(ncGDI, ncOpenGL, ncGDIPlus);
 
 var
-  TeeNewCanvas : TNewCanvasStyle = ncGDI;
+  TeeNewCanvas : TNewCanvasStyle = ncGDIPlus;
 
 implementation
 
@@ -65,15 +65,17 @@ begin
                     Chart1.View3DOptions.Zoom:=40;
                     Chart1.View3DOptions.Perspective:=50;
                   end;
-
-    ncAntiAlias : Chart1.Canvas:=TAntiAliasCanvas.Create; // Obsolete
   {$ENDIF}
 
     ncGDIPlus   : if not (Chart1.Canvas is TGLCanvas) then // <-- For demos with default OpenGL Canvas, do not change it !
                      if not (Chart1.Canvas is TGDIPlusCanvas) then // <-- Do not assign a GDI+ canvas if it already is !
                          Chart1.Canvas:=TGDIPlusCanvas.Create;
+
+    ncGDI       :  if not (Chart1.Canvas is TTeeCanvas3D) then
+                      Chart1.Canvas:=TTeeCanvas3D.Create;
   else
-    Chart1.Canvas:=TTeeCanvas3D.Create;
+    if not (Chart1.Canvas is TGDIPlusCanvas) then
+       Chart1.Canvas:=TGDIPlusCanvas.Create;
   end;
 end;
 

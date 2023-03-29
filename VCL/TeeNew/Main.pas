@@ -216,7 +216,7 @@ type
      procedure AppException(Sender:TObject; E:Exception);
      {$ENDIF}
      
-     procedure ChangeCanvas(Style:TNewCanvasStyle);
+     procedure ChangeCanvas(const Style:TNewCanvasStyle);
      Procedure CheckRegistry;
      Function CodeFile:String;
      Function CodePath:String;
@@ -1777,7 +1777,7 @@ begin
 end;
 {$ENDIF}
 
-procedure TTeeNewForm.ChangeCanvas(Style:TNewCanvasStyle);
+procedure TTeeNewForm.ChangeCanvas(const Style:TNewCanvasStyle);
 begin
   CanvasGDI1.Checked:= Style = ncGDI;
   CanvasOpenGL1.Checked:= Style = ncOpenGL;
