@@ -39,7 +39,7 @@ Uses
   TeeOpenGL,
   TeeAntiAlias,
   {$ENDIF}
-  TeCanvas, TeeGLCanvas, EditChar, TeeGDIPlus;
+  TeCanvas, TeeGDIPlus, TeeGLCanvas, EditChar;
 
 // Trick:
 // Double-clicking any Memo on any form shows the chart editor
