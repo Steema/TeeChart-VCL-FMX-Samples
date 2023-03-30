@@ -101,7 +101,6 @@ type
     CanvasOpenGL1: TMenuItem;
     ExporttoHTML1: TMenuItem;
     FullScreenChart1: TMenuItem;
-    CanvasAntiAlias1: TMenuItem;
     N4: TMenuItem;
     VerifyallMemos1: TMenuItem;
     CanvasGDI2: TMenuItem;
@@ -177,7 +176,6 @@ type
     procedure CanvasOpenGL1Click(Sender: TObject);
     procedure ExporttoHTML1Click(Sender: TObject);
     procedure FullScreenChart1Click(Sender: TObject);
-    procedure CanvasAntiAlias1Click(Sender: TObject);
     procedure VerifyallMemos1Click(Sender: TObject);
     procedure CanvasGDI2Click(Sender: TObject);
     procedure Font1Click(Sender: TObject);
@@ -1781,7 +1779,6 @@ procedure TTeeNewForm.ChangeCanvas(const Style:TNewCanvasStyle);
 begin
   CanvasGDI1.Checked:= Style = ncGDI;
   CanvasOpenGL1.Checked:= Style = ncOpenGL;
-  CanvasAntiAlias1.Checked:= Style = ncAntiAlias;
   CanvasGDI2.Checked:= Style = ncGDIPlus;
 
   CBoxGDIPlus.Checked:=CanvasGDI2.Checked;
@@ -2030,11 +2027,6 @@ begin
     FullScreen.Active:=True;
     {$ENDIF}
   end;
-end;
-
-procedure TTeeNewForm.CanvasAntiAlias1Click(Sender: TObject);
-begin
-  ChangeCanvas(ncAntiAlias);
 end;
 
 procedure TTeeNewForm.VerifyallMemos1Click(Sender: TObject);
