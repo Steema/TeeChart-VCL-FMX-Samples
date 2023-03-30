@@ -27,7 +27,7 @@ type
   end;
 
 var
-  SlopeForm: TSlopeForm;  
+  SlopeForm: TSlopeForm;
 
 implementation
 
@@ -39,27 +39,30 @@ begin
 
   Series1:=TAreaSeries.Create(Self);
   Chart1.AddSeries(Series1);
-  Series1.Smoothed:=true;
+
   Button1Click(Self);
 
-  Function1:=TSlopeFunction.Create(Self);
   Series2:=TLineSeries.Create(Self);
   Chart1.AddSeries(Series2);
+
+  Function1:=TSlopeFunction.Create(Self);
+
   Series2.FunctionType:=Function1;
+
   Series2.DataSource:=Series1;
+
   Series2.Marks.Visible:=True;
   Series2.Marks.Angle:=90;
   Series2.Marks.ArrowLength:=30;
   Series2.Marks.Font.Color:=clRed;
-  Series2.Title:='Slope';
 
-  Chart1.Draw;  
+  Series2.Title:='Slope';
 end;
 
 procedure TSlopeForm.Button1Click(Sender: TObject);
 begin
-  Series1.Clear;
-  Series1.FillSampleValues(4);
+//  Series1.Smoothed:=true;
+  Series1.FillSampleValues(40);
 end;
 
 initialization
