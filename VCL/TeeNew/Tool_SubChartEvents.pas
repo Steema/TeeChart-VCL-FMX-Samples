@@ -38,6 +38,7 @@ begin
   tool1.ParentChart := Chart1;
 
   Chart1.Tools.Add(tool1);
+
   with tool1 do
   begin
     Charts.AddChart('Chart1');
@@ -51,17 +52,21 @@ begin
       Chart.Height := 260;
       Chart.Left := 335;
       Chart.Color:=clnone;
-      AllowResize := true;
-      AllowDrag:=true;
+
+      Chart.Border.Show;
+
+      AllowResize := True;
+      AllowDrag   := True;
     end;
 
-    map := TWorldSeries.Create(self);
+    map := TWorldSeries.Create(Self);
     map.ParentChart := Charts[0].Chart;
     Charts[0].Chart.AddSeries(map);
+
     map.Map := wmEurope;
-    map.FillSampleValues();
-    map.UseColorRange := false;
-    map.UsePalette:= true;
+    map.FillSampleValues;
+    map.UseColorRange := False;
+    map.UsePalette:= True;
     map.PaletteStyle := psRainbow;
   end;
 end;
