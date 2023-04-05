@@ -80,9 +80,10 @@ var
 
 implementation
 
-uses Unit_4_Charts;
-
 {$R *.dfm}
+
+uses
+  Unit_4_Charts, TeeGDIPlus;
 
 function TAnimationTests.Current:TTeeAnimationTool;
 begin

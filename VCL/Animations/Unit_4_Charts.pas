@@ -61,6 +61,9 @@ implementation
 
 {$R *.dfm}
 
+uses
+  TeeGDIPlus;
+
 procedure TFormFourCharts.FormCreate(Sender: TObject);
 begin
   Series1.FillSampleValues;
