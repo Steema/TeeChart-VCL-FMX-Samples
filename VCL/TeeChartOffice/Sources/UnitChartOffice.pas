@@ -47,7 +47,9 @@ uses
   {$ENDIF}
 
   {$IFNDEF D10}
+  {$IFNDEF D28}
   XPMan,
+  {$ENDIF}
   {$ENDIF}
 
   TeePreviewPanel,
