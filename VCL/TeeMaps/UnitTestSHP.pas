@@ -19,7 +19,11 @@ uses
   {$IFNDEF NOUSE_BDE}
   DBTables,
   {$ENDIF}
+
+  {$IFNDEF D28}
   XPMan,
+  {$ENDIF}
+
   TeeInspector, TeeObjectInspector, TeeLisB, TeeLegendScrollBar, TeeTools,
 
   TeeGLEditor,
