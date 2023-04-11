@@ -642,7 +642,9 @@ uses
   Series_EquiVolume in 'Series_EquiVolume.pas' {EquiVolumeSeriesForm},
   Spark_Series in 'Spark_Series.pas' {SparkChartForm},
   ChartLayout_Demo in 'ChartLayout_Demo.pas' {ChartLayoutDemo},
-  SeriesType_Slope in 'SeriesType_Slope.pas' {SlopeSeriesForm};
+  SeriesType_Slope in 'SeriesType_Slope.pas' {SlopeSeriesForm},
+  All_Series in 'All_Series.pas' {AllSeriesForm},
+  All_Functions in 'All_Functions.pas' {AllFunctionsForm};
 
 {$R *.res}
 

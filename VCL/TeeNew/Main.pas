@@ -380,7 +380,7 @@ Uses {$IFDEF LINUX}
      {$ENDIF}
 
      EditChar, TeeExport, TeeStringsEditor, TeeBrushDlg,
-     TeeNumericGauge, TeeEdiFont;
+     TeeNumericGauge, TeeEdiFont, TeeToolsGallery;
 
 Const
   FolderSeparator = {$IFDEF LINUX} '/' {$ELSE} '\' {$ENDIF} ;
@@ -2448,4 +2448,6 @@ begin
 {$ENDIF}
 end;
 
+initialization
+  RegisterClass(TTeeToolsGallery);  // The "Tools" tree node needs this form
 end.
