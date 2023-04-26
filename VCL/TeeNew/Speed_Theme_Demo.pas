@@ -18,6 +18,8 @@ type
     CheckBox1: TCheckBox;
     Edit1: TEdit;
     CheckBox2: TCheckBox;
+    Series1: TFastLineSeries;
+    Series2: TFastLineSeries; 
     procedure FormCreate(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
@@ -27,8 +29,6 @@ type
   private
     { Private declarations }
     MaxPoints    : Integer;    // total points per Series
-    Series1: TFastLineSeries;
-    Series2: TFastLineSeries;
   public
     { Public declarations }
   end;

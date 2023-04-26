@@ -21,6 +21,7 @@ type
     ComboBox1: TComboBox;
     Label1: TLabel;
     Series1: TBubbleSeries;
+    ChartTool1: TAxisArrowTool;
     procedure CheckBox2Click(Sender: TObject);
     procedure CheckBox3Click(Sender: TObject);
     function Series1GetPointerStyle(Sender: TChartSeries;

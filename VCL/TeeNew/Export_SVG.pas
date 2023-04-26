@@ -20,6 +20,9 @@ type
     Series3: TPointSeries;
     Series4: TPieSeries;
     Label1: TLabel;
+    Series5: TBubbleSeries;
+    ChartTool1: TAnnotationTool;
+    ChartTool2: TAnnotationTool;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);

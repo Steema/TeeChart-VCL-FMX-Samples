@@ -17,6 +17,12 @@ type
     CheckBox2: TCheckBox;
     Timer1: TTimer;
     GridBandTool1: TGridBandTool;
+    Series13: TPointSeries;
+    Series14: TPointSeries;
+    Series15: TPointSeries;
+    Series16: TPointSeries;
+    Series17: TPointSeries;
+    Series18: TPointSeries;
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);

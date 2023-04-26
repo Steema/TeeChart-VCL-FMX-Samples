@@ -33,6 +33,7 @@ type
     ExpAverageFunction1 : TExpAverageFunction;
     MovingAverageFunction1: TMovingAverageFunction;
     MovingAverageFunction2: TMovingAverageFunction;
+    TeeFunction1: TCurveFittingFunction;
     procedure CheckBox1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Edit2Change(Sender: TObject);
