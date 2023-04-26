@@ -1948,6 +1948,48 @@
         <DCCReference Include="Function_Vortex.pas">
             <Form>VortexFunctionForm</Form>
         </DCCReference>
+        <DCCReference Include="Function_Lagrange.pas">
+            <Form>Lagrange_Function</Form>
+        </DCCReference>
+        <DCCReference Include="Series_Violin.pas">
+            <Form>ViolinSeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="Function_KDE.pas">
+            <Form>KDEFunctionForm</Form>
+        </DCCReference>
+        <DCCReference Include="Series_Activity.pas">
+            <Form>ActivitySeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="Series_ActivityDonut.pas">
+            <Form>ActivityGaugeForm</Form>
+        </DCCReference>
+        <DCCReference Include="Export_PDF_Multiple.pas">
+            <Form>PDFMultipleForm</Form>
+        </DCCReference>
+        <DCCReference Include="Series_DoubleHorizBar.pas">
+            <Form>DoubleHorizBarSeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="Export_Chart_as_String.pas">
+            <Form>ExportChartString</Form>
+        </DCCReference>
+        <DCCReference Include="Series_EquiVolume.pas">
+            <Form>EquiVolumeSeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="Spark_Series.pas">
+            <Form>SparkChartForm</Form>
+        </DCCReference>
+        <DCCReference Include="ChartLayout_Demo.pas">
+            <Form>ChartLayoutDemo</Form>
+        </DCCReference>
+        <DCCReference Include="SeriesType_Slope.pas">
+            <Form>SlopeSeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="All_Series.pas">
+            <Form>AllSeriesForm</Form>
+        </DCCReference>
+        <DCCReference Include="All_Functions.pas">
+            <Form>AllFunctionsForm</Form>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
