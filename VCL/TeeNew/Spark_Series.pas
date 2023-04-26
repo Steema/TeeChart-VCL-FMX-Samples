@@ -54,7 +54,7 @@ var Row : Integer;
 begin
   inherited;
 
-  // Hide axes and walls
+  // Hide axes and walls (they are not necessary in this demo)
   Chart1.Axes.Hide;
   Chart1.Walls.Hide;
 

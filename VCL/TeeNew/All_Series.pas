@@ -43,7 +43,7 @@ begin
 
   ListBox1.Sorted:=True;
 
-  ListBox1.ItemIndex:=0;
+  ListBox1.ItemIndex:=8; // Bar style
   ListBox1Click(Self);
 end;
 
@@ -88,6 +88,8 @@ begin
 
   tmpSeries.FillSampleValues;
 
+  tmpSeries.ColorEachPoint:=True;
+
   Chart1.Title.Caption:=ListBox1.Items[ListBox1.ItemIndex];
 
   Chart1.Tools.Add(TMarksTipTool);
@@ -104,6 +106,8 @@ var tmp : Integer;
     tmpBitmap : TBitmap;
     tmpClass : TClass;
 begin
+  ListBox1.Canvas.FillRect(Rect);
+
   tmp:=Integer(ListBox1.Items.Objects[Index]);
 
   TeeSeriesTypes[tmp].SeriesClass.ClassName;
