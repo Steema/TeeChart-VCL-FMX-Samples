@@ -12,7 +12,9 @@ program Tee9New;
 //
 
 uses
+  {$IFDEF FASTMM}
   FastMM4,
+  {$ENDIF}
   Forms,
   Main in 'Main.pas' {TeeNewForm},
   Base in 'Base.pas' {BaseForm},
