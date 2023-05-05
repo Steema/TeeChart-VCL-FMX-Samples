@@ -3,9 +3,12 @@ unit DemoPie;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Engine, FMXTee.Series,
-  FMXTee.Procs, FMXTee.Chart, Base, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.Procs, FMXTee.Chart, Base;
 
 type
   TDemoPieSeries = class(TBaseForm)

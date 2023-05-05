@@ -3,10 +3,13 @@ unit DatasetField;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series, Data.DB, Datasnap.DBClient, FMXTee.Procs, FMXTee.Chart,
-  FMXTee.DBChart, FMXTee.Editor.DBChart, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.DBChart, FMXTee.Editor.DBChart;
 
 type
   TDatasetDemo = class(TBaseForm)

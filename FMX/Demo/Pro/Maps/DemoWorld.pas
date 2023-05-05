@@ -3,10 +3,13 @@ unit DemoWorld;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series.Surface, FMXTee.Series.Map, FMXTee.Series.World, FMXTee.Procs,
-  FMXTee.Chart, FMX.Objects, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.Chart, FMX.Objects;
 
 type
   TDemoWorldSeries = class(TBaseForm)

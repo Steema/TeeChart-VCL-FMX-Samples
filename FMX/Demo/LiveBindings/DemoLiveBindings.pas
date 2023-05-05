@@ -3,9 +3,12 @@ unit DemoLiveBindings;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Procs, FMXTee.Chart, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
+  FMXTee.Procs, FMXTee.Chart, Data.Bind.EngExt, FMX.Bind.DBEngExt,
   Data.Bind.Components, Data.Bind.DBScope, Data.DB, Datasnap.DBClient,
 
   {$IFNDEF MACOS}
@@ -15,7 +18,7 @@ uses
   {$ENDIF}
   
   Data.Bind.DBLinks, FMXTee.Bind.DBLinks, System.Rtti, System.Bindings.Outputs,
-  Fmx.Bind.Editors, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMX.Bind.Editors;
 
 type
   TChartLiveBindings = class(TBaseForm)

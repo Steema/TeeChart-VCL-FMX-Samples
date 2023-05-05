@@ -3,11 +3,13 @@ unit DemoToolsGallery;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Tools, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Objects,
-  FMXTee.Tools.GalleryDemos, FMXTee.Tools.Gallery, FMX.StdCtrls,
-  FMX.Controls.Presentation;
+  FMXTee.Tools.GalleryDemos, FMXTee.Tools.Gallery;
 
 type
   TDemoTools = class(TBaseForm)

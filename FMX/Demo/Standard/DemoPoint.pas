@@ -3,10 +3,12 @@ unit DemoPoint;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Graphics,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Ani, FMXTee.Animations,
-  FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMX.Ani, FMXTee.Animations;
 
 type
   TDemoPointSeries = class(TBaseForm)
@@ -36,7 +38,7 @@ implementation
 {$R *.fmx}
 
 uses
-  FMXTee.Canvas, FMX.Graphics;
+  FMXTee.Canvas;
 
 // Sample code to highlight a series point under the mouse:
 procedure TDemoPointSeries.Button1Click(Sender: TObject);
@@ -73,7 +75,7 @@ begin
 
     with Chart1.Canvas as TTeeCanvas3D do
     begin
-      Brush.Style:=TBrushKind.None;
+      Brush.Style:=TBrushKind.{$IFDEF D20}None{$ELSE}bkNone{$ENDIF};
       Pen.Color:=TAlphaColors.Red;
 
       tmp:=Calculate3DPosition(x,y,ClickedPart.ASeries.StartZ);

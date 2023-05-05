@@ -3,10 +3,12 @@ unit DemoPolar;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Series, FMXTee.Series.Polar, FMXTee.Procs, FMXTee.Chart, FMX.StdCtrls,
-  FMX.Controls.Presentation;
+  FMXTee.Series, FMXTee.Series.Polar, FMXTee.Procs, FMXTee.Chart;
 
 type
   TDemoPolarSeries = class(TBaseForm)

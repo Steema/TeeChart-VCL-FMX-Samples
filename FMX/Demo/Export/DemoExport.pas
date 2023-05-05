@@ -3,10 +3,12 @@ unit DemoExport;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Engine, FMXTee.Procs,
-  FMXTee.Chart, FMXTee.Editor.Stroke, FMXTee.Editor.Export, FMXTee.Series,
-  FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.Chart, FMXTee.Editor.Stroke, FMXTee.Editor.Export, FMXTee.Series;
 
 type
   TExportDemo = class(TForm)

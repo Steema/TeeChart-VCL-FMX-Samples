@@ -3,11 +3,14 @@ unit DemoSeriesBindings;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Data.DB, Data.Bind.Components, Data.Bind.DBScope,
   FMXTee.Engine, FMXTee.Series, FMXTee.Procs, FMXTee.Chart, System.Rtti,
-  System.Bindings.Outputs, FMX.StdCtrls, FMX.Controls.Presentation;
+  System.Bindings.Outputs;
 
 type
   TSeriesBindings = class(TBaseForm)

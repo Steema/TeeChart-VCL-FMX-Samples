@@ -3,9 +3,11 @@ unit Base;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart, FMX.StdCtrls,
-  FMX.Controls.Presentation;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart;
 
 type
   TBaseForm = class(TForm)

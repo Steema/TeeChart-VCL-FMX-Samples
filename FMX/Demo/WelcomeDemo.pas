@@ -4,10 +4,12 @@ unit WelcomeDemo;
 interface
 
 uses
+  {$IFDEF D17}
+  System.Math.Vectors, FMX.Controls3D, FMX.Forms3D,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Types3D, FMXTee.Engine,
-  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D, FMX.Ani,
-  System.Math.Vectors, FMX.Controls3D, FMX.Forms3D;
+  FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Chart3D, FMX.Ani;
 
 type
   TWelcomeForm = class(TForm3D)

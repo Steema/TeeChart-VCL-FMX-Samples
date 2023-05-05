@@ -4,13 +4,15 @@ unit DemoClustering;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.Memo.Types, FMX.ScrollBox, FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Series.Surface,
   FMXTee.Series.Point3D, FMXTee.Engine, FMXTee.Series, FMXTee.Procs,
   FMXTee.Chart, FMX.ListBox, FMX.Memo, FMXTee.Commander, FMX.Layouts, FMX.Edit,
   FMX.TreeView, FMXTee.Tools.Clustering, FMXTee.Functions.Clustering,
-  FMX.Platform, FMX.Objects, FMX.Memo.Types, FMX.ScrollBox, FMX.StdCtrls,
-  FMX.Controls.Presentation;
+  FMX.Platform, FMX.Objects;
 
 type
   TClusteringDemo = class(TForm)
@@ -79,9 +81,9 @@ implementation
 
 uses
   {$IFDEF D17}
-  System.UIConsts,
+  System.UIConsts, FMX.Graphics,
   {$ENDIF}
-  FMXTee.Editor.Tools, FMXTee.Canvas, FMX.Graphics;
+  FMXTee.Editor.Tools, FMXTee.Canvas;
 
 procedure TClusteringDemo.FillTree(const c:TCluster; ShowCount:Boolean);
 
@@ -295,7 +297,7 @@ var Cluster : TCluster;
 begin
   if TreeView1.Selected<>nil then
   begin
-    Chart1.Canvas.Brush.Kind:=TBrushKind.None;
+    Chart1.Canvas.Brush.Kind:=TBrushKind.{$IFDEF D20}None{$ELSE}bkNone{$ENDIF};
     Chart1.Canvas.Pen.Width:=3;
     Chart1.Canvas.Pen.Color:=claBlack;
 

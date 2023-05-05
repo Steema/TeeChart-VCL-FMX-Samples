@@ -4,10 +4,12 @@ unit UnitMain;
 interface
 
 uses
+  {$IFDEF D17}
+  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Objects, FMX.TreeView,
-  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.Ani, FMX.ListBox, FMX.StdCtrls,
-  FMX.Controls.Presentation;
+  FMX.Layouts, FMX.TabControl, FMX.Menus, FMX.Ani, FMX.ListBox;
 
 type
   TMainForm = class(TForm)
@@ -72,10 +74,9 @@ implementation
 
 uses
   {$IFDEF D17}
-  FMX.Styles,
+  FMX.Styles, FMX.Viewport3D, FMX.Forms3D
   {$ENDIF}
-  FMX.Types3D, Base, FMXTee.About, FMXTee.Editor.Stroke, System.IOUtils,
-  FMX.Viewport3D, FMX.Forms3D;
+  FMX.Types3D, Base, FMXTee.About, FMXTee.Editor.Stroke, System.IOUtils;
 
 procedure TMainForm.Button1Click(Sender: TObject);
 begin
@@ -234,7 +235,7 @@ begin
         tmpV:=TViewport3D.Create(LastForm);
         EmbeddForm(LastForm,tmpV);
         tmpV.Color:=TCustomForm3D(LastForm).Color;
-        tmpV.Align:=TAlignLayout.Client;
+        tmpV.Align:=TAlignLayout.{$IFDEF D20}Client{$ELSE}alClient{$ENDIF};
         tmpV.Parent:=PanelDemo;
       end
       else
