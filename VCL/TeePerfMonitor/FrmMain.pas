@@ -463,18 +463,18 @@ begin
 
   case RadioHistory.ItemIndex of
     0: // All
-       ShowControls(False,[Label2,Edit1,UpDown2,Label3,ComboFlat2]);
+       TTeeVCL.ShowControls(False,[Label2,Edit1,UpDown2,Label3,ComboFlat2]);
     1: // Samples
        begin
-         ShowControls(True,[Label2,Edit1,UpDown2]);
-         ShowControls(False,[Label3,ComboFlat2]);
+         TTeeVCL.ShowControls(True,[Label2,Edit1,UpDown2]);
+         TTeeVCL.ShowControls(False,[Label3,ComboFlat2]);
          UpDown2.Position:=NumSamples;
        end;
     2: // Period
        begin
-         ShowControls(True,[Label3,Edit1,UpDown2,ComboFlat2]);
+         TTeeVCL.ShowControls(True,[Label3,Edit1,UpDown2,ComboFlat2]);
          Label3.Top:=Label2.Top;
-         ShowControls(False,[Label2]);
+         TTeeVCL.ShowControls(False,[Label2]);
          UpDown2.Position:=NumSamples;
          ComboFlat2.ItemIndex:=TimeUnits;
        end;
@@ -498,15 +498,15 @@ end;
 procedure TMainForm.RadioScrollClick(Sender: TObject);
 begin
   case RadioScroll.ItemIndex of
-    0: ShowControls(False,[Label4,Label5,Edit2,UpDown3]);
+    0: TTeeVCL.ShowControls(False,[Label4,Label5,Edit2,UpDown3]);
     1: begin
-         ShowControls(True,[Label4,Edit2,UpDown3]);
+         TTeeVCL.ShowControls(True,[Label4,Edit2,UpDown3]);
          Label5.Hide;
          UpDown3.Position:=ScrollPercent;
          UpDown3.Max:=100;
        end;
     2: begin
-         ShowControls(True,[Label5,Edit2,UpDown3]);
+         TTeeVCL.ShowControls(True,[Label5,Edit2,UpDown3]);
          Label4.Hide;
          UpDown3.Position:=ScrollNum;
          UpDown3.Max:=30000;
