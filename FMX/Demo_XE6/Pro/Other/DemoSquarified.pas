@@ -4,10 +4,13 @@ unit DemoSquarified;
 interface
 
 uses
+  {$IFDEF D21}
+  FMX.Controls.Presentation,
+  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  Base, FMX.Controls.Presentation, FMX.Edit, FMXTee.Engine, FMXTee.Procs,
-  FMXTee.Chart, FMX.ListBox, FMXTee.Series.SquarifiedMap, FMX.Layouts;
+  Base, FMX.Edit, FMX.ListBox, FMX.Layouts, FMXTee.Engine, FMXTee.Procs,
+  FMXTee.Chart, FMXTee.Canvas, FMXTee.Series.SquarifiedMap;
 
 type
   TDemoSquarifiedSeries = class(TBaseForm)
@@ -262,13 +265,14 @@ begin
   CreateSeries;
 
   // Select an initial folder
+  {$IFDEF MSWINDOWS}
   tmp:=GetRADFolder;
+  
+  if tmp='' then
+     tmp:=GetWindowsFolder;
+  {$ENDIF}
 
   if tmp='' then
-     {$IFDEF MSWINDOWS}
-     tmp:=GetWindowsFolder
-     {$ENDIF}
-  else
      tmp:=tmp+'\source';
 
   EditFolder.Text := tmp;

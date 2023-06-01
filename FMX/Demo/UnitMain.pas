@@ -4,8 +4,11 @@ unit UnitMain;
 interface
 
 uses
-  {$IFDEF D17}
-  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$IFDEF D18}
+  FMX.StdCtrls,
+  {$ENDIF}
+  {$IFDEF D21}
+  FMX.Controls.Presentation,
   {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Objects, FMX.TreeView,
@@ -74,8 +77,11 @@ implementation
 
 uses
   {$IFDEF D17}
-  FMX.Styles, FMX.Viewport3D, FMX.Forms3D
+  FMX.Styles,
   {$ENDIF}
+  {$IFDEF D18}
+  FMX.Viewport3D, FMX.Forms3D,
+  {$ENDIF}  
   FMX.Types3D, Base, FMXTee.About, FMXTee.Editor.Stroke, System.IOUtils;
 
 procedure TMainForm.Button1Click(Sender: TObject);

@@ -4,8 +4,14 @@ unit DemoClustering;
 interface
 
 uses
-  {$IFDEF D17}
-  FMX.Memo.Types, FMX.ScrollBox, FMX.StdCtrls, FMX.Controls.Presentation,
+  {$IFDEF D18}
+  FMX.StdCtrls,
+  {$ENDIF}
+  {$IFDEF D21}
+  FMX.Controls.Presentation,
+  {$ENDIF}
+  {$IFDEF D22}
+  FMX.Memo.Types, FMX.ScrollBox,
   {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Series.Surface,
@@ -80,8 +86,11 @@ implementation
 {$R *.fmx}
 
 uses
-  {$IFDEF D17}
-  System.UIConsts, FMX.Graphics,
+  {$IFDEF D16}
+  System.UIConsts,
+  {$ENDIF}
+  {$IFDEF D19}
+  FMX.Graphics,
   {$ENDIF}
   FMXTee.Editor.Tools, FMXTee.Canvas;
 

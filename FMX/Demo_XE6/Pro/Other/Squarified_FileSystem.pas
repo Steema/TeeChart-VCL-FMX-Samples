@@ -21,22 +21,27 @@ type
     class function PathOf(const AItem:Integer; const ASeries:TSquarifiedMapSeries):String; static;
   end;
 
+{$IFDEF MSWINDOWS}
 // returns, eg: C:\Program Files (x86)\Embarcadero\Studio\22.0
 function GetRADFolder:String;
 
 // returns, eg: c:\windows\system32
 function GetWindowsFolder:String;
+{$ENDIF}
 
 implementation
 
 uses
+  {$IFDEF MSWINDOWS}
   Winapi.Windows,
   Registry,
+  {$ENDIF}
   System.SysUtils;
 
 const
   FolderSeparator='\';
 
+{$IFDEF MSWINDOWS}
 // Just for demo purposes.
 function GetRADFolder:String;
 var Version : Integer;
@@ -66,15 +71,19 @@ begin
   L := GetSystemDirectory(PChar(result), MAX_PATH);
   SetLength(result, L);
 end;
+{$ENDIF}
 
 // Quick way to obtain a file size in bytes.
 function GetFileSize(const APath:String):Int64;
-var  I: TWin32FileAttributeData;
+{$IFDEF MSWINDOWS}
+var I : TWin32FileAttributeData;
+{$ENDIF}
 begin
+  result := -1;
+  {$IFDEF MSWINDOWS}
   if GetFileAttributesEx(PChar(APath), GetFileExInfoStandard, @I) then
-     result := (I.nFileSizeHigh shl 32) + I.nFileSizeLow
-  else
-     result := -1;
+     result := (I.nFileSizeHigh shl 32) + I.nFileSizeLow;
+  {$ENDIF}
 end;
 
 // Given a folder, recursively add all subfolder and all files into ACushion series

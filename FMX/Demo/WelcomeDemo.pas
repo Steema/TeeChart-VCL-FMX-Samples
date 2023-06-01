@@ -4,8 +4,11 @@ unit WelcomeDemo;
 interface
 
 uses
-  {$IFDEF D17}
-  System.Math.Vectors, FMX.Controls3D, FMX.Forms3D,
+  {$IFDEF D18}
+  FMX.Controls3D, FMX.Forms3D,
+  {$ENDIF}
+  {$IFDEF D20}
+  System.Math.Vectors,
   {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Types3D, FMXTee.Engine,
