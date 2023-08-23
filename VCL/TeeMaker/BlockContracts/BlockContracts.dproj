@@ -1,0 +1,103 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{e8bd3bdf-21f7-4135-834e-860c3222bd28}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_EnabledPackages>true</DCC_EnabledPackages>
+    <DCC_DCCCompiler>DCCIL</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>BlockContracts.dll</DCC_DependencyCheckOutputName>
+    <MainSource>BlockContracts.dpr</MainSource>
+    <DCC_UsePackage>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.XML.dll;C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll;C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll</DCC_UsePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_AssertionsAtRuntime>False</DCC_AssertionsAtRuntime>
+    <DCC_NameSpace>Borland.Vcl</DCC_NameSpace>
+    <DCC_DebugInfoInExe>True</DCC_DebugInfoInExe>
+    <DCC_DebugVN>True</DCC_DebugVN>
+    <DCC_UnitSearchPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727;C:\Program Files\CodeGear\RAD Studio\5.0\lib\debug;C:\Program Files\CodeGear\RAD Studio\5.0\lib;C:\Program Files\Common Files\CodeGear Shared\Rad Studio\Shared Assemblies\5.0;C:\Program Files\CodeGear\RAD Studio\5.0\lib\release;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker\pngimage;C:\TCROOT\TeeChartVCL\sources9</DCC_UnitSearchPath>
+    <DCC_ResourcePath>C:\Windows\Microsoft.NET\Framework\v2.0.50727;C:\Program Files\CodeGear\RAD Studio\5.0\lib\debug;C:\Program Files\CodeGear\RAD Studio\5.0\lib;C:\Program Files\Common Files\CodeGear Shared\Rad Studio\Shared Assemblies\5.0;C:\Program Files\CodeGear\RAD Studio\5.0\lib\release;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker\pngimage;C:\TCROOT\TeeChartVCL\sources9</DCC_ResourcePath>
+    <DCC_IncludePath>C:\Windows\Microsoft.NET\Framework\v2.0.50727;C:\Program Files\CodeGear\RAD Studio\5.0\lib\debug;C:\Program Files\CodeGear\RAD Studio\5.0\lib;C:\Program Files\Common Files\CodeGear Shared\Rad Studio\Shared Assemblies\5.0;C:\Program Files\CodeGear\RAD Studio\5.0\lib\release;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker;C:\TCROOT\TeeChartVCL\Demos9\TeeMaker\pngimage;C:\TCROOT\TeeChartVCL\sources9</DCC_IncludePath>
+    <DCC_Define>DEBUG</DCC_Define>
+    <DCC_Platform>x86</DCC_Platform>
+    <DCC_KeyFile>C:\TCROOT\TeeChartforNET\Version 4\Demos\TeeMaker\BlockContracts\BlockContracts.snk</DCC_KeyFile>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>DelphiDotNet.Personality</Borland.Personality>
+    <Borland.ProjectType>Library</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject xmlns=""> <DelphiDotNet.Personality>   <Parameters>
+      <Parameters Name="UseLauncher">False</Parameters>
+      <Parameters Name="LoadAllSymbols">True</Parameters>
+      <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+    </Parameters>
+    <VersionInfo>
+      <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+      <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+      <VersionInfo Name="MajorVer">1</VersionInfo>
+      <VersionInfo Name="MinorVer">0</VersionInfo>
+      <VersionInfo Name="Release">0</VersionInfo>
+      <VersionInfo Name="Build">0</VersionInfo>
+      <VersionInfo Name="Debug">False</VersionInfo>
+      <VersionInfo Name="PreRelease">False</VersionInfo>
+      <VersionInfo Name="Special">False</VersionInfo>
+      <VersionInfo Name="Private">False</VersionInfo>
+      <VersionInfo Name="DLL">False</VersionInfo>
+      <VersionInfo Name="Locale">1027</VersionInfo>
+      <VersionInfo Name="CodePage">1252</VersionInfo>
+    </VersionInfo>
+    <VersionInfoKeys>
+      <VersionInfoKeys Name="CompanyName"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileDescription"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="InternalName"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys>
+      <VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductName"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="Comments"></VersionInfoKeys>
+    </VersionInfoKeys>
+    <Source>
+      <Source Name="MainSource">BlockContracts.dpr</Source>
+    </Source>
+  </DelphiDotNet.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="BlockContracts.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="Interfaces.pas" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.Data.dll">
+      <AssemblyName>System.Data</AssemblyName>
+      <Version>2.0.0.0</Version>
+      <HintPath>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.Data.dll</HintPath>
+      <AssemblyTag>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.Data.dll</AssemblyTag>
+      <LinkUnits>False</LinkUnits>
+    </Reference>
+    <Reference Include="$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.dll">
+      <AssemblyName>System</AssemblyName>
+      <Version>2.0.0.0</Version>
+      <HintPath>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
+      <AssemblyTag>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.dll</AssemblyTag>
+      <LinkUnits>False</LinkUnits>
+    </Reference>
+    <Reference Include="$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.XML.dll">
+      <AssemblyName>System.XML</AssemblyName>
+      <Version>2.0.0.0</Version>
+      <HintPath>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.XML.dll</HintPath>
+      <AssemblyTag>$(SystemRoot)\Microsoft.NET\Framework\v2.0.50727\System.XML.dll</AssemblyTag>
+      <LinkUnits>False</LinkUnits>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,34 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{7a03092e-b595-488b-bc7e-9524fb33f0b6}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="BlockContracts.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="BlockContracts">
+    <MSBuild Projects="BlockContracts.dproj" Targets="" />
+  </Target>
+  <Target Name="BlockContracts:Clean">
+    <MSBuild Projects="BlockContracts.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="BlockContracts:Make">
+    <MSBuild Projects="BlockContracts.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="BlockContracts" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="BlockContracts:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="BlockContracts:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

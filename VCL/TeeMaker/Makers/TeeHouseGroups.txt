@@ -1,0 +1,18 @@
+(General)
+Parking
+Garden
+Underground
+Outside
+Living room
+Room 2
+Cover
+Kitchen
+Room 1
+Room 3
+Suite
+Up WC
+Down WC
+Studio
+Terrace
+Porxo
+Stairs

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{c8bdc18e-6c6c-4191-9757-bb49df81d2c3}</ProjectGuid>
+    <MainSource>TeeMaker111.dpk</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>C:\Users\Public\Documents\RAD Studio\5.0\Bpl\TeeMaker111.bpl</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_AssertionsAtRuntime>False</DCC_AssertionsAtRuntime>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_ImageBase>42800000</DCC_ImageBase>
+    <DCC_UnitSearchPath></DCC_UnitSearchPath>
+    <DCC_ResourcePath></DCC_ResourcePath>
+    <DCC_ObjPath></DCC_ObjPath>
+    <DCC_IncludePath></DCC_IncludePath>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_AssertionsAtRuntime>False</DCC_AssertionsAtRuntime>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_ImageBase>42800000</DCC_ImageBase>
+    <DCC_UnitSearchPath></DCC_UnitSearchPath>
+    <DCC_ResourcePath></DCC_ResourcePath>
+    <DCC_ObjPath></DCC_ObjPath>
+    <DCC_IncludePath></DCC_IncludePath>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>Package</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Package_Options><Package_Options Name="ImplicitBuild">False</Package_Options><Package_Options Name="DesigntimeOnly">False</Package_Options><Package_Options Name="RuntimeOnly">True</Package_Options><Package_Options Name="PackageDescription">TeeMaker </Package_Options></Package_Options><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">2</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">1</VersionInfo><VersionInfo Name="Build">48</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">Steema Software</VersionInfoKeys><VersionInfoKeys Name="FileDescription">TeeMaker v2</VersionInfoKeys><VersionInfoKeys Name="FileVersion">2.0.1.48</VersionInfoKeys><VersionInfoKeys Name="InternalName">TeeMaker</VersionInfoKeys><VersionInfoKeys Name="LegalCopyright">Copyright 2000-2023 by David Berneda.</VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename">TeeMaker.exe</VersionInfoKeys><VersionInfoKeys Name="ProductName">TeeMaker</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">2.0.1.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">TeeMaker111.dpk</Source></Source><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\bcboffice2k100.bpl">CodeGear C++Builder Office 2000 Servers Package</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\bcbofficexp100.bpl">CodeGear C++Builder Office XP Servers Package</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="TeeMaker111.dpk">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="DclTeePro911.dcp" />
+    <DCCReference Include="designide.dcp" />
+    <DCCReference Include="rtl.dcp" />
+    <DCCReference Include="Tee911.dcp" />
+    <DCCReference Include="TeeActionGallery" />
+    <DCCReference Include="TeeBlockEditor.pas">
+      <Form>BlockEditor</Form>
+    </DCCReference>
+    <DCCReference Include="TeeBlockFormat" />
+    <DCCReference Include="TeeBlockGallery" />
+    <DCCReference Include="TeeBlocks.pas" />
+    <DCCReference Include="TeeChart3D.pas" />
+    <DCCReference Include="TeeChartBlock.pas" />
+    <DCCReference Include="TeeDraw3DEditor.pas">
+      <Form>Draw3DEditor</Form>
+    </DCCReference>
+    <DCCReference Include="TeeEdgeStyle" />
+    <DCCReference Include="TeeExtruded.pas">
+      <Form>ExtrudedEditor</Form>
+    </DCCReference>
+    <DCCReference Include="TeeExtrudedEditor" />
+    <DCCReference Include="TeeGL911.dcp" />
+    <DCCReference Include="TeeGLUT.pas" />
+    <DCCReference Include="TeeHelix" />
+    <DCCReference Include="TeeLanguage911.dcp" />
+    <DCCReference Include="TeeLoadBlock.pas">
+      <Form>LoadBlockDialog</Form>
+    </DCCReference>
+    <DCCReference Include="TeeLoadError.pas">
+      <Form>AskLoadError</Form>
+    </DCCReference>
+    <DCCReference Include="TeeMakerControl.pas" />
+    <DCCReference Include="TeeMakerEditor.pas">
+      <Form>MakerEditor</Form>
+    </DCCReference>
+    <DCCReference Include="TeeMakerLibrary" />
+    <DCCReference Include="TeeMakerRegister.pas" />
+    <DCCReference Include="TeeMesh" />
+    <DCCReference Include="TeePipe.pas" />
+    <DCCReference Include="TeePlayMP3.pas" />
+    <DCCReference Include="TeePointEditor" />
+    <DCCReference Include="TeePro911.dcp" />
+    <DCCReference Include="TeeRain.pas" />
+    <DCCReference Include="TeeRevolution.pas">
+      <Form>RevolutionEditor</Form>
+    </DCCReference>
+    <DCCReference Include="TeeRevolutionEditor" />
+    <DCCReference Include="TeeRoundRect" />
+    <DCCReference Include="TeeSelectProperty" />
+    <DCCReference Include="TeeStairs.pas" />
+    <DCCReference Include="TeeTerrain" />
+    <DCCReference Include="TeeTextureSelector.pas">
+      <Form>TextureSelector</Form>
+    </DCCReference>
+    <DCCReference Include="TeeUI911.dcp" />
+    <DCCReference Include="TeeWater.pas">
+      <Form>WaterEditor</Form>
+    </DCCReference>
+    <DCCReference Include="vcl.dcp" />
+    <DCCReference Include="vclactnband.dcp" />
+    <DCCReference Include="vclimg.dcp" />
+    <DCCReference Include="vcljpg.dcp" />
+    <DCCReference Include="vclx.dcp" />
+  </ItemGroup>
+</Project>

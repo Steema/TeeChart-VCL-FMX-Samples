@@ -1,0 +1,102 @@
+package TeeMaker15;
+
+{$R *.res}
+{$ALIGN ON}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $42800000}
+{$DESCRIPTION 'TeeMaker '}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  vclx50,
+  vcl50,
+  vcljpg50,
+  TeeUI95,
+  Tee95,
+  TeeGL95,
+  TeePro95,
+  TeeLanguage95,
+  TeeImage95;
+
+contains
+  TeeTextureSelector in 'TeeTextureSelector.pas' {TextureSelector},
+  TeeBlockEditor in 'TeeBlockEditor.pas' {BlockEditor},
+  TeeBlocks in 'TeeBlocks.pas',
+  TeeChartBlock in 'TeeChartBlock.pas',
+  TeeDraw3DEditor in 'TeeDraw3DEditor.pas' {Draw3DEditor},
+  TeeMakerControl in 'TeeMakerControl.pas',
+  TeeMakerEditor in 'TeeMakerEditor.pas' {MakerEditor},
+  TeeRain in 'TeeRain.pas',
+  TeeRevolution in 'TeeRevolution.pas' {RevolutionEditor},
+  TeeStairs in 'TeeStairs.pas',
+  TeeLoadBlock in 'TeeLoadBlock.pas' {LoadBlockDialog},
+  TeePipe in 'TeePipe.pas',
+  TeePlayMP3 in 'TeePlayMP3.pas',
+  TeeLoadError in 'TeeLoadError.pas' {AskLoadError},
+  TeeExtruded in 'TeeExtruded.pas' {ExtrudedEditor},
+  TeeGLUT in 'TeeGLUT.pas',
+  TeeWater in 'TeeWater.pas' {WaterEditor},
+  TeeHelix,
+  TeeTerrain,
+  TeeEdgeStyle,
+  TeeMakerLibrary,
+  TeeRoundRect,
+  TeePointEditor,
+  TeeActionGallery,
+  TeeSelectProperty,
+  TeeBlockFormat,
+  TeeExtrudedEditor,
+  TeeMesh,
+  TeeBlockGallery,
+  TeeRevolutionEditor,
+  TeeChart3D,
+  TeeProperties in 'TeeProperties.pas',
+  TeeColorPalette in 'TeeColorPalette.pas',
+  TeeAnimationGallery in 'TeeAnimationGallery.pas',
+  TeeAnimateEditor,
+  TeeObjectInspector,
+  TeeChartBlock3DEditor in 'TeeChartBlock3DEditor.pas',
+  TeeBlockCanvas in 'TeeBlockCanvas.pas',
+  TeeSoundSelector in 'TeeSoundSelector.pas',
+  TeeMakerConst in 'TeeMakerConst.pas',
+  TeePngimage in './PNGImage\TeePngimage.pas',
+  pnglang,
+  zlibpas,
+  TeeBlockReplacer in 'TeeBlockReplacer.pas' {BlockReplacer},
+  TeePointItemEditor,
+  TeeSubdivideMesh,
+  TeeCamera,
+  TeeGLSLShaders,
+  TeeClipBlock,
+  TeeMoveAnimation,
+  TeeActionAnimation,
+  TeeBlockAnimations,
+  TeeNumberAnimation,
+  TeeKinematics,
+  TeeBlockClasses,
+  TeeViewBlock,
+  Tee3DSFormat,
+  TeeFacesBlock,
+  TeeTarga,
+  TeeObjFormat;
+
+end.

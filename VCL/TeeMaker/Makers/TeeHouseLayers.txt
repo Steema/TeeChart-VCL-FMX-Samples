@@ -1,0 +1,10 @@
+(General)
+Roofs
+Walls
+Windows
+Stairs
+Streets
+Trees
+Fences
+Furnitures
+Buildings

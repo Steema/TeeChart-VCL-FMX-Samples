@@ -1,0 +1,102 @@
+package TeeMaker117;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $42800000}
+{$DEFINE DEBUG}
+{$DESCRIPTION 'TeeMaker '}
+{$RUNONLY}
+
+requires
+  rtl,
+  vclactnband,
+  vclx,
+  vcl,
+  vclimg,
+  TeeUI917,
+  Tee917,
+  TeeGL917,
+  TeePro917,
+  TeeLanguage917,
+  TeeImage917;
+
+contains
+  TeeTextureSelector in 'TeeTextureSelector.pas' {TextureSelector},
+  TeeBlockEditor in 'TeeBlockEditor.pas' {BlockEditor},
+  TeeBlocks in 'TeeBlocks.pas',
+  TeeChartBlock in 'TeeChartBlock.pas',
+  TeeDraw3DEditor in 'TeeDraw3DEditor.pas' {Draw3DEditor},
+  TeeMakerControl in 'TeeMakerControl.pas',
+  TeeMakerEditor in 'TeeMakerEditor.pas' {MakerEditor},
+  TeeRain in 'TeeRain.pas',
+  TeeRevolution in 'TeeRevolution.pas' {RevolutionEditor},
+  TeeStairs in 'TeeStairs.pas',
+  TeeLoadBlock in 'TeeLoadBlock.pas' {LoadBlockDialog},
+  TeePipe in 'TeePipe.pas',
+  TeePlayMP3 in 'TeePlayMP3.pas',
+  TeeLoadError in 'TeeLoadError.pas' {AskLoadError},
+  TeeExtruded in 'TeeExtruded.pas' {ExtrudedEditor},
+  TeeGLUT in 'TeeGLUT.pas',
+  TeeWater in 'TeeWater.pas' {WaterEditor},
+  TeeTerrain,
+  TeeRoundRect,
+  TeeSelectProperty,
+  TeeExtrudedEditor,
+  TeeRevolutionEditor in 'TeeRevolutionEditor.pas',
+  TeeChart3D in 'TeeChart3D.pas',
+  TeeActionGallery in 'TeeActionGallery.pas' {ActionGallery},
+  TeeBlockFormat in 'TeeBlockFormat.pas' {BlockFormatEditor},
+  TeeBlockGallery in 'TeeBlockGallery.pas' {BlockGallery},
+  TeeEdgeStyle in 'TeeEdgeStyle.pas' {EdgeEditor},
+  TeeHelix in 'TeeHelix.pas',
+  TeeMakerLibrary in 'TeeMakerLibrary.pas' {MakerLibrary},
+  TeeMesh in 'TeeMesh.pas' {MeshEditor},
+  TeePointEditor in 'TeePointEditor.pas' {PointEditor},
+  TeeVideoBlock in 'TeeVideoBlock.pas' {VideoEditor},
+  TeeProperties in 'TeeProperties.pas',
+  TeeColorPalette in 'TeeColorPalette.pas',
+  TeeAnimationGallery in 'TeeAnimationGallery.pas',
+  TeeAnimateEditor,
+  TeeObjectInspector,
+  TeeChartBlock3DEditor in 'TeeChartBlock3DEditor.pas',
+  TeeBlockCanvas in 'TeeBlockCanvas.pas',
+  TeeSoundSelector in 'TeeSoundSelector.pas',
+  TeeMakerConst in 'TeeMakerConst.pas',
+  TeeBlockReplacer in 'TeeBlockReplacer.pas' {BlockReplacer},
+  TeePointItemEditor,
+  TeeSubdivideMesh,
+  TeeCamera,
+  TeeGLSLShaders,
+  TeeClipBlock,
+  TeeMoveAnimation,
+  TeeActionAnimation,
+  TeeBlockAnimations,
+  TeeNumberAnimation,
+  TeeKinematics,
+  TeeBlockClasses,
+  TeeViewBlock,
+  Tee3DSFormat,
+  TeeFacesBlock,
+  TeeTarga,
+  TeeObjFormat;
+
+end.

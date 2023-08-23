@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="TeeMakerC6.exe"/>
+    <OBJFILES value="TeeMakerC6.obj TeeMakerEditor.obj TeeMakerMain.obj"/>
+    <RESFILES value="TeeMakerC6.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) TeeMakerEditor.dfm TeeMakerMain.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="qrpt.lib TeeQR9C6.lib TeeTree2C6Tee9.lib visualclx.lib bcb2kaxserver.lib 
+      bcbie.lib bcbsmp.lib adortl.lib TeeWorld9C6.lib"/>
+    <SPARELIBS value="rtl.lib vcl.lib vclx.lib dbrtl.lib vcldb.lib bdertl.lib tee9c6.lib 
+      teedb9c6.lib teeui9c6.lib teepro9c6.lib teelanguage9c6.lib teegl9c6.lib 
+      teeimage9c6.lib teeMaker1c6.lib TeeWorld9C6.lib adortl.lib bcbsmp.lib 
+      bcbie.lib bcb2kaxserver.lib visualclx.lib TeeTree2C6Tee9.lib TeeQR9C6.lib 
+      qrpt.lib"/>
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi dbrtl.bpi vcldb.bpi bdertl.bpi vcldbx.bpi 
+      Tee9C6.bpi TeeDB9C6.bpi TeeUI9C6.bpi TeePro9C6.bpi TeeLanguage9C6.bpi 
+      TeeGL9C6.bpi TeeImage9C6.bpi TeeMaker1C6.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value=""/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="TeeMakerC6.cpp"/>
+    <INCLUDEPATH value="$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="&quot;$(BCB)\lib\debug&quot;;$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;PNGImage"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I$(TEEINCPATH) -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -boa"/>
+    <CFLAG1 value="-O2 -H=c:\PROGRA~1\borland\CBUILD~2\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -b- 
+      -k- -vi -c -tW -tWM"/>
+    <PFLAGS value="-$Y- -$L- -$D- -$C- -$A8 -I$(TEEINCPATH) -U$(TEELIBPATH) -Q -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="TeeMakerC6.cpp" FORMNAME="" UNITNAME="TeeMakerC6" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TeeMakerC6.res" FORMNAME="" UNITNAME="TeeMakerC6.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TeeMakerEditor.pas" FORMNAME="MakerEditor" UNITNAME="TeeMakereditor" CONTAINERID="PascalCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TeeMakerMain.pas" FORMNAME="MakerEditor1" UNITNAME="TeeMakermain" CONTAINERID="PascalCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=Steema Software
+FileDescription=TeeMaker
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=Copyright 2003-2008 by David Berneda
+LegalTrademarks=
+OriginalFilename=
+ProductName=TeeMaker
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(TEEINCPATH);$(BCB)\include;$(BCB)\include\vcl
+Item1=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=$(TEELIBPATH);$(BCB)\lib\obj;$(BCB)\lib;PNGImage
+Item1=..\..\Compiled\BuilderC6\Lib;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+  </IDEOPTIONS>
+</PROJECT>

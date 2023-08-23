@@ -1,0 +1,64 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{3eca9182-fcff-4c09-a3fd-9f09b687ae99}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="..\..\Sources9\TeeImage910.dproj" />
+    <Projects Include="..\..\Sources9\TeePro910.dproj" />
+    <Projects Include="DclTeeMaker110.dproj" />
+    <Projects Include="TeeMaker110.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="DclTeeMaker110">
+    <MSBuild Projects="DclTeeMaker110.dproj" Targets="" />
+  </Target>
+  <Target Name="DclTeeMaker110:Clean">
+    <MSBuild Projects="DclTeeMaker110.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="DclTeeMaker110:Make">
+    <MSBuild Projects="DclTeeMaker110.dproj" Targets="Make" />
+  </Target>
+  <Target Name="TeeMaker110">
+    <MSBuild Projects="TeeMaker110.dproj" Targets="" />
+  </Target>
+  <Target Name="TeeMaker110:Clean">
+    <MSBuild Projects="TeeMaker110.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="TeeMaker110:Make">
+    <MSBuild Projects="TeeMaker110.dproj" Targets="Make" />
+  </Target>
+  <Target Name="TeeImage910">
+    <MSBuild Projects="..\..\Sources9\TeeImage910.dproj" Targets="" />
+  </Target>
+  <Target Name="TeeImage910:Clean">
+    <MSBuild Projects="..\..\Sources9\TeeImage910.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="TeeImage910:Make">
+    <MSBuild Projects="..\..\Sources9\TeeImage910.dproj" Targets="Make" />
+  </Target>
+  <Target Name="TeePro910">
+    <MSBuild Projects="..\..\Sources9\TeePro910.dproj" Targets="" />
+  </Target>
+  <Target Name="TeePro910:Clean">
+    <MSBuild Projects="..\..\Sources9\TeePro910.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="TeePro910:Make">
+    <MSBuild Projects="..\..\Sources9\TeePro910.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="DclTeeMaker110;TeeMaker110;TeeImage910;TeePro910" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="DclTeeMaker110:Clean;TeeMaker110:Clean;TeeImage910:Clean;TeePro910:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="DclTeeMaker110:Make;TeeMaker110:Make;TeeImage910:Make;TeePro910:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

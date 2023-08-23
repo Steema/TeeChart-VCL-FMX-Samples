@@ -1,0 +1,182 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{EF71D61E-4381-49F3-A11E-A680B3E7C127}</ProjectGuid>
+			<MainSource>TeeMaker.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Application</AppType>
+			<FrameworkType>VCL</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.3</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_E>false</DCC_E>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_F>false</DCC_F>
+			<DCC_S>false</DCC_S>
+			<DCC_N>false</DCC_N>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_DebugDCUs>true</DCC_DebugDCUs>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="TeeMaker.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="TeeMakerEditor.pas">
+				<Form>MakerEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeBlocks.pas"/>
+			<DCCReference Include="TeeDraw3DEditor.pas">
+				<Form>Draw3DEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeTextureSelector.pas">
+				<Form>TextureSelector</Form>
+			</DCCReference>
+			<DCCReference Include="TeeBlockEditor.pas">
+				<Form>BlockEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeRain.pas"/>
+			<DCCReference Include="TeeMakerControl.pas"/>
+			<DCCReference Include="TeeStairs.pas"/>
+			<DCCReference Include="TeeRevolution.pas"/>
+			<DCCReference Include="TeeRevolutionEditor.pas">
+				<Form>RevolutionEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeChartBlock.pas"/>
+			<DCCReference Include="TeeExtrudedEditor.pas">
+				<Form>ExtrudedEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeLoadBlock.pas">
+				<Form>LoadBlockDialog</Form>
+			</DCCReference>
+			<DCCReference Include="TeeExtruded.pas"/>
+			<DCCReference Include="TeePlayMP3.pas"/>
+			<DCCReference Include="TeePipe.pas"/>
+			<DCCReference Include="TeeLoadError.pas">
+				<Form>AskLoadError</Form>
+			</DCCReference>
+			<DCCReference Include="TeeRoundRect.pas">
+				<Form>RoundRectEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeBlockGallery.pas">
+				<Form>BlockGallery</Form>
+			</DCCReference>
+			<DCCReference Include="TeeBlockFormat.pas">
+				<Form>BlockFormatEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeEdgeStyle.pas">
+				<Form>EdgeEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeTerrain.pas">
+				<Form>TerrainEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeHelix.pas"/>
+			<DCCReference Include="TeeMakerLibrary.pas">
+				<Form>MakerLibrary</Form>
+			</DCCReference>
+			<DCCReference Include="TeeWater.pas">
+				<Form>WaterEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeActionGallery.pas">
+				<Form>ActionGallery</Form>
+			</DCCReference>
+			<DCCReference Include="TeeSelectProperty.pas">
+				<Form>PropertySelector</Form>
+			</DCCReference>
+			<DCCReference Include="TeeMesh.pas">
+				<Form>MeshEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeMakerMain.pas">
+				<Form>MakerEditor1</Form>
+			</DCCReference>
+			<DCCReference Include="TeeMakerConst.pas"/>
+			<DCCReference Include="TeeProperties.pas">
+				<Form>PropertiesEditor</Form>
+			</DCCReference>
+			<DCCReference Include="TeeColorPalette.pas">
+				<Form>ColorPalette</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">TeeMaker.dpr</Source>
+					</Source>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">2</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">1</VersionInfo>
+						<VersionInfo Name="Build">48</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1033</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Steema Software</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">TeeTree v2 - What&apos;s New?</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2.0.1.48</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">TeeTree2New</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Copyright 2000-2023 by David Berneda.</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename">TeeTree2New.exe</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">TeeTree</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">2.0.1.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

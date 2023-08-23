@@ -1,0 +1,20 @@
+# Texture bitmap file names (width and height must be multiple of 8)
+# TeeMaker uses this file to determine texture order for shapes.
+Water
+Stone
+Marble
+Garden
+Pine
+Glass
+Wood
+Parket
+Bricks
+Pavement
+Jeans
+Rocks
+RedCopper
+Bleekerstreet
+MidnightBlue
+RedBrick
+Goldstraw
+Charcoal
