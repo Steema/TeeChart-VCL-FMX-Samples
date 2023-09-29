@@ -20,9 +20,6 @@ mkdir tmp
 mkdir tmp\32bit
 move sources\TeeChartOffice.exe tmp\32bit
 
-rem Sign
-"%root%\TeeAdmin\Keys\signtool" sign /v /f "%root%\TeeAdmin\Keys\steema.pfx" /p starling /d "TeeChart Office" /du "http://www.steema.com" /t "http://timestamp.verisign.com/scripts/timstamp.dll" "%teechartoffice%\tmp\32bit\TeeChartOffice.exe"
-
 rem 64bit
 cd sources
 "%rad%\bin\dcc64" -B -Q -U"%rad%\lib\win64\release" -NSSystem;VCLTee;Data;WinAPI;VCL;System.Win;Data.Win;VCL.Imaging -U%teechart%\sources9\vcl -I%teechart%\sources9\vcl TeeChartOffice.dpr
@@ -30,9 +27,6 @@ cd ..
 
 mkdir tmp\64bit
 move sources\TeeChartOffice.exe tmp\64bit\TeeChartOffice.exe
-
-rem Sign 
-"%root%\TeeAdmin\Keys\signtool" sign /v /f "%root%\TeeAdmin\Keys\steema.pfx" /p starling /d "TeeChart Office" /du "http://www.steema.com" /t "http://timestamp.verisign.com/scripts/timstamp.dll" "%teechartoffice%\tmp\64bit\TeeChartOffice.exe"
 
 rem Copy extra files
 
