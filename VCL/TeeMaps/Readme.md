@@ -1,5 +1,5 @@
 <a href="https://www.steema.com/product/vcl">
-<img align="right" src="http://www.teechart.net/img/logos/teechart_vcl.png">
+<img align="right" src="https://www.steema.com/img/logos/teechart_vcl.png">
 </a>
 
 TeeChart Pro GIS / Mapping example
