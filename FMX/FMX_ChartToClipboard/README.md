@@ -3,10 +3,7 @@ ChartToClipboard
 
 This sample just shows how to copy the Chart to Clipboard.
 
-[//]: # (![screenshot](https://github.com/Steema/TeeChart-for-FireMonkey-applications-samples/blob/master/FMX_ChartToClipboard/Screenshots/ChartToClipboard.PNG?raw=true "TeeChart for FireMonkey")
-
-
-<img src="https://github.com/Steema/TeeChart-FireMonkey-samples/blob/master/FMX_ChartToClipboard/Screenshots/ChartToClipboard.png" alt="TeeChart FireMonkey Chart to Clipboard"/>
+![](Screenshots/ChartToClipboard.png)
 
 ## Sample Requirements
 
