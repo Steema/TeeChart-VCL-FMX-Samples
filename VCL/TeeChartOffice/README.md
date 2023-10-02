@@ -56,6 +56,12 @@ See below appendix 1 for Disclaimer license details.
 TeeChart Office is free and freely redistributable,
 provided you do not alter its contents or charge for it.
 
+Version
+---------------
+
+Current version:
+4.1 December 27th 2013
+
 
 Source Code
 ------------
