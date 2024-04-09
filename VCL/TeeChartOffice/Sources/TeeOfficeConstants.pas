@@ -1,6 +1,6 @@
 {**********************************************}
 {   TeeChart Office - Constant strings         }
-{   Copyright (c) 2001-2023 by Steema Software }
+{   Copyright (c) 2001-2024 by Steema Software }
 {   All Rights Reserved.                       }
 {**********************************************}
 unit TeeOfficeConstants;
@@ -196,17 +196,17 @@ Procedure TeeOfficeSpanish;
 
 Procedure SetSpanishConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Arrastrar ratуn derecha-abajo para zoom. Izquierda-arriba para quitar zoom.';
-  TeeMsg_ScrollInstructions  :='Arrastrar ratуn para desplazar el contenido del grбfico.';
-  TeeMsg_DrawLineInstructions:='Arrastrar ratуn para dibujar, seleccionar y mover lineas.';
+  TeeMsg_ZoomInstructions    :='Arrastrar ratпїЅn derecha-abajo para zoom. Izquierda-arriba para quitar zoom.';
+  TeeMsg_ScrollInstructions  :='Arrastrar ratпїЅn para desplazar el contenido del grпїЅfico.';
+  TeeMsg_DrawLineInstructions:='Arrastrar ratпїЅn para dibujar, seleccionar y mover lineas.';
 
-  TeeMsg_SureToDeleteDataSet :='їSeguro que desea eliminar la Tabla?';
+  TeeMsg_SureToDeleteDataSet :='пїЅSeguro que desea eliminar la Tabla?';
   TeeMsg_Select              :='Selecciona';
   TeeMsg_EMail               :='e-mail';
   TeeMsg_Open                :='Abrir';
   TeeMsg_New                 :='Nuevo';
   TeeMsg_ImportingWeb        :='Importando del Web: %s';
-  TeeMsg_Annotation          :='Anotaciуn';
+  TeeMsg_Annotation          :='AnotaciпїЅn';
   TeeMsg_Modified            :='Modific.';
 
   TeeMsg_Next                :='&Siguiente >';
@@ -215,48 +215,48 @@ begin
   TeeMsg_Go                  :='&Ir !';
   TeeMsg_Upload              :='&Subir !';
 
-  TeeMsg_CannotGetVersion    :='No se puede obtener la versiуn mбs actual.'+#13+
+  TeeMsg_CannotGetVersion    :='No se puede obtener la versiпїЅn mпїЅs actual.'+#13+
                               'Error: %d %s';
 
-  TeeMsg_CannotGetNewVersion :='No se puede descargar la versiуn mбs actual.'+#13+
+  TeeMsg_CannotGetNewVersion :='No se puede descargar la versiпїЅn mпїЅs actual.'+#13+
                               'Error: %d %s';
 
-  TeeMsg_WrongVersion        :='Nъmero de versiуn recibido errуneo.';
-  TeeMsg_HasLatestVersion    :='Ya tiene la ъltima versiуn.';
-  TeeMsg_ClickToUpdateVersion:='Pulse Actualizar para recibir la versiуn actualizada.';
+  TeeMsg_WrongVersion        :='NпїЅmero de versiпїЅn recibido errпїЅneo.';
+  TeeMsg_HasLatestVersion    :='Ya tiene la пїЅltima versiпїЅn.';
+  TeeMsg_ClickToUpdateVersion:='Pulse Actualizar para recibir la versiпїЅn actualizada.';
   TeeMsg_UpdateButton        :='&Actualizar...';
-  TeeMsg_WrongZip            :='Archivo de versiуn recibido incorrecto.';
-  TeeMsg_VersionReceived     :='Ultima versiуn recibida. Pulse Aceptar para instalar.';
+  TeeMsg_WrongZip            :='Archivo de versiпїЅn recibido incorrecto.';
+  TeeMsg_VersionReceived     :='Ultima versiпїЅn recibida. Pulse Aceptar para instalar.';
 
   TeeMsg_SelectFolder        :='Seleccionar Carpeta';
-  TeeMsg_EmailNotValid       :='La direcciуn de Correo no es correcta.';
+  TeeMsg_EmailNotValid       :='La direcciпїЅn de Correo no es correcta.';
   TeeMsg_NameNotValid        :='Por favor escriba su Nombre.';
-  TeeMsg_WrongPassword       :='La contraseсa estб vacia. Por favor escriba su contraseсa o '+#13+
-                               'pulse el botуn Obtener Contraseсa para recibirla por correo.';
-  TeeMsg_WrongChartID        :='El nombre de grбfico estб vacio. Por favor escriba un nombre de grбfico para '+
+  TeeMsg_WrongPassword       :='La contraseпїЅa estпїЅ vacia. Por favor escriba su contraseпїЅa o '+#13+
+                               'pulse el botпїЅn Obtener ContraseпїЅa para recibirla por correo.';
+  TeeMsg_WrongChartID        :='El nombre de grпїЅfico estпїЅ vacio. Por favor escriba un nombre de grпїЅfico para '+
                                'identificarlo en la Galeria Web.';
 
-  TeeMsg_CannotObtainPassword:='No es posible conectar para obtener su contraseсa.';
-  TeeMsg_PasswordSent        :='Se ha enviado la Contraseсa a su direcciуn de Correo.';
+  TeeMsg_CannotObtainPassword:='No es posible conectar para obtener su contraseпїЅa.';
+  TeeMsg_PasswordSent        :='Se ha enviado la ContraseпїЅa a su direcciпїЅn de Correo.';
   TeeMsg_Congrats            :='Felicidades.'+#13+'Ha sido incluido el base de datos de usuarios de '+
-                              'la galeria de grбficos Web.'+#13+
+                              'la galeria de grпїЅficos Web.'+#13+
                               TeeMsg_PasswordSent;
 
   TeeMsg_UploadingWeb        :='Subiendo %s a la galeria Web...';
   TeeMsg_Uploaded       :='%s ha sido cargado en la galeria Web.';
 
-  TeeMsg_TitleEditor         :='Editor de Tнtulo';
+  TeeMsg_TitleEditor         :='Editor de TпїЅtulo';
   TeeMsg_EnterValue          :='Entrar valor';
   TeeMsg_PointWidth          :='Ancho';
   TeeMsg_PointHeight         :='Alto';
 
-  TeeMsg_Position            :='Posiciуn: %d,%d';
-  TeeMsg_Size                :='Tamaсo: %d x %d';
+  TeeMsg_Position            :='PosiciпїЅn: %d,%d';
+  TeeMsg_Size                :='TamaпїЅo: %d x %d';
 
   TeeMsg_BetaWarning         :='Nota: '+
                               'Este Software es Pre-Release.'+#13+#13+
                               'Algunas funciones pueden ser incompletas o'+#13+
-                              'eliminadas en la versiуn final del producto.'+#13+#13+
+                              'eliminadas en la versiпїЅn final del producto.'+#13+#13+
                               'Envienos preguntas y sugerencias en nuestro web:'+#13+#13+
                               'www.steema.com';
 
@@ -264,7 +264,7 @@ begin
   TeeMsg_Num                :='NUM';
   TeeMsg_SCR                :='DES';
   TeeMsg_SaveAs             :='Guardar como...';
-  TeeMsg_ShouldClose        :='Por favor cierre y rearranque la aplicaciуn.';
+  TeeMsg_ShouldClose        :='Por favor cierre y rearranque la aplicaciпїЅn.';
   TeeMsg_Table              :='Tabla';
   TeeMsg_Query              :='Consulta';
 end;
@@ -285,18 +285,18 @@ begin
     'PROPERTIES=Propiedades'+#13+
     'CHART TOOLS=Herramientas'+#13+
     'HELP INDEX=Indice de la Ayuda'+#13+
-    'WHAT''S THIS ?=Quй es esto?'+#13+
+    'WHAT''S THIS ?=QuпїЅ es esto?'+#13+
     'VIEW=Ver'+#13+
     'STATUS BAR=Barra de estado'+#13+
-    'GALLERY=Galerнa'+#13+
+    'GALLERY=GalerпїЅa'+#13+
     'TOOLBARS=Barras de Herramientas'#13+
-    'PAGE=Pбgina'#13+
+    'PAGE=PпїЅgina'#13+
     'AS TAB=Como tapeta'#13+
     'AS WINDOW=Como ventana'#13+
     'HIDE=Ocultar'#13+
-    'UPDATE VERSION=Actualizar versiуn'#13+
+    'UPDATE VERSION=Actualizar versiпїЅn'#13+
     'TEXT MODE=Modo Texto'#13+
-    'ONLINE SUPPORT=Soporte en lнnea'#13+
+    'ONLINE SUPPORT=Soporte en lпїЅnea'#13+
     'EXIT=Salir'#13+
     'SEND BY E-MAIL=Enviar por Correo'#13+
     'TEXT LABELS=Etiquetas'#13+
@@ -306,8 +306,8 @@ begin
     'MOVE DOWN=Mover Abajo'#13+
     'HIDE SERIES LIST=Ocultar Lista'#13+
     'VIEW 3D=Ver en 3D'#13+
-    'AUTO SIZE=Tamaсo Autom.'#13+
-    'ADD ANNOTATION=Aсadir Anotaciуn'#13+
+    'AUTO SIZE=TamaпїЅo Autom.'#13+
+    'ADD ANNOTATION=AпїЅadir AnotaciпїЅn'#13+
     'ENABLE ZOOM=Permitir Zoom'#13+
     'ENABLE SCROLL=Permitir Desplazamiento'#13+
     'DRAW LINES=Dibujar Lineas'#13+
@@ -321,7 +321,7 @@ begin
     'ALIGN TO BOTTOM=Alinear abajo'#13+
     'FONT COLOR=Color de Fuente'#13+
     'FONT NAME=Nombre de Fuente'#13+
-    'FONT SIZE=Tamaсo de Fuente'#13+
+    'FONT SIZE=TamaпїЅo de Fuente'#13+
     'BOLD=Negrita'#13+
     'ITALIC=Cursiva'#13+
     'UNDERLINE=Subrayado'#13+
@@ -331,20 +331,20 @@ begin
     'INTER-CHAR SIZE=Espacio entre caracteres'#13+
     'HIDE INSPECTOR=Ocultar Inspector'#13+
     'SELECT=Selecciona'#13+
-    'CUSTOM POSITION=Posiciуn cust.'#13+
+    'CUSTOM POSITION=PosiciпїЅn cust.'#13+
     'CAPS=MAYU'#13+
     'NUM=NUM'#13+
     'SCR=DES'#13+
-    'YES=Sн'#13+
+    'YES=SпїЅ'#13+
     'NO=No'#13+
     'CHECK-BOXES=Casillas'#13+
-    'ANNOTATION=Anotaciуn'#13+
-    'CONNECT TO STEEMA.COM TO UPDATE THIS SOFTWARE.=Conecte a Steema.com para actualizar su versiуn.'#13+
-    'CURRENT VERSION=Versiуn actual'#13+
-    'LATEST VERSION=Ultima versiуn'#13+
+    'ANNOTATION=AnotaciпїЅn'#13+
+    'CONNECT TO STEEMA.COM TO UPDATE THIS SOFTWARE.=Conecte a Steema.com para actualizar su versiпїЅn.'#13+
+    'CURRENT VERSION=VersiпїЅn actual'#13+
+    'LATEST VERSION=Ultima versiпїЅn'#13+
     'CONNECT=Conectar'#13+
     'UPDATE=Actualizar'#13+
-    'HANDLES=Lбpiz'#13+
+    'HANDLES=LпїЅpiz'#13+
     'DRAG POINT=Arrastrar puntos'#13+
     'DRAG STYLE=Estilo arrastre'#13+
     'LANGUAGE=Lenguaje'#13+
@@ -362,14 +362,14 @@ begin
     'FORMATTING=Formato'#13+
     'FLOATING POINT=Decimal'#13+
     'DATE-TIME=Fecha / Hora'#13+
-    'CHOOSE AN OPTION=Escoja una opciуn'#13+
+    'CHOOSE AN OPTION=Escoja una opciпїЅn'#13+
     'IMPORTING FROM WEB: %S=Importando del web: %s'#13+
     'GO !=Ir !'#13+
     'UPLOAD !=Subir !'#13+
     'YOUR NAME=Su Nombre'#13+
     'YOUR E-MAIL=Su e-Mail'#13+
-    'PASSWORD=Contraseсa'#13+
-    'OBTAIN PASSWORD=Obtener Contraseсa'#13+
+    'PASSWORD=ContraseпїЅa'#13+
+    'OBTAIN PASSWORD=Obtener ContraseпїЅa'#13+
     'FIRST=Primera'#13+
     'PRIOR=Anterior'#13+
     'NEXT=Siguiente'#13+
@@ -387,7 +387,7 @@ begin
     'LABELS RANGE=Rango Textos'#13+
     'FOCUS=Resaltar'#13+
     'EXPLODE=Expandir'#13+
-    'AUTOSIZE=Tamaсo Auto.'#13
+    'AUTOSIZE=TamaпїЅo Auto.'#13
     ;
 end;
 
@@ -395,17 +395,17 @@ Procedure TeeOfficeGalician;
 
 Procedure SetGalicianConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Arrastrar ratуn derecha-abajo para zoom. Izquierda-arriba para quitar zoom.';
-  TeeMsg_ScrollInstructions  :='Arrastrar ratуn para desplazar el contenido del grбfico.';
-  TeeMsg_DrawLineInstructions:='Arrastrar ratуn para dibujar, seleccionar y mover lineas.';
+  TeeMsg_ZoomInstructions    :='Arrastrar ratпїЅn derecha-abajo para zoom. Izquierda-arriba para quitar zoom.';
+  TeeMsg_ScrollInstructions  :='Arrastrar ratпїЅn para desplazar el contenido del grпїЅfico.';
+  TeeMsg_DrawLineInstructions:='Arrastrar ratпїЅn para dibujar, seleccionar y mover lineas.';
 
-  TeeMsg_SureToDeleteDataSet :='їSeguro que desea eliminar la Tabla?';
+  TeeMsg_SureToDeleteDataSet :='пїЅSeguro que desea eliminar la Tabla?';
   TeeMsg_Select              :='Selecciona';
   TeeMsg_EMail               :='e-mail';
   TeeMsg_Open                :='Abrir';
   TeeMsg_New                 :='Nuevo';
   TeeMsg_ImportingWeb        :='Importando del Web: %s';
-  TeeMsg_Annotation          :='Anotaciуn';
+  TeeMsg_Annotation          :='AnotaciпїЅn';
   TeeMsg_Modified            :='Modific.';
 
   TeeMsg_Next                :='&Siguiente >';
@@ -414,48 +414,48 @@ begin
   TeeMsg_Go                  :='&Ir !';
   TeeMsg_Upload              :='&Subir !';
 
-  TeeMsg_CannotGetVersion    :='No se puede obtener la versiуn mбs actual.'+#13+
+  TeeMsg_CannotGetVersion    :='No se puede obtener la versiпїЅn mпїЅs actual.'+#13+
                               'Error: %d %s';
 
-  TeeMsg_CannotGetNewVersion :='No se puede descargar la versiуn mбs actual.'+#13+
+  TeeMsg_CannotGetNewVersion :='No se puede descargar la versiпїЅn mпїЅs actual.'+#13+
                               'Error: %d %s';
 
-  TeeMsg_WrongVersion        :='Nъmero de versiуn recibido errуneo.';
-  TeeMsg_HasLatestVersion    :='Ya tiene la ъltima versiуn.';
-  TeeMsg_ClickToUpdateVersion:='Pulse Actualizar para recibir la versiуn actualizada.';
+  TeeMsg_WrongVersion        :='NпїЅmero de versiпїЅn recibido errпїЅneo.';
+  TeeMsg_HasLatestVersion    :='Ya tiene la пїЅltima versiпїЅn.';
+  TeeMsg_ClickToUpdateVersion:='Pulse Actualizar para recibir la versiпїЅn actualizada.';
   TeeMsg_UpdateButton        :='&Actualizar...';
-  TeeMsg_WrongZip            :='Archivo de versiуn recibido incorrecto.';
-  TeeMsg_VersionReceived     :='Ultima versiуn recibida. Pulse Aceptar para instalar.';
+  TeeMsg_WrongZip            :='Archivo de versiпїЅn recibido incorrecto.';
+  TeeMsg_VersionReceived     :='Ultima versiпїЅn recibida. Pulse Aceptar para instalar.';
 
   TeeMsg_SelectFolder        :='Seleccionar Carpeta';
-  TeeMsg_EmailNotValid       :='La direcciуn de Correo no es correcta.';
+  TeeMsg_EmailNotValid       :='La direcciпїЅn de Correo no es correcta.';
   TeeMsg_NameNotValid        :='Por favor escriba su Nombre.';
-  TeeMsg_WrongPassword       :='La contraseсa estб vacia. Por favor escriba su contraseсa o '+#13+
-                               'pulse el botуn Obtener Contraseсa para recibirla por correo.';
-  TeeMsg_WrongChartID        :='El nombre de grбfico estб vacio. Por favor escriba un nombre de grбfico para '+
+  TeeMsg_WrongPassword       :='La contraseпїЅa estпїЅ vacia. Por favor escriba su contraseпїЅa o '+#13+
+                               'pulse el botпїЅn Obtener ContraseпїЅa para recibirla por correo.';
+  TeeMsg_WrongChartID        :='El nombre de grпїЅfico estпїЅ vacio. Por favor escriba un nombre de grпїЅfico para '+
                                'identificarlo en la Galeria Web.';
 
-  TeeMsg_CannotObtainPassword:='No es posible conectar para obtener su contraseсa.';
-  TeeMsg_PasswordSent        :='Se ha enviado la Contraseсa a su direcciуn de Correo.';
+  TeeMsg_CannotObtainPassword:='No es posible conectar para obtener su contraseпїЅa.';
+  TeeMsg_PasswordSent        :='Se ha enviado la ContraseпїЅa a su direcciпїЅn de Correo.';
   TeeMsg_Congrats            :='Felicidades.'+#13+'Ha sido incluido el base de datos de usuarios de '+
-                              'la galeria de grбficos Web.'+#13+
+                              'la galeria de grпїЅficos Web.'+#13+
                               TeeMsg_PasswordSent;
 
   TeeMsg_UploadingWeb        :='Subiendo %s a la galeria Web...';
   TeeMsg_Uploaded       :='%s ha sido cargado en la galeria Web.';
 
-  TeeMsg_TitleEditor         :='Editor de Tнtulo';
+  TeeMsg_TitleEditor         :='Editor de TпїЅtulo';
   TeeMsg_EnterValue          :='Entrar valor';
   TeeMsg_PointWidth          :='Ancho';
   TeeMsg_PointHeight         :='Alto';
 
-  TeeMsg_Position            :='Posiciуn: %d,%d';
-  TeeMsg_Size                :='Tamaсo: %d x %d';
+  TeeMsg_Position            :='PosiciпїЅn: %d,%d';
+  TeeMsg_Size                :='TamaпїЅo: %d x %d';
 
   TeeMsg_BetaWarning         :='Nota: '+
                               'Este Software es Pre-Release.'+#13+#13+
                               'Algunas funciones pueden ser incompletas o'+#13+
-                              'eliminadas en la versiуn final del producto.'+#13+#13+
+                              'eliminadas en la versiпїЅn final del producto.'+#13+#13+
                               'Envienos preguntas y sugerencias en nuestro web:'+#13+#13+
                               'www.steema.com';
 
@@ -463,7 +463,7 @@ begin
   TeeMsg_Num                :='NUM';
   TeeMsg_SCR                :='DES';
   TeeMsg_SaveAs             :='Guardar como...';
-  TeeMsg_ShouldClose        :='Por favor cierre y rearranque la aplicaciуn.';
+  TeeMsg_ShouldClose        :='Por favor cierre y rearranque la aplicaciпїЅn.';
   TeeMsg_Table              :='Tabla';
   TeeMsg_Query              :='Consulta';
 end;
@@ -484,21 +484,21 @@ begin
     'PROPERTIES=Propiedades'+#13+
     'CHART TOOLS=Herramientas'+#13+
     'HELP INDEX=Indice de la Ayuda'+#13+
-    'WHAT''S THIS ?=Quй es esto?'+#13+
+    'WHAT''S THIS ?=QuпїЅ es esto?'+#13+
     'VIEW=Ver'+#13+
     'STATUS BAR=Barra de estado'+#13+
     'SERIES LIST=Lista de Series'#13+
-    'GALLERY=Galerнa'+#13+
+    'GALLERY=GalerпїЅa'+#13+
     'TOOLBARS=Barras de Herramientas'#13+
-    'PAGE=Pбgina'#13+
+    'PAGE=PпїЅgina'#13+
     'AS TAB=Como tapeta'#13+
     'AS WINDOW=Como ventana'#13+
     'HIDE=Ocultar'#13+
-    'WEB CHARTS GALLERY=Galerнa de Grбficos en Web'#13+
-    'UPDATE VERSION=Actualizar versiуn'#13+
+    'WEB CHARTS GALLERY=GalerпїЅa de GrпїЅficos en Web'#13+
+    'UPDATE VERSION=Actualizar versiпїЅn'#13+
     'TEXT MODE=Modo Texto'#13+
     'TEECHART WEB=Web de TeeChart'#13+
-    'ONLINE SUPPORT=Soporte en lнnea'#13+
+    'ONLINE SUPPORT=Soporte en lпїЅnea'#13+
     'EXIT=Salir'#13+
     'SEND BY E-MAIL=Enviar por Correo'#13+
     'TEXT LABELS=Etiquetas'#13+
@@ -509,8 +509,8 @@ begin
     'MOVE DOWN=Mover Abajo'#13+
     'HIDE SERIES LIST=Ocultar Lista'#13+
     'VIEW 3D=Ver en 3D'#13+
-    'AUTO SIZE=Tamaсo Autom.'#13+
-    'ADD ANNOTATION=Aсadir Anotaciуn'#13+
+    'AUTO SIZE=TamaпїЅo Autom.'#13+
+    'ADD ANNOTATION=AпїЅadir AnotaciпїЅn'#13+
     'ENABLE ZOOM=Permitir Zoom'#13+
     'ENABLE SCROLL=Permitir Desplazamiento'#13+
     'DRAW LINES=Dibujar Lineas'#13+
@@ -528,7 +528,7 @@ begin
     'ALIGN TO BOTTOM=Alinear abajo'#13+
     'FONT COLOR=Color de Fuente'#13+
     'FONT NAME=Nombre de Fuente'#13+
-    'FONT SIZE=Tamaсo de Fuente'#13+
+    'FONT SIZE=TamaпїЅo de Fuente'#13+
     'BOLD=Negrita'#13+
     'ITALIC=Cursiva'#13+
     'UNDERLINE=Subrayado'#13+
@@ -538,22 +538,22 @@ begin
     'INTER-CHAR SIZE=Espacio entre caracteres'#13+
     'HIDE INSPECTOR=Ocultar Inspector'#13+
     'SELECT=Selecciona'#13+
-    'CUSTOM POSITION=Posiciуn cust.'#13+
+    'CUSTOM POSITION=PosiciпїЅn cust.'#13+
     'AXIS LINE=Linea de Eje'+#13+
     'MINOR GRID=Rejilla menor'#13+
     'CAPS=MAYU'#13+
     'NUM=NUM'#13+
     'SCR=DES'#13+
-    'YES=Sн'#13+
+    'YES=SпїЅ'#13+
     'NO=No'#13+
     'CHECK-BOXES=Casillas'#13+
-    'ANNOTATION=Anotaciуn'#13+
-    'CONNECT TO STEEMA.COM TO UPDATE YOUR TEECHART OFFICE VERSION.=Conecte a Steema.com para actualizar su versiуn.'#13+
-    'CURRENT VERSION=Versiуn actual'#13+
-    'LATEST VERSION=Ultima versiуn'#13+
+    'ANNOTATION=AnotaciпїЅn'#13+
+    'CONNECT TO STEEMA.COM TO UPDATE YOUR TEECHART OFFICE VERSION.=Conecte a Steema.com para actualizar su versiпїЅn.'#13+
+    'CURRENT VERSION=VersiпїЅn actual'#13+
+    'LATEST VERSION=Ultima versiпїЅn'#13+
     'CONNECT=Conectar'#13+
     'UPDATE=Actualizar'#13+
-    'HANDLES=Lбpiz'#13+
+    'HANDLES=LпїЅpiz'#13+
     'AXIS DIVIDER=Divisor de Ejes'#13+
     'DRAG POINT=Arrastrar puntos'#13+
     'PIE SLICES=Porciones de Pastel'#13+
@@ -579,19 +579,19 @@ begin
     'FORMATTING=Formato'#13+
     'FLOATING POINT=Decimal'#13+
     'DATE-TIME=Fecha / Hora'#13+
-    'CHOOSE AN OPTION=Escoja una opciуn'#13+
+    'CHOOSE AN OPTION=Escoja una opciпїЅn'#13+
     'IMPORTING FROM WEB: %S=Importando del web: %s'#13+
-    'LOAD CHART FROM WEB ADDRESS=Cargar grбfico de Web'#13+
-    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=Ver la Galerнa de Grбficos en www.Steema.com'#13+
+    'LOAD CHART FROM WEB ADDRESS=Cargar grпїЅfico de Web'#13+
+    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=Ver la GalerпїЅa de GrпїЅficos en www.Steema.com'#13+
     'GO !=Ir !'#13+
     'UPLOAD !=Subir !'#13+
-    'UPLOAD CURRENT CHART TO WEB GALLERY=Subir su Grбfico a la Galerнa en el Web'#13+
-    'TEECHART OFFICE WEB GALLERY=Galerнa de Grбficos en el Web'#13+
+    'UPLOAD CURRENT CHART TO WEB GALLERY=Subir su GrпїЅfico a la GalerпїЅa en el Web'#13+
+    'TEECHART OFFICE WEB GALLERY=GalerпїЅa de GrпїЅficos en el Web'#13+
     'YOUR NAME=Su Nombre'#13+
     'YOUR E-MAIL=Su e-Mail'#13+
-    'PASSWORD=Contraseсa'#13+
-    'OBTAIN PASSWORD=Obtener Contraseсa'#13+
-    'CHART NAME=Nombre Grбfico'#13+
+    'PASSWORD=ContraseпїЅa'#13+
+    'OBTAIN PASSWORD=Obtener ContraseпїЅa'#13+
+    'CHART NAME=Nombre GrпїЅfico'#13+
     'FIRST=Primera'#13+
     'PRIOR=Anterior'#13+
     'NEXT=Siguiente'#13+
@@ -609,7 +609,7 @@ begin
     'LABELS RANGE=Rango Textos'#13+
     'FOCUS=Resaltar'#13+
     'EXPLODE=Expandir'#13+
-    'AUTOSIZE=Tamaсo Auto.'#13+
+    'AUTOSIZE=TamaпїЅo Auto.'#13+
     'AXIS 2=Eje 2'
     ;
 end;
@@ -628,7 +628,7 @@ begin
   TeeMsg_Open                :='Obrir';
   TeeMsg_New                 :='Nou';
   TeeMsg_ImportingWeb        :='Important del Web: %s';
-  TeeMsg_Annotation          :='Anotaciу';
+  TeeMsg_Annotation          :='AnotaciпїЅ';
   TeeMsg_Modified            :='Modificat';
 
   TeeMsg_Next                :='&Seguent >';
@@ -644,14 +644,14 @@ begin
                               'Error: %d %s';
 
   TeeMsg_WrongVersion        :='Wrong version number received.';
-  TeeMsg_HasLatestVersion    :='Ja tй l''ъltima versiу.';
-  TeeMsg_ClickToUpdateVersion:='Premi Actualitzar per rebre la versiу actualitzada.';
+  TeeMsg_HasLatestVersion    :='Ja tпїЅ l''пїЅltima versiпїЅ.';
+  TeeMsg_ClickToUpdateVersion:='Premi Actualitzar per rebre la versiпїЅ actualitzada.';
   TeeMsg_UpdateButton        :='&Actualitza...';
   TeeMsg_WrongZip            :='Wrong version file received.';
   TeeMsg_VersionReceived     :='Latest version received. Click Ok to Install.';
 
   TeeMsg_SelectFolder        :='Seleccionar carpeta';
-  TeeMsg_EmailNotValid       :='L''adreзa de Correu no йs correcte.';
+  TeeMsg_EmailNotValid       :='L''adreпїЅa de Correu no пїЅs correcte.';
   TeeMsg_NameNotValid        :='Si us plau escrigui el seu Nom.';
   TeeMsg_WrongPassword       :='Password is empty. Please type your password or '+#13+
                                'click the Obtain Password button to receive it by e-mail.';
@@ -659,7 +659,7 @@ begin
                                'identify it at the Web Gallery database.';
 
   TeeMsg_CannotObtainPassword:='Cannot connect to obtain your Password.';
-  TeeMsg_PasswordSent        :='La Clau s''ha enviat a la seva adreзa de Correu.';
+  TeeMsg_PasswordSent        :='La Clau s''ha enviat a la seva adreпїЅa de Correu.';
   TeeMsg_Congrats            :='Congratulations.'+#13+'You have been included in TeeChart Office '+
                               'Web Charts Gallery user database.'+#13+
                               TeeMsg_PasswordSent;
@@ -667,12 +667,12 @@ begin
   TeeMsg_UploadingWeb        :='Uploading %s to Web Gallery...';
   TeeMsg_Uploaded            :='%s has been uploaded to Web Gallery.';
 
-  TeeMsg_TitleEditor         :='Editor de Tнtol';
+  TeeMsg_TitleEditor         :='Editor de TпїЅtol';
   TeeMsg_EnterValue          :='Entrar valor';
   TeeMsg_PointWidth          :='Ample';
   TeeMsg_PointHeight         :='Alt';
 
-  TeeMsg_Position            :='Posiciу: %d,%d';
+  TeeMsg_Position            :='PosiciпїЅ: %d,%d';
   TeeMsg_Size                :='Tamany: %d x %d';
 
   TeeMsg_BetaWarning         :='Nota: '+
@@ -704,25 +704,25 @@ begin
     'SAVE AS=Guardar com'#13+
     'SAVE AS...=Guardar com...'#13+
     'REOPEN=Reobrir'#13+
-    'ABOUT=A propуsit de'+#13+
+    'ABOUT=A propпїЅsit de'+#13+
     'PROPERTIES=Propietats'+#13+
     'CHART TOOLS=Eines'+#13+
     'HELP INDEX=Index de l''Ajuda'+#13+
-    'WHAT''S THIS ?=Quй йs aixт?'+#13+
+    'WHAT''S THIS ?=QuпїЅ пїЅs aixпїЅ?'+#13+
     'VIEW=Veure'+#13+
     'STATUS BAR=Barra d''estat'+#13+
     'SERIES LIST=Llista de Series'#13+
-    'GALLERY=Galerнa'+#13+
+    'GALLERY=GalerпїЅa'+#13+
     'TOOLBARS=Barres d''Eines'#13+
-    'PAGE=Pаgina'#13+
+    'PAGE=PпїЅgina'#13+
     'AS TAB=Com tapeta'#13+
     'AS WINDOW=Com finestre'#13+
     'HIDE=Ocultar'#13+
-    'WEB CHARTS GALLERY=Galerнa de Grбfics al Web'#13+
-    'UPDATE VERSION=Actualitzar versiу'#13+
+    'WEB CHARTS GALLERY=GalerпїЅa de GrпїЅfics al Web'#13+
+    'UPDATE VERSION=Actualitzar versiпїЅ'#13+
     'TEXT MODE=Modus Texte'#13+
     'TEECHART WEB=Web de TeeChart'#13+
-    'ONLINE SUPPORT=Suport en lнnea'#13+
+    'ONLINE SUPPORT=Suport en lпїЅnea'#13+
     'EXIT=Sortir'#13+
     'SEND BY E-MAIL=Enviar per Correu'#13+
     'TEXT LABELS=Etiquetes'#13+
@@ -734,7 +734,7 @@ begin
     'HIDE SERIES LIST=Ocultar Llista'#13+
     'VIEW 3D=Veure en 3D'#13+
     'AUTO SIZE=Tamany Autom.'#13+
-    'ADD ANNOTATION=Afegir Anotaciу'#13+
+    'ADD ANNOTATION=Afegir AnotaciпїЅ'#13+
     'ENABLE ZOOM=Permetre Zoom'#13+
     'ENABLE SCROLL=Permetre Desplazament'#13+
     'DRAW LINES=Dibuixar Linees'#13+
@@ -762,22 +762,22 @@ begin
     'INTER-CHAR SIZE=Espai entre caracters'#13+
     'HIDE INSPECTOR=Ocultar Inspector'#13+
     'SELECT=Selecciona'#13+
-    'CUSTOM POSITION=Posiciу person.'#13+
+    'CUSTOM POSITION=PosiciпїЅ person.'#13+
     'AXIS LINE=Linea d''Eix'+#13+
     'MINOR GRID=Rejilla menor'#13+
     'CAPS=MAJU'#13+
     'NUM=NUM'#13+
     'SCR=DES'#13+
-    'YES=Sн'#13+
+    'YES=SпїЅ'#13+
     'NO=No'#13+
     'CHECK-BOXES=Casillas'#13+
-    'ANNOTATION=Anotaciу'#13+
-    'CONNECT TO STEEMA.COM TO UPDATE YOUR TEECHART OFFICE VERSION.=Conecti a Steema.com per actualitzar la versiу.'#13+
-    'CURRENT VERSION=Versiу actual'#13+
-    'LATEST VERSION=Ultima versiу'#13+
+    'ANNOTATION=AnotaciпїЅ'#13+
+    'CONNECT TO STEEMA.COM TO UPDATE YOUR TEECHART OFFICE VERSION.=Conecti a Steema.com per actualitzar la versiпїЅ.'#13+
+    'CURRENT VERSION=VersiпїЅ actual'#13+
+    'LATEST VERSION=Ultima versiпїЅ'#13+
     'CONNECT=Conectar'#13+
     'UPDATE=Actualitzar'#13+
-    'HANDLES=Llбpis'#13+
+    'HANDLES=LlпїЅpis'#13+
     'AXIS DIVIDER=Divisor d''Eixos'#13+
     'DRAG POINT=Arrastrar punts'#13+
     'PIE SLICES=Porcions de Pastel'#13+
@@ -803,19 +803,19 @@ begin
     'FORMATTING=Format'#13+
     'FLOATING POINT=Decimal'#13+
     'DATE-TIME=Data / Hora'#13+
-    'CHOOSE AN OPTION=Escolli una opciу'+#13+
+    'CHOOSE AN OPTION=Escolli una opciпїЅ'+#13+
     'IMPORTING FROM WEB: %S=Agafant del web: %s'#13+
-    'LOAD CHART FROM WEB ADDRESS=Agafar grбfic del Web'#13+
-    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=Veure la Galerнa de Grаfics a www.Steema.com'#13+
+    'LOAD CHART FROM WEB ADDRESS=Agafar grпїЅfic del Web'#13+
+    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=Veure la GalerпїЅa de GrпїЅfics a www.Steema.com'#13+
     'GO !=Anar !'#13+
     'UPLOAD !=Pujar !'#13+
-    'UPLOAD CURRENT CHART TO WEB GALLERY=Pujar el seu Grаfic a la Galerнa al Web'#13+
-    'TEECHART OFFICE WEB GALLERY=Galerнa de Grаfics al Web'#13+
+    'UPLOAD CURRENT CHART TO WEB GALLERY=Pujar el seu GrпїЅfic a la GalerпїЅa al Web'#13+
+    'TEECHART OFFICE WEB GALLERY=GalerпїЅa de GrпїЅfics al Web'#13+
     'YOUR NAME=El seu Nom'#13+
     'YOUR E-MAIL=El seu e-Mail'#13+
     'PASSWORD=Mot de clau'#13+
     'OBTAIN PASSWORD=Obtenir Clau'#13+
-    'CHART NAME=Nom Grаfic'#13+
+    'CHART NAME=Nom GrпїЅfic'#13+
     'FIRST=Primera'#13+
     'PRIOR=Anterior'#13+
     'NEXT=Seguent'#13+
@@ -839,22 +839,22 @@ Procedure TeeOfficeGerman;
 
 Procedure SetGermanConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Ziehen Sie die Maus nach rechts unten fьr Zoom.';
+  TeeMsg_ZoomInstructions    :='Ziehen Sie die Maus nach rechts unten fпїЅr Zoom.';
   TeeMsg_ScrollInstructions  :='Ziehen Sie die Maus, um die Chartinhalte zu srollen.';
-  TeeMsg_DrawLineInstructions:='Ziehen Sie die Maus, um Linien zu zeichnen, auszuwдhlen und zu bewegen.';
+  TeeMsg_DrawLineInstructions:='Ziehen Sie die Maus, um Linien zu zeichnen, auszuwпїЅhlen und zu bewegen.';
 
-  TeeMsg_SureToDeleteDataSet :='Soll der Datensatz wirklich gelцscht werden?';
-  TeeMsg_Select              :='Auswдhlen'; 
+  TeeMsg_SureToDeleteDataSet :='Soll der Datensatz wirklich gelпїЅscht werden?';
+  TeeMsg_Select              :='AuswпїЅhlen'; 
   TeeMsg_EMail               :='e-mail';
-  TeeMsg_Open                :='Цffnen';
+  TeeMsg_Open                :='пїЅffnen';
   TeeMsg_New                 :='Neu'; 
   TeeMsg_ImportingWeb        :='Aus dem Web importieren: %s'; 
   TeeMsg_Annotation          :='Kommentar';
   TeeMsg_Modified            :='Modifiziert'; 
  
-  TeeMsg_Next                :='&Nдchster>'; 
+  TeeMsg_Next                :='&NпїЅchster>'; 
   TeeMsg_OK                  :='OK'; 
-  TeeMsg_Close               :='SchlieЯen'; 
+  TeeMsg_Close               :='SchlieпїЅen'; 
   TeeMsg_Go                  :='&Go !'; 
   TeeMsg_Upload              :='&Upload !';
 
@@ -865,20 +865,20 @@ begin
  
   TeeMsg_WrongVersion        :='Falsche Version erhalten.'; 
   TeeMsg_HasLatestVersion    :='Sie besitzen bereits die letzte Version.';
-  TeeMsg_ClickToUpdateVersion:='Klicken Sie die Schaltflдche ''Update'', um die letzt Version zu erhalten.';
+  TeeMsg_ClickToUpdateVersion:='Klicken Sie die SchaltflпїЅche ''Update'', um die letzt Version zu erhalten.';
   TeeMsg_UpdateButton        :='&Update...';
   TeeMsg_WrongZip            :='Falscher File der Version empfangen.';
   TeeMsg_VersionReceived     :='Letzte Version empfangen. Klicken Sie OK zur Installation.';
 
-  TeeMsg_SelectFolder        :='Ordner auswдhlen';
+  TeeMsg_SelectFolder        :='Ordner auswпїЅhlen';
   TeeMsg_EmailNotValid       :='Email-Adresse ist nicht korrekt.';
   TeeMsg_NameNotValid        :='Ihr Name ist leer. Bitte geben Sie Ihren Namen an.';
-  TeeMsg_WrongPassword       :='PaЯwort ist leer. Bitte geben Sie Ihr PaЯwort an oder'
-                                +#13+'klicken Sie auf ''PaЯwort erhalten'', um es als e-mail zu empfangen.';
+  TeeMsg_WrongPassword       :='PaпїЅwort ist leer. Bitte geben Sie Ihr PaпїЅwort an oder'
+                                +#13+'klicken Sie auf ''PaпїЅwort erhalten'', um es als e-mail zu empfangen.';
   TeeMsg_WrongChartID        :='Chartname ist leer. Bitte geben Sie einen Chartnamen an, um ihn '+' in der Datenbank der Web-Galerie zu identifizieren.';
  
-  TeeMsg_CannotObtainPassword:='Kann nicht verbinden, um Ihr PaЯwort zu erhalten.'; 
-  TeeMsg_PasswordSent        :='Ihr PaЯwort wurde an Ihre  e-mail Adresse gesendet.';
+  TeeMsg_CannotObtainPassword:='Kann nicht verbinden, um Ihr PaпїЅwort zu erhalten.'; 
+  TeeMsg_PasswordSent        :='Ihr PaпїЅwort wurde an Ihre  e-mail Adresse gesendet.';
   TeeMsg_Congrats            :='Gratulation.'+#13+'Sie stehen in der Anwender-Datenbank der TeeChart Office'+'Web Charts-Galerie.'+#13+TeeMsg_PasswordSent;
  
   TeeMsg_UploadingWeb        :='Speichern von %s in die Web Galerie...'; 
@@ -887,22 +887,22 @@ begin
   TeeMsg_TitleEditor         :='Titel Editor'; 
   TeeMsg_EnterValue          :='Wert eingeben';
   TeeMsg_PointWidth          :='Breite';
-  TeeMsg_PointHeight         :='Hцhe'; 
+  TeeMsg_PointHeight         :='HпїЅhe'; 
  
   TeeMsg_Position            :='Position: %d,%d'; 
-  TeeMsg_Size                :='GrцЯe: %d x %d'; 
+  TeeMsg_Size                :='GrпїЅпїЅe: %d x %d'; 
 
   TeeMsg_BetaWarning         :='Achtung: '+'Das ist eine Pre-Release Software.'+#13+#13+
-                               'Einige Features kцnnen unvollstдndig oder'+#13+
-                               ' in der spдteren Produkt-Version entfernt sein.'+#13+#13+
-                               'Geben Sie Probleme und Vorschlдge in unsere Website:'+#13+#13+
+                               'Einige Features kпїЅnnen unvollstпїЅndig oder'+#13+
+                               ' in der spпїЅteren Produkt-Version entfernt sein.'+#13+#13+
+                               'Geben Sie Probleme und VorschlпїЅge in unsere Website:'+#13+#13+
                                'www.steema.com';
  
   TeeMsg_Caps               :='CAPS';
   TeeMsg_Num                :='NUM';
   TeeMsg_SCR                :='SCR';
   TeeMsg_SaveAs             :='Speichern unter...';
-  TeeMsg_ShouldClose        :='Bitte schlieЯen und starten Sie TeeChart Office neu.';
+  TeeMsg_ShouldClose        :='Bitte schlieпїЅen und starten Sie TeeChart Office neu.';
 
   { pending }
   TeeMsg_Table              :='Table';
@@ -918,10 +918,10 @@ begin
     with TeeGermanLanguage do
     Text:=Text+#13+
     'NEW USING WIZARD=Neuer Assistent'#13+
-    'OPEN=Цffnen'+#13+
+    'OPEN=пїЅffnen'+#13+
     'SAVE AS=Speichern unter'#13+
     'REOPEN=Wiederherstellen'#13+
-    'ABOUT=Ьber'+#13+
+    'ABOUT=пїЅber'+#13+
     'PROPERTIES=Eigenschaft'+#13+
     'CHART TOOLS=Werkzeuge'+#13+
     'HELP INDEX=Hilfe Index'+#13+
@@ -945,13 +945,13 @@ begin
     'TEXT LABELS=Text Labels'#13+
     'X VALUES=X Werte'#13+
     'DUPLICATE=Dublizieren'#13+
-    'SELECT ALL=Alles auswдhlen'#13+
+    'SELECT ALL=Alles auswпїЅhlen'#13+
     'MOVE UP=Nach oben bewegen'#13+
     'MOVE DOWN=Nach unten bewegen'#13+
     'HIDE SERIES LIST=Reihenliste verbergen'#13+
     'VIEW 3D=3D Ansicht'#13+
-    'AUTO SIZE=Autom. GrцЯe'#13+
-    'ADD ANNOTATION=Kommentar hinzufьgen'#13+
+    'AUTO SIZE=Autom. GrпїЅпїЅe'#13+
+    'ADD ANNOTATION=Kommentar hinzufпїЅgen'#13+
     'ENABLE ZOOM=Zoom erlauben'#13+
     'ENABLE SCROLL=Scroll erlauben'#13+
     'DRAW LINES=Linien zeichnen'#13+
@@ -960,41 +960,41 @@ begin
     'SHOW AT LEGEND=In Legende anzeigen'#13+
     'SHOW SERIES MARKS=ReihenMarks anzeigen'#13+
     'PROPERTY=Eigenschaft'#13+
-    'MODIFIED=Verдndert'#13+
+    'MODIFIED=VerпїЅndert'#13+
     'WALL=Wand'#13+
     'SERIES MARKS=ReihenMarks'#13+
-    'SIDE MARGINS=Randabstдnde'#13+
+    'SIDE MARGINS=RandabstпїЅnde'#13+
     'RIGHT SIDE=Rechte Seite'#13+
     'ALIGN TO TOP=Obere Ausrichtung'#13+
     'ALIGN TO BOTTOM=Untere Ausrichtung'#13+
     'FONT COLOR=Schriftfarbe'#13+
     'FONT NAME=Schriftname'#13+
-    'FONT SIZE=SchriftgrцЯe'#13+
+    'FONT SIZE=SchriftgrпїЅпїЅe'#13+
     'BOLD=Fett'#13+
     'ITALIC=Kursiv'#13+
     'UNDERLINE=Unterstrichen'#13+
     'STRIKE OUT=Durchgestrichen'#13+
-    'LEFT JUSTIFY=Linksbьndig'#13+
-    'RIGHT JUSTIFY=Rechsbьndig'#13+
+    'LEFT JUSTIFY=LinksbпїЅndig'#13+
+    'RIGHT JUSTIFY=RechsbпїЅndig'#13+
     'INTER-CHAR SIZE=Abstand zwischen Buchstaben'#13+
     'HIDE INSPECTOR=Inspector verbergen'#13+
-    'SELECT=Auswдhlen'#13+
+    'SELECT=AuswпїЅhlen'#13+
     'CUSTOM POSITION=Benutzerdef. Position'#13+
     'AXIS LINE=Achslinie'+#13+
     'MINOR GRID=Untergitter'#13+
-    'CAPS=GroЯbuchstabe'#13+
+    'CAPS=GroпїЅbuchstabe'#13+
     'NUM=NUM'#13+
     'SCR=SCR'#13+
     'YES=Ja'#13+
     'NO=Nein'#13+
-    'CHECK-BOXES=Kontrollkдstchen'#13+
+    'CHECK-BOXES=KontrollkпїЅstchen'#13+
     'ANNOTATION=Kommentar'#13+
     'CONNECT TO STEEMA.COM TO UPDATE YOUR TEECHART OFFICE VERSION.=Verbinden mit Steema.com zur Aktualisierung ihrer TeeChart Office Version.'#13+
     'CURRENT VERSION=Aktuelle Version'#13+
     'LATEST VERSION=Letzte Version'#13+
     'CONNECT=Verbinden'#13+
     'UPDATE=Aktualisieren'#13+
-    'HANDLES=Lбpiz'#13+
+    'HANDLES=LпїЅpiz'#13+
     'AXIS DIVIDER=Achsteiler'#13+
     'DRAG POINT=Punkte ziehen'#13+
     'PIE SLICES=Kreisscheiben'#13+
@@ -1004,7 +1004,7 @@ begin
     'RED=Rot'#13+
     'GREEN=Green'#13+
     'BLUE=Blau'#13+
-    'WHITE=WeiЯ'#13+
+    'WHITE=WeiпїЅ'#13+
     'YELLOW=Gelb'#13+
     'BLACK=Schwarz'#13+
     'SILVER=Silber'#13+
@@ -1020,7 +1020,7 @@ begin
     'FORMATTING=Formatieren'#13+
     'FLOATING POINT=Dezimal'#13+
     'DATE-TIME=Datum/Uhrzeit'#13+
-    'CHOOSE AN OPTION=Option auswдhlen'#13+
+    'CHOOSE AN OPTION=Option auswпїЅhlen'#13+
     'IMPORTING FROM WEB: %S=Aus dem Web importieren: %s'#13+
     'LOAD CHART FROM WEB ADDRESS=Chart aus Web-Adresse laden'#13+
     'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=TeeChart Galerie unter www.Steema.com durchsuchen'#13+
@@ -1030,8 +1030,8 @@ begin
     'TEECHART OFFICE WEB GALLERY=TeeChart Office Web Galerie'#13+
     'YOUR NAME=Ihr Name'#13+
     'YOUR E-MAIL=Ihre E-mail'#13+
-    'PASSWORD=PaЯwort'#13+
-    'OBTAIN PASSWORD=PaЯwort erhalten'#13+
+    'PASSWORD=PaпїЅwort'#13+
+    'OBTAIN PASSWORD=PaпїЅwort erhalten'#13+
     'CHART NAME=Chart-Name'#13
     ;
   end;
@@ -1402,72 +1402,72 @@ Procedure TeeOfficeSwedish;
 
 Procedure SetSwedishConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Drag mus till hцger-botten fцr att zooma. Till vдnster-upp fцr att zooma ut.';
-  TeeMsg_ScrollInstructions  :='Drag mus fцr att skrolla kartans innehеll.';
-  TeeMsg_DrawLineInstructions:='Drag mus fцr att rita, vдlja och flytta linjer.';
+  TeeMsg_ZoomInstructions    :='Drag mus till hпїЅger-botten fпїЅr att zooma. Till vпїЅnster-upp fпїЅr att zooma ut.';
+  TeeMsg_ScrollInstructions  :='Drag mus fпїЅr att skrolla kartans innehпїЅll.';
+  TeeMsg_DrawLineInstructions:='Drag mus fпїЅr att rita, vпїЅlja och flytta linjer.';
 
-  TeeMsg_SureToDeleteDataSet :='Дr du sдker pе att du vill radera data set?';
-  TeeMsg_Select              :='Vдlj';
+  TeeMsg_SureToDeleteDataSet :='пїЅr du sпїЅker pпїЅ att du vill radera data set?';
+  TeeMsg_Select              :='VпїЅlj';
   TeeMsg_EMail               :='e-mail';
-  TeeMsg_Open                :='Цppna';
+  TeeMsg_Open                :='пїЅppna';
   TeeMsg_New                 :='Nytt';
-  TeeMsg_ImportingWeb        :='Importera frеn Web: %s';
+  TeeMsg_ImportingWeb        :='Importera frпїЅn Web: %s';
   TeeMsg_Annotation          :='Kommentar';
   TeeMsg_Modified            :='Modifierad';
 
-  TeeMsg_Next                :='&Nдsta >';
+  TeeMsg_Next                :='&NпїЅsta >';
   TeeMsg_OK                  :='OK';
-  TeeMsg_Close               :='Stдng';
-  TeeMsg_Go                  :='&Kцr !';
+  TeeMsg_Close               :='StпїЅng';
+  TeeMsg_Go                  :='&KпїЅr !';
   TeeMsg_Upload              :='&Ladda upp!';
 
-  TeeMsg_CannotGetVersion    :='Kan inte koppla upp fцr att erhеlla aktuell version.'+#13+
+  TeeMsg_CannotGetVersion    :='Kan inte koppla upp fпїЅr att erhпїЅlla aktuell version.'+#13+
                               'Fel: %d %s';
 
   TeeMsg_CannotGetNewVersion :='Kan inte ladda ner aktuell version.'+#13+
                               'Fel: %d %s';
 
-  TeeMsg_WrongVersion        :='Erhеllet version nummer дr fel.';
+  TeeMsg_WrongVersion        :='ErhпїЅllet version nummer пїЅr fel.';
   TeeMsg_HasLatestVersion    :='Du har redan senaste versionen.';
-  TeeMsg_ClickToUpdateVersion:='Klicka Uppdatera fцr att erhеlla senaste versionen.';
+  TeeMsg_ClickToUpdateVersion:='Klicka Uppdatera fпїЅr att erhпїЅlla senaste versionen.';
   TeeMsg_UpdateButton        :='&Uppdatera...';
-  TeeMsg_WrongZip            :='Fel version fil erhеllen.';
-  TeeMsg_VersionReceived     :='Senaste versionen erhеllen. Klicka OK fцr att installera.';
+  TeeMsg_WrongZip            :='Fel version fil erhпїЅllen.';
+  TeeMsg_VersionReceived     :='Senaste versionen erhпїЅllen. Klicka OK fпїЅr att installera.';
 
-  TeeMsg_SelectFolder        :='Vдlj mapp';
-  TeeMsg_EmailNotValid       :='Email adress дr inte korrekt.';
-  TeeMsg_NameNotValid        :='Ditt namn дr tomt. Skriv in ditt namn.';
-  TeeMsg_WrongPassword       :='Lцsenord дr tomt. Skriv in ditt lцsenord eller klicka Erhеll Lцsenord fцr att erhеlla det med email';
-  TeeMsg_WrongChartID        :='Kart namn дr tomt. Skriv in ett namn fцr att identifiera karta i Web galleriets data bas';
+  TeeMsg_SelectFolder        :='VпїЅlj mapp';
+  TeeMsg_EmailNotValid       :='Email adress пїЅr inte korrekt.';
+  TeeMsg_NameNotValid        :='Ditt namn пїЅr tomt. Skriv in ditt namn.';
+  TeeMsg_WrongPassword       :='LпїЅsenord пїЅr tomt. Skriv in ditt lпїЅsenord eller klicka ErhпїЅll LпїЅsenord fпїЅr att erhпїЅlla det med email';
+  TeeMsg_WrongChartID        :='Kart namn пїЅr tomt. Skriv in ett namn fпїЅr att identifiera karta i Web galleriets data bas';
 
-  TeeMsg_CannotObtainPassword:='Kan inte koppla upp fцr att erhеlla ditt lцsenord.';
-  TeeMsg_PasswordSent        :='Ditt lцsenord har skickats till din email adress.';
+  TeeMsg_CannotObtainPassword:='Kan inte koppla upp fпїЅr att erhпїЅlla ditt lпїЅsenord.';
+  TeeMsg_PasswordSent        :='Ditt lпїЅsenord har skickats till din email adress.';
   TeeMsg_Congrats            :='Gratulerar.'+#13+'Du har blivit inkluderad i TeeChart Office '+
-                              'Web Charts Galleri anvдndar data bas.';
+                              'Web Charts Galleri anvпїЅndar data bas.';
 
 
   TeeMsg_UploadingWeb        :='Laddar upp till Web galleriet...';
   TeeMsg_Uploaded            :='%s har blivit uppladdat till Web Galleriet.';
 
   TeeMsg_TitleEditor         :='Titel Editor';
-  TeeMsg_EnterValue          :='Skriv in vдrde';
+  TeeMsg_EnterValue          :='Skriv in vпїЅrde';
   TeeMsg_PointWidth          :='Bredd';
-  TeeMsg_PointHeight         :='Hцjd';
+  TeeMsg_PointHeight         :='HпїЅjd';
 
   TeeMsg_Position            :='Position: %d,%d';
   TeeMsg_Size                :='Storlek: %d x %d';
 
   TeeMsg_BetaWarning         :='Kommentar: '+
-                              'Detta дr beta mjukvara.'+#13+#13+
+                              'Detta пїЅr beta mjukvara.'+#13+#13+
                               'Vissa egenskaper kan vara inkompletta eller borttagna i den slutliga produktversionen'+#13+
-                              'Skicka problem och fцrslag till vеr Web plats:'+#13+#13+
+                              'Skicka problem och fпїЅrslag till vпїЅr Web plats:'+#13+#13+
                               'www.steema.com';
 
   TeeMsg_Caps               :='CAPS';
   TeeMsg_Num                :='NUM';
   TeeMsg_SCR                :='SCR';
   TeeMsg_SaveAs             :='Spara som...';
-  TeeMsg_ShouldClose        :='Stдng och starta om TeeTreeOffice.';
+  TeeMsg_ShouldClose        :='StпїЅng och starta om TeeTreeOffice.';
 
   TeeMsg_Table              :='Table';
   TeeMsg_Query              :='Query';
@@ -1761,78 +1761,78 @@ Procedure TeeOfficeRussian;
 
 Procedure SetRussianConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Передвиньте мышь вправо вниз для увеличения. Влево вверх для уменьшения.';
-  TeeMsg_ScrollInstructions  :='Передвиньте мышь для прокрутки содержимого диаграммы.';
-  TeeMsg_DrawLineInstructions:='Передвиньте мышь для рисования, выделения и перемещения линий.';
+  TeeMsg_ZoomInstructions    :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_ScrollInstructions  :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_DrawLineInstructions:='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.';
 
-  TeeMsg_SureToDeleteDataSet :='Вы действительно хотите удалить данные?';
-  TeeMsg_Select              :='Выделить';
-  TeeMsg_EMail               :='"Электронная почта';
-  TeeMsg_Open                :='Открыть';
-  TeeMsg_New                 :='Новый';
-  TeeMsg_ImportingWeb        :='Вставить из Интернета: %s';
-  TeeMsg_Annotation          :='Комментарий';
-  TeeMsg_Modified            :='Изменено';
+  TeeMsg_SureToDeleteDataSet :='пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?';
+  TeeMsg_Select              :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_EMail               :='"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_Open                :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_New                 :='пїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_ImportingWeb        :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: %s';
+  TeeMsg_Annotation          :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_Modified            :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
 
-  TeeMsg_Next                :='&Следующий >';
+  TeeMsg_Next                :='&пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ >';
   TeeMsg_OK                  :='OK';
-  TeeMsg_Close               :='Закрыть';
-  TeeMsg_Go                  :='&Вперед !';
-  TeeMsg_Upload              :='&Загрузить !';
+  TeeMsg_Close               :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_Go                  :='&пїЅпїЅпїЅпїЅпїЅпїЅ !';
+  TeeMsg_Upload              :='&пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ !';
 
-  TeeMsg_CannotGetVersion    :='Невозможно найти существующую версию.'+#13+
-                              'Ошибка: %d %s';
+  TeeMsg_CannotGetVersion    :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.'+#13+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅ: %d %s';
 
-  TeeMsg_CannotGetNewVersion :='Невозможно получить существующую версию.'+#13+
-                              'Ошибка: %d %s';
+  TeeMsg_CannotGetNewVersion :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.'+#13+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅ: %d %s';
 
-  TeeMsg_WrongVersion        :='получен неправильный номер версии.';
-  TeeMsg_HasLatestVersion    :='Вы уже имеете последнюю версию.';
-  TeeMsg_ClickToUpdateVersion:='Нажмите кнопку Обновить для получения последней версии.';
-  TeeMsg_UpdateButton        :='&Обновление...';
-  TeeMsg_WrongZip            :='Принят файл неправильной версии.';
-  TeeMsg_VersionReceived     :='Последняя версия получена. Нажмите Ok для установки.';
+  TeeMsg_WrongVersion        :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_HasLatestVersion    :='пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_ClickToUpdateVersion:='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_UpdateButton        :='&пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...';
+  TeeMsg_WrongZip            :='пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_VersionReceived     :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Ok пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.';
 
-  TeeMsg_SelectFolder        :='Выбор папки';
-  TeeMsg_EmailNotValid       :='Неправильный адрес электронной почты.';
-  TeeMsg_NameNotValid        :='Поле вашего имени пусто. Пожалуйста, введите Ваше имя.';
-  TeeMsg_WrongPassword       :='Поле пароля пусто. Пожалуйста, введите пароль или '+#13+
-                              'нажмите кнопку Получить пароль для получения пароля по электронной почте.';
-  TeeMsg_WrongChartID        :='Имя диаграммы пусто. Пожалуйста, введите имя диаграммы для '+
-                              'идентификации в базе данных Web Gallery.';
+  TeeMsg_SelectFolder        :='пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_EmailNotValid       :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_NameNotValid        :='пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ.';
+  TeeMsg_WrongPassword       :='пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ '+#13+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_WrongChartID        :='пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ '+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ Web Gallery.';
 
-  TeeMsg_CannotObtainPassword:='Невозможно подключиться к сети для получения вашего пароля.';
-  TeeMsg_PasswordSent        :='Ваш паролб отослан на ваш адрес электронной почты.';
-  TeeMsg_Congrats            :='Поздравляем.'+#13+'Вы включены в пользовательскую базу данных TeeChart Office '+
+  TeeMsg_CannotObtainPassword:='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_PasswordSent        :='пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.';
+  TeeMsg_Congrats            :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'+#13+'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ TeeChart Office '+
                               'Web Charts Gallery.'+#13+
                               TeeMsg_PasswordSent;
 
-  TeeMsg_UploadingWeb        :='Загрузка %s в Web Gallery...';
-  TeeMsg_Uploaded            :='%s загружено в Web Gallery.';
+  TeeMsg_UploadingWeb        :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ %s пїЅ Web Gallery...';
+  TeeMsg_Uploaded            :='%s пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Web Gallery.';
 
-  TeeMsg_TitleEditor         :='Редактор названия';
+  TeeMsg_TitleEditor         :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
 
-  TeeMsg_EnterValue          :='Введите значение';
-  TeeMsg_PointWidth          :='Ширина';
-  TeeMsg_PointHeight         :='Высота';
+  TeeMsg_EnterValue          :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_PointWidth          :='пїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_PointHeight         :='пїЅпїЅпїЅпїЅпїЅпїЅ';
 
-  TeeMsg_Position            :='Положение: %d,%d';
-  TeeMsg_Size                :='Размер: %d x %d';
+  TeeMsg_Position            :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: %d,%d';
+  TeeMsg_Size                :='пїЅпїЅпїЅпїЅпїЅпїЅ: %d x %d';
 
-  TeeMsg_BetaWarning         :='Внимание: '+
-                              'Это не полностью готовое программное обеспечение.'+#13+#13+
-                              'Нокоторые возможности могут быть неполными или'+#13+
-                              'вовсе исключены из финальной версии программы.'+#13+#13+
-                              'Вопросы и пожелания направляйте на наш сайт:'+#13+#13+
+  TeeMsg_BetaWarning         :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: '+
+                              'пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'+#13+#13+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ'+#13+
+                              'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'+#13+#13+
+                              'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ:'+#13+#13+
                               'www.steema.com';
 
   TeeMsg_Caps               :='CAPS';
   TeeMsg_Num                :='NUM';
   TeeMsg_SCR                :='SCR';
-  TeeMsg_SaveAs             :='Сохранить как...';
-  TeeMsg_ShouldClose        :='Пожалуйста, перезапустите TeeChartOffice.';
-  TeeMsg_Table              :='Таблица';
-  TeeMsg_Query              :='Запрос';
+  TeeMsg_SaveAs             :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ...';
+  TeeMsg_ShouldClose        :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TeeChartOffice.';
+  TeeMsg_Table              :='пїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
+  TeeMsg_Query              :='пїЅпїЅпїЅпїЅпїЅпїЅ';
 end;
 
 begin
@@ -1842,141 +1842,141 @@ begin
   if TeeRussianLanguage.IndexOf('NEW USING WIZARD')=-1 then
   with TeeRussianLanguage do
     Text:=Text+#13+
-    'NEW USING WIZARD=Новый Мастер'#13+
-    'OPEN=Открыть'+#13+
-    'SAVE AS=Сохранить'#13+
-    'SAVE AS...=Сохранить как...'#13+
-    'REOPEN=Открыть вновь'#13+
-    'ABOUT=О программе'+#13+
-    'PROPERTIES=Свойства'+#13+
-    'CHART TOOLS=Инструменты'+#13+
-    'HELP INDEX=Указатель'+#13+
-    'WHAT''S THIS ?=Что это?'+#13+
-    'VIEW=Вид'+#13+
-    'STATUS BAR=Строка статуса'+#13+
-    'SERIES LIST=Список Последовательностей'#13+
-    'GALLERY=Галерея'+#13+
-    'TOOLBARS=Панель инструментов'#13+
-    'PAGE=Станица'#13+
-    'AS TAB=Как таблица'#13+
-    'AS WINDOW=Как окно'#13+
-    'HIDE=Скрыть'#13+
-    'WEB CHARTS GALLERY=Диаграммы WEB Gallery'#13+
-    'UPDATE VERSION=Обновить'#13+
-    'TEXT MODE=Текстовый режим'#13+
-    'TEECHART WEB=Диаграмма из Интернета'#13+
-    'ONLINE SUPPORT=Поддержка'#13+
-    'EXIT=Выход'#13+
-    'SEND BY E-MAIL=Отослать по электронной почте'#13+
-    'TEXT LABELS=Метки'#13+
-    'X VALUES=Значения по X'#13+
-    'DUPLICATE=Дублировать'#13+
+    'NEW USING WIZARD=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'OPEN=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'SAVE AS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SAVE AS...=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ...'#13+
+    'REOPEN=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'ABOUT=пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'PROPERTIES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'CHART TOOLS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'HELP INDEX=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'WHAT''S THIS ?=пїЅпїЅпїЅ пїЅпїЅпїЅ?'+#13+
+    'VIEW=пїЅпїЅпїЅ'+#13+
+    'STATUS BAR=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'SERIES LIST=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'GALLERY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'+#13+
+    'TOOLBARS=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'PAGE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AS TAB=пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AS WINDOW=пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ'#13+
+    'HIDE=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'WEB CHARTS GALLERY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ WEB Gallery'#13+
+    'UPDATE VERSION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'TEXT MODE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'TEECHART WEB=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ONLINE SUPPORT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'EXIT=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'SEND BY E-MAIL=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'TEXT LABELS=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'X VALUES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ X'#13+
+    'DUPLICATE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
     'SELECT ALL=Seleccionar Todas'#13+
-    'MOVE UP=Вверх'#13+
-    'MOVE DOWN=Вниз'#13+
-    'HIDE SERIES LIST=Скрыть список последовательностей'#13+
-    'VIEW 3D=Трёхмерный вид'#13+
-    'AUTO SIZE=Автомасштаб'#13+
-    'ADD ANNOTATION=Добать пометку'#13+
-    'ENABLE ZOOM=Разрешить увеличение'#13+
-    'ENABLE SCROLL=Резрешить прокрутку'#13+
-    'DRAW LINES=Рисовать линии'#13+
-    'SHOW HINTS=Показывать подсказки'#13+
-    'COLOR EACH POINT=Цветные точки'#13+
-    'SHOW AT LEGEND=Показывать в легенде'#13+
-    'SHOW SERIES MARKS=Показывать метки последовательности'#13+
-    'PROPERTY=Свойства'#13+
-    'MODIFIED=Изменен'#13+
-    'WALL=Граница'#13+
-    'SERIES MARKS=Метки последовательности'#13+
-    'SIDE MARGINS=Края'#13+
-    'RIGHT SIDE=Правая сторона'#13+
-    'ALIGN TO TOP=Расположить в центре'#13+
-    'ALIGN TO BOTTOM=Расположить снизу'#13+
-    'FONT COLOR=Цвет шрифта'#13+
-    'FONT NAME=Шрифт'#13+
-    'FONT SIZE=Размер шрифта'#13+
-    'BOLD=Жирный'#13+
-    'ITALIC=Наклонный'#13+
-    'UNDERLINE=Подчеркнутый'#13+
-    'STRIKE OUT=Зачеркнутый'#13+
-    'LEFT JUSTIFY=Выравнивание по левому краю'#13+
-    'RIGHT JUSTIFY=Выравнивание по правому краю'#13+
-    'INTER-CHAR SIZE=Моноширинный'#13+
-    'HIDE INSPECTOR=Скрыть Инспектора'#13+
-    'SELECT=Выделить'#13+
-    'CUSTOM POSITION=Произвольное положение'#13+
-    'AXIS LINE=Линия оси'+#13+
-    'MINOR GRID=Убывающая решетка'#13+
+    'MOVE UP=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'MOVE DOWN=пїЅпїЅпїЅпїЅ'#13+
+    'HIDE SERIES LIST=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'VIEW 3D=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ'#13+
+    'AUTO SIZE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ADD ANNOTATION=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ENABLE ZOOM=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ENABLE SCROLL=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'DRAW LINES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'SHOW HINTS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'COLOR EACH POINT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'SHOW AT LEGEND=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SHOW SERIES MARKS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'PROPERTY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'MODIFIED=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'WALL=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SERIES MARKS=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SIDE MARGINS=пїЅпїЅпїЅпїЅ'#13+
+    'RIGHT SIDE=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ALIGN TO TOP=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ALIGN TO BOTTOM=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'FONT COLOR=пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'FONT NAME=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'FONT SIZE=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'BOLD=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ITALIC=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'UNDERLINE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'STRIKE OUT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'LEFT JUSTIFY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ'#13+
+    'RIGHT JUSTIFY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ'#13+
+    'INTER-CHAR SIZE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'HIDE INSPECTOR=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SELECT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'CUSTOM POSITION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AXIS LINE=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ'+#13+
+    'MINOR GRID=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
     'CAPS=CAPS'#13+
     'NUM=NUM'#13+
     'SCR=SCR'#13+
-    'YES=Да'#13+
-    'NO=Нет'#13+
-    'CHECK-BOXES=Галочка'#13+
-    'ANNOTATION=Пометка'#13+
-    'CONNECT TO STEEMA.COM TO UPDATE THIS SOFTWARE.=Соединиться со Steema.com для обновления программы.'#13+
-    'CURRENT VERSION=Текущая версия'#13+
-    'LATEST VERSION=Последняя версия'#13+
-    'CONNECT=Соединение'#13+
-    'UPDATE=Обновление'#13+
-    'HANDLES=Указатели'#13+
-    'AXIS DIVIDER=Делитель оси'#13+
-    'PIE SLICES=Секторы'#13+
-    'DRAG STYLE=Перетащить стиль'#13+
-    'TEECHART OFFICE OPTIONS=Настройки TeeChart Office'#13+
-    'LANGUAGE=Язык'#13+
-    'RED=Красный'#13+
-    'GREEN=Зеленый'#13+
-    'BLUE=Синий'#13+
-    'WHITE=Белый'#13+
-    'YELLOW=Желтый'#13+
-    'BLACK=Черный'#13+
-    'SILVER=Серебреный'#13+
-    'DKGRAY=Темно серый'#13+
-    'BTNFACE=Поверхность кнопки'#13+
-    'GRAY SCALE VISUAL=Градации серого'#13+
-    'INVERTED GRAY SCALE=Инв. градации серого'#13+
-    'LEFT WALL=Левая граница'#13+
-    'BOTTOM WALL=Левая граница'#13+
-    'RIGHT WALL=Правая граница'#13+
-    'BACK WALL=Задняя граница'#13+
-    'STAIRS INVERTED=Инв. градиент'#13+
-    'FORMATTING=Форматирование'#13+
-    'FLOATING POINT=Плав. точка'#13+
-    'DATE-TIME=Дата-время'#13+
-    'CHOOSE AN OPTION=Выберите опции'#13+
-    'IMPORTING FROM WEB: %S=Импортировать из Интернета: %s'#13+
-    'LOAD CHART FROM WEB ADDRESS=Загрузить с адреса:'#13+
-    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=Просмотр WEB GALLERY на WWW.STEEMA.COM'#13+
-    'GO !=Вперед !'#13+
-    'UPLOAD !=Загрузить !'#13+
-    'UPLOAD CURRENT CHART TO WEB GALLERY=Загрузить текущиую диаграмму в Web Gallery '#13+
+    'YES=пїЅпїЅ'#13+
+    'NO=пїЅпїЅпїЅ'#13+
+    'CHECK-BOXES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'ANNOTATION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'CONNECT TO STEEMA.COM TO UPDATE THIS SOFTWARE.=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ Steema.com пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'#13+
+    'CURRENT VERSION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'LATEST VERSION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'CONNECT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'UPDATE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'HANDLES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AXIS DIVIDER=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ'#13+
+    'PIE SLICES=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'DRAG STYLE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'TEECHART OFFICE OPTIONS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ TeeChart Office'#13+
+    'LANGUAGE=пїЅпїЅпїЅпїЅ'#13+
+    'RED=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'GREEN=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'BLUE=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'WHITE=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'YELLOW=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'BLACK=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SILVER=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'DKGRAY=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'BTNFACE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'GRAY SCALE VISUAL=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'INVERTED GRAY SCALE=пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'LEFT WALL=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'BOTTOM WALL=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'RIGHT WALL=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'BACK WALL=пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'STAIRS INVERTED=пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'FORMATTING=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'FLOATING POINT=пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ'#13+
+    'DATE-TIME=пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ'#13+
+    'CHOOSE AN OPTION=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'IMPORTING FROM WEB: %S=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: %s'#13+
+    'LOAD CHART FROM WEB ADDRESS=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:'#13+
+    'BROWSE THE TEECHART GALLERY AT WWW.STEEMA.COM=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ WEB GALLERY пїЅпїЅ WWW.STEEMA.COM'#13+
+    'GO !=пїЅпїЅпїЅпїЅпїЅпїЅ !'#13+
+    'UPLOAD !=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ !'#13+
+    'UPLOAD CURRENT CHART TO WEB GALLERY=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Web Gallery '#13+
     'TEECHART OFFICE WEB GALLERY=Web Gallery TeeChart Office'#13+
-    'YOUR NAME=Ваше имя'#13+
-    'YOUR E-MAIL=Ваш адрес электронной почты'#13+
-    'PASSWORD=Пароль'#13+
-    'OBTAIN PASSWORD=Получить пароль'#13+
-    'CHART NAME=Название диаграммы'#13+
-    'FIRST=Первый'#13+
-    'PRIOR=Предыдущий'#13+
-    'NEXT=Следующий'#13+
-    'LAST=Последний'#13+
-    'CREATE NEW DATASET=Создать новый набор данных'#13+
-    'DATASET STYLE=Стиль набора данных'#13+
-    'SQL QUERY=SQL запрос'#13+
-    'FROM=От'#13+
-    'TO=До'#13+
-    'STEP=Шаг'#13+
-    'VALUE=Значение'#13+
-    'EXCEL FILE=Файл Excel'#13+
-    'WORKSHEET=Лист'#13+
-    'VALUES RANGE=Диапазон значений'#13+
-    'LABELS RANGE=Диапазон меток'#13+
-    'FOCUS=Фокус'#13+
-    'EXPLODE=Растянуть'#13+
-    'AUTOSIZE=Авторазмер'#13+
-    'AXIS 2=Ось 2';
+    'YOUR NAME=пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ'#13+
+    'YOUR E-MAIL=пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'PASSWORD=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'OBTAIN PASSWORD=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'CHART NAME=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'FIRST=пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'PRIOR=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'NEXT=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'LAST=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'CREATE NEW DATASET=пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'DATASET STYLE=пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'SQL QUERY=SQL пїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'FROM=пїЅпїЅ'#13+
+    'TO=пїЅпїЅ'#13+
+    'STEP=пїЅпїЅпїЅ'#13+
+    'VALUE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'EXCEL FILE=пїЅпїЅпїЅпїЅ Excel'#13+
+    'WORKSHEET=пїЅпїЅпїЅпїЅ'#13+
+    'VALUES RANGE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'LABELS RANGE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ'#13+
+    'FOCUS=пїЅпїЅпїЅпїЅпїЅ'#13+
+    'EXPLODE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AUTOSIZE=пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'#13+
+    'AXIS 2=пїЅпїЅпїЅ 2';
 end;
 
 Procedure TeeOfficeItalian;
@@ -2256,14 +2256,14 @@ Procedure TeeOfficePolish;
 
 Procedure SetPolishConstants;
 begin
-  TeeMsg_ZoomInstructions    :='Przesuс myszkк do gуry w lewo aby powiкkszyж, a do doіu w prawo aby zmniejszyж.';
-  TeeMsg_ScrollInstructions  :='Przesuс myszkк aby przewin№ж zawartoњж wykresu.';
-  TeeMsg_DrawLineInstructions:='Przesuс myszkк aby rysowaж, wybieraж i przesuwaж linie.';
+  TeeMsg_ZoomInstructions    :='PrzesuпїЅ myszkпїЅ do gпїЅry w lewo aby powiпїЅkszyпїЅ, a do doпїЅu w prawo aby zmniejszyпїЅ.';
+  TeeMsg_ScrollInstructions  :='PrzesuпїЅ myszkпїЅ aby przewinпїЅпїЅ zawartoпїЅпїЅ wykresu.';
+  TeeMsg_DrawLineInstructions:='PrzesuпїЅ myszkпїЅ aby rysowaпїЅ, wybieraпїЅ i przesuwaпїЅ linie.';
 
-  TeeMsg_SureToDeleteDataSet :='Jesteњ pewien, їe chcesz usun№ж џrуdіo danych?';
+  TeeMsg_SureToDeleteDataSet :='JesteпїЅ pewien, пїЅe chcesz usunпїЅпїЅ пїЅrпїЅdпїЅo danych?';
   TeeMsg_Select              :='Wybierz';
   TeeMsg_EMail               :='e-mail';
-  TeeMsg_Open                :='Otwуrz';
+  TeeMsg_Open                :='OtwпїЅrz';
   TeeMsg_New                 :='Nowy';
   TeeMsg_ImportingWeb        :='Import z sieci: %s';
   TeeMsg_Annotation          :='Notatka';
@@ -2273,50 +2273,50 @@ begin
   TeeMsg_OK                  :='OK';
   TeeMsg_Close               :='Zamknij';
   TeeMsg_Go                  :='&Wykonaj !';
-  TeeMsg_Upload              :='W&yњlij !';
+  TeeMsg_Upload              :='W&yпїЅlij !';
 
-  TeeMsg_CannotGetVersion    :='Nie moїna pobraж nowej wersji.'+#13+
-                              'Bі№d: %d %s';
+  TeeMsg_CannotGetVersion    :='Nie moпїЅna pobraпїЅ nowej wersji.'+#13+
+                              'BпїЅпїЅd: %d %s';
 
-  TeeMsg_CannotGetNewVersion :='Nie moїna њci№gn№ж beї№cej wersji.'+#13+
-                              'Bі№d: %d %s';
+  TeeMsg_CannotGetNewVersion :='Nie moпїЅna пїЅciпїЅgnпїЅпїЅ beпїЅпїЅcej wersji.'+#13+
+                              'BпїЅпїЅd: %d %s';
 
-  TeeMsg_WrongVersion        :='Odebrano nieprawidіowy numer wersji.';
-  TeeMsg_HasLatestVersion    :='Masz juї najnowsz№ wersjк.';
-  TeeMsg_ClickToUpdateVersion:='Kliknij klawisz Odњwieї aby pobraж najnowsz№ wersjк.';
-  TeeMsg_UpdateButton        :='&Odњwieї...';
-  TeeMsg_WrongZip            :='Odebrano nieprawidіow№ wersjк.';
-  TeeMsg_VersionReceived     :='Odebrano najnowsz№ wersjк. Kliknij OK aby zainstalowaж.';
+  TeeMsg_WrongVersion        :='Odebrano nieprawidпїЅowy numer wersji.';
+  TeeMsg_HasLatestVersion    :='Masz juпїЅ najnowszпїЅ wersjпїЅ.';
+  TeeMsg_ClickToUpdateVersion:='Kliknij klawisz OdпїЅwieпїЅ aby pobraпїЅ najnowszпїЅ wersjпїЅ.';
+  TeeMsg_UpdateButton        :='&OdпїЅwieпїЅ...';
+  TeeMsg_WrongZip            :='Odebrano nieprawidпїЅowпїЅ wersjпїЅ.';
+  TeeMsg_VersionReceived     :='Odebrano najnowszпїЅ wersjпїЅ. Kliknij OK aby zainstalowaпїЅ.';
 
   TeeMsg_SelectFolder        :='Wybierz folder';
-  TeeMsg_EmailNotValid       :='Nieprawidіowy adres internetowy.';
-  TeeMsg_NameNotValid        :='Brak identyfikatora. Podaj swуj identyfikator.';
-  TeeMsg_WrongPassword       :='Brak hasіa. Podaj swoje hasіo lub '+#13+
-                              'kliknij Pobierz Hasіo aby je odebraж przez pocztк.';
-  TeeMsg_WrongChartID        :='Brak nazwy wykresu. Podaj nazwк wykresu aby '+
-                              'go identyfikowaж w galerii sieciowej.';
+  TeeMsg_EmailNotValid       :='NieprawidпїЅowy adres internetowy.';
+  TeeMsg_NameNotValid        :='Brak identyfikatora. Podaj swпїЅj identyfikator.';
+  TeeMsg_WrongPassword       :='Brak hasпїЅa. Podaj swoje hasпїЅo lub '+#13+
+                              'kliknij Pobierz HasпїЅo aby je odebraпїЅ przez pocztпїЅ.';
+  TeeMsg_WrongChartID        :='Brak nazwy wykresu. Podaj nazwпїЅ wykresu aby '+
+                              'go identyfikowaпїЅ w galerii sieciowej.';
 
-  TeeMsg_CannotObtainPassword:='Nie moїna siк poі№czyж aby odebraж hasіo.';
-  TeeMsg_PasswordSent        :='Hasіo zostaіo ci wysіane na adres email.';
-  TeeMsg_Congrats            :='Gratulacje.'+#13+'Zostaіeњ wprowadzony do bazy galerii TeeChart '+
-                              'sieciowej bazy wykresуw.'+#13+
+  TeeMsg_CannotObtainPassword:='Nie moпїЅna siпїЅ poпїЅпїЅczyпїЅ aby odebraпїЅ hasпїЅo.';
+  TeeMsg_PasswordSent        :='HasпїЅo zostaпїЅo ci wysпїЅane na adres email.';
+  TeeMsg_Congrats            :='Gratulacje.'+#13+'ZostaпїЅeпїЅ wprowadzony do bazy galerii TeeChart '+
+                              'sieciowej bazy wykresпїЅw.'+#13+
                               TeeMsg_PasswordSent;
 
-  TeeMsg_UploadingWeb        :='Wysyіanie %s Galerii Wykresуw...';
-  TeeMsg_Uploaded            :='%s zostaі wysі№ny do Galerii Wykresуw.';
+  TeeMsg_UploadingWeb        :='WysyпїЅanie %s Galerii WykresпїЅw...';
+  TeeMsg_Uploaded            :='%s zostaпїЅ wysпїЅпїЅny do Galerii WykresпїЅw.';
 
-  TeeMsg_TitleEditor         :='Edytor tytuіu';
-  TeeMsg_EnterValue          :='Podaj wartoњж';
-  TeeMsg_PointWidth          :='Szerokoњж';
-  TeeMsg_PointHeight         :='Wysokoњж';
+  TeeMsg_TitleEditor         :='Edytor tytuпїЅu';
+  TeeMsg_EnterValue          :='Podaj wartoпїЅпїЅ';
+  TeeMsg_PointWidth          :='SzerokoпїЅпїЅ';
+  TeeMsg_PointHeight         :='WysokoпїЅпїЅ';
 
   TeeMsg_Position            :='Pozycja: %d,%d';
   TeeMsg_Size                :='Rozmiar: %d x %d';
 
   TeeMsg_BetaWarning         :='Notatka: '+
                               'To jest wczesna wersja programu.'+#13+#13+
-                              'Niektуre moїliwoњci mag№ byж niekompletne lub'+#13+
-                              'zostan№ usuniкte w wersji finalnej.'+#13+#13+
+                              'NiektпїЅre moпїЅliwoпїЅci magпїЅ byпїЅ niekompletne lub'+#13+
+                              'zostanпїЅ usuniпїЅte w wersji finalnej.'+#13+#13+
                               'Informuj nas o problemach i sugestiach na naszej stronie:'+#13+#13+
                               'www.steema.com';
 
@@ -2340,97 +2340,97 @@ begin
   Text:=Text+
     'FLOWCHART=Wykresy'#13+
     'INSERT=Wstawianie'#13+
-    'NODES=Wкzіy'#13+
+    'NODES=WпїЅzпїЅy'#13+
     'DESIGN=Projekt'#13+
-    'PREVIEW=Podgl№d'#13+
+    'PREVIEW=PodglпїЅd'#13+
     'ABOUT TEETREE=O TeeTree'#13+
     'EDITOR TIPS=Porady dla edytora'#13+
     'TEETREE WEB SITE=Strona TeeTree'#13+
-    'LINK NODES=Poі№czone wкzіy'#13+
-    'PRUNE NODES=Rozі№czone wкzіy'#13+
+    'LINK NODES=PoпїЅпїЅczone wпїЅzпїЅy'#13+
+    'PRUNE NODES=RozпїЅпїЅczone wпїЅzпїЅy'#13+
     'CLIP TEXT=Obszar tekstu'#13+
     'SHADOW COLOR=Kolor cienia'#13+
     'NEW CHILD=Nowy potomek'#13+
     'NEW BROTHER=Nowy brat'#13+
-    'NEW ROOT=Nowy korzeс'#13+
+    'NEW ROOT=Nowy korzeпїЅ'#13+
     'NEW PARENT=Nowy przodek'#13+
-    'CONNECTIONS=Poі№czenia'#13+
+    'CONNECTIONS=PoпїЅпїЅczenia'#13+
     'IMAGES=Obrazki'#13+
     'CROSS BOXES=Rozszerzone obszary'#13+
-    'EDITOR TABS=Edytor odstкpуw'#13+
-    'SHAPE TABS=Edytor ksztaіtуw'#13+
+    'EDITOR TABS=Edytor odstпїЅpпїЅw'#13+
+    'SHAPE TABS=Edytor ksztaпїЅtпїЅw'#13+
     'RULERS=Linijki'#13+
-    'TOOLBAR=Pasek narzкdzi'#13+
+    'TOOLBAR=Pasek narzпїЅdzi'#13+
     'FONT TOOLBAR=Pasek czcionek'#13+
     'BORDER TOOLBAR=Pasek ramek'#13+
-    'NODE TREE=Ukіad wкzіуw'#13+
+    'NODE TREE=UkпїЅad wпїЅzпїЅпїЅw'#13+
     'CUT=Wytnij'#13+
     'PASTE=Wklej'#13+
     'SEARCH=Szukaj'#13+
-    'ALIGN TO GRID=Wyrуwnaj do siatki'#13+
+    'ALIGN TO GRID=WyrпїЅwnaj do siatki'#13+
     'IMPORT=Import'#13+
     'NEW TREE=Nowe drzewo'#13+
     'PRINT TREE=Drukuj drzewo'#13+
     'ZOOM IN=Powieksz'#13+
     'ZOOM OUT=Pomniejsz'#13+
-    'CONNECT NODES=Poі№cz wкzіy'#13+
+    'CONNECT NODES=PoпїЅпїЅcz wпїЅzпїЅy'#13+
     'ADD CHILD=Dodaj potomka'#13+
     'ADD BROTHER=Dodaj brata'#13+
-    'PRUNE=Rozі№cz'#13+
-    'BRING TO FRONT=Przesuс na wierzch'#13+
-    'SEND TO BACK=Przesuс pod spуd'#13+
-    'ADD NEW ROOT=Dodaj nowy korzeс'#13+
+    'PRUNE=RozпїЅпїЅcz'#13+
+    'BRING TO FRONT=PrzesuпїЅ na wierzch'#13+
+    'SEND TO BACK=PrzesuпїЅ pod spпїЅd'#13+
+    'ADD NEW ROOT=Dodaj nowy korzeпїЅ'#13+
     'SHOW NAMES=Pokazuj nazwy'#13+
-    'ALIGN TO LEFT=Wyrуwnaj do lewej'#13+
+    'ALIGN TO LEFT=WyrпїЅwnaj do lewej'#13+
     'AUTO SCROLL=Automat. przewijanie'#13+
     'BORDER STYLE=Styl ramki'#13+
     'BORDER COLOR=Kolor ramki'#13+
-    'BORDER WIDTH=Gruboњж ramki'#13+
+    'BORDER WIDTH=GruboпїЅпїЅ ramki'#13+
     'DESIGN MODE=Tryb projektowania'#13+
-    'BUFFERED DISPLAY=Buforowanie wyњwietlania'#13+
+    'BUFFERED DISPLAY=Buforowanie wyпїЅwietlania'#13+
     'PRINT PANEL=Drukuj panel'#13+
-    'ZOOM FROM CENTER=Powiкksz od њrodka'#13+
-    'CROSS BOX=Krzyїyki'#13+
+    'ZOOM FROM CENTER=PowiпїЅksz od пїЅrodka'#13+
+    'CROSS BOX=KrzyпїЅyki'#13+
     'SIGN PEN=Znacznik'#13+
     'MODE=Tryb'#13+
-    'STRETCHED=Rozci№gaj'#13+
-    'ALIGN=Wyrуwnanie'#13+
+    'STRETCHED=RozciпїЅgaj'#13+
+    'ALIGN=WyrпїЅwnanie'#13+
     'MOUSE=Mysz'#13+
-    'ALLOW ZOOM=Pozwуl powiкkszaж'#13+
-    'HOTTRACK=Њledzenie'#13+
-    'MOUSE WHEEL=Pokrкtіo myszki'#13+
-    'SELECT NODES=Wybierz wкzіy'#13+
+    'ALLOW ZOOM=PozwпїЅl powiпїЅkszaпїЅ'#13+
+    'HOTTRACK=пїЅledzenie'#13+
+    'MOUSE WHEEL=PokrпїЅtпїЅo myszki'#13+
+    'SELECT NODES=Wybierz wпїЅzпїЅy'#13+
     'SCROLL VERT.=Przesuw pionowy'#13+
     'SCROLL HORIZ.=Przesuw poziomy'#13+
     'TEXT COLOR=Kolor tekstu'#13+
-    'SCROLL TO VIEW=Przesuс na widok'#13+
+    'SCROLL TO VIEW=PrzesuпїЅ na widok'#13+
     'UNFOCUSED COLOR=Kolor nieaktywny'#13+
     'UNFOCUSED BORDER=Ramka nieaktywna'#13+
-    'ALLOW DELETE=Pozwуl usuwaж'#13+
-    'SINGLE SELECTION=Pojedynczy wybуr'#13+
+    'ALLOW DELETE=PozwпїЅl usuwaпїЅ'#13+
+    'SINGLE SELECTION=Pojedynczy wybпїЅr'#13+
     'SCROLL BARS=Paski przesuwu'#13+
     'GRID VISIBLE=Siatka widoczna'#13+
-    'SNAP TO GRID=Wyrуwnaj do siatki'#13+
-    'SHOW RULERS=Pokaї linijki'#13+
-    'INTERCHAR SPACING=Odstкp liter'#13+
-    'VERT. ALIGN=Wyrуwnanie pionowe'#13+
-    'ARROW FROM=Start strzaіki'#13+
-    'ARROW TO=Koniec strzaіki'#13+
+    'SNAP TO GRID=WyrпїЅwnaj do siatki'#13+
+    'SHOW RULERS=PokaпїЅ linijki'#13+
+    'INTERCHAR SPACING=OdstпїЅp liter'#13+
+    'VERT. ALIGN=WyrпїЅwnanie pionowe'#13+
+    'ARROW FROM=Start strzaпїЅki'#13+
+    'ARROW TO=Koniec strzaпїЅki'#13+
     'SIDES=Strony'#13+
     'CURVE=Krzywa'#13+
-    'CHILDREN CONNECTIONS=Poі№czenia'#13+
-    'CROSS-BOX=Krzyїyk'#13+
-    'HORIZONTAL ALIGNMENT=Wyrуwnanie poziome'#13+
-    'DEFAULT IMAGE=Domyњlny obrazek'#13+
+    'CHILDREN CONNECTIONS=PoпїЅпїЅczenia'#13+
+    'CROSS-BOX=KrzyпїЅyk'#13+
+    'HORIZONTAL ALIGNMENT=WyrпїЅwnanie poziome'#13+
+    'DEFAULT IMAGE=DomyпїЅlny obrazek'#13+
     'HORIZONTAL SIZE=Rozmiar poziomy'#13+
     'VERTICAL SIZE=Rozmiar pionowy'#13+
     'MOVE HORIZ=Przesuw poziomy.'#13+
     'MOVE VERT=Przesuw pionowy'#13+
-    'EDIT CONNECTION=Edycja poіaczeс'#13+
-    'DELETE CONNECTION=Usuс poі№czenia'#13+
+    'EDIT CONNECTION=Edycja poпїЅaczeпїЅ'#13+
+    'DELETE CONNECTION=UsuпїЅ poпїЅпїЅczenia'#13+
     'ADD NEW POINT=Dodaj punkt'#13+
-    'DELETE POINT=Usuс punkt'#13+
-    'FIXED=Staіy'
+    'DELETE POINT=UsuпїЅ punkt'#13+
+    'FIXED=StaпїЅy'
     ;
 end;
 

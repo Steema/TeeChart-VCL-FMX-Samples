@@ -167,7 +167,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <Debugger_RunParams>TChartDatasetDemo</Debugger_RunParams>
-        <VerInfo_Keys>CompanyName=Steema Software;FileDescription=TeeChart Pro for FireMonkey demo;FileVersion=9.1.0.0;InternalName=;LegalCopyright=(c) 2011-2023 by Steema Software. All Rights Reserved.;LegalTrademarks=TeeChart(TM);OriginalFilename=;ProductName=TeeChart Pro;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Steema Software;FileDescription=TeeChart Pro for FireMonkey demo;FileVersion=9.1.0.0;InternalName=;LegalCopyright=(c) 2011-2024 by Steema Software. All Rights Reserved.;LegalTrademarks=TeeChart(TM);OriginalFilename=;ProductName=TeeChart Pro;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <DCC_DebugDCUs>true</DCC_DebugDCUs>
         <DCC_UnitSearchPath>$(tee);$(tee)\fmx;$(bds)\source\fmx;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>

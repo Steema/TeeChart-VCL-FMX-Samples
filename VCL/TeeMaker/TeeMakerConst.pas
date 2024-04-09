@@ -1,6 +1,6 @@
 {********************************************}
 { TeeMaker 2.0                               }
-{ Copyright (c) 2002-2023 by Steema Software }
+{ Copyright (c) 2002-2024 by Steema Software }
 { All Rights Reserved                        }
 {********************************************}
 unit TeeMakerConst;
@@ -232,13 +232,13 @@ begin
 
   TeeMsg_OpenWithTeeMaker:='Abrir con &TeeMaker';
   TeeMsg_TeeMakerFile:='Archivo TeeMaker';
-  TeeMsg_SureNewFile:=string('¿Está seguro de crear un nuevo archivo?');
+  TeeMsg_SureNewFile:=string('ï¿½Estï¿½ seguro de crear un nuevo archivo?');
 
   TeeMsg_TeeMakerWelcome:= 'Bienvenido a TeeMaker !'#13+#13+
-                    'NOTE: Una carpeta de nombre "Libreria" se creará en la carpeta actual:'+#13+
+                    'NOTE: Una carpeta de nombre "Libreria" se crearï¿½ en la carpeta actual:'+#13+
                     '(%s)'+#13+
-                    'para almacenar objetos reutilizables, sonidos e imágenes.'#13+#13+
-                    'Es posible cambiar la carpeta "Libreria" usando la opción de menú: '+#13+#13+
+                    'para almacenar objetos reutilizables, sonidos e imï¿½genes.'#13+#13+
+                    'Es posible cambiar la carpeta "Libreria" usando la opciï¿½n de menï¿½: '+#13+#13+
                     'Herramientas --> Carpeta de Libreria';
 
   TeeMsg_MakerLibraryFolder:='Libreria';
@@ -248,16 +248,16 @@ begin
 
   TeeMsg_TeeMakerFiles:='Archivos TeeMaker (*%s)|*%s';
 
-  TeeMsg_SureToDelete:=string('¿Está seguro de borrar: %s?');
+  TeeMsg_SureToDelete:=string('ï¿½Estï¿½ seguro de borrar: %s?');
   TeeMsg_Untitled:='(sin nombre)';
   TeeMsg_TeeMaker:='TeeMaker - %s';
   TeeMsg_MakerLoaded:='Cargado en: %s msec.';
   TeeMsg_CannotFindFile:='No es posible encontrar el archivo: '#13+'%s';
 
-  TeeMsg_FileReadOnly:='El archivo: %s es de sólo lectura.'+#13+
-                     '¿Desea reescribirlo?';
+  TeeMsg_FileReadOnly:='El archivo: %s es de sï¿½lo lectura.'+#13+
+                     'ï¿½Desea reescribirlo?';
 
-  TeeMsg_SaveChanges:='¿Grabar los cambios efectuados en %s?';
+  TeeMsg_SaveChanges:='ï¿½Grabar los cambios efectuados en %s?';
 
   TeeMsg_CopyOfBlock:='Copia de %s';
   TeeMsg_LinkToBlock:='Enlace a %s';
@@ -265,20 +265,20 @@ begin
 
   TeeMsg_SelectLibraryFolder:='Seleccione la carpeta de Libreria por defecto';
   TeeMsg_ObjectBlock:='Objeto';
-  TeeMsg_CannotExecute:='No es posible ejecutar la aplicación: %s';
+  TeeMsg_CannotExecute:='No es posible ejecutar la aplicaciï¿½n: %s';
   TeeMsg_ColorReplacer:='Reemplazar Color';
 
-  TeeMsg_Animation:='Animación %s';
+  TeeMsg_Animation:='Animaciï¿½n %s';
   TeeMsg_Animations:='Animaciones';
-  TeeMsg_NewAnimation:='Nombre de nueva animación';
-  TeeMsg_RenameAnimation:='Renombrar animación';
+  TeeMsg_NewAnimation:='Nombre de nueva animaciï¿½n';
+  TeeMsg_RenameAnimation:='Renombrar animaciï¿½n';
 
-  TeeMsg_RotateBlockHelp:='Arrastrar el ratón para rotar el objeto. Presione la tecla CTRL para inclinarlo.';
-  TeeMsg_MoveBlockHelp:='Arrastrar el ratón para mover el objeto. Presione la tecla CTRL para moverlo verticalmente.';
-  TeeMsg_SizeBlockHelp:='Arrastrar el ratón para redimensionar el objeto. Presione la tecla CTRL para cambiar la profundidad.';
+  TeeMsg_RotateBlockHelp:='Arrastrar el ratï¿½n para rotar el objeto. Presione la tecla CTRL para inclinarlo.';
+  TeeMsg_MoveBlockHelp:='Arrastrar el ratï¿½n para mover el objeto. Presione la tecla CTRL para moverlo verticalmente.';
+  TeeMsg_SizeBlockHelp:='Arrastrar el ratï¿½n para redimensionar el objeto. Presione la tecla CTRL para cambiar la profundidad.';
 
-  TeeMsg_SureToReload:=string('¿Está seguro de recargar el texto fuente?');
-  TeeMsg_SureToConvertLink:=string('¿Está seguro de convertir el enlace en una copia local?');
+  TeeMsg_SureToReload:=string('ï¿½Estï¿½ seguro de recargar el texto fuente?');
+  TeeMsg_SureToConvertLink:=string('ï¿½Estï¿½ seguro de convertir el enlace en una copia local?');
 
   TeeMsg_MakerBasic:='Basicos';
   TeeMsg_WebLibrary:='Web';
@@ -298,25 +298,25 @@ begin
   TeeMsg_MakerRender:='Render';
   TeeMsg_MakerBlocks:='Objetos';
 
-  TeeMsg_CreateFolder:='La carpeta no existe.'#13+'¿Desea crearla?'+#13+'%s';
+  TeeMsg_CreateFolder:='La carpeta no existe.'#13+'ï¿½Desea crearla?'+#13+'%s';
   TeeMsg_CannotSaveFile:='No es posible grabar el archivo: '#13+'%s';
 
   TeeMsg_SelfBlock:='Objeto Actual';
 
-  Tee_MouseLeft     := 'Ratón.Botón izquierdo.Clic';
-  Tee_MouseRight    := 'Ratón.Botón derecho.Clic';
-  Tee_MouseLeftDrag := 'Ratón.Botón izquierdo.Arrastrar';
-  Tee_MouseRightDrag:= 'Ratón.Botón derecho.Arrastrar';
-  Tee_MouseEnter    := 'Ratón.Entrada';
-  Tee_MouseExit     := 'Ratón.Salida';
-  Tee_MouseLeftDoubleClick := 'Ratón.Botón izquierdo.Doble Clic';
-  Tee_MouseRightDoubleClick := 'Ratón.Botón derecho.Doble Clic';
-  Tee_MouseWheelDrag:=  'Ratón.Rueda.Arrastrar';
+  Tee_MouseLeft     := 'Ratï¿½n.Botï¿½n izquierdo.Clic';
+  Tee_MouseRight    := 'Ratï¿½n.Botï¿½n derecho.Clic';
+  Tee_MouseLeftDrag := 'Ratï¿½n.Botï¿½n izquierdo.Arrastrar';
+  Tee_MouseRightDrag:= 'Ratï¿½n.Botï¿½n derecho.Arrastrar';
+  Tee_MouseEnter    := 'Ratï¿½n.Entrada';
+  Tee_MouseExit     := 'Ratï¿½n.Salida';
+  Tee_MouseLeftDoubleClick := 'Ratï¿½n.Botï¿½n izquierdo.Doble Clic';
+  Tee_MouseRightDoubleClick := 'Ratï¿½n.Botï¿½n derecho.Doble Clic';
+  Tee_MouseWheelDrag:=  'Ratï¿½n.Rueda.Arrastrar';
 
-  TeeMsg_SureToDeleteAction:='¿Estás seguro de eliminar la acción?';
-  TeeMsg_SureToDeleteProperty:='¿Estás seguro de eliminar la propiedad [%s]?';
-  TeeMsg_PropertyCannotBeEmpty:='La propiedad no puede tener un nombre vacío.';
-  TeeMsg_PropertyAlreadyExists:='La propiedad ya existe con éste nombre.';
+  TeeMsg_SureToDeleteAction:='ï¿½Estï¿½s seguro de eliminar la acciï¿½n?';
+  TeeMsg_SureToDeleteProperty:='ï¿½Estï¿½s seguro de eliminar la propiedad [%s]?';
+  TeeMsg_PropertyCannotBeEmpty:='La propiedad no puede tener un nombre vacï¿½o.';
+  TeeMsg_PropertyAlreadyExists:='La propiedad ya existe con ï¿½ste nombre.';
   TeeMsg_NewProperty:='Nueva Propiedad';
   TeeMsg_Property:='Propiedad';
   TeeMsg_ChangeProperty:='Cambiar el nombre de la Propiedad';

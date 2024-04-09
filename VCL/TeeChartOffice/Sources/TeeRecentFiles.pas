@@ -1,7 +1,7 @@
 {**********************************************}
 {   TeeChart Office / TeeTree                  }
 {   Recent Files class.                        }
-{   Copyright (c) 2010-2023 by Steema Software }
+{   Copyright (c) 2010-2024 by Steema Software }
 {**********************************************}
 unit TeeRecentFiles;
 {$I TeeDefs.inc}

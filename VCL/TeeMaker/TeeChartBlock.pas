@@ -1,6 +1,6 @@
 {********************************************}
 { TeeMaker ChartBlock (TChart-->3D object)   }
-{ Copyright (c) 2007-2023 by Steema Software }
+{ Copyright (c) 2007-2024 by Steema Software }
 { All Rights Reserved                        }
 {********************************************}
 unit TeeChartBlock;

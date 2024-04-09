@@ -1,6 +1,6 @@
 {**********************************************}
 {   TeeMaps                                    }
-{   Copyright (c) 2003-2023 by Steema Software }
+{   Copyright (c) 2003-2024 by Steema Software }
 {**********************************************}
 unit UnitTestSHP;
 {$I TeeDefs.inc}

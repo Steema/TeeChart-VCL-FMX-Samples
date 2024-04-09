@@ -1,6 +1,6 @@
 {********************************************}
 { TeeMaker 2.0                               }
-{ Copyright (c) 2002-2023 by Steema Software }
+{ Copyright (c) 2002-2024 by Steema Software }
 { All Rights Reserved                        }
 {********************************************}
 unit TeeColorPalette;
