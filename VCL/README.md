@@ -1,8 +1,12 @@
 # TeeChart VCL for RAD Studio, Delphi and C++ Builder
 
-Sample programs showing how to use TeeChart VCL for (RAD Studio, Delphi and  C++ Builder)
+TeeChart Pro VCL allows you to create general purpose and specialized chart and graphing applications for all areas including business, financial, statistical, scientific, real-time, and the web. 
+It offers a chart gallery with over 70 chart types with 2D & 3D views - from common bar, line, area, point, pie, bubble, gantt, surface to financial and statistical charts.
+<br>
 
-TeeNew demo project is the complete demo showcasing most of TeeChart VCL functionality
+This repository includes all the content and sample programs showing how to use TeeChart VCL for (RAD Studio, Delphi and  C++ Builder). 
+
+TeeNew demo project is the complete demo showcasing most of TeeChart VCL functionality.
 
 ## Sample Requirements
 
