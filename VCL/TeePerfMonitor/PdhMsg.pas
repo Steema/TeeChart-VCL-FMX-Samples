@@ -4,7 +4,7 @@
 {       Performance Data Helper Messages interface unit            }
 { 								   }
 { Portions created by Microsoft are 				   }
-{ Copyright (C) 1995-2024 Microsoft Corporation. 		   }
+{ Copyright (C) 1995-2025 Microsoft Corporation. 		   }
 { All Rights Reserved. 						   }
 { 								   }
 { The original file is: PdhMsg.pas, released 3 Dec 1999. 	   }

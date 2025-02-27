@@ -1,6 +1,6 @@
 {**********************************************}
 {   TTeeAnimate Editor Dialog                  }
-{   Copyright (c) 2001-2024 by Steema Software }
+{   Copyright (c) 2001-2025 by Steema Software }
 {**********************************************}
 unit TeeAnimateEditor;
 {$I TeeDefs.inc}

@@ -1,7 +1,7 @@
 {*****************************************}
 { TeeChart version 9                      }
 { Many examples and demos.                }
-{ Copyright 1995-2024 by Steema Software. }
+{ Copyright 1995-2025 by Steema Software. }
 { All Rights Reserved.                    }
 {*****************************************}
 unit Main;

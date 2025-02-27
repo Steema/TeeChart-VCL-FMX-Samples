@@ -1,6 +1,6 @@
 {********************************************}
 {   Design-Time Options Editor Dialog        }
-{ Copyright (c) 2003-2024 by Steema Software }
+{ Copyright (c) 2003-2025 by Steema Software }
 {        All Rights Reserved                 }
 {********************************************}
 unit TeeDesignOptions;

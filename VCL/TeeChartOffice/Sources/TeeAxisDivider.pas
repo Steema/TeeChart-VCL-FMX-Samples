@@ -1,6 +1,6 @@
 {********************************************}
 {   TeeChart Axis Divider Tool               }
-{ Copyright (c) 2001-2024 by Steema Software }
+{ Copyright (c) 2001-2025 by Steema Software }
 {        All Rights Reserved                 }
 {********************************************}
 unit TeeAxisDivider;

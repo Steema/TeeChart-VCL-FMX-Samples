@@ -1,6 +1,6 @@
 {********************************************}
 { TeeMaker - Basic 3D Blocks                 }
-{ Copyright (c) 2002-2024 by Steema Software }
+{ Copyright (c) 2002-2025 by Steema Software }
 {       All Rights Reserved                  }
 {********************************************}
 unit TeeBlocks;

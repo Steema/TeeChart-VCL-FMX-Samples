@@ -69,7 +69,7 @@
         <VerInfo_MajorVer>8</VerInfo_MajorVer>
         <VerInfo_Build>46</VerInfo_Build>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>FileVersion=8.0.0.46;CompanyName=Steema Software;FileDescription=TeeNew;LegalCopyright=Copyright (c) 2001-2024 by David Berneda;ProductName=TeeChart Pro;ProductVersion=8.0.0.0;Comments=www.steema.com</VerInfo_Keys>
+        <VerInfo_Keys>FileVersion=8.0.0.46;CompanyName=Steema Software;FileDescription=TeeNew;LegalCopyright=Copyright (c) 2001-2025 by David Berneda;ProductName=TeeChart Pro;ProductVersion=8.0.0.0;Comments=www.steema.com</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>

@@ -1,6 +1,6 @@
 {********************************************}
 { TeeMaker Library Dialog                    }
-{ Copyright (c) 2007-2024 by Steema Software }
+{ Copyright (c) 2007-2025 by Steema Software }
 { All Rights Reserved                        }
 {********************************************}
 unit TeeMakerLibrary {$IFDEF D19}platform{$ENDIF};
