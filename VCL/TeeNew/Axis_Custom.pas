@@ -39,6 +39,25 @@ begin
   Series1.FillSampleValues(20);
   Series2.FillSampleValues(20);
   Series3.FillSampleValues(20);
+
+  Chart1.LeftAxis.UsePartnerAxis := True;
+  Chart1.BottomAxis.UsePartnerAxis := True;
+  Chart1.LeftAxis.UsePartnerAxis := True;
+
+  Chart1.CustomAxes[0].UsePartnerAxis := True;
+  Chart1.CustomAxes[1].UsePartnerAxis := True;
+  Chart1.CustomAxes[2].UsePartnerAxis := True;
+  Chart1.CustomAxes[3].UsePartnerAxis := True;
+
+  Chart1.LeftAxis.PartnerAxis := Chart1.CustomAxes[1];
+  Chart1.BottomAxis.PartnerAxis := Chart1.CustomAxes[0];
+  Chart1.CustomAxes[0].PartnerAxis := Chart1.BottomAxis;
+  Chart1.CustomAxes[1].PartnerAxis := Chart1.LeftAxis;
+
+  Chart1.CustomAxes[2].PartnerAxis := Chart1.CustomAxes[3];
+  Chart1.CustomAxes[3].PartnerAxis := Chart1.CustomAxes[2];
+
+  Chart1.Walls.Back.Pen.Visible := False;
 end;
 
 procedure TAxisCustom.CheckBox1Click(Sender: TObject);
