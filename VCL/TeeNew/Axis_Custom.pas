@@ -21,6 +21,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Series1BeforeDrawValues(Sender: TObject);
+    procedure Series1AfterDrawValues(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,6 +42,9 @@ begin
   Series2.FillSampleValues(20);
   Series3.FillSampleValues(20);
 
+  Series2.BeforeDrawValues := Series1BeforeDrawValues;
+  Series3.BeforeDrawValues := Series1BeforeDrawValues;
+
   Chart1.LeftAxis.UsePartnerAxis := True;
   Chart1.BottomAxis.UsePartnerAxis := True;
   Chart1.LeftAxis.UsePartnerAxis := True;
@@ -58,6 +63,35 @@ begin
   Chart1.CustomAxes[3].PartnerAxis := Chart1.CustomAxes[2];
 
   Chart1.Walls.Back.Pen.Visible := False;
+end;
+
+procedure TAxisCustom.Series1AfterDrawValues(Sender: TObject);
+begin
+  inherited;
+  Chart1.Canvas.UnClip;
+end;
+
+procedure TAxisCustom.Series1BeforeDrawValues(Sender: TObject);
+var series : TChartSeries;
+    left, top, right, bottom : double;
+    r : TRect;
+begin
+  inherited;
+
+  series := TChartSeries(sender);
+
+
+  left := series.GetHorizAxis.Minimum;
+  top := series.GetVertAxis.Maximum;
+  right := series.GetHorizAxis.Maximum;
+  bottom := series.GetVertAxis.Minimum;
+
+  r := Rect(series.CalcXPosValue(left), series.CalcYPosValue(top),
+                              series.CalcXPosValue(right),
+                              series.CalcYPosValue(bottom));
+
+  Chart1.Canvas.ClipRectangle(r);
+
 end;
 
 procedure TAxisCustom.CheckBox1Click(Sender: TObject);
