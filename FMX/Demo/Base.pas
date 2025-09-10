@@ -5,8 +5,10 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  {$IFDEF D17}
-  FMX.StdCtrls, FMX.Controls.Presentation,
+  {$IFDEF D18}
+  FMX.StdCtrls,
+  {$IFDEF D21}
+  FMX.Controls.Presentation,
   {$ENDIF}
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart;
 
