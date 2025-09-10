@@ -10,6 +10,7 @@ uses
   {$IFDEF D21}
   FMX.Controls.Presentation,
   {$ENDIF}
+  {$ENDIF}  
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMXTee.Chart;
 
 type
