@@ -144,6 +144,7 @@ procedure TFormRingBuffer.FormCreate(Sender: TObject);
 begin
   Recreate;
 
+  // Set vertical scale
   Chart1.Axes.Left.SetMinMax(-MaxRandom,MaxRandom);
 
   // Speed optimizations

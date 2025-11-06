@@ -62,20 +62,21 @@ type
   private
     FAntialias : Boolean;
 
+    procedure Draw(const AIndex:Integer);
+    procedure MoveTo(const AIndex:Integer);
     procedure SetAntialias(const Value: Boolean);
+  protected
+    procedure CalcPosition(ValueIndex:Integer; out x,y:Integer); virtual; abstract;
   public
     Buffer : TRingBuffer<T>;
 
     Constructor Create(AOwner:TComponent); override;
 
     Procedure CalcFirstLastVisibleIndex; override;
+    procedure DrawAllValues; override;
   published
     property Antialias:Boolean read FAntialias write SetAntialias default True;
-  end;
 
-  TRingBufferXY=class(TCustomRingBuffer<TPointFloat>)
-  protected
-    procedure DrawAllValues; override;
   published
     property Active;
     property Cursor;
@@ -116,6 +117,16 @@ type
     { events }
     property OnClickPointer;
     property OnGetPointerStyle;
+  end;
+
+  TRingBufferXY=class(TCustomRingBuffer<TPointFloat>)
+  protected
+    procedure CalcPosition(ValueIndex:Integer; out x,y:Integer); override;
+  end;
+
+  TRingBuffer=class(TCustomRingBuffer<Single>)
+  protected
+    procedure CalcPosition(ValueIndex:Integer; out x,y:Integer); override;
   end;
 
 implementation
@@ -190,7 +201,7 @@ begin
   FLastVisibleIndex:=Buffer.Count-1;
 end;
 
-{ TRingBufferXY }
+{ TCustomRingBuffer<T> }
 
 Constructor TCustomRingBuffer<T>.Create(AOwner: TComponent);
 begin
@@ -203,32 +214,25 @@ begin
   Pointer.Pen.Hide;
 end;
 
-procedure TRingBufferXY.DrawAllValues;
+procedure TCustomRingBuffer<T>.Draw(const AIndex:Integer);
+var X,Y : Integer;
+begin
+  CalcPosition(AIndex,X,Y);
 
-  Procedure CalcPosition(ValueIndex:Integer; out x,y:Integer);
-  begin
-    X:=GetHorizAxis.CalcXPosValue(Buffer.Items[ValueIndex].X);
-    Y:=GetVertAxis.CalcYPosValue(Buffer.Items[ValueIndex].Y);
-  end;
+  if Pointer.Visible then
+     Pointer.Draw(X,Y)
+  else
+     ParentChart.Canvas.LineTo(X,Y);
+end;
 
-  procedure Draw(const AIndex:Integer);
-  var X,Y : Integer;
-  begin
-    CalcPosition(AIndex,X,Y);
+procedure TCustomRingBuffer<T>.MoveTo(const AIndex:Integer);
+var X,Y : Integer;
+begin
+  CalcPosition(AIndex,X,Y);
+  ParentChart.Canvas.MoveTo(X,Y);
+end;
 
-    if Pointer.Visible then
-       Pointer.Draw(X,Y)
-    else
-       ParentChart.Canvas.LineTo(X,Y);
-  end;
-
-  procedure MoveTo(const AIndex:Integer);
-  var X,Y : Integer;
-  begin
-    CalcPosition(AIndex,X,Y);
-    ParentChart.Canvas.MoveTo(X,Y);
-  end;
-
+procedure TCustomRingBuffer<T>.DrawAllValues;
 var t : Integer;
     OldAnti : Boolean;
 begin
@@ -282,6 +286,22 @@ end;
 procedure TCustomRingBuffer<T>.SetAntialias(const Value: Boolean);
 begin
   SetBooleanProperty(FAntialias,Value);
+end;
+
+{ TRingBufferXY }
+
+Procedure TRingBufferXY.CalcPosition(ValueIndex:Integer; out x,y:Integer);
+begin
+  X:=GetHorizAxis.CalcXPosValue(Buffer.Items[ValueIndex].X);
+  Y:=GetVertAxis.CalcYPosValue(Buffer.Items[ValueIndex].Y);
+end;
+
+{ TRingBuffer }
+
+procedure TRingBuffer.CalcPosition(ValueIndex: Integer; out x, y: Integer);
+begin
+  X:=GetHorizAxis.CalcYPosValue(ValueIndex);
+  Y:=GetVertAxis.CalcYPosValue(Buffer.Items[ValueIndex]);
 end;
 
 end.
