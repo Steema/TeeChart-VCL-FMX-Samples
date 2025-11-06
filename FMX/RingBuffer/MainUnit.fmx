@@ -1,0 +1,135 @@
+object FormRingBuffer: TFormRingBuffer
+  Left = 0
+  Top = 0
+  Caption = 'Tee Ring Buffer XY Series'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object CBRun: TCheckBox
+      IsChecked = True
+      Position.X = 264.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Run'
+      OnChange = CBRunChange
+    end
+    object CBAntialias: TCheckBox
+      IsChecked = True
+      Position.X = 337.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Antialias'
+      OnChange = CBAntialiasChange
+    end
+    object CBGrids: TCheckBox
+      IsChecked = True
+      Position.X = 433.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Grids'
+      OnChange = CBGridsChange
+    end
+    object CBPoints: TComboBox
+      Items.Strings = (
+        '10'
+        '100'
+        '500'
+        '1000'
+        '2000'
+        '5000'
+        '10000'
+        '20000'
+        '50000')
+      ItemIndex = 1
+      Position.X = 160.000000000000000000
+      Position.Y = 13.000000000000000000
+      Size.Width = 83.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      OnChange = CBPointsChange
+    end
+    object CBSeries: TComboBox
+      Items.Strings = (
+        '1'
+        '5'
+        '10'
+        '20'
+        '50'
+        '100'
+        '200')
+      ItemIndex = 2
+      Position.X = 51.000000000000000000
+      Position.Y = 13.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      OnChange = CBSeriesChange
+    end
+    object CBStyle: TComboBox
+      Items.Strings = (
+        'Lines'
+        'Points')
+      ItemIndex = 0
+      Position.X = 521.000000000000000000
+      Position.Y = 13.000000000000000000
+      TabOrder = 5
+      OnChange = CBStyleChange
+    end
+    object Label1: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 41.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Series:'
+      TabOrder = 6
+    end
+    object Label2: TLabel
+      Position.X = 116.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 45.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Points:'
+      TabOrder = 7
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'TChart')
+    Title.Visible = False
+    View3D = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Size.Width = 640.000000000000000000
+    Size.Height = 430.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+  end
+end

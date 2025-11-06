@@ -24,6 +24,7 @@ object FormRingBuffer: TFormRingBuffer
     View3D = False
     Align = alClient
     TabOrder = 0
+    ExplicitTop = 39
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
   end

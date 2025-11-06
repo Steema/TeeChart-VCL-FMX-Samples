@@ -36,7 +36,14 @@ uses
   {$ENDIF}
   {$ENDIF}
 
-  Classes, Types, TeCanvas, TeeProcs, Series;
+  Classes, Types,
+
+  {$IFDEF FMX}
+  FMXTee.Canvas, FMXTee.Procs, FMXTee.Series
+  {$ELSE}
+  TeCanvas, TeeProcs, Series
+  {$ENDIF}
+  ;
 
 type
   // Generic circular buffer
@@ -132,8 +139,13 @@ type
 implementation
 
 uses
+  {$IFDEF FMX}
+  FMXTee.Engine
+  {$ELSE}
   TeeGDIPlus, // <-- dependency due to Antialias property. Rethink.
-  TeEngine;
+  TeEngine
+  {$ENDIF}
+  ;
 
 { TRingBuffer<T> }
 
@@ -210,7 +222,7 @@ begin
   FAntialias:=True;
 
   Pointer.Hide;
-  Pointer.Style:=psSmallDot;
+  Pointer.Style:={$IFDEF FMX}TSeriesPointerStyle.{$ENDIF}psSmallDot;
   Pointer.Pen.Hide;
 end;
 
@@ -236,12 +248,14 @@ procedure TCustomRingBuffer<T>.DrawAllValues;
 var t : Integer;
     OldAnti : Boolean;
 begin
+  {$IFNDEF FMX}
   if ParentChart.Canvas is TGDIPlusCanvas then
   begin
     OldAnti:=TGDIPlusCanvas(ParentChart.Canvas).AntiAlias;
     TGDIPlusCanvas(ParentChart.Canvas).AntiAlias:=FAntialias;
   end
   else
+  {$ENDIF}
     OldAnti:=True;
 
   ParentChart.Canvas.AssignVisiblePenColor(Pen,Color);
@@ -279,8 +293,10 @@ begin
         Draw(t);
   end;
 
+  {$IFNDEF FMX}
   if ParentChart.Canvas is TGDIPlusCanvas then
      TGDIPlusCanvas(ParentChart.Canvas).AntiAlias:=OldAnti;
+  {$ENDIF}
 end;
 
 procedure TCustomRingBuffer<T>.SetAntialias(const Value: Boolean);
