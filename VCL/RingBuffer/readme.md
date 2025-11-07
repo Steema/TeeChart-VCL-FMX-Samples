@@ -26,3 +26,7 @@ Horizontal scrolling is done by code as a speed optimization.
      Line.Buffer.Append(456);
      ...
 ```
+
+Example for [Lazarus FreePascal compiler](https://github.com/Steema/TeeChart-VCL-FMX-Samples/tree/main/VCL/RingBuffer/Lazarus)
+
+Example for [Firemonkey FMX](https://github.com/Steema/TeeChart-VCL-FMX-Samples/tree/main/FMX/RingBuffer) (all platforms)
