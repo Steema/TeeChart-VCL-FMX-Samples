@@ -9,11 +9,10 @@ interface
 }
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics,
-  Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
+  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls, StdCtrls,
   TeeProcs, TeEngine, Chart,
 
-  TeeRingBuffer;
+  TeeRingBuffer, TeCanvas;
 
 type
   TFormRingBuffer = class(TForm)
@@ -190,7 +189,7 @@ procedure TFormRingBuffer.AddNewPoint;
     until (result<MaxRandom) and (result>-MaxRandom); // <-- fit vertical limits
   end;
 
-var P : TPointFloat;
+var P : TeCanvas.TPointFloat;
     t : Integer;
 begin
   // Advance X

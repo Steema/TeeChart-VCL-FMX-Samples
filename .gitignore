@@ -18,3 +18,7 @@ __history
 *.vlb
 output/
 VCL/TeeNew/Tee9new.nmt
+FMX/RingBuffer/Android64/
+VCL/RingBuffer/Lazarus/lib/
+VCL/RingBuffer/Lazarus/backup/
+*.lps

@@ -12,7 +12,6 @@ object FormRingBuffer: TFormRingBuffer
   Font.Style = []
   Position = poOwnerFormCenter
   OnCreate = FormCreate
-  TextHeight = 15
   object Chart1: TChart
     Left = 0
     Top = 41
@@ -24,8 +23,6 @@ object FormRingBuffer: TFormRingBuffer
     View3D = False
     Align = alClient
     TabOrder = 0
-    DefaultCanvas = 'TGDIPlusCanvas'
-    ColorPaletteIndex = 13
   end
   object Panel1: TPanel
     Left = 0

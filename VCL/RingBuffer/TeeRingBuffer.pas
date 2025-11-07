@@ -28,6 +28,7 @@ interface
 }
 
 uses
+  {$IFNDEF FPC}
   {$IFNDEF LINUX}
   {$IFDEF MSWINDOWS}
   {$IFNDEF FMX}
@@ -35,8 +36,13 @@ uses
   {$ENDIF}
   {$ENDIF}
   {$ENDIF}
+  {$ENDIF}
 
-  Classes, Types,
+  {$IFNDEF FPC}
+  Types,
+  {$ENDIF}
+
+  Classes,
 
   {$IFDEF FMX}
   FMXTee.Canvas, FMXTee.Procs, FMXTee.Series
@@ -45,11 +51,15 @@ uses
   {$ENDIF}
   ;
 
+{$IFOPT D-}
+{$C-} // Assertions OFF in Release mode (for speed)
+{$ENDIF}
+
 type
   // Generic circular buffer
   TRingBuffer<T>=record
   private
-    function Full:Boolean;
+    function Full:Boolean; inline;
   public
     Current,
     Count : Integer;
@@ -142,25 +152,14 @@ uses
   {$IFDEF FMX}
   FMXTee.Engine
   {$ELSE}
+  {$IFNDEF FPC}
   TeeGDIPlus, // <-- dependency due to Antialias property. Rethink.
+  {$ENDIF}
   TeEngine
   {$ENDIF}
   ;
 
 { TRingBuffer<T> }
-
-procedure TRingBuffer<T>.Append(const P: T);
-begin
-  Items[Current]:=P;
-
-  if not Full then
-     Inc(Count);
-
-  if Current=High(Items) then
-     Current:=0
-  else
-     Inc(Current);
-end;
 
 procedure TRingBuffer<T>.Clear;
 begin
@@ -176,7 +175,15 @@ end;
 
 procedure TRingBuffer<T>.Resize(const ACount: Integer);
 begin
+  Assert(Count>=0);
+
   SetLength(Items,ACount);
+
+  if Count>ACount then
+     Count:=ACount;
+
+  if Current>=ACount then
+     Current:=ACount-1;
 end;
 
 function TRingBuffer<T>.Size: Integer;
@@ -199,18 +206,19 @@ begin
      result:=Items[Current-1];
 end;
 
-{ TCustomRingBuffer }
-
-procedure TCustomRingBuffer<T>.CalcFirstLastVisibleIndex;
+procedure TRingBuffer<T>.Append(const P: T);
 begin
-//  inherited;
+  Assert(Size>0);
 
-  if Buffer.Empty then
-     FFirstVisibleIndex:=-1
+  Items[Current]:=P;
+
+  if not Full then
+     Inc(Count);
+
+  if Current=High(Items) then
+     Current:=0
   else
-     FFirstVisibleIndex:=0;
-
-  FLastVisibleIndex:=Buffer.Count-1;
+     Inc(Current);
 end;
 
 { TCustomRingBuffer<T> }
@@ -224,6 +232,18 @@ begin
   Pointer.Hide;
   Pointer.Style:={$IFDEF FMX}TSeriesPointerStyle.{$ENDIF}psSmallDot;
   Pointer.Pen.Hide;
+end;
+
+procedure TCustomRingBuffer<T>.CalcFirstLastVisibleIndex;
+begin
+  // inherited;
+
+  if Buffer.Empty then
+     FFirstVisibleIndex:=-1
+  else
+     FFirstVisibleIndex:=0;
+
+  FLastVisibleIndex:=Buffer.Count-1;
 end;
 
 procedure TCustomRingBuffer<T>.Draw(const AIndex:Integer);
@@ -246,8 +266,11 @@ end;
 
 procedure TCustomRingBuffer<T>.DrawAllValues;
 var t : Integer;
+    {$IFNDEF FPC}
     OldAnti : Boolean;
+    {$ENDIF}
 begin
+  {$IFNDEF FPC}
   {$IFNDEF FMX}
   if ParentChart.Canvas is TGDIPlusCanvas then
   begin
@@ -257,6 +280,7 @@ begin
   else
   {$ENDIF}
     OldAnti:=True;
+  {$ENDIF}
 
   ParentChart.Canvas.AssignVisiblePenColor(Pen,Color);
 
@@ -293,9 +317,11 @@ begin
         Draw(t);
   end;
 
+  {$IFNDEF FPC}
   {$IFNDEF FMX}
   if ParentChart.Canvas is TGDIPlusCanvas then
      TGDIPlusCanvas(ParentChart.Canvas).AntiAlias:=OldAnti;
+  {$ENDIF}
   {$ENDIF}
 end;
 
