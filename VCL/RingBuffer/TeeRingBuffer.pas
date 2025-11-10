@@ -90,7 +90,10 @@ type
     Constructor Create(AOwner:TComponent); override;
 
     Procedure CalcFirstLastVisibleIndex; override;
+    procedure Clear; override;
     procedure DrawAllValues; override;
+    Function MaxXValue:TChartValue; override;
+    Function MinXValue:TChartValue; override;
   published
     property Antialias:Boolean read FAntialias write SetAntialias default True;
 
@@ -246,6 +249,12 @@ begin
   FLastVisibleIndex:=Buffer.Count-1;
 end;
 
+procedure TCustomRingBuffer<T>.Clear;
+begin
+  inherited;
+  Buffer.Clear;
+end;
+
 procedure TCustomRingBuffer<T>.Draw(const AIndex:Integer);
 var X,Y : Integer;
 begin
@@ -255,6 +264,19 @@ begin
      Pointer.Draw(X,Y)
   else
      ParentChart.Canvas.LineTo(X,Y);
+end;
+
+function TCustomRingBuffer<T>.MaxXValue: TChartValue;
+begin
+  if Buffer.Empty then
+     result:=0
+  else
+     result:=Buffer.Count-1;
+end;
+
+function TCustomRingBuffer<T>.MinXValue: TChartValue;
+begin
+  result:=0;
 end;
 
 procedure TCustomRingBuffer<T>.MoveTo(const AIndex:Integer);
