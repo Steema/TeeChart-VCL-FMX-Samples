@@ -35,10 +35,13 @@ type
     procedure CBSeriesChange(Sender: TObject);
     procedure CBPointsChange(Sender: TObject);
     procedure CBStyleChange(Sender: TObject);
+    procedure Label2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
   private
     { Private declarations }
 
     procedure AddNewPoint;
+    procedure Benchmark;
     procedure Idle(Sender: TObject; var Done: Boolean);
     function MaxPoints:Integer;
     procedure RecreateSeries;
@@ -56,6 +59,9 @@ var
 implementation
 
 {$R *.fmx}
+
+uses
+  System.Diagnostics;
 
 const
   MaxRandom = 1000;
@@ -127,6 +133,9 @@ begin
       Lines[t].Pointer.Visible:=CBStyle.ItemIndex=1;
 end;
 
+type
+  TChartAccess=class(TCustomTeePanel);
+
 procedure TFormRingBuffer.FormCreate(Sender: TObject);
 begin
   RecreateSeries;
@@ -137,6 +146,9 @@ begin
   // Speed optimizations
   Chart1.Legend.Hide;
   Chart1.ClipPoints:=False;
+  Chart1.Walls.Back.Hide;
+  Chart1.Axes.FastCalc:=True;
+  TChartAccess(Chart1).FastTextSize:=True; // Speed trick: 20% faster
 
   {$IFDEF USE_OPENGL}
   Chart1.Canvas:=TGLCanvas.Create;
@@ -153,6 +165,12 @@ end;
 procedure TFormRingBuffer.Idle(Sender: TObject; var Done: Boolean);
 begin
   AddNewPoint;
+end;
+
+procedure TFormRingBuffer.Label2MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  Benchmark;
 end;
 
 procedure TFormRingBuffer.AddNewPoint;
@@ -192,6 +210,39 @@ begin
 
   // Tell chart to repaint (only if necessary)
   Chart1.Invalidate;
+end;
+
+// Just a speed test
+procedure TFormRingBuffer.Benchmark;
+
+  procedure RepaintChart;
+  begin
+    Chart1.DelphiCanvas.BeginScene;
+    Chart1.Draw;
+    Chart1.DelphiCanvas.EndScene;
+  end;
+
+var t1 : TStopWatch;
+    t :  Integer;
+begin
+  CBRun.IsChecked:=False;
+  CBRunChange(Self);
+
+  RecreateSeries;
+
+  RepaintChart;
+
+  t1:=TStopwatch.StartNew;
+
+  for t:=0 to 1000 do
+  begin
+    AddNewPoint;
+    RepaintChart;
+  end;
+
+  Caption:=t1.ElapsedMilliseconds.ToString+' msec';
+
+  Invalidate;
 end;
 
 end.

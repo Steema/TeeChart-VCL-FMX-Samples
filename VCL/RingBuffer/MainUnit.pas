@@ -35,13 +35,16 @@ type
     procedure CBGridsClick(Sender: TObject);
     procedure Label1Click(Sender: TObject);
     procedure CBRunClick(Sender: TObject);
+    procedure Label2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
 
     procedure AddNewPoint;
+    procedure Benchmark;
     procedure Idle(Sender: TObject; var Done: Boolean);
     function MaxPoints:Integer;
-    procedure Recreate;
+    procedure RecreateSeries;
   public
     { Public declarations }
 
@@ -61,17 +64,18 @@ implementation
 {$R *.dfm}
 {$ENDIF}
 
+uses
+
 {.$DEFINE USE_OPENGL} // OpenGL fast graphics (needs TeeChart "Pro" version)
 {$IFDEF USE_OPENGL}
-uses
-  TeeGLCanvas;
+  TeeGLCanvas,
 {$ENDIF}
 
 {.$DEFINE USE_SKIA} // Skia fast graphics (needs TeeChart "Pro" version)
 {$IFDEF USE_SKIA}
-uses
-  TeeSkia;
+  TeeSkia,
 {$ENDIF}
+  System.Diagnostics;
 
 
 const
@@ -82,7 +86,7 @@ begin
   result:=StrToInt(CBPoints.Text);
 end;
 
-procedure TFormRingBuffer.Recreate;
+procedure TFormRingBuffer.RecreateSeries;
 var t : Integer;
 begin
   LastX:=0;
@@ -106,7 +110,7 @@ end;
 
 procedure TFormRingBuffer.CBSeriesChange(Sender: TObject);
 begin
-  Recreate;
+  RecreateSeries;
 end;
 
 procedure TFormRingBuffer.CBStyleCloseUp(Sender: TObject);
@@ -133,7 +137,7 @@ end;
 
 procedure TFormRingBuffer.CBPointsChange(Sender: TObject);
 begin
-  Recreate;
+  RecreateSeries;
 end;
 
 procedure TFormRingBuffer.CBRunClick(Sender: TObject);
@@ -146,7 +150,7 @@ end;
 
 procedure TFormRingBuffer.FormCreate(Sender: TObject);
 begin
-  Recreate;
+  RecreateSeries;
 
   // Set vertical scale
   Chart1.Axes.Left.SetMinMax(-MaxRandom,MaxRandom);
@@ -154,6 +158,8 @@ begin
   // Speed optimizations
   Chart1.Legend.Hide;
   Chart1.ClipPoints:=False;
+  Chart1.Walls.Back.Hide;
+  Chart1.Axes.FastCalc:=True;
 
   {$IFDEF USE_OPENGL}
   Chart1.Canvas:=TGLCanvas.Create;
@@ -170,6 +176,12 @@ end;
 procedure TFormRingBuffer.Label1Click(Sender: TObject);
 begin
   AddNewPoint;
+end;
+
+procedure TFormRingBuffer.Label2MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  Benchmark;
 end;
 
 procedure TFormRingBuffer.Idle(Sender: TObject; var Done: Boolean);
@@ -214,6 +226,31 @@ begin
 
   // Tell chart to repaint (only if necessary)
   Chart1.Invalidate;
+end;
+
+// Just a speed test
+procedure TFormRingBuffer.Benchmark;
+var t1 : TStopWatch;
+    t :  Integer;
+begin
+  CBRun.Checked:=False;
+  CBRunClick(Self);
+
+  RecreateSeries;
+
+  Chart1.Draw;
+
+  t1:=TStopwatch.StartNew;
+
+  for t:=0 to 1000 do
+  begin
+    AddNewPoint;
+    Chart1.Draw;
+  end;
+
+  Caption:=t1.ElapsedMilliseconds.ToString+' msec';
+
+  Invalidate;
 end;
 
 end.

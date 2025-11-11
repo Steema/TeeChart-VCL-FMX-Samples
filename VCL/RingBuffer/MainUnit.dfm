@@ -48,6 +48,7 @@ object FormRingBuffer: TFormRingBuffer
       Width = 36
       Height = 15
       Caption = 'Points:'
+      OnMouseDown = Label2MouseDown
     end
     object CBSeries: TComboBox
       Left = 58

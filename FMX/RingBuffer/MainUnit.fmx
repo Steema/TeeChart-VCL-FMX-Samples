@@ -4,6 +4,7 @@ object FormRingBuffer: TFormRingBuffer
   Caption = 'Tee Ring Buffer XY Series'
   ClientHeight = 480
   ClientWidth = 640
+  Position = OwnerFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -106,6 +107,7 @@ object FormRingBuffer: TFormRingBuffer
       TabOrder = 6
     end
     object Label2: TLabel
+      HitTest = True
       Position.X = 116.000000000000000000
       Position.Y = 16.000000000000000000
       Size.Width = 45.000000000000000000
@@ -113,6 +115,7 @@ object FormRingBuffer: TFormRingBuffer
       Size.PlatformDefault = False
       Text = 'Points:'
       TabOrder = 7
+      OnMouseDown = Label2MouseDown
     end
   end
   object Chart1: TChart
