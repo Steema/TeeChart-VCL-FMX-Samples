@@ -27,6 +27,14 @@ Horizontal scrolling is done by code as a speed optimization.
      ...
 ```
 
+**Notes:**
+
+OpenGL canvas is the fastest way in Windows and VCL to paint many lines and points.
+Skia canvas is faster than GDI+.
+Old legacy GDI is not that slow, but lacks antialias so lines become "jaggy".
+See MainUnit.pas source to enable those canvases.
+Firemonkey (specially 64bit with RAD 13.0 and up) is faster than VCL.
+
 Example for [Lazarus FreePascal compiler](https://github.com/Steema/TeeChart-VCL-FMX-Samples/tree/main/VCL/RingBuffer/Lazarus)
 
 Example for [Firemonkey FMX](https://github.com/Steema/TeeChart-VCL-FMX-Samples/tree/main/FMX/RingBuffer) (all platforms)
