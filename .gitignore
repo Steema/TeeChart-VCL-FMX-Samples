@@ -22,3 +22,4 @@ FMX/RingBuffer/Android64/
 VCL/RingBuffer/Lazarus/lib/
 VCL/RingBuffer/Lazarus/backup/
 *.lps
+VCL/RingBuffer/Win32/
