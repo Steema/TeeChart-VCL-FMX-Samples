@@ -14,6 +14,10 @@ var
   ShortestPath:=TShortestPath.Create(Series1);
   ShortestPath.MaxDistance:=200;
 
+  ...
+  ShortestPath.AddEdge(4,5); // add "roads" between points
+  ...
+
   AddPath(ShortestPath.Calculate(Start,Finish)); // index of two points
 
 procedure AddPath(const APath:Array of Integer);
@@ -29,11 +33,12 @@ end;
 
 ### Possible Improvements:
 
-- Supporting "edges" (or "roads") between source points to restrict the path.
 - Using other "distance" functions than the default Euclidean
 - Adding other path-finding algorithms than Djikstra
 - Support for XYZ 3D points
+- Points with "weights" as a cost function to pass through them
   
 ##
 
-<img width="1098" height="818" alt="image" src="https://github.com/user-attachments/assets/12a6f708-de62-4d2c-a457-6d5cce15e804" />
+<img width="1098" height="818" alt="image" src="https://github.com/user-attachments/assets/464a5cce-e0f3-424f-9e97-fea0523d08c8" />
+
