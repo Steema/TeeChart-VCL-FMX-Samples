@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Top = 0
   Caption = 'TeeChart Shortest Path Dijkstra Algorithm '
   ClientHeight = 514
-  ClientWidth = 1265
+  ClientWidth = 729
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,19 +12,12 @@ object MainForm: TMainForm
   Font.Style = []
   Position = poOwnerFormCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
-  object Splitter1: TSplitter
-    Left = 641
-    Top = 41
-    Height = 473
-    ExplicitLeft = 488
-    ExplicitTop = 240
-    ExplicitHeight = 100
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1265
+    Width = 729
     Height = 41
     Align = alTop
     TabOrder = 0
@@ -44,18 +37,30 @@ object MainForm: TMainForm
       TabOrder = 0
       OnClick = Button1Click
     end
+    object CBEdges: TCheckBox
+      Left = 320
+      Top = 15
+      Width = 129
+      Height = 17
+      Caption = 'Use &edges (roads)'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+      OnClick = CBEdgesClick
+    end
   end
   object Chart1: TChart
     Left = 0
     Top = 41
-    Width = 641
+    Width = 729
     Height = 473
     Legend.Visible = False
     Title.Text.Strings = (
       'XY ')
     View3D = False
-    Align = alLeft
+    Align = alClient
     TabOrder = 1
+    OnMouseUp = Chart1MouseUp
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series2: TLineSeries
@@ -75,6 +80,7 @@ object MainForm: TMainForm
       Marks.Visible = True
       Marks.AutoPosition = False
       Marks.Callout.Distance = -5
+      BeforeDrawValues = Series1BeforeDrawValues
       ClickableLine = False
       Pointer.HorizSize = 10
       Pointer.InflateMargins = True
@@ -88,29 +94,16 @@ object MainForm: TMainForm
     object StartFinish: TPointSeries
       ClickableLine = False
       Pointer.Brush.Style = bsClear
-      Pointer.HorizSize = 9
+      Pointer.HorizSize = 12
       Pointer.InflateMargins = True
       Pointer.Pen.Color = clRed
-      Pointer.Pen.Width = 3
+      Pointer.Pen.Width = 5
       Pointer.Style = psCircle
-      Pointer.VertSize = 9
+      Pointer.VertSize = 12
       XValues.Name = 'X'
       XValues.Order = loAscending
       YValues.Name = 'Y'
       YValues.Order = loNone
     end
-  end
-  object Chart2: TChart
-    Left = 644
-    Top = 41
-    Width = 621
-    Height = 473
-    Title.Text.Strings = (
-      'TChart')
-    Chart3DPercent = 78
-    Align = alClient
-    TabOrder = 2
-    DefaultCanvas = 'TGDIPlusCanvas'
-    ColorPaletteIndex = 13
   end
 end

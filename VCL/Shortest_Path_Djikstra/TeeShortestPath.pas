@@ -9,12 +9,19 @@ unit TeeShortestPath;
 interface
 
 uses
-  TeEngine;
+  {$IFDEF FMX}
+  FMXTee.Engine
+  {$ELSE}
+  TeEngine
+  {$ENDIF}
+  ;
 
 type
   TIndex=Integer; // a point index inside Series
 
   TPointsPath=Array of TIndex; // a list of points (a path)
+
+  TEdges=Array of TIndex; // list of edges from a point to others
 
   TDistance=Single; // type of the float used to calculate distances (Single, Double or Extended)
 
@@ -22,17 +29,23 @@ type
   private
     FSeries : TChartSeries;
 
-    function Distance(const A,B:TIndex):TDistance; overload;
   public
+    Edges : Array of TEdges;
     MaxDistance : TDistance;
 
     Constructor Create(const ASeries:TChartSeries);
     Destructor Destroy; override;
 
+    procedure AddEdge(const AFrom,ATo:TIndex);
+    procedure ClearEdges;
+
     // Returns the shortest path from AStart to AFinish
     function Calculate(const AStart,AFinish:TIndex):TPointsPath;
 
+    // Euclidean between point X0,Y0 and point X1,Y1
     class function Distance(const X0,Y0,X1,Y1:TChartValue): TDistance; overload; static;
+
+    function Distance(const A,B:TIndex):TDistance; overload; // between Series points
   end;
 
 implementation
@@ -99,13 +112,15 @@ begin
   node   := Items[0].Index;
 
   Dec(Count);
-  if Count = 0 then
+
+  if Count=0 then
      Exit;
 
   rootDist := Items[Count].Distance;
   tempNode := Items[Count].Index;
 
   pqHead := 0;
+
   while True do
   begin
     child := pqHead*2 + 1;
@@ -147,6 +162,19 @@ begin
   Items[t].Index:=AIndex;
 end;
 
+procedure TShortestPath.AddEdge(const AFrom, ATo: TIndex);
+begin
+  if Edges=nil then
+     SetLength(Edges,FSeries.Count);
+
+  Insert(ATo,Edges[AFrom],0);
+end;
+
+procedure TShortestPath.ClearEdges;
+begin
+  Edges:=nil;
+end;
+
 // Returns the shortest path from AStart to AFinish
 function TShortestPath.Calculate(const AStart,AFinish:Integer): TPointsPath;
 var
@@ -166,6 +194,26 @@ var
       Distances[t]:=MaxSingle;
       Previous[t]:=MissingFlag; // -1 = flag empty point index
     end;
+  end;
+
+  // True if the AElement index is inside the AItems array
+  function Contains(const AItems:TEdges; const AElement:TIndex):Boolean;
+  var t : Integer;
+  begin
+    for t:=Low(AItems) to High(AItems) do
+        if AItems[t]=AElement then
+        begin
+          result:=True;
+          Exit;
+        end;
+
+    result:=False;
+  end;
+
+  // Bidirectional
+  function ExistsEdge(const A,B:TIndex):Boolean;
+  begin
+    result:=Contains(Edges[A],B) or Contains(Edges[B],A);
   end;
 
 var Queue : TQueue;
@@ -195,7 +243,11 @@ begin
     begin
       if v = u then Continue;
 
-      d := Distance(u, v);
+      if (Edges=nil) or ExistsEdge(u,v) then
+         d := Distance(u, v)
+      else
+         Continue;
+
       if d > MaxDistance then
          Continue;
 
@@ -222,7 +274,6 @@ begin
     u := Previous[u];
   end;
 end;
-
 
 end.
 
