@@ -1,7 +1,13 @@
 ## Shortest path algorithm (Dijkstra) with TeeChart
 
-A basic implementation of the [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) algorithm using TeeChart.
+A basic implementation of the [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) algorithm using TeeChart to display its output.
 
+### Features:
+
+- No dependencies, just the RTL.
+- Optional edges (roads) between points, bidirectional or one-way
+- Optional weights associated to points, to calculate the "cost" of passing through them.
+  
 Usage:
 
 ```delphi
@@ -11,7 +17,7 @@ uses
 var
   ShortestPath : TShortestPath;
 
-  ShortestPath:=TShortestPath.Create(Series1);
+  ShortestPath:=TShortestPath.Create;
   ShortestPath.MaxDistance:=200;
 
   ...
@@ -36,7 +42,7 @@ end;
 - Using other "distance" functions than the default Euclidean
 - Adding other path-finding algorithms than Djikstra
 - Support for XYZ 3D points
-- Points with "weights" as a cost function to pass through them
+- Calculate more than one path, not just the shortest or cheapest
   
 ##
 
