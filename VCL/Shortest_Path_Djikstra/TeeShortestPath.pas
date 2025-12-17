@@ -8,44 +8,57 @@ unit TeeShortestPath;
 
 interface
 
-uses
-  {$IFDEF FMX}
-  FMXTee.Engine
-  {$ELSE}
-  TeEngine
-  {$ENDIF}
-  ;
-
 type
-  TIndex=Integer; // a point index inside Series
+  TIndex=Integer; // a point index
 
   TPointsPath=Array of TIndex; // a list of points (a path)
 
-  TEdges=Array of TIndex; // list of edges from a point to others
+  TEdgeDirection=(BothWays,FromWay,ToWay);   // Egress (outbound), Ingress (inbound)
+
+  // A connection (road) between one point to another
+  TEdge=record
+    ToIndex : TIndex;
+    Direction : TEdgeDirection;
+  end;
+
+  TEdges=Array of TEdge; // list of edges from one point to othere points
 
   TDistance=Single; // type of the float used to calculate distances (Single, Double or Extended)
 
+  TCoordinate=Single; // type of the float used for XY coordinates and Weights
+
+  // Simple XY point
+  TPoint=record
+     X,Y : TCoordinate;
+  end;
+
+  // Returns the shortest (or "cheapest") route path from one point to another.
+
   TShortestPath=class
   private
-    FSeries : TChartSeries;
-
+    function Count:Integer; inline;
   public
-    Edges : Array of TEdges;
-    MaxDistance : TDistance;
+    Edges : Array of TEdges;  // For each point, an optional array of edges to other points
+    MaxDistance : TDistance;  // When there are no Edges, use a Max distance limit to follow the path
+    Points : Array of TPoint; // The source XY points
+    Weights : Array of TDistance;  // Optional, one value associated to each point
 
-    Constructor Create(const ASeries:TChartSeries);
+    UseWeights : Boolean; // When True, the shortest path will be the "cheapest" path (with less Weights)
+
+    Constructor Create;
     Destructor Destroy; override;
 
-    procedure AddEdge(const AFrom,ATo:TIndex);
+    // Optional edges (roads) between points
+    procedure AddEdge(const AFrom,ATo:TIndex; const ADirection:TEdgeDirection=TEdgeDirection.BothWays);
     procedure ClearEdges;
 
-    // Returns the shortest path from AStart to AFinish
+    // Returns the shortest path from AStart to AFinish point index
     function Calculate(const AStart,AFinish:TIndex):TPointsPath;
 
     // Euclidean between point X0,Y0 and point X1,Y1
-    class function Distance(const X0,Y0,X1,Y1:TChartValue): TDistance; overload; static;
+    class function Distance(const X0,Y0,X1,Y1:TCoordinate): TDistance; overload; static;
 
-    function Distance(const A,B:TIndex):TDistance; overload; // between Series points
+    function Distance(const A,B:TIndex):TDistance; overload; // between points
   end;
 
 implementation
@@ -55,12 +68,11 @@ uses
 
 { TShortestPath }
 
-Constructor TShortestPath.Create(const ASeries: TChartSeries);
+Constructor TShortestPath.Create;
 begin
   inherited Create;
 
   MaxDistance:=MaxSingle;
-  FSeries:=ASeries;
 end;
 
 Destructor TShortestPath.Destroy;
@@ -69,7 +81,7 @@ begin
 end;
 
 // Euclidean between X0,Y0 and X1,Y1
-class function TShortestPath.Distance(const X0,Y0,X1,Y1:TChartValue): TDistance;
+class function TShortestPath.Distance(const X0,Y0,X1,Y1:TCoordinate): TDistance;
 begin
   result:=Sqrt(Sqr(X0-X1) + Sqr(Y0-Y1));
 end;
@@ -77,8 +89,8 @@ end;
 // Euclidean between point A and point B
 function TShortestPath.Distance(const A, B: TIndex): TDistance;
 begin
-  result:=Distance(FSeries.XValues.Value[A],FSeries.YValues.Value[A],
-                   FSeries.XValues.Value[B],FSeries.YValues.Value[B]);
+  result:=Distance(Points[A].X,Points[A].Y,
+                   Points[B].X,Points[B].Y);
 end;
 
 // Algorithm based on Dijkstra "A"
@@ -162,12 +174,21 @@ begin
   Items[t].Index:=AIndex;
 end;
 
-procedure TShortestPath.AddEdge(const AFrom, ATo: TIndex);
+function TShortestPath.Count:Integer;
+begin
+  result:=Length(Points);
+end;
+
+procedure TShortestPath.AddEdge(const AFrom, ATo: TIndex; const ADirection:TEdgeDirection=TEdgeDirection.BothWays);
+var tmp : TEdge;
 begin
   if Edges=nil then
-     SetLength(Edges,FSeries.Count);
+     SetLength(Edges,Count);
 
-  Insert(ATo,Edges[AFrom],0);
+  tmp.ToIndex:=ATo;
+  tmp.Direction:=ADirection;
+
+  Insert(tmp,Edges[AFrom],0);
 end;
 
 procedure TShortestPath.ClearEdges;
@@ -185,9 +206,9 @@ var
   procedure Init;
   var t : Integer;
   begin
-    SetLength(Neighbors,FSeries.Count);
-    SetLength(Distances,FSeries.Count);
-    SetLength(Previous,FSeries.Count);
+    SetLength(Neighbors,Count);
+    SetLength(Distances,Count);
+    SetLength(Previous,Count);
 
     for t:=0 to High(Distances) do
     begin
@@ -201,7 +222,10 @@ var
   var t : Integer;
   begin
     for t:=Low(AItems) to High(AItems) do
-        if AItems[t]=AElement then
+        if (AItems[t].ToIndex=AElement) and
+           ( (AItems[t].Direction=TEdgeDirection.BothWays) or
+             (AItems[t].Direction=TEdgeDirection.ToWay)
+           ) then
         begin
           result:=True;
           Exit;
@@ -239,7 +263,7 @@ begin
     if u = AFinish then
        Break;
 
-    for v := 0 to FSeries.Count-1 do
+    for v := 0 to Count-1 do
     begin
       if v = u then Continue;
 
