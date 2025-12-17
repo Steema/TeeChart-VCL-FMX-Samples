@@ -21,18 +21,20 @@ uses
 
   TeEngine, Series, TeeProcs, Chart,
 
-  TeeShortestPath;
+  TeeShortestPath, VCLTee.BubbleCh;
 
 type
   TMainForm = class(TForm)
     Panel1: TPanel;
     Chart1: TChart;
-    Series1: TPointSeries;
-    Series2: TLineSeries;
+    SeriesPath: TLineSeries;
     Button1: TButton;
     StartFinish: TPointSeries;
     Label1: TLabel;
     CBEdges: TCheckBox;
+    CBWeights: TCheckBox;
+    Series1: TPointSeries;
+    CBDirection: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure CBEdgesClick(Sender: TObject);
@@ -40,6 +42,10 @@ type
     procedure Chart1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormDestroy(Sender: TObject);
+    procedure CBWeightsClick(Sender: TObject);
+    function Series1GetPointerStyle(Sender: TChartSeries;
+      ValueIndex: Integer): TSeriesPointerStyle;
+    procedure CBDirectionClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -78,10 +84,10 @@ end;
 procedure TMainForm.AddPath(const APath:Array of Integer);
 var t : Integer;
 begin
-  Series2.Clear;
+  SeriesPath.Clear;
 
   for t in APath do
-      AddPoint(Series2,Series1,t);
+      AddPoint(SeriesPath,Series1,t);
 end;
 
 procedure TMainForm.Button1Click(Sender: TObject);
@@ -107,7 +113,7 @@ begin
   AddPoint(StartFinish,Series1,Finish);
 
   // Show at label
-  Label1.Caption:='Start: '+IntToStr(Start)+' Finish: '+IntToStr(Finish);
+  Label1.Caption:='Start: '+IntToStr(Start)+' Finish: '+IntToStr(Finish)+ ' Hops: '+IntToStr(SeriesPath.Count);
 end;
 
 // Add some random edges between nearby points, so the path will be calculated with
@@ -115,6 +121,7 @@ end;
 procedure TMainForm.AddEdges;
 var t,tt : Integer;
     Distance : TDistance;
+    Direction : TEdgeDirection;
 begin
   for t:=0 to Series1.Count-1 do
       for tt:=t+1 to Series1.Count-1 do
@@ -123,7 +130,12 @@ begin
 
         if Distance<ShortestPath.MaxDistance then
         begin
-          ShortestPath.AddEdge(t,tt);
+          if CBDirection.Checked then
+             Direction:=TEdgeDirection.BothWays
+          else
+             Direction:=TEdgeDirection(Random(Ord(High(TEdgeDirection))));
+
+          ShortestPath.AddEdge(t,tt,Direction);
 
           if Length(ShortestPath.Edges[t])>2 then
              break;
@@ -131,8 +143,16 @@ begin
       end;
 end;
 
+// Show or hide edges (roads), use them to calculate the path
+procedure TMainForm.CBDirectionClick(Sender: TObject);
+begin
+  CBEdgesClick(Self);
+end;
+
 procedure TMainForm.CBEdgesClick(Sender: TObject);
 begin
+  CBDirection.Enabled:=CBEdges.Checked;
+
   ShowGrids;
 
   ShortestPath.ClearEdges;
@@ -142,8 +162,11 @@ begin
 
   if (Start<>-1) and (Finish<>-1) then
      CalculatePath;
+
+  Chart1.Invalidate;
 end;
 
+// When clicking a point, calculate a path to it
 procedure TMainForm.Chart1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var Index : Integer;
@@ -162,6 +185,16 @@ begin
   end;
 end;
 
+procedure TMainForm.CBWeightsClick(Sender: TObject);
+begin
+  ShortestPath.UseWeights:=CBWeights.Checked;
+
+  if Start<>-1 then
+     CalculatePath;
+
+  Chart1.Invalidate;
+end;
+
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   Label1.Caption:='';
@@ -171,6 +204,7 @@ begin
 
   ShowGrids;
 
+  // Initialize path points
   Start:=-1;
   Finish:=-1;
 
@@ -179,7 +213,7 @@ begin
   SetupSeries;
 
   // Create the algorithm class
-  ShortestPath:=TShortestPath.Create(Series1);
+  ShortestPath:=TShortestPath.Create;
   ShortestPath.MaxDistance:=200;
 
   InitRandomPoints;
@@ -197,14 +231,26 @@ begin
   for t:=1 to 50 do
       Series1.AddXY(Random(1000),Random(1000));
 
+  SetLength(ShortestPath.Points,Series1.Count);
+  SetLength(ShortestPath.Weights,Series1.Count);
+
+  for t:=1 to Series1.Count-1 do
+  begin
+    ShortestPath.Points[t].X:= Series1.XValues[t];
+    ShortestPath.Points[t].Y:= Series1.YValues[t];
+
+    ShortestPath.Weights[t]:= Random(50);
+  end;
+
   if CBEdges.Checked then
      AddEdges;
 end;
 
-// Cosmetics
+// Cosmetics, draw edges
 procedure TMainForm.Series1BeforeDrawValues(Sender: TObject);
-var t,Index : Integer;
-    FromPoint, ToPoint : TPoint;
+var t : Integer;
+    Mid, FromPoint, ToPoint : TPoint;
+    Edge : TEdge;
 begin
   Chart1.Canvas.Pen.Color:=RGB(160,160,160); // Light silver
   Chart1.Canvas.Pen.Width:=1;
@@ -215,27 +261,50 @@ begin
     FromPoint.X:=Series1.CalcXPos(t);
     FromPoint.Y:=Series1.CalcYPos(t);
 
-    for Index in ShortestPath.Edges[t] do
+    for Edge in ShortestPath.Edges[t] do
     begin
-      ToPoint.X:=Series1.CalcXPos(Index);
-      ToPoint.Y:=Series1.CalcYPos(Index);
+      ToPoint.X:=Series1.CalcXPos(Edge.ToIndex);
+      ToPoint.Y:=Series1.CalcYPos(Edge.ToIndex);
 
       Chart1.Canvas.Line(FromPoint,ToPoint);
+
+      if Edge.Direction<>TEdgeDirection.BothWays then
+      begin
+        // Draw arrows at line midpoint
+        Mid.X:=(FromPoint.X+ToPoint.X) div 2;
+        Mid.Y:=(FromPoint.Y+ToPoint.Y) div 2;
+
+        Chart1.Canvas.Ellipse(Mid.X-2,Mid.Y-2,Mid.X+2,Mid.Y+2);
+      end;
     end;
   end;
 end;
 
+function TMainForm.Series1GetPointerStyle(Sender: TChartSeries;
+  ValueIndex: Integer): TSeriesPointerStyle;
+begin
+  result:=psCircle;
+
+  if CBWeights.Checked then
+     Series1.Pointer.SizeFloat:=8+(ShortestPath.Weights[ValueIndex]/3)
+  else
+     Series1.Pointer.SizeFloat:=14;
+end;
+
+// Cosmetics
 procedure TMainForm.SetupSeries;
 begin
   Series1.Pointer.Size:=14;
   Series1.ColorEachPoint:=True;
+  Series1.VertAxis:=aBothVertAxis;
+  Series1.HorizAxis:=aBothHorizAxis;
 
   Chart1.ColorPaletteIndex:=6;
 
   Series1.Marks.Show;
   Series1.Marks.Style:=smsPointIndex;
   Series1.Marks.Arrow.Hide;
-  Series1.Marks.ArrowLength:=-5;
+  Series1.Marks.ArrowLength:=-8;
 end;
 
 // Show chart grid lines only when Edges are not used (cosmetic)
@@ -243,6 +312,9 @@ procedure TMainForm.ShowGrids;
 begin
   Chart1.Axes.Left.Grid.Visible:=not CBEdges.Checked;
   Chart1.Axes.Bottom.Grid.Visible:=not CBEdges.Checked;
+
+  Chart1.Axes.Right.Grid.Hide;
+  Chart1.Axes.Top.Grid.Hide;
 end;
 
 end.

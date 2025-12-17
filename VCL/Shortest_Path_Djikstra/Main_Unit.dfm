@@ -21,6 +21,7 @@ object MainForm: TMainForm
     Height = 41
     Align = alTop
     TabOrder = 0
+    ExplicitTop = -6
     object Label1: TLabel
       Left = 120
       Top = 13
@@ -38,15 +39,33 @@ object MainForm: TMainForm
       OnClick = Button1Click
     end
     object CBEdges: TCheckBox
-      Left = 320
-      Top = 15
-      Width = 129
+      Left = 344
+      Top = 13
+      Width = 118
       Height = 17
       Caption = 'Use &edges (roads)'
       Checked = True
       State = cbChecked
       TabOrder = 1
       OnClick = CBEdgesClick
+    end
+    object CBWeights: TCheckBox
+      Left = 583
+      Top = 13
+      Width = 122
+      Height = 17
+      Caption = 'Use weights (cost)'
+      TabOrder = 2
+      OnClick = CBWeightsClick
+    end
+    object CBDirection: TCheckBox
+      Left = 468
+      Top = 13
+      Width = 97
+      Height = 17
+      Caption = 'Both Ways'
+      TabOrder = 3
+      OnClick = CBDirectionClick
     end
   end
   object Chart1: TChart
@@ -63,29 +82,12 @@ object MainForm: TMainForm
     OnMouseUp = Chart1MouseUp
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
-    object Series2: TLineSeries
+    object SeriesPath: TLineSeries
       SeriesColor = clBlue
       Brush.BackColor = clDefault
       LinePen.Width = 4
       Pointer.InflateMargins = True
       Pointer.Style = psRectangle
-      XValues.Name = 'X'
-      XValues.Order = loAscending
-      YValues.Name = 'Y'
-      YValues.Order = loNone
-    end
-    object Series1: TPointSeries
-      Marks.Frame.Visible = False
-      Marks.Transparent = True
-      Marks.Visible = True
-      Marks.AutoPosition = False
-      Marks.Callout.Distance = -5
-      BeforeDrawValues = Series1BeforeDrawValues
-      ClickableLine = False
-      Pointer.HorizSize = 10
-      Pointer.InflateMargins = True
-      Pointer.Style = psCircle
-      Pointer.VertSize = 10
       XValues.Name = 'X'
       XValues.Order = loAscending
       YValues.Name = 'Y'
@@ -104,6 +106,22 @@ object MainForm: TMainForm
       XValues.Order = loAscending
       YValues.Name = 'Y'
       YValues.Order = loNone
+    end
+    object Series1: TPointSeries
+      ColorEachPoint = True
+      Marks.Frame.Visible = False
+      Marks.Transparent = True
+      BeforeDrawValues = Series1BeforeDrawValues
+      ClickableLine = False
+      Pointer.HorizSize = 16
+      Pointer.InflateMargins = True
+      Pointer.Style = psCircle
+      Pointer.VertSize = 16
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+      OnGetPointerStyle = Series1GetPointerStyle
     end
   end
 end
