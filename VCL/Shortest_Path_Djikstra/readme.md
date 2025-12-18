@@ -21,10 +21,12 @@ var
   ShortestPath.MaxDistance:=200;
 
   ...
-  ShortestPath.AddEdge(4,5); // add "roads" between points
+  ShortestPath.UseEdges:=True;
+  ShortestPath.AddEdge(4,5); // add optional "roads" between points
   ...
 
-  AddPath(ShortestPath.Calculate(Start,Finish)); // index of two points
+  // Index of two points: Start --> Finish
+  AddPath(ShortestPath.Calculate(Start,Finish));
 
 procedure AddPath(const APath:Array of Integer);
 var t : Integer;
@@ -46,5 +48,7 @@ end;
   
 ##
 
-<img width="1098" height="818" alt="image" src="https://github.com/user-attachments/assets/464a5cce-e0f3-424f-9e97-fea0523d08c8" />
+<img width="1830" height="1300" alt="image" src="https://github.com/user-attachments/assets/dc67551f-f275-468a-b445-74339a3fd677" />
+
+
 
