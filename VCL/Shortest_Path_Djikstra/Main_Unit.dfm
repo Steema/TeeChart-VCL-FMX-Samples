@@ -18,16 +18,37 @@ object MainForm: TMainForm
     Left = 0
     Top = 0
     Width = 729
-    Height = 41
+    Height = 64
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -6
-    object Label1: TLabel
+    object LPathInfo: TLabel
       Left = 120
       Top = 13
-      Width = 34
+      Width = 51
       Height = 15
-      Caption = 'Label1'
+      Caption = 'LPathInfo'
+    end
+    object Label2: TLabel
+      Left = 341
+      Top = 36
+      Width = 76
+      Height = 15
+      Caption = '&Max Distance: '
+      FocusControl = TrackBar1
+    end
+    object LDistance: TLabel
+      Left = 583
+      Top = 36
+      Width = 18
+      Height = 15
+      Caption = '200'
+    end
+    object LTotalLength: TLabel
+      Left = 120
+      Top = 34
+      Width = 68
+      Height = 15
+      Caption = 'LTotalLength'
     end
     object Button1: TButton
       Left = 16
@@ -39,7 +60,7 @@ object MainForm: TMainForm
       OnClick = Button1Click
     end
     object CBEdges: TCheckBox
-      Left = 344
+      Left = 341
       Top = 13
       Width = 118
       Height = 17
@@ -50,7 +71,7 @@ object MainForm: TMainForm
       OnClick = CBEdgesClick
     end
     object CBWeights: TCheckBox
-      Left = 583
+      Left = 558
       Top = 13
       Width = 122
       Height = 17
@@ -59,20 +80,35 @@ object MainForm: TMainForm
       OnClick = CBWeightsClick
     end
     object CBDirection: TCheckBox
-      Left = 468
+      Left = 465
       Top = 13
-      Width = 97
+      Width = 87
       Height = 17
       Caption = 'Both Ways'
+      Checked = True
+      State = cbChecked
       TabOrder = 3
       OnClick = CBDirectionClick
+    end
+    object TrackBar1: TTrackBar
+      Left = 423
+      Top = 36
+      Width = 154
+      Height = 22
+      Max = 2000
+      PageSize = 250
+      Frequency = 75
+      Position = 200
+      TabOrder = 4
+      ThumbLength = 12
+      OnChange = TrackBar1Change
     end
   end
   object Chart1: TChart
     Left = 0
-    Top = 41
+    Top = 64
     Width = 729
-    Height = 473
+    Height = 450
     Legend.Visible = False
     Title.Text.Strings = (
       'XY ')
@@ -80,6 +116,8 @@ object MainForm: TMainForm
     Align = alClient
     TabOrder = 1
     OnMouseUp = Chart1MouseUp
+    ExplicitTop = 41
+    ExplicitHeight = 473
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object SeriesPath: TLineSeries

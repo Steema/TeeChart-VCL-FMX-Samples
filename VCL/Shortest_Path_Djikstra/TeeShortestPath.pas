@@ -6,6 +6,12 @@
 unit TeeShortestPath;
 {$I TeeDefs.inc}
 
+{
+
+  https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+}
+
 interface
 
 type
@@ -39,11 +45,16 @@ type
     function Count:Integer; inline;
   public
     Edges : Array of TEdges;  // For each point, an optional array of edges to other points
-    MaxDistance : TDistance;  // When there are no Edges, use a Max distance limit to follow the path
+
+    MaxDistance : TDistance;  // When there are no Edges, use a Max distance between one point and the next as a limit
     Points : Array of TPoint; // The source XY points
     Weights : Array of TDistance;  // Optional, one value associated to each point
 
+    EdgesBothWays,  // Consider edges all as both-way direction
+    UseEdges,       // Use the Edges to limit jumps from one point to another
     UseWeights : Boolean; // When True, the shortest path will be the "cheapest" path (with less Weights)
+
+    Output : TPointsPath; // The last calculated path (array of point indexes from Start to Finish)
 
     Constructor Create;
     Destructor Destroy; override;
@@ -59,6 +70,8 @@ type
     class function Distance(const X0,Y0,X1,Y1:TCoordinate): TDistance; overload; static;
 
     function Distance(const A,B:TIndex):TDistance; overload; // between points
+
+    function TotalDistance:TDistance; // The total distance of the last calculated path
   end;
 
 implementation
@@ -71,6 +84,9 @@ uses
 Constructor TShortestPath.Create;
 begin
   inherited Create;
+
+  UseEdges:=True;
+  UseWeights:=True;
 
   MaxDistance:=MaxSingle;
 end;
@@ -91,6 +107,19 @@ function TShortestPath.Distance(const A, B: TIndex): TDistance;
 begin
   result:=Distance(Points[A].X,Points[A].Y,
                    Points[B].X,Points[B].Y);
+
+  if UseWeights and (Weights<>nil) then
+     result:=result+Weights[B];  // add the cost of passing through B
+end;
+
+ // The total distance of the last calculated path
+function TShortestPath.TotalDistance: TDistance;
+var t : Integer;
+begin
+  result:=0;
+
+  for t:=1 to High(Output) do
+      result:=result+Distance(Output[t-1],Output[t]);
 end;
 
 // Algorithm based on Dijkstra "A"
@@ -104,6 +133,7 @@ type
     Index : TIndex;
   end;
 
+  // Basic priority binary-heap tree
   TQueue=record
   public
     Items : Array of TDistanceTo;
@@ -120,7 +150,7 @@ var
 
   rootDist : TDistance;
 begin
-  Result := Items[0].Distance;
+  result := Items[0].Distance;
   node   := Items[0].Index;
 
   Dec(Count);
@@ -135,7 +165,7 @@ begin
 
   while True do
   begin
-    child := pqHead*2 + 1;
+    child := (pqHead*2) + 1;
 
     if child >= Count then
        Break;
@@ -199,14 +229,15 @@ end;
 // Returns the shortest path from AStart to AFinish
 function TShortestPath.Calculate(const AStart,AFinish:Integer): TPointsPath;
 var
-  Neighbors : Array of Array of TIndex;
   Distances : Array of TDistance;
   Previous : Array of Integer;
 
+  // Clear and initialize the calculation variables
   procedure Init;
   var t : Integer;
   begin
-    SetLength(Neighbors,Count);
+    Output:=nil;
+
     SetLength(Distances,Count);
     SetLength(Previous,Count);
 
@@ -223,8 +254,11 @@ var
   begin
     for t:=Low(AItems) to High(AItems) do
         if (AItems[t].ToIndex=AElement) and
-           ( (AItems[t].Direction=TEdgeDirection.BothWays) or
+           (
+             EdgesBothWays or
+             (AItems[t].Direction=TEdgeDirection.BothWays) or
              (AItems[t].Direction=TEdgeDirection.ToWay)
+
            ) then
         begin
           result:=True;
@@ -258,7 +292,8 @@ begin
 
   while Queue.Count>0 do
   begin
-    Distances[u]:=Queue.GetMinimum(u);
+    d:=Queue.GetMinimum(u);
+    Distances[u]:=d;
 
     if u = AFinish then
        Break;
@@ -267,7 +302,7 @@ begin
     begin
       if v = u then Continue;
 
-      if (Edges=nil) or ExistsEdge(u,v) then
+      if (not UseEdges) or (Edges=nil) or ExistsEdge(u,v) then
          d := Distance(u, v)
       else
          Continue;
@@ -290,13 +325,15 @@ begin
      Exit;
 
   // Create the resulting path
-  u := AFinish;
 
-  while u <> MissingFlag do
-  begin
-    Insert(u,result,0);
-    u := Previous[u];
-  end;
+  u:=AFinish;
+
+  repeat
+    Insert(u,Output,0);
+    u:=Previous[u];
+  until u=MissingFlag;
+
+  result:=Output;
 end;
 
 end.

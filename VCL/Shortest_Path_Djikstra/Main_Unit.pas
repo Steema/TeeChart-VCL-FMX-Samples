@@ -21,7 +21,7 @@ uses
 
   TeEngine, Series, TeeProcs, Chart,
 
-  TeeShortestPath, VCLTee.BubbleCh;
+  TeeShortestPath, Vcl.ComCtrls;
 
 type
   TMainForm = class(TForm)
@@ -30,11 +30,15 @@ type
     SeriesPath: TLineSeries;
     Button1: TButton;
     StartFinish: TPointSeries;
-    Label1: TLabel;
+    LPathInfo: TLabel;
     CBEdges: TCheckBox;
     CBWeights: TCheckBox;
     Series1: TPointSeries;
     CBDirection: TCheckBox;
+    Label2: TLabel;
+    TrackBar1: TTrackBar;
+    LDistance: TLabel;
+    LTotalLength: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure CBEdgesClick(Sender: TObject);
@@ -46,6 +50,7 @@ type
     function Series1GetPointerStyle(Sender: TChartSeries;
       ValueIndex: Integer): TSeriesPointerStyle;
     procedure CBDirectionClick(Sender: TObject);
+    procedure TrackBar1Change(Sender: TObject);
   private
     { Private declarations }
 
@@ -85,6 +90,7 @@ procedure TMainForm.AddPath(const APath:Array of Integer);
 var t : Integer;
 begin
   SeriesPath.Clear;
+  SeriesPath.XValues.Order:=loNone;
 
   for t in APath do
       AddPoint(SeriesPath,Series1,t);
@@ -105,6 +111,9 @@ end;
 // Calculate the shortest path from Start to Finish, and add it to Chart
 procedure TMainForm.CalculatePath;
 begin
+  if (Start=-1) or (Finish=-1) then
+     Exit;
+
   AddPath(ShortestPath.Calculate(Start,Finish));
 
   // Highlight in red the Start and Finish points
@@ -113,7 +122,8 @@ begin
   AddPoint(StartFinish,Series1,Finish);
 
   // Show at label
-  Label1.Caption:='Start: '+IntToStr(Start)+' Finish: '+IntToStr(Finish)+ ' Hops: '+IntToStr(SeriesPath.Count);
+  LPathInfo.Caption:='Start: '+IntToStr(Start)+' Finish: '+IntToStr(Finish)+ ' Hops: '+IntToStr(SeriesPath.Count);
+  LTotalLength.Caption:='Total length: '+FormatFloat('0.#',ShortestPath.TotalDistance);
 end;
 
 // Add some random edges between nearby points, so the path will be calculated with
@@ -123,6 +133,8 @@ var t,tt : Integer;
     Distance : TDistance;
     Direction : TEdgeDirection;
 begin
+  ShortestPath.ClearEdges;
+
   for t:=0 to Series1.Count-1 do
       for tt:=t+1 to Series1.Count-1 do
       begin
@@ -130,10 +142,7 @@ begin
 
         if Distance<ShortestPath.MaxDistance then
         begin
-          if CBDirection.Checked then
-             Direction:=TEdgeDirection.BothWays
-          else
-             Direction:=TEdgeDirection(Random(Ord(High(TEdgeDirection))));
+          Direction:=TEdgeDirection(Random(1+Ord(High(TEdgeDirection))));
 
           ShortestPath.AddEdge(t,tt,Direction);
 
@@ -146,22 +155,20 @@ end;
 // Show or hide edges (roads), use them to calculate the path
 procedure TMainForm.CBDirectionClick(Sender: TObject);
 begin
-  CBEdgesClick(Self);
+  ShortestPath.EdgesBothWays:=CBDirection.Checked;
+
+  CalculatePath;
 end;
 
 procedure TMainForm.CBEdgesClick(Sender: TObject);
 begin
   CBDirection.Enabled:=CBEdges.Checked;
 
+  ShortestPath.UseEdges:=CBEdges.Checked;
+
   ShowGrids;
 
-  ShortestPath.ClearEdges;
-
-  if CBEdges.Checked then
-     AddEdges;
-
-  if (Start<>-1) and (Finish<>-1) then
-     CalculatePath;
+  CalculatePath;
 
   Chart1.Invalidate;
 end;
@@ -197,16 +204,15 @@ end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  Label1.Caption:='';
+  RandSeed:=12345678;  // just to obtain repeated random values at each run
+
+  LPathInfo.Caption:='';
+  LTotalLength.Caption:='';
 
   Chart1.Color:=clWhite;
   Chart1.Align:=alClient;
 
   ShowGrids;
-
-  // Initialize path points
-  Start:=-1;
-  Finish:=-1;
 
   StartFinish.Pointer.Size:=18;
 
@@ -215,8 +221,16 @@ begin
   // Create the algorithm class
   ShortestPath:=TShortestPath.Create;
   ShortestPath.MaxDistance:=200;
+  ShortestPath.UseEdges:=True;
+  ShortestPath.UseWeights:=False;
 
   InitRandomPoints;
+
+  // Initialize path points
+  Start:=11;
+  Finish:=21;
+
+  CalculatePath;
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
@@ -242,42 +256,51 @@ begin
     ShortestPath.Weights[t]:= Random(50);
   end;
 
-  if CBEdges.Checked then
-     AddEdges;
+  AddEdges;
 end;
 
 // Cosmetics, draw edges
 procedure TMainForm.Series1BeforeDrawValues(Sender: TObject);
-var t : Integer;
-    Mid, FromPoint, ToPoint : TPoint;
-    Edge : TEdge;
-begin
-  Chart1.Canvas.Pen.Color:=RGB(160,160,160); // Light silver
-  Chart1.Canvas.Pen.Width:=1;
-  Chart1.Canvas.Pen.Style:=psSolid;
 
-  for t:=0 to High(ShortestPath.Edges) do
+  procedure DrawEdges;
+  var t : Integer;
+      Mid, FromPoint, ToPoint : TPoint;
+      Edge : TEdge;
   begin
-    FromPoint.X:=Series1.CalcXPos(t);
-    FromPoint.Y:=Series1.CalcYPos(t);
+    Chart1.Canvas.Pen.Color:=RGB(140,140,140); // Light silver
+    Chart1.Canvas.Pen.Width:=1;
+    Chart1.Canvas.Pen.Style:=psSolid;
 
-    for Edge in ShortestPath.Edges[t] do
+    for t:=0 to High(ShortestPath.Edges) do
     begin
-      ToPoint.X:=Series1.CalcXPos(Edge.ToIndex);
-      ToPoint.Y:=Series1.CalcYPos(Edge.ToIndex);
+      FromPoint.X:=Series1.CalcXPos(t);
+      FromPoint.Y:=Series1.CalcYPos(t);
 
-      Chart1.Canvas.Line(FromPoint,ToPoint);
-
-      if Edge.Direction<>TEdgeDirection.BothWays then
+      for Edge in ShortestPath.Edges[t] do
       begin
-        // Draw arrows at line midpoint
-        Mid.X:=(FromPoint.X+ToPoint.X) div 2;
-        Mid.Y:=(FromPoint.Y+ToPoint.Y) div 2;
+        ToPoint.X:=Series1.CalcXPos(Edge.ToIndex);
+        ToPoint.Y:=Series1.CalcYPos(Edge.ToIndex);
 
-        Chart1.Canvas.Ellipse(Mid.X-2,Mid.Y-2,Mid.X+2,Mid.Y+2);
+        Chart1.Canvas.Line(FromPoint,ToPoint);
+
+        if Edge.Direction<>TEdgeDirection.BothWays then
+        begin
+          // Draw arrows at line midpoint
+          Mid.X:=(FromPoint.X+ToPoint.X) div 2;
+          Mid.Y:=(FromPoint.Y+ToPoint.Y) div 2;
+
+          if Edge.Direction=TEdgeDirection.FromWay then
+             Chart1.Canvas.Arrow(False,FromPoint,Mid,14,14,0)
+          else
+             Chart1.Canvas.Arrow(False,Mid,ToPoint,14,14,0);
+        end;
       end;
     end;
   end;
+
+begin
+  if ShortestPath.UseEdges then
+     DrawEdges;
 end;
 
 function TMainForm.Series1GetPointerStyle(Sender: TChartSeries;
@@ -286,7 +309,7 @@ begin
   result:=psCircle;
 
   if CBWeights.Checked then
-     Series1.Pointer.SizeFloat:=8+(ShortestPath.Weights[ValueIndex]/3)
+     Series1.Pointer.SizeFloat:=8+(ShortestPath.Weights[ValueIndex]/2)
   else
      Series1.Pointer.SizeFloat:=14;
 end;
@@ -302,6 +325,7 @@ begin
   Chart1.ColorPaletteIndex:=6;
 
   Series1.Marks.Show;
+  Series1.Marks.Font.Size:=6;
   Series1.Marks.Style:=smsPointIndex;
   Series1.Marks.Arrow.Hide;
   Series1.Marks.ArrowLength:=-8;
@@ -315,6 +339,14 @@ begin
 
   Chart1.Axes.Right.Grid.Hide;
   Chart1.Axes.Top.Grid.Hide;
+end;
+
+procedure TMainForm.TrackBar1Change(Sender: TObject);
+begin
+  ShortestPath.MaxDistance:=TrackBar1.Position;
+  LDistance.Caption:=FloatToStr(ShortestPath.MaxDistance);
+
+  CalculatePath;
 end;
 
 end.
