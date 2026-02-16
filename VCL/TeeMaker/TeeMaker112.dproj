@@ -148,7 +148,7 @@
 						<VersionInfoKeys Name="FileDescription">TeeMaker v2</VersionInfoKeys>
 						<VersionInfoKeys Name="FileVersion">2.0.1.48</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">TeeMaker</VersionInfoKeys>
-						<VersionInfoKeys Name="LegalCopyright">Copyright 2000-2025 by David Berneda.</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Copyright 2000-2026 by David Berneda.</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>
 						<VersionInfoKeys Name="OriginalFilename">TeeMaker.exe</VersionInfoKeys>
 						<VersionInfoKeys Name="ProductName">TeeMaker</VersionInfoKeys>

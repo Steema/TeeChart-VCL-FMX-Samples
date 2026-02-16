@@ -1,6 +1,6 @@
 {**********************************************}
 {  Texture Selector dialog                     }
-{  Copyright (c) 2007-2025 by Steema Software  }
+{  Copyright (c) 2007-2026 by Steema Software  }
 {**********************************************}
 unit TeeTextureSelector;
 {$I TeeDefs.inc}

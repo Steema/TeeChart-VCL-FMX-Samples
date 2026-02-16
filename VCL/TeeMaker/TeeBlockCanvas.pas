@@ -1,6 +1,6 @@
 {********************************************}
 {    TeeChart Pro Block Canvas               }
-{ Copyright (c) 2007-2025 by Steema Software }
+{ Copyright (c) 2007-2026 by Steema Software }
 {       All Rights Reserved                  }
 {********************************************}
 unit TeeBlockCanvas;

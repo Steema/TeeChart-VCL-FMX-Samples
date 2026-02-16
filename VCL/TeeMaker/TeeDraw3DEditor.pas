@@ -2,7 +2,7 @@
 {   TeeChart Pro Component Library             }
 {   TDraw3D editor dialog                      }
 {                                              }
-{   Copyright (c) 2001-2025 by Steema Software }
+{   Copyright (c) 2001-2026 by Steema Software }
 {   All Rights Reserved                        }
 {**********************************************}
 unit TeeDraw3DEditor;

@@ -1,37 +1,37 @@
 {******************************************************************}
-{                                                       	   }
-{       Borland Delphi Runtime Library                  	   }
+{                                                                  }
+{       Borland Delphi Runtime Library                             }
 {       Performance Data Helper Messages interface unit            }
-{ 								   }
-{ Portions created by Microsoft are 				   }
-{ Copyright (C) 1995-2025 Microsoft Corporation. 		   }
-{ All Rights Reserved. 						   }
-{ 								   }
-{ The original file is: PdhMsg.pas, released 3 Dec 1999. 	   }
+{                                                                  }
+{ Portions created by Microsoft are                                }
+{ Copyright (C) 1995-2026 Microsoft Corporation.                   }
+{ All Rights Reserved.                                             }
+{                                                                  }
+{ The original file is: PdhMsg.pas, released 3 Dec 1999.           }
 { The original Pascal code is: PdhMsg.pas, released 3 Dec 1999.    }
 { The initial developer of the Pascal code is Marcel van Brakel    }
-{ (brakelm@chello.nl).                      			   }
-{ 								   }
-{ Portions created by Marcel van Brakel are			   }
-{ Copyright (C) 1999 Marcel van Brakel.				   }
-{ 								   }
-{ Obtained through:                               	           }
+{ (brakelm@chello.nl).                                             }
+{                                                                  }
+{ Portions created by Marcel van Brakel are                        }
+{ Copyright (C) 1999 Marcel van Brakel.                            }
+{                                                                  }
+{ Obtained through:                                                }
 { Joint Endeavour of Delphi Innovators (Project JEDI)              }
-{								   }
+{                                                                  }
 { You may retrieve the latest version of this file at the Project  }
 { JEDI home page, located at http://delphi-jedi.org                }
-{								   }
+{                                                                  }
 { The contents of this file are used with permission, subject to   }
 { the Mozilla Public License Version 1.1 (the "License"); you may  }
 { not use this file except in compliance with the License. You may }
 { obtain a copy of the License at                                  }
-{ http://www.mozilla.org/NPL/NPL-1_1Final.html 	                   }
+{ http://www.mozilla.org/NPL/NPL-1_1Final.html                     }
 {                                                                  }
-{ Software distributed under the License is distributed on an 	   }
+{ Software distributed under the License is distributed on an      }
 { "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or   }
 { implied. See the License for the specific language governing     }
-{ rights and limitations under the License. 			   }
-{ 								   }
+{ rights and limitations under the License.                        }
+{                                                                  }
 {******************************************************************}
 
 unit PdhMsg;
