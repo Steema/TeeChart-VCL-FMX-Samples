@@ -9,9 +9,9 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
   Vcl.StdCtrls,
 
-  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart,
+  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.TeCanvas,
 
-  TeeFlameSeries;
+  TeeFlameSeries, VCLTee.TeePenDlg;
 
 type
   TFormFlame = class(TForm)
@@ -19,6 +19,9 @@ type
     Chart1: TChart;
     CBLegend: TCheckBox;
     LabelMouse: TLabel;
+    ButtonColor1: TButtonColor;
+    ButtonColor2: TButtonColor;
+    ButtonPen1: TButtonPen;
     procedure FormCreate(Sender: TObject);
     procedure CBLegendClick(Sender: TObject);
     procedure Chart1MouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -67,11 +70,14 @@ begin
 
   Flame1.Brush.Gradient.StartColor:=clYellow;
 
+  TryAdding_ChartEditors(Chart1,Self);
+
+  // Cosmetic
   CBLegendClick(Self);
 
-  Chart1.Axes.Bottom.Texts.Style:=talValue;
-
-  TryAdding_ChartEditors(Chart1,Self);
+  ButtonColor1.LinkProperty(Flame1.Brush.Gradient,'StartColor');
+  ButtonColor2.LinkProperty(Flame1.Brush.Gradient,'EndColor');
+  ButtonPen1.LinkPen(Flame1.Pen);
 end;
 
 end.

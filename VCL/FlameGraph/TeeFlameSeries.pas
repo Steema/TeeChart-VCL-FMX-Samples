@@ -18,14 +18,18 @@ type
     procedure AddSampleValues(NumValues:Integer; OnlyMandatory:Boolean=False); override;
     procedure DrawValue(ValueIndex:Integer); override; { <-- main draw method }
   protected
+    MaxDepth : Integer;
+
     function BoundsOf(const AValueIndex:Integer):TRect;
     function ColorOf(const AValueIndex: Integer):TColor;
     function DepthOf(const AValueIndex:Integer):Integer;
+    procedure DrawMark(ValueIndex: Integer; const St: String;
+                       APosition: TSeriesMarkPosition); override;
     function GetValueColor(ValueIndex:Integer):TColor; override;
+    procedure SetParentChart(const Value: TCustomAxisPanel); override;
     function TotalOfParent(const AValueIndex:Integer):TChartValue;
     function ValueOffset(const AValueIndex:Integer):TChartValue;
   public
-    MaxDepth : Integer;
     Parents : Array of Integer; // -1 = no parent (root node)
 
     Constructor Create(AOwner: TComponent); override;
@@ -50,26 +54,30 @@ type
 implementation
 
 uses
-  UITypes, TeeProcs;
+  UITypes, TeeProcs, Math;
 
 { TFlameSeries }
 
+// Sample data
 procedure TFlameSeries.AddSampleValues(NumValues: Integer;
   OnlyMandatory: Boolean);
-var tmp1,
-    tmp2 : Integer;
+var tmp1, tmp2, tmp3 : Integer;
 begin
   tmp1:=Add(-1,'TApplication.Run',1290);
 
     tmp2:=Add(tmp1,'TApplication.HandleMessage',870);
-           Add(tmp2,'TApplication.Idle',423);
+           tmp3:=Add(tmp2,'TApplication.Idle',423);
+            Add(tmp3,'TApplication.DoMouseIdle',423);
            Add(tmp2,'TApplication.ProcessMessage',447);
 
     tmp2:=Add(tmp1,'TCustomForm.SetVisible',320);
-           Add(tmp2,'TControl.SetVisible',320);
+           tmp3:=Add(tmp2,'TControl.SetVisible',320);
+            Add(tmp3,'TControl.Perform',300);
+            Add(tmp3,'TCustomForm.RequestAlign',20);
 
-    tmp2:=Add(tmp1,'TApplication.Destroy',100);
-           Add(tmp2,'TObject.Free',100);
+    tmp2:=Add(tmp1,'TObject.Free',100);
+           Add(tmp2,'TApplication.Destroy',90);
+           Add(tmp2,'TCustomForm.Destroy',10);
 end;
 
 Constructor TFlameSeries.Create(AOwner: TComponent);
@@ -80,6 +88,8 @@ begin
 
   Marks.Show;
   Marks.Transparent:=True;
+  Marks.TextAlignment:=taLeftJustify;
+  Marks.Clip:=True;
 
   Brush.Gradient.StartColor:=clYellow;
   Brush.Gradient.EndColor:=clRed;
@@ -166,7 +176,7 @@ begin
      result:=0
   else
   begin
-    result:=0;
+    result:=ValueOffset(tmpParent);
 
     for t:=0 to AValueIndex-1 do
         if Parents[t]=tmpParent then
@@ -224,9 +234,25 @@ Begin
      result:=ColorOf(ValueIndex);
 end;
 
+procedure TFlameSeries.DrawMark(ValueIndex: Integer; const St: String;
+  APosition: TSeriesMarkPosition);
+begin
+  Inc(APosition.LeftTop.X,Round(ParentChart.Canvas.TextWidth(St)*0.5));
+  Inc(APosition.LeftTop.Y,GetVertAxis.CalcSizeValue(0.5));
+
+  if Marks.Clip then
+     ParentChart.Canvas.ClipRectangle(BoundsOf(ValueIndex));
+
+  inherited;
+
+  if Marks.Clip then
+     ParentChart.Canvas.UnClipRectangle;
+end;
+
 procedure TFlameSeries.DrawValue(ValueIndex: Integer);
 var tmpR : TRect;
 begin
+  ParentChart.Canvas.AssignVisiblePen(Pen);
   ParentChart.Canvas.AssignBrush(Brush,ValueColor[ValueIndex]);
 
   tmpR:=BoundsOf(ValueIndex);
@@ -266,11 +292,6 @@ Begin
   end;
 end;
 
-function Max(const A,B:Integer):Integer;
-begin
-  if A>B then result:=A else result:=B;
-end;
-
 // Recursive number of parents of a given AIndex node
 function TFlameSeries.DepthOf(const AValueIndex:Integer):Integer;
 var tmp : Integer;
@@ -298,8 +319,28 @@ begin
   begin
     MaxDepth:=Max(MaxDepth,DepthOf(AParent));
 
-    //Children[AParent,L]:=result;
+    // Children[AParent].Add(result);  <-- keep a cache of children to avoid lookups
   end;
 end;
 
+procedure TFlameSeries.SetParentChart(const Value: TCustomAxisPanel);
+begin
+  inherited;
+
+  if ParentChart<>nil then
+  begin
+//    (ParentChart as TCustomChart).ColorPaletteIndex:=13;
+
+    ParentChart.Axes.Left.Texts.Style:=talNone;
+    ParentChart.Axes.Bottom.Texts.Style:=talValue;
+  end;
+end;
+
+{$IFDEF TEEPRO}
+initialization
+  RegisterTeeSeries( TFlameSeries, @TeeMsg_GalleryFlameSeries,
+                                 @TeeMsg_GalleryExtended, 1);
+finalization
+  UnRegisterTeeSeries([TFlameSeries]);
+{$ENDIF}
 end.

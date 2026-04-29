@@ -10,6 +10,7 @@ object FormFlame: TFormFlame
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poOwnerFormCenter
   OnCreate = FormCreate
   TextHeight = 15
   object Panel1: TPanel
@@ -20,7 +21,6 @@ object FormFlame: TFormFlame
     Align = alTop
     TabOrder = 0
     ExplicitTop = -6
-    ExplicitWidth = 624
     object LabelMouse: TLabel
       Left = 24
       Top = 15
@@ -35,6 +35,24 @@ object FormFlame: TFormFlame
       Caption = 'Legend'
       TabOrder = 0
       OnClick = CBLegendClick
+    end
+    object ButtonColor1: TButtonColor
+      Left = 528
+      Top = 9
+      Width = 28
+      TabOrder = 1
+    end
+    object ButtonColor2: TButtonColor
+      Left = 562
+      Top = 9
+      Width = 28
+      TabOrder = 2
+    end
+    object ButtonPen1: TButtonPen
+      Left = 600
+      Top = 8
+      Caption = 'Pen...'
+      TabOrder = 3
     end
   end
   object Chart1: TChart
@@ -95,9 +113,6 @@ object FormFlame: TFormFlame
     Align = alClient
     TabOrder = 1
     OnMouseMove = Chart1MouseMove
-    ExplicitTop = 36
-    ExplicitWidth = 624
-    ExplicitHeight = 400
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
   end
