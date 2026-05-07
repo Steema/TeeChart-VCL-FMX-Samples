@@ -19,7 +19,7 @@ object Form7: TForm7
     Width = 704
     Height = 852
     Align = alClient
-    Caption = 'Panel1'
+    Caption = ''
     ParentBackground = False
     TabOrder = 0
     object Panel4: TPanel
@@ -28,7 +28,7 @@ object Form7: TForm7
       Width = 702
       Height = 384
       Align = alTop
-      Caption = 'Panel4'
+      Caption = ''
       ParentBackground = False
       TabOrder = 0
       object Chart7: TChart
@@ -297,7 +297,7 @@ object Form7: TForm7
       Width = 702
       Height = 466
       Align = alClient
-      Caption = 'Panel5'
+      Caption = ''
       TabOrder = 1
       object Chart8: TChart
         Left = 1
@@ -413,7 +413,7 @@ object Form7: TForm7
     Width = 488
     Height = 852
     Align = alRight
-    Caption = 'Panel2'
+    Caption = ''
     TabOrder = 1
     object Panel6: TPanel
       Left = 1
@@ -421,7 +421,7 @@ object Form7: TForm7
       Width = 486
       Height = 384
       Align = alTop
-      Caption = 'Panel6'
+      Caption = ''
       TabOrder = 0
       object TeeCommander1: TTeeCommander
         Left = 1
@@ -586,7 +586,7 @@ object Form7: TForm7
       Width = 486
       Height = 466
       Align = alClient
-      Caption = 'Panel7'
+      Caption = ''
       TabOrder = 1
       object Chart6: TChart
         Left = 1
@@ -852,7 +852,7 @@ object Form7: TForm7
     Width = 158
     Height = 852
     Align = alRight
-    Caption = 'Panel3'
+    Caption = ''
     TabOrder = 2
     object Panel8: TPanel
       Left = 1
@@ -860,7 +860,7 @@ object Form7: TForm7
       Width = 156
       Height = 170
       Align = alClient
-      Caption = 'Panel8'
+      Caption = ''
       TabOrder = 0
       object Chart1: TChart
         Left = 1
@@ -978,8 +978,8 @@ object Form7: TForm7
           YValues.Name = 'Y'
           YValues.Order = loNone
           Center.Brush.Color = 9067529
-          Center.Brush.Gradient.Angle = 303
-          Center.Gradient.Angle = 303
+          Center.Brush.Gradient.Angle = 360
+          Center.Gradient.Angle = 360
           Center.HorizSize = 28
           Center.InflateMargins = True
           Center.Pen.Visible = False
@@ -1033,7 +1033,7 @@ object Form7: TForm7
               Format.VertSize = 1
               Format.Distance = 0
               Format.Offset = 100
-              Format.Value = 61.000000000000000000
+              Format.Value = 80.000000000000000000
             end>
           Maximum = 100.000000000000000000
           MinorTicks.Brush.Color = clNone
@@ -1094,7 +1094,7 @@ object Form7: TForm7
           Ticks.VertSize = 10
           Ticks.GaugeStyle = gpTick
           TotalAngle = 300.000000000000000000
-          Value = 61.000000000000000000
+          Value = 80.000000000000000000
           AxisInside = True
         end
       end
@@ -1105,7 +1105,7 @@ object Form7: TForm7
       Width = 156
       Height = 170
       Align = alTop
-      Caption = 'Panel9'
+      Caption = ''
       TabOrder = 1
       object Chart9: TChart
         Left = 1
@@ -1243,7 +1243,7 @@ object Form7: TForm7
       Width = 156
       Height = 170
       Align = alTop
-      Caption = 'Panel10'
+      Caption = ''
       TabOrder = 2
       object Chart4: TChart
         Left = 1
@@ -1381,7 +1381,7 @@ object Form7: TForm7
       Width = 156
       Height = 170
       Align = alTop
-      Caption = 'Panel11'
+      Caption = ''
       TabOrder = 3
       object Chart3: TChart
         Left = 1
@@ -1519,7 +1519,7 @@ object Form7: TForm7
       Width = 156
       Height = 170
       Align = alTop
-      Caption = 'Panel12'
+      Caption = ''
       TabOrder = 4
       object Chart2: TChart
         Left = 1
