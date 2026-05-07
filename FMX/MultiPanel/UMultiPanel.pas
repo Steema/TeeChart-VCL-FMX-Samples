@@ -114,8 +114,8 @@ uses
 function RGB(const R,G,B:Byte):TAlphaColor;
 begin
   TAlphaColorRec(result).R:=R;
-  TAlphaColorRec(result).R:=G;
-  TAlphaColorRec(result).R:=B;
+  TAlphaColorRec(result).G:=G;
+  TAlphaColorRec(result).B:=B;
   TAlphaColorRec(result).A:=1;
 end;
 
@@ -354,6 +354,8 @@ begin
   CircularGauge1.GreenLine.Pen.Visible := False;
   CircularGauge1.GreenLine.Gradient.Visible := False;
   CircularGauge1.GreenLine.Brush.Color := RGB(255, 207, 104); // Light orange/yellow
+  CircularGauge1.GreenLine.Brush.Transparency := 0;
+  CircularGauge1.GreenLine.Visible := True;
 
   CircularGauge1.RedLine.StartValue := 75;
   CircularGauge1.RedLine.Pen.Visible := False;
@@ -452,38 +454,34 @@ procedure TMainForm.ConfigHarmonics;
 begin
   Chart8.Axes.Left.SetMinMax(-1.2, 1.21);
 
-  Chart8.AddSeries(TFastLineSeries.Create(Self));
-
-  Chart8.Series[0].Color := RGB(255, 255, 128);
+  harmonic.Color := TAlphaColorRec.Yellow; // RGB(0, 255, 255);
+  harmonic.LinePen.Width := 0.75;
 
   TFastLineSeries(Chart8.Series[0]).LinePen.Style := TPenStyle.psSolid; //   .UseStyling := False;
 
   FillHarmonic;
+
 end;
 
 procedure TMainForm.ConfigHighLow;
 var
   I: Integer;
 begin
-//  Annotation1.PositionUnits := puPixels;
-//  Annotation2.PositionUnits := puPixels;
-//
-//  Annotation1.Position := apCustom;
-//  Annotation2.Position := apCustom;
 
   Chart6.Axes.Left.Maximum := 1000;
 
-  //HighLow1.HighBrush.Visible := True;
-  HighLow1.HighBrush.Gradient.StartColor := RGB(192, 192, 255);
-  HighLow1.HighBrush.Gradient.EndColor := RGB(128, 128, 255);
+  HighLow1.HighPen.Color := area1.AreaChartBrush.Gradient.StartColor;
+  HighLow1.LowPen.Color := area1.AreaChartBrush.Gradient.EndColor;
 
-  HighLow1.LowBrush.Gradient.StartColor := RGB(128, 128, 255);
-  HighLow1.LowBrush.Gradient.EndColor := RGB(192, 192, 255);
+  HighLow1.HighBrush.Gradient.StartColor := area1.AreaChartBrush.Gradient.StartColor; // RGB(192, 192, 255);
+  HighLow1.HighBrush.Gradient.EndColor := area1.AreaChartBrush.Gradient.EndColor; // RGB(128, 128, 255);
+
+  HighLow1.LowBrush.Gradient.StartColor := area1.AreaChartBrush.Gradient.EndColor; // RGB(128, 128, 255);
+  HighLow1.LowBrush.Gradient.EndColor := area1.AreaChartBrush.Gradient.StartColor; // RGB(192, 192, 255);
 
   HighLow1.HighBrush.Gradient.Visible := True;
   HighLow1.HighBrush.Transparency := 50;
 
-  //HighLow1.LowBrush.Visible := True;
   HighLow1.LowBrush.Gradient.Visible := True;
   HighLow1.LowBrush.Transparency := 50;
 

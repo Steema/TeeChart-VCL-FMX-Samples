@@ -12,7 +12,7 @@ object MainForm: TMainForm
   DesignerMasterStyle = 0
   object Timer1: TTimer
     Enabled = False
-    Interval = 1
+    Interval = 50
     OnTimer = Timer1Timer
     Left = 24
     Top = 24
@@ -216,17 +216,14 @@ object MainForm: TMainForm
         Top = 1
         ColorPaletteIndex = 20
         object area1: TAreaSeries
-          Gradient.EndColor = xFFFF8080
-          Gradient.StartColor = x1AFFFFFF
+          Gradient.EndColor = x5DFFFFFF
+          Gradient.StartColor = xFF80B0FF
           Gradient.Visible = True
           Title = 'area1'
-          AreaBrush = Gradient
-          AreaChartBrush.Color = claGray
-          AreaChartBrush.Kind = Gradient
-          AreaChartBrush.Gradient.EndColor = xFFFF8080
-          AreaChartBrush.Gradient.StartColor = x1AFFFFFF
+          AreaChartBrush.Gradient.EndColor = x5DFFFFFF
+          AreaChartBrush.Gradient.StartColor = xFF80B0FF
           AreaChartBrush.Gradient.Visible = True
-          AreaChartBrush.BackColor = claWhite
+          AreaChartBrush.BackColor = x00FFFFFF
           AreaLinesPen.Visible = False
           DrawArea = True
           LinePen.Visible = False
@@ -471,7 +468,7 @@ object MainForm: TMainForm
       Left = 1
       Top = 1
       object TeeCommander1: TTeeCommander
-        Panel = Chart7
+        Panel = Chart1
         Align = Top
         ParentShowHint = False
         Size.Width = 488.000000000000000000
@@ -1128,8 +1125,8 @@ object MainForm: TMainForm
           YValues.Name = 'Y'
           YValues.Order = loNone
           Center.Brush.Color = xFF8A5C09
-          Center.Brush.Gradient.Angle = 282
-          Center.Gradient.Angle = 282
+          Center.Brush.Gradient.Angle = 213
+          Center.Gradient.Angle = 213
           Center.HorizSize = 27
           Center.InflateMargins = True
           Center.Pen.Visible = False
@@ -1188,7 +1185,7 @@ object MainForm: TMainForm
               Format.VertSize = 1
               Format.Distance = 0
               Format.Offset = 100
-              Format.Value = 54.000000000000000000
+              Format.Value = 31.000000000000000000
             end>
           Maximum = 100.000000000000000000
           MinorTicks.Brush.Color = claNull
@@ -1249,7 +1246,7 @@ object MainForm: TMainForm
           Ticks.VertSize = 10
           Ticks.GaugeStyle = gpTick
           TotalAngle = 300.000000000000000000
-          Value = 54.000000000000000000
+          Value = 31.000000000000000000
           AxisInside = True
         end
       end
