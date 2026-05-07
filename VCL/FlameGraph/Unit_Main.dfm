@@ -20,7 +20,6 @@ object FormFlame: TFormFlame
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitTop = -6
     object LabelMouse: TLabel
       Left = 24
       Top = 15
