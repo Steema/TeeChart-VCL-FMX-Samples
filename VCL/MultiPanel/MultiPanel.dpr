@@ -1,3 +1,8 @@
+{********************************************}
+{ MultiPanel TeeChart realtime demo          }
+{ Copyright (c) 2026 by Steema Software      }
+{ All Rights Reserved                        }
+{********************************************}
 program MultiPanel;
 
 uses

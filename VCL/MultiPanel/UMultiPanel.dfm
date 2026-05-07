@@ -978,8 +978,8 @@ object Form7: TForm7
           YValues.Name = 'Y'
           YValues.Order = loNone
           Center.Brush.Color = 9067529
-          Center.Brush.Gradient.Angle = 147
-          Center.Gradient.Angle = 147
+          Center.Brush.Gradient.Angle = 303
+          Center.Gradient.Angle = 303
           Center.HorizSize = 28
           Center.InflateMargins = True
           Center.Pen.Visible = False
@@ -1033,7 +1033,7 @@ object Form7: TForm7
               Format.VertSize = 1
               Format.Distance = 0
               Format.Offset = 100
-              Format.Value = 9.000000000000000000
+              Format.Value = 61.000000000000000000
             end>
           Maximum = 100.000000000000000000
           MinorTicks.Brush.Color = clNone
@@ -1094,7 +1094,7 @@ object Form7: TForm7
           Ticks.VertSize = 10
           Ticks.GaugeStyle = gpTick
           TotalAngle = 300.000000000000000000
-          Value = 32.000000000000000000
+          Value = 61.000000000000000000
           AxisInside = True
         end
       end
@@ -1654,7 +1654,7 @@ object Form7: TForm7
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 10
+    Interval = 1
     OnTimer = Timer1Timer
     Left = 24
     Top = 16

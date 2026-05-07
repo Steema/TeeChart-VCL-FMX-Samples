@@ -1,3 +1,8 @@
+{********************************************}
+{ MultiPanel TeeChart realtime demo          }
+{ Copyright (c) 2026 by Steema Software      }
+{ All Rights Reserved                        }
+{********************************************}
 unit UMultiPanel;
 
 interface
@@ -11,7 +16,7 @@ uses
   Vcl.StdCtrls, VCLTee.StatChar, VCLTee.TeeTools;
 
 type
-    XArray = Array of Double;
+  XArray = Array of Double;
 
 type
   TForm7 = class(TForm)
@@ -75,6 +80,15 @@ type
     procedure Chart7AfterDraw(Sender: TObject);
   private
     { Private declarations }
+
+    p2, freq, aFactor: double;
+    N1, m, tickCount, Delta, rotateBrake, OneYesOneNo: Integer;
+    cursorX,cursorY : Integer;
+    x : XArray;
+    deltaM : Boolean;
+    fms : TFormatSettings;
+    cursorText : String;
+
     procedure ConfigGauge1;
     procedure ConfigGauge2;
     procedure ConfigGauge3;
@@ -96,18 +110,17 @@ type
 
 var
   Form7: TForm7;
-  p2, freq, aFactor: double;
-  N1, m, tickCount, Delta, rotateBrake, OneYesOneNo: Integer;
-  cursorX,cursorY : Integer;
-  x : XArray;
-  deltaM : Boolean;
-  fms : TFormatSettings;
-  cursorText : String;
-
 
 implementation
 
 {$R *.dfm}
+
+{.$DEFINE TEESKIA}
+
+{$IFDEF TEESKIA}
+uses
+  VCLTee.TeeSkia;
+{$ENDIF}
 
 procedure TForm7.AddHighLow;
 var
@@ -143,13 +156,15 @@ end;
 
 procedure TForm7.AddToMultiSeries;
 var
-  Delta1, Delta2, Delta3: Double;
+  Delta1,
+  //Delta2,
+  Delta3: Double;
   NewAreaVal, NewLine1Val, NewLine2Val: Double;
   TimeStamp: Double;
   LastAreaX: Double;
 begin
   Delta1 := Random * 350;
-  Delta2 := Random * 350; // (kept although unused, like original)
+  //Delta2 := Random * 350; // (kept although unused, like original)
   Delta3 := (Random * 350) + 10;
 
   NewAreaVal  := Area1.YValues.Last + IfThen(Area1.YValues.Last > 449, -Delta1, Delta1);
@@ -619,6 +634,17 @@ begin
 end;
 
 procedure TForm7.FormShow(Sender: TObject);
+
+  {$IFDEF TEESKIA}
+  procedure EnableSkiaCharts;
+  var t : Integer;
+  begin
+    for t:=0 to ComponentCount-1 do
+        if Components[t] is TCustomTeePanel then
+           TCustomTeePanel(Components[t]).Canvas:=TTeeSkiaCanvas.Create;
+  end;
+  {$ENDIF}
+
 begin
   SetLength(x,3000);
   N1 := 3000;
@@ -661,6 +687,10 @@ begin
   ConfigSurface;
   ConfigMultiSeries;
   ConfigHarmonics;
+
+  {$IFDEF TEESKIA}
+  EnableSkiaCharts;
+  {$ENDIF}
 end;
 
 procedure TForm7.ModGauges;
