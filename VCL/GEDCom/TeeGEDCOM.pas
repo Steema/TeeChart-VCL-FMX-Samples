@@ -1,0 +1,1130 @@
+{ Steema Software 2026 }
+{ www.steema.com }
+
+
+{ GEDCOM Reader from *.ged file, returns record structures.
+
+  https://www.gedcom.org/
+
+  Note: This is not a full implementation of the GEDCom file format, but can
+        read most GED files from several sites, like:
+
+        Ancestry
+        FamilySearch
+        MyHeritage
+        GeneatNet
+        GetMatch
+
+        etc
+
+}
+
+unit TeeGEDCOM;
+{$SCOPEDENUMS ON}
+
+interface
+
+uses
+  Classes;
+
+type
+  TSex=(Male,Female,Unknown);
+
+  TDateStyle=(Unknown,Exact,Estimated,About,Before,After,Between,From);
+
+  TDateParts=record
+  public
+    Value : TDateTime;
+    Day, Month, Year : Boolean;
+
+    procedure Clear;
+    function ToString:String;
+  end;
+
+  TGEDDate=record
+  public
+    Start,
+    Finish : TDateParts;
+    Style : TDateStyle;
+
+    procedure Clear;
+    function ToString:String;
+  end;
+
+  TDatePlaceNote=record
+  public
+    Date : TGEDDate;
+    Place : String;
+    Note : String;
+    Source : String;
+
+    procedure Clear;
+  end;
+
+  TBirth=TDatePlaceNote;
+  TDeath=TDatePlaceNote;
+  TBaptism=TDatePlaceNote;
+
+  TOccupation=record
+  public
+    Profession : String;
+    DatePlace : TDatePlaceNote;
+
+    procedure Clear;
+  end;
+
+  TResidence=TDatePlaceNote;
+
+  TBurial=TDatePlaceNote;
+
+  TEvent=record
+  public
+    EventType : String;
+    Event : TDatePlaceNote;
+
+    procedure Clear;
+  end;
+
+  TNaturalized=TDatePlaceNote;
+
+  TAdopted=record
+  public
+    Family : Integer;
+    Date : TGEDDate;
+    Style : String;
+
+    procedure Clear;
+  end;
+
+  TIndividual=record
+  public
+    Code : Integer;
+    Name,
+    Surname : String;
+
+    Sex : TSex;
+
+    Baptism : TBaptism;
+    Birth : TBirth;
+    Burial: TBurial;
+
+    Dead : Boolean;
+    Death : TDeath;
+    Note : String;
+
+    Occupation : TOccupation;
+    Residence : TResidence;
+
+    Naturalized : TNaturalized;
+    Source : String;
+    Title : String;
+    Adopted : TAdopted;
+
+    ChildOf : Integer;
+    SpouseOf : TArray<Integer>;
+
+    Events : TArray<TEvent>;
+
+    procedure Clear;
+  end;
+
+  TMarriageType=(Unknown,Marriage,MarriageC);
+
+  TMarriage=record
+  public
+    MarriageType : TMarriageType;
+    Value : TDatePlaceNote;
+
+    procedure Clear;
+  end;
+
+  TSeparation=TDatePlaceNote;
+  TDivorce=TDatePlaceNote;
+
+  TFamily=record
+  public
+    Code : Integer;
+    Husband : Integer;
+    Wife : Integer;
+    Children : TArray<Integer>;
+    Marriage : TMarriage;
+    Separation : TSeparation;
+    Divorce : TDivorce;
+
+    Events : TArray<TEvent>;
+
+    procedure Clear;
+  end;
+
+  TGEDLoadProc=procedure(Line:Integer; const S:String) of object;
+
+  TGEDCom=record
+  public
+    Individuals : TArray<TIndividual>;
+    Families : TArray<TFamily>;
+
+    OnUnknownTag : TGEDLoadProc;
+
+    procedure Clear;
+
+    function FindInFamilies(const AIndi:Integer):Integer;
+    procedure LoadFrom(const ALines:TStrings); overload;
+    procedure LoadFrom(const AFile:String); overload;
+  end;
+
+implementation
+
+uses
+  SysUtils,
+  IOUtils;
+
+procedure TGEDCom.Clear;
+begin
+  Individuals:=nil;
+  Families:=nil;
+end;
+
+procedure TGEDCom.LoadFrom(const ALines:TStrings);
+var
+  Start:Integer;
+
+  procedure DoError(const S:String); // noreturn;
+  begin
+    raise Exception.Create(Start.ToString+' '+S);
+  end;
+
+  procedure SkipTo(Level:Integer);
+  var s : String;
+  begin
+    while Start+1<ALines.Count do
+    begin
+      s:=ALines[Start+1];
+
+      if Copy(s,1,1)<=Level.ToString then
+         break
+      else
+         Inc(Start);
+    end;
+  end;
+
+  function PosOf(const ATag:String; const S:TArray<String>):Integer;
+  var t : Integer;
+  begin
+    for t:=0 to High(s) do
+        if S[t].ToUpper=ATag then
+           Exit(t);
+
+    result:=-1;
+  end;
+
+  function CodeOf(const ID:String):Integer;
+  begin
+    result:=Copy(ID.Replace('@',''),2,Length(ID)).ToInteger;
+  end;
+
+  function GetLevel(const S:String):Integer;
+  var i : Integer;
+      tmp : String;
+  begin
+    result:=-1;
+
+    i:=Pos(' ',s);
+
+    if i=0 then
+       DoError('Wrong: '+s)
+    else
+    begin
+      tmp:=Copy(s,1,i-1);
+
+      if not Integer.TryParse(tmp,result) then
+         DoError('Wrong level: '+tmp);
+    end;
+  end;
+
+  function ReadDate(const S:String):TGEDDate;
+
+    function MonthOf(S:String):Integer;
+    begin
+      S:=S.ToUpper;
+
+      if S='JAN' then result:=1 else
+      if S='FEB' then result:=2 else
+      if S='MAR' then result:=3 else
+      if S='APR' then result:=4 else
+      if S='MAY' then result:=5 else
+      if S='JUN' then result:=6 else
+      if S='JUL' then result:=7 else
+      if S='AUG' then result:=8 else
+      if S='SEP' then result:=9 else
+      if S='OCT' then result:=10 else
+      if S='NOV' then result:=11 else
+      if S='DEC' then result:=12 else
+      begin
+        DoError('Wrong month: '+s);
+        result:=0;
+      end;
+    end;
+
+    function DateParts(const SS:TArray<String>; const AFrom,ATo:Integer):TDateParts;
+    var L : Integer;
+    begin
+      L:=ATo-AFrom+1;
+
+      if L>2 then
+      begin
+        result.Value:=EncodeDate(ss[AFrom+2].ToInteger,MonthOf(ss[AFrom+1]),ss[AFrom].ToInteger);
+        result.Day:=True;
+        result.Month:=True;
+        result.Year:=True;
+      end
+      else
+      if L>1 then
+      begin
+        // Trick:
+        if Copy(ss[AFrom],1,1)='(' then
+        begin
+          // (29 DEC)
+          result.Value:=EncodeDate(1,MonthOf(ss[AFrom+1].Replace(')','')),ss[AFrom].Replace('(','').ToInteger);
+          result.Day:=True;
+          result.Month:=True;
+          result.Year:=False;
+        end
+        else
+        begin
+          // DEC 1929
+          result.Value:=EncodeDate(ss[AFrom+1].ToInteger,MonthOf(ss[AFrom]),1);
+          result.Day:=False;
+          result.Month:=True;
+          result.Year:=True;
+        end;
+      end
+      else
+      begin
+        result.Value:=EncodeDate(ss[AFrom].ToInteger,1,1);
+        result.Day:=False;
+        result.Month:=False;
+        result.Year:=True;
+      end;
+    end;
+
+  var ss : TArray<String>;
+      tmp : Integer;
+  begin
+    result.Clear;
+
+    ss:=s.Split([' ']);
+
+    result.Style:=TDateStyle.Exact;
+
+    if High(ss)>-1 then
+    begin
+      ss[0]:=ss[0].ToUpper;
+
+      if ss[0]='EST' then
+         result.Style:=TDateStyle.Estimated
+      else
+      if ss[0]='ABT' then
+         result.Style:=TDateStyle.About
+      else
+      if ss[0]='BET' then
+         result.Style:=TDateStyle.Between
+      else
+      if ss[0]='AFT' then
+         result.Style:=TDateStyle.After
+      else
+      if ss[0]='BEF' then
+         result.Style:=TDateStyle.Before
+      else
+      if ss[0]='FROM' then
+         result.Style:=TDateStyle.From;
+
+      if result.Style<>TDateStyle.Exact then
+         Delete(ss,0,1);
+    end;
+
+    case result.Style of
+      TDateStyle.Estimated,
+      TDateStyle.About,
+      TDateStyle.Exact,
+      TDateStyle.After,
+      TDateStyle.Before : result.Start:=DateParts(ss,0,High(ss));
+
+      TDateStyle.Between :
+          begin
+            tmp:=PosOf('AND',ss);
+
+            result.Start:=DateParts(ss,0,tmp-1);
+            result.Finish:=DateParts(ss,tmp+1,High(ss));
+          end;
+
+      TDateStyle.From :
+          begin
+            tmp:=PosOf('TO',ss);
+
+            result.Start:=DateParts(ss,0,tmp-1);
+            result.Finish:=DateParts(ss,tmp+1,High(ss));
+          end;
+
+     else
+        DoError('TODO: '+s);
+     end;
+  end;
+
+  function TryReadConc(UpToLevel:Integer):String;
+  var Tag, s : String;
+      i, Level : Integer;
+  begin
+    result:='';
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level<UpToLevel then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=UpToLevel then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          Tag:=Copy(s,1,i-1);
+
+          if (Tag='CONC') or (Tag='CONT') then
+          begin
+            Delete(s,1,i);
+            result:=result+s;
+          end
+          else
+            DoError('Wrong: '+s);
+        end;
+      end
+      else
+        DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+  function ReadDatePlaceNote:TDatePlaceNote;
+  var s, Tag : String;
+      i : Integer;
+      Level : Integer;
+  begin
+    result.Date.Clear;
+    result.Place:='';
+    result.Note:='';
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level<2 then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=2 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          Tag:=Copy(s,1,i-1);
+
+          if Tag='DATE' then
+             result.Date:=ReadDate(Copy(s,i+1,Length(s)))
+          else
+          if Tag='PLAC' then
+          begin
+            Delete(s,1,i);
+            result.Place:=s;
+          end
+          else
+          if Tag='NOTE' then
+          begin
+            Delete(s,1,i);
+            result.Note:=s+TryReadConc(3);
+          end
+          else
+          if Tag='SOUR' then
+          begin
+            Delete(s,1,i);
+            result.Source:=s;
+            SkipTo(1);  // 3 PAGE ...
+          end
+          else
+            DoError('Wrong: '+s);
+        end;
+      end
+      else
+        DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+  function LastPart(const S:String):String;
+  var ss : TArray<String>;
+  begin
+    ss:=s.Split([' ']);
+
+    if High(ss)=0 then
+       result:=''
+    else
+       result:=ss[1].Trim;
+  end;
+
+  function ReadEvent:TEvent;
+  var Tag, s : String;
+      Level, i : Integer;
+  begin
+    result.Clear;
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level<2 then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=2 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          tag:=Copy(s,1,i-1);
+
+          if tag='TYPE' then
+          begin
+            result.EventType:=LastPart(s);
+            result.Event:=ReadDatePlaceNote;
+          end
+          else
+          if Assigned(OnUnknownTag) then
+             OnUnknownTag(Start,Tag);
+        end;
+      end
+      else
+        DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+  function ReadAdopted:TAdopted;
+  var Tag, s : String;
+      Level, i : Integer;
+  begin
+    result.Clear;
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level<2 then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=2 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          tag:=Copy(s,1,i-1);
+
+          if tag='FAMC' then
+          begin
+            result.Family:=CodeOf(LastPart(s));
+            SkipTo(1); // 2 PEDI adopted
+          end
+          else
+          if Tag='DATE' then
+             result.Date:=ReadDate(Copy(s,i+1,Length(s)))
+          else
+          if Assigned(OnUnknownTag) then
+             OnUnknownTag(Start,Tag);
+        end;
+      end
+      else
+      if Level=3 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          tag:=Copy(s,1,i-1);
+
+          if tag='ADOP' then
+             result.Style:=LastPart(s)
+          else
+          if Assigned(OnUnknownTag) then
+             OnUnknownTag(Start,Tag);
+        end;
+      end
+      else
+        DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+  function ReadFamily(const ID:String):TFamily;
+  var Tag, s,
+      tmpID, tmp : String;
+      Level, i : Integer;
+  begin
+    result.Clear;
+
+    result.Code:=CodeOf(ID);
+
+    result.Husband:=0;
+    result.Wife:=0;
+    result.Children:=nil;
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start].Trim;
+
+      i:=Pos(' ',s);
+
+      if i=0 then
+         DoError('Wrong: '+s)
+      else
+      begin
+        tmp:=Copy(s,1,i-1);
+
+        if not Integer.TryParse(tmp,Level) then
+           DoError('Wrong level: '+tmp)
+        else
+        if Level=0 then
+        begin
+          Dec(Start);
+          break;
+        end
+        else
+        if Level=1 then
+        begin
+          Delete(s,1,i);
+
+          i:=Pos(' ',s);
+
+          if i=0 then
+          begin
+            tag:=s;
+
+            if tag='MARR' then
+            begin
+              result.Marriage.MarriageType:=TMarriageType.Marriage;
+              result.Marriage.Value:=ReadDatePlaceNote;
+            end
+            else
+            if tag='SEP' then
+               result.Separation:=ReadDatePlaceNote
+            else
+            if tag='DIV' then
+               result.Divorce:=ReadDatePlaceNote
+            else
+            if tag='EVEN' then
+               result.Events:=result.Events+[ReadEvent]
+            else
+            if tag='MARC' then
+            begin
+              result.Marriage.MarriageType:=TMarriageType.MarriageC;
+              result.Marriage.Value:=ReadDatePlaceNote;
+            end
+            else
+            if Assigned(OnUnknownTag) then
+               OnUnknownTag(Start,Tag);
+          end
+          else
+          begin
+            tag:=Copy(s,1,i-1);
+
+            tmpID:=Copy(s,i+1,Length(s));
+
+            if tag='HUSB' then
+            begin
+              if result.Husband<>0 then
+                 DoError('Duplicate Husband');
+
+              result.Husband:=CodeOf(tmpID);
+            end
+            else
+            if tag='WIFE' then
+            begin
+              if result.Wife<>0 then
+                 DoError('Duplicate Wife');
+
+              result.Wife:=CodeOf(tmpID);
+            end
+            else
+            if tag='CHIL' then
+            begin
+              result.Children:=result.Children+[CodeOf(tmpID)];
+            end
+            else
+            if tag='DIV' then  // DIV Y
+            else
+            if tag='MARR' then // MARR Y
+            else
+            if Assigned(OnUnknownTag) then
+               OnUnknownTag(Start,Tag);
+          end;
+        end
+        else
+          DoError('Wrong: '+s);
+      end;
+
+      Inc(Start);
+    end;
+  end;
+
+  function ReadIndi(const ID:String):TIndividual;
+  var Tag, s : String;
+      Level, i : Integer;
+  begin
+    result.Clear;
+
+    result.Code:=CodeOf(ID);
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level=0 then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=1 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i=0 then
+        begin
+          tag:=s;
+
+          if tag='BIRT' then
+             result.Birth:=ReadDatePlaceNote
+          else
+          if tag='DEAT' then
+          begin
+            result.Death:=ReadDatePlaceNote;
+            result.Dead:=result.Death.Date.Style<>TDateStyle.Unknown;
+          end
+          else
+          if tag='RESI' then
+             result.Residence:=ReadDatePlaceNote
+          else
+          if tag='OCCU' then
+          begin
+            result.Occupation.Profession:=LastPart(s);
+            result.Occupation.DatePlace:=ReadDatePlaceNote;
+          end
+          else
+          if tag='BAPM' then
+             result.Baptism:=ReadDatePlaceNote
+          else
+          if tag='EVEN' then
+             result.Events:=result.Events+[ReadEvent]
+          else
+          if tag='BURI' then
+             result.Burial:=ReadDatePlaceNote
+          else
+          if tag='OBJE' then
+          begin
+            SkipTo(1)
+          end
+          else
+          if tag='NATU' then
+             result.Naturalized:=ReadDatePlaceNote
+          else
+          if tag='ADOP' then
+             result.Adopted:=ReadAdopted
+          else
+          if tag='IMMI' then
+          begin
+            SkipTo(1)
+          end
+          else
+          if tag='WILL' then
+          begin
+            SkipTo(1)
+          end
+          else
+          if Assigned(OnUnknownTag) then
+             OnUnknownTag(Start,Tag);
+        end
+        else
+        begin
+          tag:=Copy(s,1,i-1);
+
+          if tag='NAME' then
+          begin
+            Delete(s,1,4);
+            i:=Pos('/',s);
+
+            result.Surname:='';
+
+            if i=0 then
+               result.Name:=s
+            else
+            begin
+              result.Name:=Copy(s,2,i-3);
+              result.Surname:=Copy(s,i+1,Length(s)-i-1);
+            end;
+
+            SkipTo(1);
+          end
+          else
+          if tag='SEX' then
+          begin
+            s:=LastPart(s);
+
+            if s='' then
+               DoError('Wrong Sex: '+s)
+            else
+            if s='M' then
+               result.Sex:=TSex.Male
+            else
+            if s='F' then
+               result.Sex:=TSex.Female
+            else
+               result.Sex:=TSex.Unknown;
+
+          end
+          else
+          if tag='FAMC' then
+          begin
+            Delete(s,1,5);
+            result.ChildOf:=CodeOf(s);
+            SkipTo(1); // 2 PEDI adopted
+          end
+          else
+          if tag='FAMS' then
+          begin
+            Delete(s,1,5);
+            result.SpouseOf:=result.SpouseOf+[CodeOf(s)];
+          end
+          else
+          if tag='SOUR' then
+          begin
+            Delete(s,1,5);
+            result.Source:=s;
+            SkipTo(0);  // 3 PAGE ...
+          end
+          else
+          if tag='OCCU' then
+          begin
+            Delete(s,1,5);
+            result.Occupation.Profession:=s;
+          end
+          else
+          if tag='TITL' then
+          begin
+            Delete(s,1,5);
+            result.Title:=s;
+          end
+          else
+          if tag='NOTE' then
+          begin
+            Delete(s,1,5);
+            result.Note:=s+TryReadConc(2);
+          end
+          else
+          if tag='DEAT' then // DEAT Y
+          begin
+            Delete(s,1,5);
+
+            if s='Y' then
+               result.Dead:=True
+            else
+            if s='N' then
+               result.Dead:=False
+            else
+               DoError('Wrong: '+s);
+          end
+          else
+          if Assigned(OnUnknownTag) then
+             OnUnknownTag(Start,Tag);
+        end;
+      end
+      else
+        DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+var L : Integer;
+    s : String;
+    ss : TArray<String>;
+begin
+  Start:=0;
+
+  while Start<ALines.Count do
+  begin
+    s:=ALines[Start];
+
+    if Copy(s,1,2)='0 ' then
+    begin
+      Delete(s,1,2);
+
+      if s='HEAD' then
+         SkipTo(0)
+      else
+      if s='TRLR' then
+         SkipTo(0)
+      else
+      begin
+        ss:=s.Split([' ']);
+
+        if High(ss)>0 then
+        begin
+          if ss[1]='INDI' then
+          begin
+            L:=Length(Individuals);
+            SetLength(Individuals,L+1);
+            Individuals[L]:=ReadIndi(ss[0]);
+          end
+          else
+          if ss[1]='FAM' then
+          begin
+            L:=Length(Families);
+            SetLength(Families,L+1);
+            Families[L]:=ReadFamily(ss[0]);
+          end
+          else
+          if ss[1]='SUBM' then // Submitter Author
+             SkipTo(0)
+          else
+          if ss[1]='SOUR' then // Source
+             SkipTo(0)
+          else
+          if ss[1]='REPO' then // Repository
+             SkipTo(0)
+          else
+            DoError('Unknown 0: '+s);
+        end
+        else
+          DoError('Wrong: '+s);
+      end;
+    end
+    else
+      DoError('Wrong: '+s);
+
+    Inc(Start);
+  end;
+end;
+
+function TGEDCom.FindInFamilies(const AIndi: Integer): Integer;
+var t : Integer;
+begin
+  for t:=0 to High(Families) do
+      if (Families[t].Husband=AIndi) or
+         (Families[t].Wife=AIndi) then
+            Exit(Families[t].Code);
+
+  result:=-1;
+end;
+
+procedure TGEDCom.LoadFrom(const AFile: String);
+var s : TStrings;
+begin
+  s:=TStringList.Create;
+  try
+    s.Text:=TFile.ReadAllText(AFile);
+    LoadFrom(s);
+  finally
+    s.Free;
+  end;
+end;
+
+{ TGEDDate }
+
+procedure TGEDDate.Clear;
+begin
+  Start.Clear;
+  Finish.Clear;
+  Style:=TDateStyle.Unknown;
+end;
+
+function TGEDDate.ToString: String;
+begin
+  result:='';
+
+  if Style=TDateStyle.Unknown then
+     result:='?'
+  else
+  begin
+    result:=Start.ToString;
+
+    case Style of
+      TDateStyle.Estimated : result:='Estimated: '+result;
+      TDateStyle.About     : result:='About: '+result;
+      TDateStyle.Before    : result:='Before: '+result;
+      TDateStyle.After     : result:='After: '+result;
+      TDateStyle.Between   : result:='Between: '+result+' and '+Finish.ToString;
+    end;
+  end;
+end;
+
+{ TDateParts }
+
+procedure TDateParts.Clear;
+begin
+  Value:=0;
+  Day:=False;
+  Month:=False;
+  Year:=False;
+end;
+
+function TDateParts.ToString: String;
+var D,M,Y : Word;
+begin
+  result:='';
+
+  DecodeDate(Value,Y,M,D);
+
+  if Year then
+     result:=Y.ToString;
+
+  if Month then
+     result:=M.ToString+' / '+result;
+
+  if Day then
+     result:=D.ToString+' / '+result;
+end;
+
+{ TDatePlaceNote }
+
+procedure TDatePlaceNote.Clear;
+begin
+  Date.Clear;
+  Place:='';
+  Note:='';
+  Source:='';
+end;
+
+{ TOccupation }
+
+procedure TOccupation.Clear;
+begin
+  Profession:='';
+  DatePlace.Clear;
+end;
+
+{ TIndividual }
+
+procedure TIndividual.Clear;
+begin
+  Code:=0;
+  Name:='';
+  Surname:='';
+  Sex:=TSex.Unknown;
+  Birth.Clear;
+  Dead:=False;
+  Death.Clear;
+  Occupation.Clear;
+  Residence.Clear;
+  Baptism.Clear;
+  Burial.Clear;
+  Naturalized.Clear;
+  Adopted.Clear;
+  Note:='';
+  Source:='';
+  Title:='';
+
+  ChildOf:=0;
+  SpouseOf:=nil;
+  Events:=nil;
+end;
+
+{ TFamily }
+
+procedure TFamily.Clear;
+begin
+  Code:=0;
+  Husband:=0;
+  Wife:=0;
+  Children:=nil;
+  Marriage.Clear;
+  Separation.Clear;
+  Divorce.Clear;
+  Events:=nil;
+end;
+
+{ TEvent }
+
+procedure TEvent.Clear;
+begin
+  EventType:='';
+  Event.Clear;
+end;
+
+{ TMarriage }
+
+procedure TMarriage.Clear;
+begin
+  MarriageType:=TMarriageType.Unknown;
+  Value.Clear;
+end;
+
+{ TAdopted }
+
+procedure TAdopted.Clear;
+begin
+  Family:=0;
+  Style:='';
+  Date.Clear;
+end;
+
+end.
