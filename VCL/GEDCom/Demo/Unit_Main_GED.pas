@@ -130,7 +130,7 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  if ParamCount>1 then
+  if ParamCount>0 then
   begin
     CBFile.Items.Add(ParamStr(1));
 
