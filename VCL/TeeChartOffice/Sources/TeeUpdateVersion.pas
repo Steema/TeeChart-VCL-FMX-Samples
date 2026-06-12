@@ -169,9 +169,11 @@ begin { retrieves the latest version number from Steema.com }
     try
       tmpS.LoadFromStream(Stream);
 
-      if (tmpS.Count>4) and
-         (UpperCase(tmpS[0])=Magic) and
-         (UpperCase(tmpS[1])='VERSION') then
+      Result:=(tmpS.Count>4) and
+              (UpperCase(tmpS[0])=Magic) and
+              (UpperCase(tmpS[1])='VERSION');
+
+      if Result then
       begin
         AVersion:=tmpS[2];
         ADate:=tmpS[3];
@@ -181,15 +183,9 @@ begin { retrieves the latest version number from Steema.com }
         {$ELSE}
         AURL:=tmpS[4];
         {$ENDIF}
-
-        result:=True;
       end
       else
-      begin
-        result:=False;
-
         Raise ChartException.Create(TeeMsg_WrongVersion);
-      end;
 
     finally
       tmpS.Free;
