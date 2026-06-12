@@ -51,10 +51,19 @@ type
     function ToString:String;
   end;
 
+  TLatLon=record
+  public
+    Latitude : String;
+    Longitude : String;
+
+    procedure Clear;
+  end;
+
   TDatePlaceNote=record
   public
     Date : TGEDDate;
     Place : String;
+    LatLon : TLatLon;
     Note : String;
     Source : String;
 
@@ -75,11 +84,20 @@ type
 
   TResidence=TDatePlaceNote;
 
-  TBurial=TDatePlaceNote;
+  TBurial=record
+  public
+    Cemetery : String;
+    DatePlace : TDatePlaceNote;
+
+    procedure Clear;
+  end;
+
+  TChristening=TDatePlaceNote;
 
   TEvent=record
   public
     EventType : String;
+    Info : String;
     Event : TDatePlaceNote;
 
     procedure Clear;
@@ -92,6 +110,13 @@ type
     Family : Integer;
     Date : TGEDDate;
     Style : String;
+
+    procedure Clear;
+  end;
+
+  TReference=record
+  public
+    ID : String;
 
     procedure Clear;
   end;
@@ -120,6 +145,10 @@ type
     Title : String;
     Adopted : TAdopted;
 
+    Reference : TReference;
+
+    Christening : TChristening;
+
     ChildOf : Integer;
     SpouseOf : TArray<Integer>;
 
@@ -133,6 +162,7 @@ type
   TMarriage=record
   public
     MarriageType : TMarriageType;
+    Info : String;
     Value : TDatePlaceNote;
 
     procedure Clear;
@@ -148,10 +178,19 @@ type
     Wife : Integer;
     Children : TArray<Integer>;
     Marriage : TMarriage;
+    MarriageLicense :  TDatePlaceNote;
     Separation : TSeparation;
     Divorce : TDivorce;
 
     Events : TArray<TEvent>;
+
+    procedure Clear;
+  end;
+
+  TNote=record
+  public
+    Code : Integer;
+    Note : String;
 
     procedure Clear;
   end;
@@ -162,6 +201,7 @@ type
   public
     Individuals : TArray<TIndividual>;
     Families : TArray<TFamily>;
+    Notes : TArray<TNote>;
 
     OnUnknownTag : TGEDLoadProc;
 
@@ -265,8 +305,17 @@ var
       end;
     end;
 
+    function YearToDate(const Year:String):TDateParts;
+    begin
+      result.Value:=EncodeDate(Year.ToInteger,1,1);
+      result.Day:=False;
+      result.Month:=False;
+      result.Year:=True;
+    end;
+
     function DateParts(const SS:TArray<String>; const AFrom,ATo:Integer):TDateParts;
     var L : Integer;
+        Dummy : Integer;
     begin
       L:=ATo-AFrom+1;
 
@@ -291,24 +340,43 @@ var
         end
         else
         begin
-          // DEC 1929
-          result.Value:=EncodeDate(ss[AFrom+1].ToInteger,MonthOf(ss[AFrom]),1);
-          result.Day:=False;
-          result.Month:=True;
-          result.Year:=True;
+          if TryStrToInt(ss[AFrom+1],Dummy) then
+          begin
+            // DEC 1929
+            result.Value:=EncodeDate(ss[AFrom+1].ToInteger,MonthOf(ss[AFrom]),1);
+            result.Day:=False;
+            result.Month:=True;
+            result.Year:=True;
+          end
+          else
+          begin
+            // 10 JAN
+            result.Value:=EncodeDate(1,MonthOf(ss[AFrom+1]),ss[AFrom].ToInteger);
+            result.Day:=True;
+            result.Month:=True;
+            result.Year:=False;
+          end
         end;
       end
       else
-      begin
-        result.Value:=EncodeDate(ss[AFrom].ToInteger,1,1);
-        result.Day:=False;
-        result.Month:=False;
-        result.Year:=True;
-      end;
+        result:=YearToDate(ss[AFrom]);
+    end;
+
+    procedure TrimEmpty(var S:TArray<String>);
+    var t : Integer;
+    begin
+      t:=0;
+
+      while t<Length(S) do
+        if Trim(S[t])='' then
+           Delete(S,t,1)
+        else
+           Inc(t);
     end;
 
   var ss : TArray<String>;
       tmp : Integer;
+      tmpS : String;
   begin
     result.Clear;
 
@@ -342,12 +410,30 @@ var
          Delete(ss,0,1);
     end;
 
+    TrimEmpty(ss);
+
     case result.Style of
       TDateStyle.Estimated,
       TDateStyle.About,
       TDateStyle.Exact,
       TDateStyle.After,
-      TDateStyle.Before : result.Start:=DateParts(ss,0,High(ss));
+      TDateStyle.Before :
+          begin
+            tmpS:=ss[High(ss)];
+
+            tmp:=Pos('/',tmpS);
+
+            if tmp>0 then
+            begin
+              ss[High(ss)]:=Copy(tmpS,1,tmp-1);
+              result.Start:=DateParts(ss,0,High(ss));
+
+              ss[High(ss)]:=Copy(tmpS,tmp+1,Length(tmpS));
+              result.Finish:=DateParts(ss,0,High(ss));
+            end
+            else
+              result.Start:=DateParts(ss,0,High(ss));
+          end;
 
       TDateStyle.Between :
           begin
@@ -406,11 +492,60 @@ var
             result:=result+s;
           end
           else
-            DoError('Wrong: '+s);
+          begin
+            Dec(Start);
+            break;
+
+            //DoError('Wrong: '+s);
+          end;
+
         end;
       end
       else
         DoError('Wrong: '+s);
+
+      Inc(Start);
+    end;
+  end;
+
+  function TryReadLatLon:TLatLon;
+  var s, Tag : String;
+      i : Integer;
+      Level : Integer;
+  begin
+    result.Clear;
+
+    Inc(Start);
+
+    while Start<ALines.Count do
+    begin
+      s:=ALines[Start];
+
+      Level:=GetLevel(s);
+
+      if Level<3 then
+      begin
+        Dec(Start);
+        break;
+      end
+      else
+      if Level=4 then
+      begin
+        Delete(s,1,2);
+
+        i:=Pos(' ',s);
+
+        if i>0 then
+        begin
+          Tag:=Copy(s,1,i-1);
+
+          if Tag='LATI' then
+             result.Latitude:=Copy(s,i+1,Length(s))
+          else
+          if Tag='LONG' then
+             result.Longitude:=Copy(s,i+1,Length(s))
+        end
+      end;
 
       Inc(Start);
     end;
@@ -456,6 +591,8 @@ var
           begin
             Delete(s,1,i);
             result.Place:=s;
+
+            result.LatLon:=TryReadLatLon;
           end
           else
           if Tag='NOTE' then
@@ -492,11 +629,13 @@ var
        result:=ss[1].Trim;
   end;
 
-  function ReadEvent:TEvent;
+  function ReadEvent(const Extra:String):TEvent;
   var Tag, s : String;
       Level, i : Integer;
   begin
     result.Clear;
+
+    result.Info:=Extra;
 
     Inc(Start);
 
@@ -656,7 +795,13 @@ var
             if tag='MARR' then
             begin
               result.Marriage.MarriageType:=TMarriageType.Marriage;
+              result.Marriage.Info:='';
               result.Marriage.Value:=ReadDatePlaceNote;
+            end
+            else
+            if tag='MARL' then
+            begin
+              result.MarriageLicense:=ReadDatePlaceNote;
             end
             else
             if tag='SEP' then
@@ -666,7 +811,7 @@ var
                result.Divorce:=ReadDatePlaceNote
             else
             if tag='EVEN' then
-               result.Events:=result.Events+[ReadEvent]
+               result.Events:=result.Events+[ReadEvent('')]
             else
             if tag='MARC' then
             begin
@@ -702,11 +847,28 @@ var
             if tag='CHIL' then
             begin
               result.Children:=result.Children+[CodeOf(tmpID)];
+
+              // Pending:
+              {
+                if tag='_FREL' then  // Father relationship
+                else
+                if tag='_MREL' then  // Mother relationship
+              }
+
+              SkipTo(1);
             end
             else
             if tag='DIV' then  // DIV Y
             else
-            if tag='MARR' then // MARR Y
+            if tag='MARR' then // MARR Y   // MARR 1st Presby Chur.,
+            begin
+              result.Marriage.MarriageType:=TMarriageType.Marriage;
+              result.Marriage.Info:=tmpID;
+              result.Marriage.Value:=ReadDatePlaceNote;
+            end
+            else
+            if tag='EVEN' then
+               result.Events:=result.Events+[ReadEvent(tmpID)]
             else
             if Assigned(OnUnknownTag) then
                OnUnknownTag(Start,Tag);
@@ -718,6 +880,12 @@ var
 
       Inc(Start);
     end;
+  end;
+
+  function RightPart(const S:String):String;
+  begin
+    result:=S;
+    Delete(result,1,5);
   end;
 
   function ReadIndi(const ID:String):TIndividual;
@@ -762,7 +930,11 @@ var
           end
           else
           if tag='RESI' then
-             result.Residence:=ReadDatePlaceNote
+          begin
+            // Pending: result.Residence.Info:='';
+            TryReadConc(2);
+            result.Residence:=ReadDatePlaceNote;
+          end
           else
           if tag='OCCU' then
           begin
@@ -774,14 +946,17 @@ var
              result.Baptism:=ReadDatePlaceNote
           else
           if tag='EVEN' then
-             result.Events:=result.Events+[ReadEvent]
+             result.Events:=result.Events+[ReadEvent('')]
           else
           if tag='BURI' then
-             result.Burial:=ReadDatePlaceNote
-          else
-          if tag='OBJE' then
           begin
-            SkipTo(1)
+            result.Burial.Cemetery:='';
+            result.Burial.DatePlace:=ReadDatePlaceNote;
+          end
+          else
+          if (tag='OBJE') or (tag='_PHOTO') then
+          begin
+            SkipTo(1) // Tag not supported, not an error
           end
           else
           if tag='NATU' then
@@ -800,8 +975,24 @@ var
             SkipTo(1)
           end
           else
+          if tag='CHR' then
+             result.Christening:=ReadDatePlaceNote
+          else
+          if tag='_MILT' then // Military Service
+          begin
+            // Pending to replace with a new Event, Type=Military
+            SkipTo(1);
+          end
+          else
+          if tag='PROB' then // Probate (Validation of Will)
+          begin
+            SkipTo(1);
+          end
+          else
           if Assigned(OnUnknownTag) then
-             OnUnknownTag(Start,Tag);
+             OnUnknownTag(Start,Tag)
+          else
+             DoError('Wrong: '+s);
         end
         else
         begin
@@ -846,6 +1037,7 @@ var
           begin
             Delete(s,1,5);
             result.ChildOf:=CodeOf(s);
+
             SkipTo(1); // 2 PEDI adopted
           end
           else
@@ -857,28 +1049,21 @@ var
           else
           if tag='SOUR' then
           begin
-            Delete(s,1,5);
-            result.Source:=s;
+            result.Source:=RightPart(s);
             SkipTo(0);  // 3 PAGE ...
           end
           else
           if tag='OCCU' then
           begin
-            Delete(s,1,5);
-            result.Occupation.Profession:=s;
+            result.Occupation.Profession:=RightPart(s);
+            result.Occupation.DatePlace:=ReadDatePlaceNote;
           end
           else
           if tag='TITL' then
-          begin
-            Delete(s,1,5);
-            result.Title:=s;
-          end
+             result.Title:=RightPart(s)
           else
           if tag='NOTE' then
-          begin
-            Delete(s,1,5);
-            result.Note:=s+TryReadConc(2);
-          end
+             result.Note:=RightPart(s)+TryReadConc(2)
           else
           if tag='DEAT' then // DEAT Y
           begin
@@ -890,11 +1075,57 @@ var
             if s='N' then
                result.Dead:=False
             else
-               DoError('Wrong: '+s);
+            {
+              // Pending: result.Info:=RightPart(s)
+              DoError('Wrong: '+s);
+            }
+            ;
+
+            result.Death:=ReadDatePlaceNote;
+          end
+          else
+          if tag='REFN' then
+             result.Reference.ID:=RightPart(s)
+          else
+          if tag='EVEN' then
+             result.Events:=result.Events+[ReadEvent(RightPart(s))]
+          else
+          if tag='RESI' then
+          begin
+            TryReadConc(2);
+
+            // PENDING: result.Residence.Info:=RightPart(s)
+            result.Residence:=ReadDatePlaceNote;
+          end
+          else
+          if tag='BIRT' then
+             result.Birth:=ReadDatePlaceNote
+          else
+          if tag='BURI' then
+          begin
+            result.Burial.Cemetery:=RightPart(s);
+            result.Burial.DatePlace:=ReadDatePlaceNote;
+          end
+          else
+          if (tag='OBJE') or (tag='_PHOTO') then
+             // not supported
+          else
+          if tag='SSN' then // Social Security Number
+             SkipTo(1) // pending
+          else
+          if (tag='FSID') or (tag='_FSID') or (tag='_FSFTID') then // FamilySearch ID
+             SkipTo(1) // pending
+          else
+          if tag='_MILT' then // Military Service
+          begin
+            // Pending to replace with a new Event, Type=Military
+            SkipTo(1);
           end
           else
           if Assigned(OnUnknownTag) then
-             OnUnknownTag(Start,Tag);
+             OnUnknownTag(Start,Tag)
+          else
+             DoError('Wrong: '+s);
         end;
       end
       else
@@ -902,6 +1133,15 @@ var
 
       Inc(Start);
     end;
+  end;
+
+  function ReadNote(const ID:String):TNote;
+  var Tag, s,
+      tmpID, tmp : String;
+      Level, i : Integer;
+  begin
+    result.Clear;
+    result.Code:=CodeOf(ID);
   end;
 
 var L : Integer;
@@ -952,6 +1192,18 @@ begin
           if ss[1]='REPO' then // Repository
              SkipTo(0)
           else
+          if ss[1]='OBJE' then // Object
+             SkipTo(0)
+          else
+          if ss[1]='NOTE' then // Note
+          begin
+            L:=Length(Notes);
+            SetLength(Notes,L+1);
+            Notes[L]:=ReadNote(ss[0]);
+
+            SkipTo(0); // Pending
+          end
+          else
             DoError('Unknown 0: '+s);
         end
         else
@@ -971,7 +1223,7 @@ begin
   for t:=0 to High(Families) do
       if (Families[t].Husband=AIndi) or
          (Families[t].Wife=AIndi) then
-            Exit(Families[t].Code);
+            Exit(t);
 
   result:=-1;
 end;
@@ -1052,6 +1304,7 @@ begin
   Place:='';
   Note:='';
   Source:='';
+  LatLon.Clear;
 end;
 
 { TOccupation }
@@ -1079,6 +1332,9 @@ begin
   Burial.Clear;
   Naturalized.Clear;
   Adopted.Clear;
+  Reference.Clear;
+  Christening.Clear;
+
   Note:='';
   Source:='';
   Title:='';
@@ -1097,6 +1353,7 @@ begin
   Wife:=0;
   Children:=nil;
   Marriage.Clear;
+  MarriageLicense.Clear;
   Separation.Clear;
   Divorce.Clear;
   Events:=nil;
@@ -1107,6 +1364,7 @@ end;
 procedure TEvent.Clear;
 begin
   EventType:='';
+  Info:='';
   Event.Clear;
 end;
 
@@ -1115,6 +1373,7 @@ end;
 procedure TMarriage.Clear;
 begin
   MarriageType:=TMarriageType.Unknown;
+  Info:='';
   Value.Clear;
 end;
 
@@ -1125,6 +1384,37 @@ begin
   Family:=0;
   Style:='';
   Date.Clear;
+end;
+
+{ TReference }
+
+procedure TReference.Clear;
+begin
+  ID:='';
+end;
+
+{ TLatLon }
+
+procedure TLatLon.Clear;
+begin
+  Latitude:='';
+  Longitude:='';
+end;
+
+{ TBurial }
+
+procedure TBurial.Clear;
+begin
+  Cemetery:='';
+  DatePlace.Clear;
+end;
+
+{ TNote }
+
+procedure TNote.Clear;
+begin
+  Code:=0;
+  Note:='';
 end;
 
 end.
