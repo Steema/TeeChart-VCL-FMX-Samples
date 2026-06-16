@@ -45,7 +45,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
 
   TeeGEDCom, VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart,
-  VCLTee.Series;
+  VCLTee.Series, Vcl.Menus;
 
 type
   TMainForm = class(TForm)
@@ -57,12 +57,24 @@ type
     Panel2: TPanel;
     MemoInfo: TMemo;
     LBCharts: TListBox;
+    Panel3: TPanel;
+    LBSurname: TListBox;
     LBIndividuals: TListBox;
+    MemoPerson: TMemo;
+    PopupMenu1: TPopupMenu;
+    Sort1: TMenuItem;
+    Splitter1: TSplitter;
+    Label2: TLabel;
+    EFilter: TEdit;
     procedure CBFileChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BLoadClick(Sender: TObject);
     procedure LBChartsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure LBSurnameClick(Sender: TObject);
+    procedure LBIndividualsClick(Sender: TObject);
+    procedure Sort1Click(Sender: TObject);
+    procedure EFilterChange(Sender: TObject);
   private
     { Private declarations }
 
@@ -83,11 +95,49 @@ implementation
 {$R *.dfm}
 
 uses
-  ShLwApi, System.Net.HttpClient, System.Net.HttpClientComponent;
+  ShLwApi, System.Net.HttpClient, System.Net.HttpClientComponent,
+  System.Generics.Collections;
 
 function IsURL(const URL:String):Boolean;
 begin
   result :=PathIsURL(PChar(URL));
+end;
+
+function GetFirstLetter(const ASurname:String):String;
+begin
+  result:=UpperCase(Copy(Trim(ASurname),1,1));
+end;
+
+function Surname_FistLetters(const GED:TGEDCom):TArray<String>;
+
+  function Exists(const S:String; const Items:TArray<String>):Boolean;
+  var t : Integer;
+  begin
+    for t:=0 to High(Items) do
+        if Items[t]=S then
+        begin
+          result:=True;
+          Exit;
+        end;
+
+    result:=False;
+  end;
+
+var t : Integer;
+    tmp : String;
+begin
+  result:=nil;
+
+  for t:=0 to High(GED.Individuals) do
+  begin
+    tmp:=GetFirstLetter(GED.Individuals[t].Surname);
+
+    if tmp<>'' then
+       if not Exists(tmp,result) then
+          result:=result+[tmp];
+  end;
+
+  TArray.Sort<String>(result);
 end;
 
 procedure TMainForm.BLoadClick(Sender: TObject);
@@ -102,6 +152,21 @@ procedure TMainForm.BLoadClick(Sender: TObject);
        GED.LoadFrom(CBFile.Text);
   end;
 
+  procedure FillSurnames;
+  begin
+    LBSurname.Items.BeginUpdate;
+    try
+      LBSurname.Clear;
+
+      LBSurname.Items.AddStrings(Surname_FistLetters(GED));
+      LBSurname.Items.Insert(0,'All');
+
+      LBSurname.ItemIndex:=0;
+    finally
+      LBSurname.Items.EndUpdate;
+    end;
+  end;
+
 begin
   Screen.Cursor:=crHourGlass;
   try
@@ -109,7 +174,15 @@ begin
     ShowInfo;
     ShowIndividuals;
 
+    EFilter.Clear;
+
+    MemoPerson.Clear;
+    MemoPerson.Hide;
+
+    FillSurnames;
+
     Chart1.ClearChart;
+
     LBCharts.Enabled:=True;
     LBCharts.ItemIndex:=-1;
   finally
@@ -120,6 +193,11 @@ end;
 procedure TMainForm.CBFileChange(Sender: TObject);
 begin
   BLoad.Enabled:=Trim(CBFile.Text)<>'';
+end;
+
+procedure TMainForm.EFilterChange(Sender: TObject);
+begin
+  ShowIndividuals;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
@@ -233,6 +311,89 @@ begin
   end;
 end;
 
+procedure TMainForm.LBIndividualsClick(Sender: TObject);
+
+  procedure AddPerson(const Person:TIndividual; const ALines:TStrings);
+
+    function Gender:String;
+    begin
+      case Person.Sex of
+          TSex.Male: result:='Male';
+        TSex.Female: result:='Female';
+      else
+        result:='Unknown';
+      end;
+    end;
+
+    function EventToString(const AEvent:TDatePlaceNote):String;
+    begin
+      result:=AEvent.Date.ToString;
+
+      if AEvent.Place<>'' then
+         result:=result+' '+AEvent.Place;
+    end;
+
+    procedure ShowPerson(const AIndi:Integer);
+    begin
+      if AIndi<>-1 then
+         ALines.Add('Marriage: '+GED.Individuals[AIndi].Name+' '+GED.Individuals[AIndi].Surname);
+    end;
+
+  var t,tmp : Integer;
+  begin
+    ALines.Clear;
+
+    ALines.Add(Person.Name+' '+Person.Surname);
+    ALines.Add('Gender: '+Gender);
+
+    ALines.Add('Birth: '+EventToString(Person.Birth));
+    ALines.Add('Baptism: '+EventToString(Person.Baptism));
+    ALines.Add('Death: '+EventToString(Person.Death));
+
+    ALines.Add('Age: '+Person.AgeYears.ToString+' years');
+    ALines.Add('');
+
+    if Person.Occupation.Profession<>'' then
+       ALines.Add('Occupation: '+Person.Occupation.Profession);
+
+    for t:=0 to High(Person.SpouseOf) do
+    begin
+      tmp:=GED.FindFamily(Person.SpouseOf[t]);
+
+      if tmp<>-1 then
+      begin
+        if GED.Families[tmp].Husband=Person.Code then
+           ShowPerson(GED.FindIndividual(GED.Families[tmp].Wife))
+        else
+           ShowPerson(GED.FindIndividual(GED.Families[tmp].Husband));
+
+        if GED.Families[tmp].Marriage.Value.Date.Start.Value>0 then
+           ALines.Add(EventToString(GED.Families[tmp].Marriage.Value));
+
+        if GED.Families[tmp].Separation.Date.Start.Value>0 then
+           ALines.Add('Separation: '+EventToString(GED.Families[tmp].Separation));
+
+        if GED.Families[tmp].Divorce.Date.Start.Value>0 then
+           ALines.Add('Divorce: '+EventToString(GED.Families[tmp].Divorce));
+      end;
+    end;
+  end;
+
+var tmp : Integer;
+begin
+  tmp:=LBIndividuals.ItemIndex;
+
+  MemoPerson.Visible:=tmp<>-1;
+
+  if MemoPerson.Visible then
+     AddPerson(GED.Individuals[Integer(LBIndividuals.Items.Objects[tmp])],MemoPerson.Lines);
+end;
+
+procedure TMainForm.LBSurnameClick(Sender: TObject);
+begin
+  ShowIndividuals;
+end;
+
 procedure TMainForm.LoadFromURL(const URL: String);
 var tmp : TStrings;
 begin
@@ -247,13 +408,29 @@ end;
 
 procedure TMainForm.ShowIndividuals;
 var t : Integer;
+    FirstLetter,
+    tmpFilter,
+    tmpSurname : String;
 begin
-  LBIndividuals.Clear;
+  if LBSurname.ItemIndex>0 then
+     FirstLetter:=LBSurname.Items[LBSurname.ItemIndex]
+  else
+     FirstLetter:='';
+
+  tmpFilter:=UpperCase(Trim(EFilter.Text));
 
   LBIndividuals.Items.BeginUpdate;
   try
+    LBIndividuals.Clear;
+
     for t:=0 to High(GED.Individuals) do
-        LBIndividuals.Items.Add(GED.Individuals[t].Name+' '+GED.Individuals[t].Surname);
+    begin
+      tmpSurname:=GED.Individuals[t].Surname;
+
+      if (FirstLetter='') or (GetFirstLetter(tmpSurname)=FirstLetter) then
+         if (tmpFilter='') or (Pos(tmpFilter,UpperCase(tmpSurname))>0) then
+            LBIndividuals.Items.AddObject(GED.Individuals[t].Name+' '+tmpSurname,TObject(t));
+    end;
 
   finally
     LBIndividuals.Items.EndUpdate;
@@ -269,6 +446,12 @@ begin
 
 //  MemoInfo.Lines.Add(GED.Generations.ToString + ' Max Generations');
 
+end;
+
+
+procedure TMainForm.Sort1Click(Sender: TObject);
+begin
+  LBIndividuals.Sorted:=True;
 end;
 
 end.

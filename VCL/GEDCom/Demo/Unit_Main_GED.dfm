@@ -14,6 +14,15 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   TextHeight = 15
+  object Splitter1: TSplitter
+    Left = 613
+    Top = 41
+    Height = 400
+    Align = alRight
+    ExplicitLeft = 480
+    ExplicitTop = 192
+    ExplicitHeight = 100
+  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -21,9 +30,7 @@ object MainForm: TMainForm
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 232
-    ExplicitTop = 224
-    ExplicitWidth = 185
+    ExplicitTop = -5
     object Label1: TLabel
       Left = 16
       Top = 13
@@ -31,6 +38,13 @@ object MainForm: TMainForm
       Height = 15
       Caption = '&GEDCOM:'
       FocusControl = CBFile
+    end
+    object Label2: TLabel
+      Left = 700
+      Top = 13
+      Width = 29
+      Height = 15
+      Caption = 'Filter:'
     end
     object CBFile: TComboBox
       Left = 79
@@ -59,11 +73,19 @@ object MainForm: TMainForm
       TabOrder = 1
       OnClick = BLoadClick
     end
+    object EFilter: TEdit
+      Left = 744
+      Top = 10
+      Width = 121
+      Height = 23
+      TabOrder = 2
+      OnChange = EFilterChange
+    end
   end
   object Chart1: TChart
     Left = 185
     Top = 41
-    Width = 503
+    Width = 428
     Height = 400
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
@@ -82,6 +104,8 @@ object MainForm: TMainForm
     Legend.Shadow.Transparency = 0
     RightWall.Color = clLightyellow
     Title.Font.Name = 'Verdana'
+    Title.Text.Strings = (
+      'TChart')
     BottomAxis.Axis.Color = 4210752
     BottomAxis.Grid.Color = clDarkgray
     BottomAxis.LabelsFormat.Font.Name = 'Verdana'
@@ -115,10 +139,9 @@ object MainForm: TMainForm
     View3D = False
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 160
-    ExplicitTop = 112
-    ExplicitWidth = 400
-    ExplicitHeight = 250
+    ExplicitLeft = 190
+    ExplicitTop = 39
+    ExplicitWidth = 232
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
   end
@@ -129,9 +152,6 @@ object MainForm: TMainForm
     Height = 400
     Align = alLeft
     TabOrder = 2
-    ExplicitLeft = 264
-    ExplicitTop = 224
-    ExplicitHeight = 41
     object MemoInfo: TMemo
       Left = 1
       Top = 214
@@ -139,8 +159,6 @@ object MainForm: TMainForm
       Height = 185
       Align = alBottom
       TabOrder = 0
-      ExplicitLeft = -4
-      ExplicitTop = 220
     end
     object LBCharts: TListBox
       Left = 1
@@ -156,17 +174,60 @@ object MainForm: TMainForm
         'Number of Children')
       TabOrder = 1
       OnClick = LBChartsClick
-      ExplicitLeft = -4
-      ExplicitTop = 6
     end
   end
-  object LBIndividuals: TListBox
-    Left = 688
+  object Panel3: TPanel
+    Left = 616
     Top = 41
-    Width = 254
+    Width = 326
     Height = 400
     Align = alRight
-    ItemHeight = 15
+    BevelOuter = bvNone
     TabOrder = 3
+    object LBSurname: TListBox
+      Left = 0
+      Top = 0
+      Width = 121
+      Height = 214
+      Align = alLeft
+      ItemHeight = 15
+      TabOrder = 0
+      OnClick = LBSurnameClick
+      ExplicitLeft = -6
+      ExplicitTop = -1
+    end
+    object LBIndividuals: TListBox
+      Left = 121
+      Top = 0
+      Width = 205
+      Height = 214
+      Align = alClient
+      ItemHeight = 15
+      PopupMenu = PopupMenu1
+      TabOrder = 1
+      OnClick = LBIndividualsClick
+      ExplicitLeft = 127
+      ExplicitTop = 6
+    end
+    object MemoPerson: TMemo
+      Left = 0
+      Top = 214
+      Width = 326
+      Height = 186
+      Align = alBottom
+      ScrollBars = ssBoth
+      TabOrder = 2
+      WordWrap = False
+      ExplicitLeft = 6
+      ExplicitWidth = 525
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 464
+    Top = 224
+    object Sort1: TMenuItem
+      Caption = '&Sort'
+      OnClick = Sort1Click
+    end
   end
 end
