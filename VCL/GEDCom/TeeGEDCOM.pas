@@ -49,6 +49,7 @@ type
 
     procedure Clear;
     function ToString:String;
+    function Year:Word;
   end;
 
   TLatLon=record
@@ -155,6 +156,7 @@ type
     Events : TArray<TEvent>;
 
     procedure Clear;
+    function AgeYears:Integer;
   end;
 
   TMarriageType=(Unknown,Marriage,MarriageC);
@@ -207,6 +209,8 @@ type
 
     procedure Clear;
 
+    function FindFamily(const AFamily: Integer): Integer;
+    function FindIndividual(const AIndi:Integer):Integer;
     function FindInFamilies(const AIndi:Integer):Integer;
     procedure LoadFrom(const ALines:TStrings); overload;
     procedure LoadFrom(const AFile:String); overload;
@@ -1217,6 +1221,26 @@ begin
   end;
 end;
 
+function TGEDCom.FindIndividual(const AIndi: Integer): Integer;
+var t : Integer;
+begin
+  for t:=0 to High(Individuals) do
+      if Individuals[t].Code=AIndi then
+         Exit(t);
+
+  result:=-1;
+end;
+
+function TGEDCom.FindFamily(const AFamily: Integer): Integer;
+var t : Integer;
+begin
+  for t:=0 to High(Families) do
+      if Families[t].Code=AFamily then
+         Exit(t);
+
+  result:=-1;
+end;
+
 function TGEDCom.FindInFamilies(const AIndi: Integer): Integer;
 var t : Integer;
 begin
@@ -1269,6 +1293,15 @@ begin
   end;
 end;
 
+function TGEDDate.Year: Word;
+var m,d : Word;
+begin
+  if Start.Year then
+     DecodeDate(Start.Value,result,m,d)
+  else
+     result:=0;
+end;
+
 { TDateParts }
 
 procedure TDateParts.Clear;
@@ -1316,6 +1349,14 @@ begin
 end;
 
 { TIndividual }
+
+function TIndividual.AgeYears: Integer;
+begin
+  if Dead then
+     result:=Death.Date.Year-Birth.Date.Year
+  else
+     result:=CurrentYear-Birth.Date.Year;
+end;
 
 procedure TIndividual.Clear;
 begin
