@@ -35,13 +35,12 @@ object MainForm: TMainForm
       Width = 145
       Height = 23
       Style = csDropDownList
+      ItemIndex = 1
       TabOrder = 0
+      Text = 'Esri Satellit'
       OnChange = CBMapServerChange
       Items.Strings = (
         'Standard OSM'
-        'Google Satellit'
-        'Google Hibrid'
-        'Google Terrain'
         'Esri Satellit'
         'Carto Dark'
         'Carto Positron'
@@ -55,6 +54,15 @@ object MainForm: TMainForm
       Caption = '&Disk cache...'
       TabOrder = 1
       OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 464
+      Top = 9
+      Width = 75
+      Height = 25
+      Caption = '&Edit...'
+      TabOrder = 2
+      OnClick = Button2Click
     end
   end
   object Chart1: TChart

@@ -6,7 +6,11 @@ interface
   www.steema.com
 
   Example using TeeChart GIS layers (raster maps) from web servers
-  (Google, Carto, OSM etc)
+  (Carto, OSM, Esri etc)
+
+  Important note:
+    Google servers (Satellit, Hybrid, Terrain) are disabled here due to
+    license restrictions (desktop requests and offline caching are prohibited).
 
   Graphic tiles can be optionally stored in a disk cache, see below.
 }
@@ -15,7 +19,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
 
-  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.TeeGIS;
+  VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.TeeGIS,
+  VCLTee.TeCanvas, VCLTee.EditChar;
 
 type
   TMainForm = class(TForm)
@@ -24,10 +29,12 @@ type
     CBMapServer: TComboBox;
     Chart1: TChart;
     Button1: TButton;
+    Button2: TButton;
     procedure CBMapServerChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -51,8 +58,18 @@ begin
   TeeGotoURL(Handle,GIS.Path);
 end;
 
+procedure TMainForm.Button2Click(Sender: TObject);
+begin
+  EditChart(Self,Chart1);
+end;
+
 procedure TMainForm.CBMapServerChange(Sender: TObject);
 begin
+  // These servers arent available, see the TeeGIS.pas unit notes on top.
+  // Google Satellit
+  // Google Hibrid
+  // Google Terrain
+
   GIS.MapServer:=TMapServer(CBMapServer.ItemIndex);
 
   Chart1.Title.Caption:=CBMapServer.Text+' '+GIS.Attribution;
@@ -71,7 +88,7 @@ begin
   GIS.VertAxis:=aBothVertAxis;
 
   // Latitude and Longitude
-  GIS.SetBounds(41,42, 1.4,2.8);
+  GIS.SetBounds(41,42, 1.4, 3.55);
 
   // Enable zoooming in-out with the mouse wheel
   Chart1.Panning.MouseWheel:=pmwNone;
@@ -83,11 +100,14 @@ begin
   ForceDirectories(tmpFolder);
 
   GIS.Path:=tmpFolder;
+
+  // GDI instead of GDI+
+  // Chart1.Canvas:=TTeeCanvas3D.Create;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  CBMapServer.ItemIndex:=2;
+  CBMapServer.ItemIndex:=0;
   CBMapServerChange(Self);
 end;
 
