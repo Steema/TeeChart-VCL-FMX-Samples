@@ -23,3 +23,7 @@ VCL/RingBuffer/Lazarus/lib/
 VCL/RingBuffer/Lazarus/backup/
 *.lps
 VCL/RingBuffer/Win32/
+VCL/MultiPanel/Win64/
+VCL/MultiPanel/Win32/
+FMX/RingBuffer/Win32/
+FMX/RingBuffer/Linux64/
