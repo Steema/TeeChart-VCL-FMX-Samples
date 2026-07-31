@@ -47,8 +47,8 @@ object MainForm: TMainForm
         'Carto Voyager')
     end
     object Button1: TButton
-      Left = 336
-      Top = 9
+      Left = 304
+      Top = 10
       Width = 105
       Height = 25
       Caption = '&Disk cache...'
@@ -56,13 +56,29 @@ object MainForm: TMainForm
       OnClick = Button1Click
     end
     object Button2: TButton
-      Left = 464
-      Top = 9
+      Left = 432
+      Top = 10
       Width = 75
       Height = 25
       Caption = '&Edit...'
       TabOrder = 2
       OnClick = Button2Click
+    end
+    object CBRender: TComboBox
+      Left = 520
+      Top = 12
+      Width = 92
+      Height = 23
+      Style = csDropDownList
+      ItemIndex = 1
+      TabOrder = 3
+      Text = 'GDI+'
+      OnChange = CBRenderChange
+      Items.Strings = (
+        'GDI'
+        'GDI+'
+        'Skia'
+        'OpenGL')
     end
   end
   object Chart1: TChart

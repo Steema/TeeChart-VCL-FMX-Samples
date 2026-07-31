@@ -30,11 +30,13 @@ type
     Chart1: TChart;
     Button1: TButton;
     Button2: TButton;
+    CBRender: TComboBox;
     procedure CBMapServerChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure CBRenderChange(Sender: TObject);
   private
     { Private declarations }
 
@@ -51,7 +53,7 @@ implementation
 {$R *.dfm}
 
 uses
-  IOUtils;
+  IOUtils, TeeGDIPlus, TeeGLCanvas, TeeSkia;
 
 procedure TMainForm.Button1Click(Sender: TObject);
 begin
@@ -73,6 +75,17 @@ begin
   GIS.MapServer:=TMapServer(CBMapServer.ItemIndex);
 
   Chart1.Title.Caption:=CBMapServer.Text+' '+GIS.Attribution;
+end;
+
+procedure TMainForm.CBRenderChange(Sender: TObject);
+begin
+  case CBRender.ItemIndex of
+    0: Chart1.Canvas:=TTeeCanvas3D.Create;
+    1: Chart1.Canvas:=TGDIPlusCanvas.Create;
+    2: Chart1.Canvas:=TTeeSkiaCanvas.Create;
+  else
+    Chart1.Canvas:=TGLCanvas.Create;
+  end;
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
