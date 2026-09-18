@@ -20,32 +20,32 @@ object FormRingBuffer: TFormRingBuffer
       IsChecked = True
       Position.X = 264.000000000000000000
       Position.Y = 16.000000000000000000
-      Size.Width = 65.000000000000000000
+      Size.Width = 57.000000000000000000
       Size.Height = 19.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 3
       Text = 'Run'
       OnChange = CBRunChange
     end
     object CBAntialias: TCheckBox
       IsChecked = True
-      Position.X = 337.000000000000000000
+      Position.X = 315.000000000000000000
       Position.Y = 16.000000000000000000
-      Size.Width = 80.000000000000000000
+      Size.Width = 70.000000000000000000
       Size.Height = 19.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 2
       Text = 'Antialias'
       OnChange = CBAntialiasChange
     end
     object CBGrids: TCheckBox
       IsChecked = True
-      Position.X = 433.000000000000000000
+      Position.X = 389.000000000000000000
       Position.Y = 16.000000000000000000
-      Size.Width = 80.000000000000000000
+      Size.Width = 61.000000000000000000
       Size.Height = 19.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
+      TabOrder = 1
       Text = 'Grids'
       OnChange = CBGridsChange
     end
@@ -66,7 +66,7 @@ object FormRingBuffer: TFormRingBuffer
       Size.Width = 83.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 4
       OnChange = CBPointsChange
     end
     object CBSeries: TComboBox
@@ -84,7 +84,7 @@ object FormRingBuffer: TFormRingBuffer
       Size.Width = 57.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 4
+      TabOrder = 5
       OnChange = CBSeriesChange
     end
     object CBStyle: TComboBox
@@ -94,7 +94,7 @@ object FormRingBuffer: TFormRingBuffer
       ItemIndex = 0
       Position.X = 521.000000000000000000
       Position.Y = 13.000000000000000000
-      TabOrder = 5
+      TabOrder = 6
       OnChange = CBStyleChange
     end
     object Label1: TLabel
@@ -104,7 +104,7 @@ object FormRingBuffer: TFormRingBuffer
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
       Text = 'Series:'
-      TabOrder = 6
+      TabOrder = 7
     end
     object Label2: TLabel
       HitTest = True
@@ -114,8 +114,19 @@ object FormRingBuffer: TFormRingBuffer
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
       Text = 'Points:'
-      TabOrder = 7
+      TabOrder = 8
       OnMouseDown = Label2MouseDown
+    end
+    object CBAxes: TCheckBox
+      IsChecked = True
+      Position.X = 445.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 61.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Axes'
+      OnChange = CBAxesChange
     end
   end
   object Chart1: TChart

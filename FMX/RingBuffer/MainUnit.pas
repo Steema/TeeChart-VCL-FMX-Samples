@@ -28,6 +28,7 @@ type
     CBStyle: TComboBox;
     Label1: TLabel;
     Label2: TLabel;
+    CBAxes: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure CBRunChange(Sender: TObject);
     procedure CBAntialiasChange(Sender: TObject);
@@ -37,6 +38,7 @@ type
     procedure CBStyleChange(Sender: TObject);
     procedure Label2MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
+    procedure CBAxesChange(Sender: TObject);
   private
     { Private declarations }
 
@@ -99,6 +101,11 @@ begin
   // For each series
   for t:=0 to High(Lines) do
       Lines[t].Antialias:=CBAntialias.IsChecked;
+end;
+
+procedure TFormRingBuffer.CBAxesChange(Sender: TObject);
+begin
+  Chart1.Axes.Visible:=CBAxes.IsChecked;
 end;
 
 procedure TFormRingBuffer.CBGridsChange(Sender: TObject);
