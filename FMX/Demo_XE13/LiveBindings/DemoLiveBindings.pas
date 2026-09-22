@@ -13,14 +13,6 @@ uses
   FMXTee.Procs, FMXTee.Chart, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Data.Bind.Components, Data.Bind.DBScope, Data.DB, Datasnap.DBClient,
 
-  {$IFNDEF MACOS}
-  {$IFNDEF CPUX64}
-  {$IFNDEF ANDROID}
-  MidasLib,
-  {$ENDIF}
-  {$ENDIF}
-  {$ENDIF}
-
   Data.Bind.DBLinks, FMXTee.Bind.DBLinks, System.Rtti, System.Bindings.Outputs,
   Fmx.Bind.Editors, FMX.Controls.Presentation;
 

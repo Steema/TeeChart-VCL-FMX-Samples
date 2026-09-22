@@ -61,6 +61,7 @@ uses
 {$R *.res}
 
 begin
+  //GlobalUseSkia:=True;
   //GlobalUseDX10Software:=True;
   //GlobalUseDX10:=True;
 //  GlobalUseDirect2D:=False;

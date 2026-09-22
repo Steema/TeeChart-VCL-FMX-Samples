@@ -4267,9 +4267,6 @@ object MainForm: TMainForm
           IsChecked = False
           IsExpanded = True
           IsSelected = False
-          Size.Width = 180.000000000000000000
-          Size.Height = 19.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 0
           Text = 'Chart Styles'
           object TreeViewItem2: TTreeViewItem
@@ -4277,9 +4274,6 @@ object MainForm: TMainForm
             IsChecked = False
             IsExpanded = True
             IsSelected = False
-            Size.Width = 160.000000000000000000
-            Size.Height = 19.000000000000000000
-            Size.PlatformDefault = False
             TabOrder = 0
             Text = 'Standard'
             object LineItem1: TTreeViewItem
@@ -4287,9 +4281,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 0
               Text = 'Line (Strip)'
             end
@@ -4298,9 +4289,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 1
               Text = 'Bar'
             end
@@ -4309,9 +4297,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 2
               Text = 'Area'
             end
@@ -4320,9 +4305,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 3
               Text = 'Pie'
             end
@@ -4331,9 +4313,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 4
               Text = 'FastLine'
             end
@@ -4342,9 +4321,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 5
               Text = 'Horizontal Bar'
             end
@@ -4353,9 +4329,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 6
               Text = 'Horizontal Line'
             end
@@ -4364,9 +4337,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 7
               Text = 'Horizontal Area'
             end
@@ -4375,9 +4345,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 8
               Text = 'Arrow'
             end
@@ -4386,9 +4353,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 9
               Text = 'Bubble'
             end
@@ -4397,9 +4361,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 10
               Text = 'Gantt'
             end
@@ -4408,9 +4369,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 11
               Text = 'Point (Scatter)'
             end
@@ -4419,9 +4377,6 @@ object MainForm: TMainForm
             IsChecked = False
             IsExpanded = True
             IsSelected = False
-            Size.Width = 160.000000000000000000
-            Size.Height = 19.000000000000000000
-            Size.PlatformDefault = False
             TabOrder = 1
             Text = 'FireMonkey 3D'
             object TreeViewItem14: TTreeViewItem
@@ -4429,9 +4384,6 @@ object MainForm: TMainForm
               IsChecked = False
               IsExpanded = False
               IsSelected = False
-              Size.Width = 140.000000000000000000
-              Size.Height = 19.000000000000000000
-              Size.PlatformDefault = False
               TabOrder = 0
               Text = 'Chart3D'
             end
@@ -4441,9 +4393,6 @@ object MainForm: TMainForm
           IsChecked = False
           IsExpanded = True
           IsSelected = False
-          Size.Width = 180.000000000000000000
-          Size.Height = 19.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 1
           Text = 'Database'
           object TreeViewItem16: TTreeViewItem
@@ -4453,7 +4402,6 @@ object MainForm: TMainForm
             IsSelected = False
             TabOrder = 0
             Text = 'Summary'
-            Visible = False
           end
           object TreeViewItem18: TTreeViewItem
             StyleName = 'chartdatasetdemo'
@@ -4462,7 +4410,6 @@ object MainForm: TMainForm
             IsSelected = False
             TabOrder = 1
             Text = 'Chart As DataSet'
-            Visible = False
           end
           object TreeViewItem19: TTreeViewItem
             StyleName = 'crosstabdemo'
@@ -4471,7 +4418,6 @@ object MainForm: TMainForm
             IsSelected = False
             TabOrder = 2
             Text = 'DB Crosstab'
-            Visible = False
           end
           object TreeViewItem22: TTreeViewItem
             StyleName = 'datasetdemo'
@@ -4480,7 +4426,6 @@ object MainForm: TMainForm
             IsSelected = False
             TabOrder = 3
             Text = 'Dataset'
-            Visible = False
           end
         end
         object TreeViewItem20: TTreeViewItem
@@ -4488,9 +4433,6 @@ object MainForm: TMainForm
           IsChecked = False
           IsExpanded = False
           IsSelected = False
-          Size.Width = 180.000000000000000000
-          Size.Height = 19.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 2
           Text = 'Print Preview'
         end
@@ -4499,9 +4441,6 @@ object MainForm: TMainForm
           IsChecked = False
           IsExpanded = False
           IsSelected = False
-          Size.Width = 180.000000000000000000
-          Size.Height = 19.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 3
           Text = 'TeeFunctions'
         end
@@ -4510,9 +4449,6 @@ object MainForm: TMainForm
           IsChecked = False
           IsExpanded = False
           IsSelected = False
-          Size.Width = 180.000000000000000000
-          Size.Height = 19.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 4
           Text = 'FireMonkey Extras'
         end

@@ -9,6 +9,12 @@
         <Projects Include="TeeChart_FireMonkey_Mobile_Demo.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="TeeChart_Lite_Firemonkey_Demo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TeeChart_Standard_Firemonkey_Demo.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +41,32 @@
     <Target Name="TeeChart_FireMonkey_Mobile_Demo:Make">
         <MSBuild Projects="TeeChart_FireMonkey_Mobile_Demo.dproj" Targets="Make"/>
     </Target>
+    <Target Name="TeeChart_Lite_Firemonkey_Demo">
+        <MSBuild Projects="TeeChart_Lite_Firemonkey_Demo.dproj"/>
+    </Target>
+    <Target Name="TeeChart_Lite_Firemonkey_Demo:Clean">
+        <MSBuild Projects="TeeChart_Lite_Firemonkey_Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TeeChart_Lite_Firemonkey_Demo:Make">
+        <MSBuild Projects="TeeChart_Lite_Firemonkey_Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TeeChart_Standard_Firemonkey_Demo">
+        <MSBuild Projects="TeeChart_Standard_Firemonkey_Demo.dproj"/>
+    </Target>
+    <Target Name="TeeChart_Standard_Firemonkey_Demo:Clean">
+        <MSBuild Projects="TeeChart_Standard_Firemonkey_Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TeeChart_Standard_Firemonkey_Demo:Make">
+        <MSBuild Projects="TeeChart_Standard_Firemonkey_Demo.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo;TeeChart_FireMonkey_Mobile_Demo"/>
+        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo;TeeChart_FireMonkey_Mobile_Demo;TeeChart_Lite_Firemonkey_Demo;TeeChart_Standard_Firemonkey_Demo"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo:Clean;TeeChart_FireMonkey_Mobile_Demo:Clean"/>
+        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo:Clean;TeeChart_FireMonkey_Mobile_Demo:Clean;TeeChart_Lite_Firemonkey_Demo:Clean;TeeChart_Standard_Firemonkey_Demo:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo:Make;TeeChart_FireMonkey_Mobile_Demo:Make"/>
+        <CallTarget Targets="TeeChart_Pro_Firemonkey_Demo:Make;TeeChart_FireMonkey_Mobile_Demo:Make;TeeChart_Lite_Firemonkey_Demo:Make;TeeChart_Standard_Firemonkey_Demo:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

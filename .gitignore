@@ -27,3 +27,4 @@ VCL/MultiPanel/Win64/
 VCL/MultiPanel/Win32/
 FMX/RingBuffer/Win32/
 FMX/RingBuffer/Linux64/
+*.rsm

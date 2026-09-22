@@ -9,13 +9,6 @@ uses
   FMXTee.Chart, Fmx.Bind.Navigator, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.DBScope,
   Data.Bind.DBLinks, Fmx.Bind.DBLinks,
-  {$IFNDEF MACOS}
-  {$IFNDEF CPUX64}
-  {$IFNDEF ANDROID}
-  MidasLib,
-  {$ENDIF}
-  {$ENDIF}
-  {$ENDIF}
   System.Rtti, FMX.StdCtrls, FMX.Grid.Style,
   Data.Bind.Controls, FMX.ScrollBox, FMX.Controls.Presentation,
   System.Bindings.Outputs;

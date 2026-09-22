@@ -115,6 +115,16 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Linux64'">
+        <DeployFile Include="Linux64\Debug\TeeChart_Pro_Firemonkey_Demo" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>TeeChart_Pro_Firemonkey_Demo</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
         <DeployFile Include="$(BDS)\redist\linux64\libmidas.so.2" Condition="'$(Config)'=='Debug'">
             <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
             <RemoteName>libmidas.so.2</RemoteName>
