@@ -35,6 +35,11 @@ uses
   FMXTee.ProConstants,
   FMXTee.Languages;
 
+type
+  TIntegerObject=class
+    Value : Integer;
+  end;
+
 procedure TLanguagesForm.LangChanged(Sender: TObject);
 begin
   TAskLanguage.SetDefaultLanguage(TIntegerObject(tmp.LBLangs.Selected.Data).Value);

@@ -1,0 +1,147 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Condition="Exists('$(BDS)\bin\CodeGear.Deployment.targets')" Project="$(BDS)\bin\CodeGear.Deployment.targets"/>
+    <ProjectExtensions>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <PropertyGroup>
+        <DeviceId Condition="'$(Platform)'=='Android'"/>
+        <DeviceId Condition="'$(Platform)'=='Android64'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSSimARM64'"/>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(Platform)'=='WinARM64EC'"/>
+    <ItemGroup Condition="'$(Platform)'=='OSX64'">
+        <DeployFile Include="$(BDS)\redist\osx64\libmidas.dylib" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libmidas.dylib</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\redist\osx64\libmidas.dylib" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libmidas.dylib</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Win32'">
+        <DeployFile Include="$(BDS)\bin\midas.dll" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\bin\midas.dll" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Android64'"/>
+    <ItemGroup Condition="'$(Platform)'=='Android'"/>
+    <ItemGroup Condition="'$(Platform)'=='Win64'">
+        <DeployFile Include="$(BDS)\bin64\midas.dll" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\bin64\midas.dll" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='OSXARM64'">
+        <DeployFile Include="$(BDS)\redist\osx64\libmidas.dylib" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libmidas.dylib</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\redist\osx64\libmidas.dylib" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>libmidas.dylib</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
+    <ItemGroup Condition="'$(Platform)'=='iOSSimARM64'"/>
+    <ItemGroup Condition="'$(Platform)'=='Win64x'">
+        <DeployFile Include="$(BDS)\bin64\midas.dll" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\bin64\midas.dll" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>midas.dll</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Linux64'">
+        <DeployFile Include="$(BDS)\redist\linux64\libmidas.so.2" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>libmidas.so.2</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="$(BDS)\redist\linux64\libmidas.so.2" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>libmidas.so.2</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Linux64\Release\TeeChart_Pro_Firemonkey_Demo" Condition="'$(Config)'=='Release'">
+            <RemoteDir>TeeChart_Pro_Firemonkey_Demo\</RemoteDir>
+            <RemoteName>TeeChart_Pro_Firemonkey_Demo</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
+    </ItemGroup>
+</Project>

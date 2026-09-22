@@ -5,8 +5,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
-  FMXTee.Series, Data.DB, Datasnap.DBClient, FMXTee.Procs, FMXTee.Chart,
-  FMXTee.DBChart, FMXTee.Editor.DBChart, FMX.StdCtrls, FMX.Controls.Presentation;
+  FMXTee.Series, Data.DB, FMXTee.Procs, FMXTee.Chart,
+  FMXTee.DBChart, FMXTee.Editor.DBChart, FMX.StdCtrls, FMX.Controls.Presentation,
+  Datasnap.DBClient;
 
 type
   TDatasetDemo = class(TBaseForm)
