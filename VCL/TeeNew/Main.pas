@@ -54,7 +54,7 @@ uses
    Series_LabelsBinding,
    {$ENDIF}
 
-   Base, TeePenDlg;
+   Base, TeePenDlg, System.ImageList;
 
 Const
   TeeRegistryKey = '\Software\Steema Software\TeeChart Pro v'+TeeChartVersion+' VCL';
