@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
   System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
   FMX.StdCtrls, Base, FMXTee.Engine, FMXTee.Gauges.Numeric,
-  FMXTee.Gauges.Linear, FMXTee.Gauges.Circular, FMXTee.Procs, FMXTee.Chart;
+  FMXTee.Gauges.Linear, FMXTee.Gauges.Circular, FMXTee.Procs, FMXTee.Chart,
+  FMX.Controls.Presentation;
 
 type
   TCircularGaugeForm = class(TBaseForm)

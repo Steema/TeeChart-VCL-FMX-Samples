@@ -7,7 +7,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
   System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
   FMX.StdCtrls, Base, FMXTee.Engine, FMXTee.Series, FMXTee.Procs,
-  FMXTee.Chart, FMXTee.Animate, FMXTee.Animations.Tools;
+  FMXTee.Chart, FMXTee.Animate, FMXTee.Animations.Tools,
+  FMX.Controls.Presentation;
 
 type
   TAnimationPieSeries = class(TBaseForm)

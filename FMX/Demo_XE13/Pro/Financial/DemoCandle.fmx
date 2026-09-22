@@ -1,78 +1,74 @@
 inherited DemoCandleSeries: TDemoCandleSeries
   Caption = 'Candle'
   OnCreate = FormCreate
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
-  DesignerOSVersion = ''
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
     object CheckBox1: TCheckBox
-      Height = 19.000000000000000000
       IsChecked = True
       Position.X = 128.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Draw 3D'
-      Width = 81.000000000000000000
       OnChange = CheckBox1Change
     end
     object ComboBox1: TComboBox
-      DisableFocusEffect = False
-      Height = 22.000000000000000000
       ItemIndex = 0
       Position.X = 224.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 2
-      Width = 100.000000000000000000
       OnChange = ComboBox1Change
       object ListBoxItem1: TListBoxItem
-        Height = 18.000000000000000000
         IsSelected = True
         Position.X = 5000.000000000000000000
         Position.Y = 5000.000000000000000000
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 0
         Text = 'Candle Stick'
-        Width = 75.000000000000000000
       end
       object ListBoxItem2: TListBoxItem
-        Height = 18.000000000000000000
         Position.Y = 19.000000000000000000
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Candle Bar'
-        Width = 75.000000000000000000
       end
       object ListBoxItem3: TListBoxItem
-        Height = 19.000000000000000000
         Position.Y = 38.000000000000000000
         TabOrder = 2
         Text = 'Open-Close'
-        Width = 80.000000000000000000
       end
       object ListBoxItem4: TListBoxItem
-        Height = 19.000000000000000000
         Position.Y = 57.000000000000000000
         TabOrder = 3
         Text = 'Line'
-        Width = 80.000000000000000000
       end
     end
     object CheckBox2: TCheckBox
-      Height = 19.000000000000000000
       IsChecked = True
       Position.X = 352.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 4
       Text = 'View 3D'
-      Width = 120.000000000000000000
       OnChange = CheckBox2Change
     end
   end
   object Chart1: TChart
-    Height = 343.000000000000000000
-    Width = 600.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'Financial Candle Series')
     BottomAxis.Grid.Color = claGray
@@ -102,8 +98,12 @@ inherited DemoCandleSeries: TDemoCandleSeries
     Zoom.Pen.Fill.Color = claWhite
     Align = Client
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TCandleSeries
+      HoverElement = [heCurrent]
       CloseValues.Name = 'Close'
       CloseValues.Order = loNone
       DateValues.Name = 'Date'
@@ -121,6 +121,7 @@ inherited DemoCandleSeries: TDemoCandleSeries
       HighLowPen.Fill.Color = xAE131313
     end
     object Series2: TVolumeSeries
+      HoverElement = [heCurrent]
       VertAxis = aRightAxis
       LinePen.Color = xFFF39C35
       LinePen.Fill.Color = xFFF39C35

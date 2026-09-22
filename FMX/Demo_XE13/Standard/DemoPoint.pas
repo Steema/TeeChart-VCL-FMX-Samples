@@ -15,7 +15,7 @@ uses
   FMXTee.Animations,
   FMXTee.Animations.Tools,
   {$ENDIF}
-  FMX.StdCtrls;
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TDemoPointSeries = class(TBaseForm)

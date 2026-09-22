@@ -16,7 +16,8 @@ uses
   {$ENDIF}
   {$ENDIF}
   {$ENDIF}
-  System.Rtti, System.Bindings.Outputs, FMX.StdCtrls;
+  System.Rtti, System.Bindings.Outputs, FMX.StdCtrls, FMX.Grid.Style,
+  Data.Bind.Controls, FMX.ScrollBox, FMX.Controls.Presentation;
 
 type
   TChartDataSetDemo = class(TBaseForm)

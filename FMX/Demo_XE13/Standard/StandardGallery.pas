@@ -6,7 +6,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base,
-  FMXTee.Chart.GalleryPanel, FMXTee.Editor.Chart, FMX.StdCtrls;
+  FMXTee.Chart.GalleryPanel, FMXTee.Editor.Chart, FMX.StdCtrls,
+  FMX.Controls.Presentation;
 
 type
   TStandardDemo = class(TBaseForm)

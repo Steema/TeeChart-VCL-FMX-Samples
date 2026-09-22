@@ -6,12 +6,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
   System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
-  {$IFDEF D21}
-  FMX.SpinBox,
-  {$ENDIF}
   FMX.StdCtrls, Base, FMXTee.Engine, FMXTee.Gauges.Numeric,
   FMXTee.Gauges.Linear, FMXTee.Gauges.Circular, FMXTee.Procs, FMXTee.Chart,
-  FMX.Edit;
+  FMX.Edit, FMX.EditBox, FMX.SpinBox, FMX.Controls.Presentation;
 
 type
   TDisplayAngleForm = class(TBaseForm)

@@ -4,13 +4,11 @@ unit DemoSquarified;
 interface
 
 uses
-  {$IFDEF D21}
-  FMX.Controls.Presentation,
-  {$ENDIF}
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   Base, FMX.Edit, FMX.ListBox, FMX.Layouts, FMXTee.Engine, FMXTee.Procs,
-  FMXTee.Chart, FMXTee.Canvas, FMXTee.Series.SquarifiedMap;
+  FMXTee.Chart, FMXTee.Canvas, FMXTee.Series.SquarifiedMap,
+  FMX.Controls.Presentation;
 
 type
   TDemoSquarifiedSeries = class(TBaseForm)

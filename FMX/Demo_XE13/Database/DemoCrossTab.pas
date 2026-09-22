@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.DBChart, FMXTee.Chart.Crosstab, Data.DB, Datasnap.DBClient,
   FMXTee.Series, FMXTee.Procs, FMXTee.Chart, FMXTee.Editor.CrossTab,
-  FMX.StdCtrls;
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TCrossTabDemo = class(TBaseForm)
@@ -16,8 +16,6 @@ type
     DBChart1: TDBChart;
     Series1: TBarSeries;
     DBCrossTabSource1: TDBCrossTabSource;
-    Series2: TBarSeries;
-    Series3: TBarSeries;
   private
     { Private declarations }
   public

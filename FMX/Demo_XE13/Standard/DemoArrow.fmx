@@ -1,31 +1,26 @@
 inherited ArrowSeriesDemo: TArrowSeriesDemo
   Caption = 'BaseForm1'
   OnCreate = FormCreate
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
+  DesignerMasterStyle = 0
   object Chart1: TChart
-    Height = 343.000000000000000000
-    Position.Y = 57.000000000000000000
-    Width = 600.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'TChart')
-    Zoom.Brush.Kind = bkNone
-    Align = alClient
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TArrowSeries
       ColorEachPoint = True
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = claBlack
-      Marks.Callout.Arrow.Visible = True
       Marks.Frame.Visible = False
-      Marks.ShapeStyle = fosRoundRectangle
       Marks.Transparent = True
-      Marks.Visible = False
       ClickableLine = False
       Pointer.Brush.Gradient.EndColor = xFFF2C05D
       Pointer.Gradient.EndColor = xFFF2C05D
@@ -33,7 +28,6 @@ inherited ArrowSeriesDemo: TArrowSeriesDemo
       Pointer.InflateMargins = False
       Pointer.Style = psRectangle
       Pointer.VertSize = 28
-      Pointer.Visible = True
       XValues.Name = 'X'
       XValues.Order = loNone
       YValues.Name = 'Y'

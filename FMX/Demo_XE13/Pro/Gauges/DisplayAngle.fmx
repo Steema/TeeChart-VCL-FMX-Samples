@@ -1,14 +1,8 @@
 inherited DisplayAngleForm: TDisplayAngleForm
   Caption = 'DisplayAngleForm'
-  OnShow = FormShow
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
-  DesignerOSVersion = ''
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    Height = 73.000000000000000000
+    Size.Height = 73.000000000000000000
     object UDDisplayTotalAngle: TSpinBox
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       TabOrder = 1
@@ -18,16 +12,18 @@ inherited DisplayAngleForm: TDisplayAngleForm
       Value = 200.000000000000000000
       Position.X = 242.000000000000000000
       Position.Y = 12.000000000000000000
-      Width = 73.000000000000000000
-      Height = 22.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       OnChange = UDDisplayTotalAngleChange
     end
     object Label1: TLabel
-      Height = 25.000000000000000000
       Position.X = 125.000000000000000000
       Position.Y = 10.000000000000000000
+      Size.Width = 116.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
       Text = '&Display Total Angle:'
-      Width = 116.000000000000000000
     end
     object UDDisplayRotationAngle: TSpinBox
       Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -38,23 +34,26 @@ inherited DisplayAngleForm: TDisplayAngleForm
       Value = -100.000000000000000000
       Position.X = 483.000000000000000000
       Position.Y = 12.000000000000000000
-      Width = 86.000000000000000000
-      Height = 22.000000000000000000
+      Size.Width = 86.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       OnChange = UDDisplayRotationAngleChange
     end
     object Label3: TLabel
-      Height = 25.000000000000000000
       Position.X = 352.000000000000000000
       Position.Y = 10.000000000000000000
+      Size.Width = 130.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Di&splay Rotation Angle:'
-      Width = 130.000000000000000000
     end
     object Label4: TLabel
-      Height = 25.000000000000000000
       Position.X = 125.000000000000000000
       Position.Y = 39.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
       Text = '&Total Angle:'
-      Width = 113.000000000000000000
     end
     object UDTotalAngle: TSpinBox
       Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -65,16 +64,18 @@ inherited DisplayAngleForm: TDisplayAngleForm
       Value = 178.000000000000000000
       Position.X = 243.000000000000000000
       Position.Y = 41.000000000000000000
-      Width = 73.000000000000000000
-      Height = 22.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       OnChange = UDTotalAngleChange
     end
     object Label5: TLabel
-      Height = 25.000000000000000000
       Position.X = 352.000000000000000000
       Position.Y = 39.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
       Text = '&Rotation Angle'
-      Width = 129.000000000000000000
     end
     object UDRotationAngle: TSpinBox
       Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -85,17 +86,19 @@ inherited DisplayAngleForm: TDisplayAngleForm
       Value = 90.000000000000000000
       Position.X = 483.000000000000000000
       Position.Y = 41.000000000000000000
-      Width = 86.000000000000000000
-      Height = 22.000000000000000000
+      Size.Width = 86.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       OnChange = UDRotationAngleChange
     end
   end
   object Chart1: TChart
-    Height = 327.000000000000000000
-    Width = 600.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Gradient.EndColor = xFFC4C4C4
     Gradient.Visible = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Alignment = taLeftJustify
     Title.CustomPosition = True
     Title.Font.Color = xA0000000
@@ -111,6 +114,7 @@ inherited DisplayAngleForm: TDisplayAngleForm
     BottomAxis.LabelsFormat.Font.Style = [fsBold]
     BottomAxis.LabelsFormat.Font.Color = claSilver
     BottomAxis.LabelsFormat.Font.Brush.Color = claSilver
+    BottomAxis.LabelsFormat.Font.StyleExt = {00070000000000000004000000}
     BottomAxis.MinorTickLength = 1
     BottomAxis.MinorTicks.Color = xFF646464
     BottomAxis.MinorTicks.Fill.Color = xFF646464
@@ -127,6 +131,9 @@ inherited DisplayAngleForm: TDisplayAngleForm
     Align = Client
     Color = claWhite
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 327.000000000000000000
+    Size.PlatformDefault = False
     ColorPaletteIndex = 13
     object Series1: TCircularGauge
       Legend.Visible = False
@@ -192,15 +199,12 @@ inherited DisplayAngleForm: TDisplayAngleForm
           Format.InflateMargins = True
           Format.Pen.Color = xFF3C73C8
           Format.Pen.Fill.Color = xFF3C73C8
-          Format.Pen.Visible = False
           Format.Style = psRectangle
           Format.Transparency = 70
           Format.VertSize = 120
-          Format.GaugeStyle = gpHand
           Format.Distance = 67
           Format.Offset = 0
           Format.Value = 34.000000000000000000
-          Value = 34.000000000000000000
         end>
       Maximum = 100.000000000000000000
       MinorTicks.Brush.Color = claNull

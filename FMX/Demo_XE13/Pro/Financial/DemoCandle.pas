@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Base, FMXTee.Engine,
   FMXTee.Series, FMXTee.Series.OHLC, FMXTee.Series.Candle, FMXTee.Procs,
-  FMXTee.Chart, FMX.ListBox, FMXTee.Tools;
+  FMXTee.Chart, FMX.ListBox, FMXTee.Tools, FMX.Controls.Presentation;
 
 type
   TDemoCandleSeries = class(TBaseForm)

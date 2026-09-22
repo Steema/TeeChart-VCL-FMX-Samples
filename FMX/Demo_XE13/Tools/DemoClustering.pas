@@ -16,7 +16,8 @@ uses
   FMXTee.Series.Point3D, FMXTee.Engine, FMXTee.Series, FMXTee.Procs,
   FMXTee.Chart, FMX.ListBox, FMX.Memo, FMXTee.Commander, FMX.Layouts, FMX.Edit,
   FMX.TreeView, FMXTee.Tools.Clustering, FMXTee.Functions.Clustering,
-  FMX.Platform, FMX.Objects;
+  FMX.Platform, FMX.Objects, FMX.Memo.Types, FMX.ScrollBox,
+  FMX.Controls.Presentation;
 
 type
   TClusteringDemo = class(TForm)

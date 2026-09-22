@@ -1,38 +1,36 @@
 inherited GanttSeriesDemo: TGanttSeriesDemo
   Caption = 'BaseForm1'
   OnCreate = FormCreate
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
-  DesignerOSVersion = ''
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
     object Button1: TButton
-      Height = 22.000000000000000000
       Position.X = 120.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Connections...'
-      Width = 97.000000000000000000
       OnClick = Button1Click
     end
     object Label1: TLabel
       AutoSize = True
-      Height = 16.000000000000000000
       Position.X = 236.000000000000000000
       Position.Y = 20.000000000000000000
+      Size.Width = 0.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
       TextSettings.WordWrap = False
-      Width = 0.000000000000000000
     end
   end
   object Chart1: TChart
-    Height = 343.000000000000000000
-    Width = 600.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Gradient.EndColor = xFFD4F1DB
     Gradient.StartColor = xFFF27777
     Gradient.Visible = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     Title.Text.Strings = (
       'Gantt Series')
     Chart3DPercent = 7
@@ -40,6 +38,9 @@ inherited GanttSeriesDemo: TGanttSeriesDemo
     Zoom.Pen.Fill.Color = claSilver
     Align = Client
     TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
     OnMouseMove = Chart1MouseMove
     ColorPaletteIndex = 13
     object Series1: TGanttSeries

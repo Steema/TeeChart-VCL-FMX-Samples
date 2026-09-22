@@ -8,7 +8,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
   FMXTee.Engine, FMXTee.Procs,
   FMXTee.Chart, FMXTee.Editor.Stroke, FMXTee.Editor.Export, FMXTee.Series,
-  FMX.StdCtrls;
+  FMX.StdCtrls, FMX.Controls.Presentation;
 
 type
   TExportDemo = class(TForm)

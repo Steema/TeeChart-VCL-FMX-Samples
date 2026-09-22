@@ -22,7 +22,7 @@ uses
   {$ENDIF}
 
   Data.Bind.DBLinks, FMXTee.Bind.DBLinks, System.Rtti, System.Bindings.Outputs,
-  Fmx.Bind.Editors;
+  Fmx.Bind.Editors, FMX.Controls.Presentation;
 
 type
   TChartLiveBindings = class(TBaseForm)

@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Base, FMXTee.Engine,
   FMXTee.Series, FMXTee.Series.Polar, FMXTee.Procs, FMXTee.Chart, FMX.StdCtrls,
-  FMXTee.Gauges.Linear, FMXTee.Gauges.Numeric;
+  FMXTee.Gauges.Linear, FMXTee.Gauges.Numeric, FMX.Controls.Presentation;
 
 type
   TLCDGauges = class(TBaseForm)

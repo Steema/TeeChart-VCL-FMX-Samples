@@ -3,26 +3,21 @@ inherited ProgressiveLines: TProgressiveLines
   ClientHeight = 599
   ClientWidth = 928
   OnCreate = FormCreate
-  DesignerMobile = False
-  DesignerWidth = 0
-  DesignerHeight = 0
-  DesignerDeviceName = ''
-  DesignerOrientation = 0
+  DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    Width = 928.000000000000000000
+    Size.Width = 928.000000000000000000
     object Button1: TButton
-      Height = 22.000000000000000000
       Position.X = 136.000000000000000000
       Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Play'
-      Width = 80.000000000000000000
       OnClick = Button1Click
     end
   end
   object Chart1: TChart
-    Height = 542.000000000000000000
-    Width = 928.000000000000000000
     BackWall.Color = xFFC9E1C1
     BackWall.Pen.Color = xFF0F9FB4
     BackWall.Pen.Fill.Color = xFF0F9FB4
@@ -31,38 +26,35 @@ inherited ProgressiveLines: TProgressiveLines
     BottomWall.Pen.Color = xFF0F9FB4
     BottomWall.Pen.Fill.Color = xFF0F9FB4
     Foot.Color = xFF152737
-    Foot.Font.Family = 'Segoe UI'
     Foot.Font.Color = xFF0FB493
     Foot.Font.Brush.Color = xFF0FB493
+    Foot.Font.StyleExt = {00040000000200000004000000}
     Foot.Frame.Color = xFF0F9FB4
     Foot.Frame.Fill.Color = xFF0F9FB4
     LeftWall.Color = claWhite
     LeftWall.Pen.Color = xFF0F9FB4
     LeftWall.Pen.Fill.Color = xFF0F9FB4
     Legend.Color = xFF152737
-    Legend.Font.Family = 'Segoe UI'
     Legend.Font.Color = xFF0FB493
     Legend.Font.Brush.Color = xFF0FB493
     Legend.Frame.Color = xFF0F9FB4
     Legend.Frame.Fill.Color = xFF0F9FB4
-    Legend.Title.Font.Family = 'Segoe UI'
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
     RightWall.Color = claWhite
     RightWall.Pen.Color = xFF0F9FB4
     RightWall.Pen.Fill.Color = xFF0F9FB4
     SubFoot.Color = xFF152737
-    SubFoot.Font.Family = 'Segoe UI'
     SubFoot.Font.Color = xFF0FB493
     SubFoot.Font.Brush.Color = xFF0FB493
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
     SubFoot.Frame.Color = xFF0F9FB4
     SubFoot.Frame.Fill.Color = xFF0F9FB4
     SubTitle.Color = xFF152737
-    SubTitle.Font.Family = 'Segoe UI'
     SubTitle.Font.Color = xFF0FB493
     SubTitle.Font.Brush.Color = xFF0FB493
     SubTitle.Frame.Color = xFF0F9FB4
     SubTitle.Frame.Fill.Color = xFF0F9FB4
     Title.Color = xFF152737
-    Title.Font.Family = 'Segoe UI'
     Title.Font.Color = xFF0FB493
     Title.Font.Brush.Color = xFF0FB493
     Title.Frame.Color = xFF0F9FB4
@@ -73,7 +65,6 @@ inherited ProgressiveLines: TProgressiveLines
     BottomAxis.Axis.Fill.Color = xFF0F9FB4
     BottomAxis.Grid.Color = x2C0F9FB4
     BottomAxis.Grid.Fill.Color = x2C0F9FB4
-    BottomAxis.LabelsFormat.Font.Family = 'Segoe UI'
     BottomAxis.LabelsFormat.Font.Color = xFF0FB493
     BottomAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     BottomAxis.MinorGrid.Color = xFF0F9FB4
@@ -81,12 +72,10 @@ inherited ProgressiveLines: TProgressiveLines
     BottomAxis.MinorTicks.Color = xFF0F9FB4
     BottomAxis.MinorTicks.Fill.Color = xFF0F9FB4
     BottomAxis.Shape.Color = xFF152737
-    BottomAxis.Shape.Font.Family = 'Segoe UI'
     BottomAxis.Ticks.Color = xFF0F9FB4
     BottomAxis.Ticks.Fill.Color = xFF0F9FB4
     BottomAxis.TicksInner.Color = xFF0F9FB4
     BottomAxis.TicksInner.Fill.Color = xFF0F9FB4
-    BottomAxis.Title.Font.Family = 'Segoe UI'
     BottomAxis.Title.Font.Color = xFF0FB493
     BottomAxis.Title.Font.Brush.Color = xFF0FB493
     BottomAxis.Title.Pen.Color = xFF0F9FB4
@@ -95,7 +84,6 @@ inherited ProgressiveLines: TProgressiveLines
     DepthAxis.Axis.Fill.Color = xFF0F9FB4
     DepthAxis.Grid.Color = xFF0F9FB4
     DepthAxis.Grid.Fill.Color = xFF0F9FB4
-    DepthAxis.LabelsFormat.Font.Family = 'Segoe UI'
     DepthAxis.LabelsFormat.Font.Color = xFF0FB493
     DepthAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     DepthAxis.MinorGrid.Color = xFF0F9FB4
@@ -103,12 +91,10 @@ inherited ProgressiveLines: TProgressiveLines
     DepthAxis.MinorTicks.Color = xFF0F9FB4
     DepthAxis.MinorTicks.Fill.Color = xFF0F9FB4
     DepthAxis.Shape.Color = xFF152737
-    DepthAxis.Shape.Font.Family = 'Segoe UI'
     DepthAxis.Ticks.Color = xFF0F9FB4
     DepthAxis.Ticks.Fill.Color = xFF0F9FB4
     DepthAxis.TicksInner.Color = xFF0F9FB4
     DepthAxis.TicksInner.Fill.Color = xFF0F9FB4
-    DepthAxis.Title.Font.Family = 'Segoe UI'
     DepthAxis.Title.Font.Color = xFF0FB493
     DepthAxis.Title.Font.Brush.Color = xFF0FB493
     DepthAxis.Title.Pen.Color = xFF0F9FB4
@@ -117,7 +103,6 @@ inherited ProgressiveLines: TProgressiveLines
     DepthTopAxis.Axis.Fill.Color = xFF0F9FB4
     DepthTopAxis.Grid.Color = xFF0F9FB4
     DepthTopAxis.Grid.Fill.Color = xFF0F9FB4
-    DepthTopAxis.LabelsFormat.Font.Family = 'Segoe UI'
     DepthTopAxis.LabelsFormat.Font.Color = xFF0FB493
     DepthTopAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     DepthTopAxis.MinorGrid.Color = xFF0F9FB4
@@ -125,12 +110,10 @@ inherited ProgressiveLines: TProgressiveLines
     DepthTopAxis.MinorTicks.Color = xFF0F9FB4
     DepthTopAxis.MinorTicks.Fill.Color = xFF0F9FB4
     DepthTopAxis.Shape.Color = xFF152737
-    DepthTopAxis.Shape.Font.Family = 'Segoe UI'
     DepthTopAxis.Ticks.Color = xFF0F9FB4
     DepthTopAxis.Ticks.Fill.Color = xFF0F9FB4
     DepthTopAxis.TicksInner.Color = xFF0F9FB4
     DepthTopAxis.TicksInner.Fill.Color = xFF0F9FB4
-    DepthTopAxis.Title.Font.Family = 'Segoe UI'
     DepthTopAxis.Title.Font.Color = xFF0FB493
     DepthTopAxis.Title.Font.Brush.Color = xFF0FB493
     DepthTopAxis.Title.Pen.Color = xFF0F9FB4
@@ -141,7 +124,6 @@ inherited ProgressiveLines: TProgressiveLines
     LeftAxis.Axis.Fill.Color = xFF0F9FB4
     LeftAxis.Grid.Color = x410F9FB4
     LeftAxis.Grid.Fill.Color = x410F9FB4
-    LeftAxis.LabelsFormat.Font.Family = 'Segoe UI'
     LeftAxis.LabelsFormat.Font.Color = xFF0FB493
     LeftAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     LeftAxis.MinorGrid.Color = xFF0F9FB4
@@ -149,12 +131,10 @@ inherited ProgressiveLines: TProgressiveLines
     LeftAxis.MinorTicks.Color = xFF0F9FB4
     LeftAxis.MinorTicks.Fill.Color = xFF0F9FB4
     LeftAxis.Shape.Color = xFF152737
-    LeftAxis.Shape.Font.Family = 'Segoe UI'
     LeftAxis.Ticks.Color = xFF0F9FB4
     LeftAxis.Ticks.Fill.Color = xFF0F9FB4
     LeftAxis.TicksInner.Color = xFF0F9FB4
     LeftAxis.TicksInner.Fill.Color = xFF0F9FB4
-    LeftAxis.Title.Font.Family = 'Segoe UI'
     LeftAxis.Title.Font.Color = xFF0FB493
     LeftAxis.Title.Font.Brush.Color = xFF0FB493
     LeftAxis.Title.Pen.Color = xFF0F9FB4
@@ -163,7 +143,6 @@ inherited ProgressiveLines: TProgressiveLines
     RightAxis.Axis.Fill.Color = xFF0F9FB4
     RightAxis.Grid.Color = xFF0F9FB4
     RightAxis.Grid.Fill.Color = xFF0F9FB4
-    RightAxis.LabelsFormat.Font.Family = 'Segoe UI'
     RightAxis.LabelsFormat.Font.Color = xFF0FB493
     RightAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     RightAxis.MinorGrid.Color = xFF0F9FB4
@@ -171,12 +150,10 @@ inherited ProgressiveLines: TProgressiveLines
     RightAxis.MinorTicks.Color = xFF0F9FB4
     RightAxis.MinorTicks.Fill.Color = xFF0F9FB4
     RightAxis.Shape.Color = xFF152737
-    RightAxis.Shape.Font.Family = 'Segoe UI'
     RightAxis.Ticks.Color = xFF0F9FB4
     RightAxis.Ticks.Fill.Color = xFF0F9FB4
     RightAxis.TicksInner.Color = xFF0F9FB4
     RightAxis.TicksInner.Fill.Color = xFF0F9FB4
-    RightAxis.Title.Font.Family = 'Segoe UI'
     RightAxis.Title.Font.Color = xFF0FB493
     RightAxis.Title.Font.Brush.Color = xFF0FB493
     RightAxis.Title.Pen.Color = xFF0F9FB4
@@ -185,7 +162,6 @@ inherited ProgressiveLines: TProgressiveLines
     TopAxis.Axis.Fill.Color = xFF0F9FB4
     TopAxis.Grid.Color = xFF0F9FB4
     TopAxis.Grid.Fill.Color = xFF0F9FB4
-    TopAxis.LabelsFormat.Font.Family = 'Segoe UI'
     TopAxis.LabelsFormat.Font.Color = xFF0FB493
     TopAxis.LabelsFormat.Font.Brush.Color = xFF0FB493
     TopAxis.MinorGrid.Color = xFF0F9FB4
@@ -193,24 +169,25 @@ inherited ProgressiveLines: TProgressiveLines
     TopAxis.MinorTicks.Color = xFF0F9FB4
     TopAxis.MinorTicks.Fill.Color = xFF0F9FB4
     TopAxis.Shape.Color = xFF152737
-    TopAxis.Shape.Font.Family = 'Segoe UI'
     TopAxis.Ticks.Color = xFF0F9FB4
     TopAxis.Ticks.Fill.Color = xFF0F9FB4
     TopAxis.TicksInner.Color = xFF0F9FB4
     TopAxis.TicksInner.Fill.Color = xFF0F9FB4
-    TopAxis.Title.Font.Family = 'Segoe UI'
     TopAxis.Title.Font.Color = xFF0FB493
     TopAxis.Title.Font.Brush.Color = xFF0FB493
     TopAxis.Title.Pen.Color = xFF0F9FB4
     TopAxis.Title.Pen.Fill.Color = xFF0F9FB4
     View3D = False
-    Zoom.Brush.Kind = bkNone
+    Zoom.Brush.Kind = None
     Zoom.Pen.Fill.Color = claSilver
-    Align = alClient
+    Align = Client
     Color = xFF152737
     TabOrder = 1
+    Size.Width = 928.000000000000000000
+    Size.Height = 542.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
     object Series1: TLineSeries
-      Marks.Font.Family = 'Segoe UI'
       Marks.Font.Color = xFF0FB493
       Marks.Font.Brush.Color = xFF0FB493
       Marks.Frame.Color = xFF0F9FB4
@@ -229,7 +206,6 @@ inherited ProgressiveLines: TProgressiveLines
       YValues.Order = loNone
     end
     object Series2: TLineSeries
-      Marks.Font.Family = 'Segoe UI'
       Marks.Font.Color = xFF0FB493
       Marks.Font.Brush.Color = xFF0FB493
       Marks.Frame.Color = xFF0F9FB4
@@ -248,7 +224,6 @@ inherited ProgressiveLines: TProgressiveLines
       YValues.Order = loNone
     end
     object Series3: TLineSeries
-      Marks.Font.Family = 'Segoe UI'
       Marks.Font.Color = xFF0FB493
       Marks.Font.Brush.Color = xFF0FB493
       Marks.Frame.Color = xFF0F9FB4
