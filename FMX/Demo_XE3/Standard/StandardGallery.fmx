@@ -1,0 +1,18 @@
+inherited StandardDemo: TStandardDemo
+  Caption = 'BaseForm1'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object View3D: TCheckBox
+      IsChecked = True
+      Position.X = 240.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'View 3D'
+      OnChange = View3DChange
+    end
+  end
+end

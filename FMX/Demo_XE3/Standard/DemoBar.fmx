@@ -1,0 +1,138 @@
+inherited DemoBarSeries: TDemoBarSeries
+  Caption = 'Bar Series'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object ComboBox1: TComboBox
+      ItemIndex = 1
+      Position.X = 120.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      OnChange = ComboBox1Change
+      object ListBoxItem1: TListBoxItem
+        Position.X = 5000.000000000000000000
+        Position.Y = 5000.000000000000000000
+        TabOrder = 0
+        Text = 'Normal'
+      end
+      object ListBoxItem2: TListBoxItem
+        IsSelected = True
+        Position.Y = 19.000000000000000000
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Side'
+      end
+      object ListBoxItem3: TListBoxItem
+        Position.Y = 38.000000000000000000
+        TabOrder = 2
+        Text = 'Stacked'
+      end
+      object ListBoxItem4: TListBoxItem
+        Position.Y = 57.000000000000000000
+        TabOrder = 3
+        Text = 'Stacked 100%'
+      end
+      object ListBoxItem5: TListBoxItem
+        Position.Y = 76.000000000000000000
+        TabOrder = 4
+        Text = 'Side All'
+      end
+      object ListBoxItem6: TListBoxItem
+        Position.Y = 95.000000000000000000
+        TabOrder = 5
+        Text = 'Self Stack'
+      end
+    end
+    object ComboBox2: TComboBox
+      ItemIndex = 0
+      Position.X = 248.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      OnChange = ComboBox2Change
+      object ListBoxItem7: TListBoxItem
+        IsSelected = True
+        Size.Width = 75.000000000000000000
+        Size.Height = 18.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Cube'
+      end
+      object ListBoxItem8: TListBoxItem
+        Position.Y = 19.000000000000000000
+        TabOrder = 1
+        Text = 'Cylinder'
+      end
+      object ListBoxItem9: TListBoxItem
+        Position.Y = 38.000000000000000000
+        TabOrder = 2
+        Text = 'Pyramid'
+      end
+      object ListBoxItem10: TListBoxItem
+        Position.Y = 57.000000000000000000
+        TabOrder = 3
+        Text = 'Cone'
+      end
+    end
+  end
+  object Chart1: TChart
+    BackWall.Transparency = 10
+    BackWall.Transparent = False
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Gradient.EndColor = xFFFCF199
+    Gradient.StartColor = xFFFFE3E3
+    Gradient.Visible = True
+    Legend.Brush.Kind = Gradient
+    Legend.Brush.Gradient.Direction = gdLeftRight
+    Legend.Brush.Gradient.Visible = True
+    Legend.CheckBoxes = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Color = xFFE72020
+    Title.Font.Size = 13.000000000000000000
+    Title.ShapeStyle = fosRoundRectangle
+    Title.Text.Strings = (
+      'Bar Series')
+    Title.Transparent = False
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 1
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    PrintMargins = (
+      0
+      0
+      0
+      0)
+    ColorPaletteIndex = 13
+    object Series1: TBarSeries
+      HoverElement = []
+      HorizAxis = aTopAxis
+      Marks.OnTop = True
+      VertAxis = aRightAxis
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
+    object Series2: TBarSeries
+      HoverElement = []
+      HorizAxis = aTopAxis
+      Marks.OnTop = True
+      VertAxis = aRightAxis
+      XValues.Name = 'X'
+      XValues.Order = loNone
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
+  end
+end

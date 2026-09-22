@@ -1,0 +1,27 @@
+object BaseForm: TBaseForm
+  Left = 0
+  Top = 0
+  ClientHeight = 400
+  ClientWidth = 600
+  FormFactor.Width = 1366
+  FormFactor.Height = 768
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 600.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object BEdit: TButton
+      Position.X = 16.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Edit...'
+      OnClick = BEditClick
+    end
+  end
+end

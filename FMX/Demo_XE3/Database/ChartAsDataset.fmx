@@ -1,0 +1,122 @@
+inherited ChartDataSetDemo: TChartDataSetDemo
+  Caption = 'BaseForm1'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object Label1: TLabel
+      AutoSize = True
+      Position.X = 120.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 252.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.WordWrap = False
+      Text = 'TChartDataSet component connected to Chart1'
+      TabOrder = 1
+    end
+  end
+  object Chart1: TChart
+    Position.Y = 57.000000000000000000
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Chart1')
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    TabOrder = 1
+    Size.Width = 400.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 1
+    object Series1: THorizBarSeries
+      HoverElement = []
+      BarBrush.Gradient.Direction = gdLeftRight
+      ColorEachPoint = True
+      Marks.OnTop = True
+      Gradient.Direction = gdLeftRight
+      XValues.Name = 'Bar'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object Layout1: TLayout
+    Position.X = 400.000000000000000000
+    Position.Y = 57.000000000000000000
+    Size.Width = 200.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object StringGrid1: TStringGrid
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 200.000000000000000000
+      Size.Height = 318.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'gridstyle'
+      TabOrder = 0
+      RowHeight = 21.000000000000000000
+      RowCount = 6
+      Viewport.Width = 200.000000000000000000
+      Viewport.Height = 318.000000000000000000
+    end
+    object BindNavigator1: TBindNavigator
+      Position.Y = 318.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      DataSource = BindScopeDB1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+      xRadius = 4.000000000000000000
+      yRadius = 4.000000000000000000
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+        ResourcesBin = {
+          464D585F5354594C4520322E3501060B436F6C6F72436F6C756D6E03D2000054
+          5046300E54436F6D626F436F6C6F72426F7800095374796C654E616D65060B43
+          6F6C6F72436F6C756D6E05436F6C6F720708636C6157686974650A506F736974
+          696F6E2E580500000000000000DE06400A506F736974696F6E2E590500000000
+          000000D506400A53697A652E57696474680500000000000000F004400B53697A
+          652E4865696768740500000000000000B003401453697A652E506C6174666F72
+          6D44656661756C74080B5374796C654C6F6F6B7570060D636F6D626F626F7873
+          74796C65085461624F7264657202000000}
+      end>
+    Left = 424
+    Top = 288
+  end
+  object ChartDataSet1: TChartDataSet
+    Active = True
+    Chart = Chart1
+    Left = 344
+    Top = 225
+  end
+  object DataSource1: TDataSource
+    DataSet = ChartDataSet1
+    Left = 520
+    Top = 216
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 68
+    Top = 37
+    object DBLinkStringGrid11: TBindDBGridLink
+      Category = 'DB Links'
+      DataSource = BindScopeDB1
+      GridControl = StringGrid1
+      Columns = <>
+      OnActivated = DBLinkStringGrid11Activated
+    end
+  end
+  object BindScopeDB1: TBindScopeDB
+    DataSource = DataSource1
+    ScopeMappings = <>
+    Left = 426
+    Top = 218
+  end
+end

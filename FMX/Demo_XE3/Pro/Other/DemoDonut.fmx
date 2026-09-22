@@ -1,0 +1,81 @@
+inherited DemoDonutSeries: TDemoDonutSeries
+  Caption = 'BaseForm1'
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object Text1: TText
+      AutoSize = True
+      Position.X = 120.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 41.839843750000000000
+      Size.Height = 15.960937500000000000
+      Size.PlatformDefault = False
+      Text = 'Hole %'
+    end
+    object TrackBar1: TTrackBar
+      CanParentFocus = True
+      Orientation = Horizontal
+      Position.X = 180.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Value = 50.000000000000000000
+      OnChange = TrackBar1Change
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Donut')
+    View3DOptions.Elevation = 315
+    View3DOptions.Orthogonal = False
+    View3DOptions.Perspective = 0
+    View3DOptions.Rotation = 360
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 2
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: TDonutSeries
+      HoverElement = []
+      Marks.Tail.Margin = 2
+      XValues.Order = loNone
+      YValues.Name = 'Pie'
+      YValues.Order = loNone
+      Frame.InnerBrush.Kind = Gradient
+      Frame.InnerBrush.Gradient.EndColor = claGray
+      Frame.InnerBrush.Gradient.MidColor = claWhite
+      Frame.InnerBrush.Gradient.StartColor = xFF404040
+      Frame.InnerBrush.Gradient.Visible = True
+      Frame.InnerBrush.BackColor = claRed
+      Frame.MiddleBrush.Kind = Gradient
+      Frame.MiddleBrush.Gradient.EndColor = xFF828282
+      Frame.MiddleBrush.Gradient.MidColor = claWhite
+      Frame.MiddleBrush.Gradient.StartColor = claGray
+      Frame.MiddleBrush.Gradient.Visible = True
+      Frame.MiddleBrush.BackColor = claYellow
+      Frame.OuterBrush.Kind = Gradient
+      Frame.OuterBrush.Gradient.EndColor = xFF404040
+      Frame.OuterBrush.Gradient.MidColor = claWhite
+      Frame.OuterBrush.Gradient.StartColor = claSilver
+      Frame.OuterBrush.Gradient.Visible = True
+      Frame.OuterBrush.BackColor = claGreen
+      Frame.Width = 4
+      ExplodeBiggest = 25
+      OtherSlice.Legend.Title.Font.StyleExt = {00070000000000000004000000}
+      OtherSlice.Legend.Visible = False
+      Data = {
+        04080000000000000000C08540FF04000000436172730000000000D07F40FF06
+        00000050686F6E65730000000000007440FF060000005461626C657300000000
+        00807E40FF080000004D6F6E69746F72730000000000000040FF050000004C61
+        6D70730000000000108840FF090000004B6579626F6172647300000000000028
+        40FF0500000042696B65730000000000E88040FF06000000436861697273}
+    end
+  end
+end

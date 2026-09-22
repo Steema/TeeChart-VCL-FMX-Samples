@@ -1,0 +1,66 @@
+inherited SeriesBindings: TSeriesBindings
+  Caption = 'BaseForm1'
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    Align = Top
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      
+        'Series1 is connected to DataModule ClientDataSet1 using TBindLis' +
+        't')
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 2
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    ColorPaletteIndex = 13
+    object Series1: THorizBarSeries
+      HoverElement = []
+      BarBrush.Gradient.Direction = gdLeftRight
+      ColorEachPoint = True
+      Marks.OnTop = True
+      BarStyle = bsPyramid
+      Gradient.Direction = gdLeftRight
+      XValues.Name = 'Bar'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 224
+    Top = 8
+    object BindList1: TBindList
+      Category = 'Lists'
+      ControlComponent = Series1
+      SourceComponent = BindScopeDB1
+      SourceMemberName = 'WEIGHT'
+      FormatExpressions = <
+        item
+          ControlExpression = 'Value'
+          SourceExpression = 'AsString'
+        end>
+      FormatControlExpressions = <>
+      ClearControlExpressions = <>
+    end
+  end
+  object BindScopeDB1: TBindScopeDB
+    DataSource = DataSource1
+    ScopeMappings = <>
+    Left = 336
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.ClientDataSet1
+    Left = 432
+    Top = 8
+  end
+end

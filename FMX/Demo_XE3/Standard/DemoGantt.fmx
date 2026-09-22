@@ -1,0 +1,70 @@
+inherited GanttSeriesDemo: TGanttSeriesDemo
+  Caption = 'BaseForm1'
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  inherited Panel1: TPanel
+    object Button1: TButton
+      Position.X = 120.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Connections...'
+      OnClick = Button1Click
+    end
+    object Label1: TLabel
+      AutoSize = True
+      Position.X = 236.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 0.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.WordWrap = False
+      TabOrder = 3
+    end
+  end
+  object Chart1: TChart
+    Foot.Font.StyleExt = {00040000000200000004000000}
+    Gradient.EndColor = xFFD4F1DB
+    Gradient.StartColor = xFFF27777
+    Gradient.Visible = True
+    Legend.Title.Font.StyleExt = {00070000000000000004000000}
+    Legend.Visible = False
+    SubFoot.Font.StyleExt = {00040000000200000004000000}
+    Title.Text.Strings = (
+      'Gantt Series')
+    Chart3DPercent = 7
+    Zoom.Brush.Kind = None
+    Zoom.Pen.Fill.Color = claSilver
+    Align = Client
+    TabOrder = 2
+    Size.Width = 600.000000000000000000
+    Size.Height = 343.000000000000000000
+    Size.PlatformDefault = False
+    OnMouseMove = Chart1MouseMove
+    ColorPaletteIndex = 13
+    object Series1: TGanttSeries
+      HoverElement = [heCurrent]
+      Marks.Visible = True
+      ClickableLine = False
+      Pointer.Brush.Gradient.EndColor = xFF4466A3
+      Pointer.Gradient.EndColor = xFF4466A3
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      Pointer.VertSize = 14
+      XValues.Name = 'Start'
+      XValues.Order = loNone
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+      Callout.Style = psRightTriangle
+      Callout.Arrow.Visible = False
+      StartValues.Name = 'Start'
+      StartValues.Order = loNone
+      EndValues.Name = 'End'
+      EndValues.Order = loNone
+      NextTask.Name = 'NextTask'
+      NextTask.Order = loNone
+    end
+  end
+end
