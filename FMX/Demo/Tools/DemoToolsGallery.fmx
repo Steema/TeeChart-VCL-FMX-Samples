@@ -1,5 +1,0 @@
-inherited DemoTools: TDemoTools
-  Caption = 'BaseForm1'
-  OnCreate = FormCreate
-  DesignerMasterStyle = 0
-end
