@@ -28,3 +28,5 @@ VCL/MultiPanel/Win32/
 FMX/RingBuffer/Win32/
 FMX/RingBuffer/Linux64/
 *.rsm
+*.flat
+FMX/Demo_XE13/Android64/Release/
