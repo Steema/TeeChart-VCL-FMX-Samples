@@ -4,11 +4,12 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='Android'"/>
-        <DeviceId Condition="'$(Platform)'=='Android64'"/>
+        <DeviceId Condition="'$(Platform)'=='Android'">HA2ATV81</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android64'">HA2ATV81</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
         <DeviceId Condition="'$(Platform)'=='iOSSimARM64'"/>
     </PropertyGroup>
+    <ItemGroup Condition="'$(Platform)'=='WinARM64EC'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX64'"/>
     <ItemGroup Condition="'$(Platform)'=='Win32'">
         <DeployFile Include="Win32\Debug\FastLine_RingBuffer_FMX.exe" Condition="'$(Config)'=='Debug'">
@@ -382,16 +383,5 @@
     <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
     <ItemGroup Condition="'$(Platform)'=='iOSSimARM64'"/>
     <ItemGroup Condition="'$(Platform)'=='Win64x'"/>
-    <ItemGroup Condition="'$(Platform)'=='Linux64'">
-        <DeployFile Include="Linux64\Release\FastLine_RingBuffer_FMX" Condition="'$(Config)'=='Release'">
-            <RemoteDir>FastLine_RingBuffer_FMX\</RemoteDir>
-            <RemoteName>FastLine_RingBuffer_FMX</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
-        </DeployFile>
-    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
 </Project>
