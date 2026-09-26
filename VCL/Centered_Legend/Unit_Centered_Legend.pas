@@ -66,6 +66,8 @@ begin
   CBCentered.ItemIndex:=1;
 
   Chart1.MarginLeft:=20;
+
+//  Chart1.Legend.DrawBehind:=True;
 end;
 
 procedure TMainForm.TBMarginChange(Sender: TObject);
