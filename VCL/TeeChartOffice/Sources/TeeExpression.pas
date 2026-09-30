@@ -13,7 +13,7 @@ uses
   {$ENDIF}
   SysUtils, Classes,
   Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls,
-  {$IFDEF D18}
+  {$IFDEF D17}
   System.Types,
   {$ENDIF}
   TeEngine, TeeSourceEdit;
