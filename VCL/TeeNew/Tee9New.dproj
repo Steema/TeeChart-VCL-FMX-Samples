@@ -1309,6 +1309,15 @@
         <DCCReference Include="Tool_SeriesRegion.pas">
             <Form>SeriesRegionToolForm</Form>
         </DCCReference>
+        <DCCReference Include="Tool_Threshold.pas">
+            <Form>ThresholdToolForm</Form>
+        </DCCReference>
+        <DCCReference Include="Tool_ThresholdArea.pas">
+            <Form>ThresholdToolAreaForm</Form>
+        </DCCReference>
+        <DCCReference Include="Tool_ThresholdMulti.pas">
+            <Form>ThresholdToolMultiForm</Form>
+        </DCCReference>
         <DCCReference Include="Tool_SubChart.pas">
             <Form>SubChartToolForm</Form>
         </DCCReference>
