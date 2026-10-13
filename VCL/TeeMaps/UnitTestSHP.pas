@@ -20,10 +20,6 @@ uses
   DBTables,
   {$ENDIF}
 
-  {$IFNDEF D28}
-  XPMan,
-  {$ENDIF}
-
   TeeInspector, TeeObjectInspector, TeeLisB, TeeLegendScrollBar, TeeTools,
 
   TeeGLEditor,

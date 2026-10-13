@@ -802,7 +802,7 @@ begin
   x:=0;
 
   for t:=1 to Length(S) do
-      if {$IFDEF D14}CharInSet(S[t],AToZ){$ELSE}S[t] in AToZ{$ENDIF} then
+      if {$IFDEF D12}CharInSet(S[t],AToZ){$ELSE}S[t] in AToZ{$ENDIF} then
       begin
         x:=x*32+Ord(S[t]);
       end
