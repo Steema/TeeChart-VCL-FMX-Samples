@@ -46,7 +46,6 @@ begin
   Quadrant.Quadrant2.Text:='Two';
   Quadrant.Quadrant3.Text:='Three';
 
-  Quadrant.Quadrant0.Margins.Left:=20;
   Quadrant.Quadrant1.Font.Size:=14;
   Quadrant.Quadrant2.Font.Size:=16;
   Quadrant.Quadrant2.Font.Color:=clRed;
@@ -88,6 +87,9 @@ begin
   result.AddXY(35,40,'Catalonia');
   result.AddXY(65,90,'Gambia');
   result.AddXY(25,30,'Malasia');
+  result.AddXY(15,10,'France');
+  result.AddXY(85,10,'UK');
+  result.AddXY(20,75,'Portugal');
 
   result.Pointer.Style:=psCircle;
   result.Pointer.Size:=12;
