@@ -407,6 +407,7 @@ uses
   Tool_DataTable in 'Tool_DataTable.pas' {DataTableToolForm},
   Tool_Magnify in 'Tool_Magnify.pas' {MagnifyToolForm},
   Tool_SeriesRegion in 'Tool_SeriesRegion.pas' {SeriesRegionToolForm},
+  Tool_Quadrant in 'Tool_Quadrant.pas' {QuadrantToolForm},
   Tool_Threshold in 'Tool_Threshold.pas' {ThresholdToolForm},
   Tool_ThresholdArea in 'Tool_ThresholdArea.pas' {ThresholdToolAreaForm},
   Tool_ThresholdMulti in 'Tool_ThresholdMulti.pas' {ThresholdToolMultiForm},
