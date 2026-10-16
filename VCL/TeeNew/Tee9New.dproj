@@ -1239,6 +1239,9 @@
         <DCCReference Include="Axis_Isometric.pas">
             <Form>IsometricAxis</Form>
         </DCCReference>
+        <DCCReference Include="Axes_Isometric.pas">
+            <Form>AxesIsometric</Form>
+        </DCCReference>
         <DCCReference Include="ChartEditor_3DGallery.pas">
             <Form>Gallery3DForm</Form>
         </DCCReference>

@@ -383,6 +383,7 @@ uses
   Legend_Scrollbar in 'Legend_Scrollbar.pas' {LegendScrollBarDemo},
   Series_PolarBar in 'Series_PolarBar.pas' {PolarBarForm},
   Axis_Isometric in 'Axis_Isometric.pas' {IsometricAxis},
+  Axes_Isometric in 'Axes_Isometric.pas' {AxesIsometric},
   ChartEditor_3DGallery in 'ChartEditor_3DGallery.pas' {Gallery3DForm},
   Axes_DrawBevels in 'Axes_DrawBevels.pas' {BeveledAxes},
   Legend_SymbolFlags in 'Legend_SymbolFlags.pas' {LegendSymbolDraw},
