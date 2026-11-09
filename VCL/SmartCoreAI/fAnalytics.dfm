@@ -20,9 +20,31 @@ object frmAnalytics: TfrmAnalytics
     Height = 118
     Align = alTop
     TabOrder = 0
-    object BSample: TButton
-      Left = 496
+    ExplicitTop = -6
+    object Label1: TLabel
+      Left = 8
       Top = 16
+      Width = 47
+      Height = 15
+      Caption = 'Provider:'
+    end
+    object Label2: TLabel
+      Left = 112
+      Top = 16
+      Width = 37
+      Height = 15
+      Caption = 'Model:'
+    end
+    object Label3: TLabel
+      Left = 240
+      Top = 16
+      Width = 43
+      Height = 15
+      Caption = 'API Key:'
+    end
+    object BSample: TButton
+      Left = 384
+      Top = 36
       Width = 97
       Height = 25
       Caption = 'Load Sample'
@@ -30,8 +52,8 @@ object frmAnalytics: TfrmAnalytics
       OnClick = BSampleClick
     end
     object BAsk: TButton
-      Left = 599
-      Top = 16
+      Left = 511
+      Top = 36
       Width = 75
       Height = 25
       Caption = '&Ask AI'
@@ -39,14 +61,53 @@ object frmAnalytics: TfrmAnalytics
       OnClick = BAskClick
     end
     object BCancel: TButton
-      Left = 680
-      Top = 16
+      Left = 592
+      Top = 36
       Width = 75
       Height = 25
       Caption = '&Cancel'
       Enabled = False
       TabOrder = 2
       OnClick = BCancelClick
+    end
+    object Provider: TComboBox
+      Left = 8
+      Top = 37
+      Width = 95
+      Height = 23
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 3
+      Text = 'Gemini'
+      OnChange = ProviderChange
+      Items.Strings = (
+        'Gemini'
+        'OpenAI'
+        'Claude'
+        'Ollama')
+    end
+    object Prompt: TEdit
+      Left = 8
+      Top = 74
+      Width = 1057
+      Height = 23
+      TabOrder = 4
+    end
+    object Model: TEdit
+      Left = 112
+      Top = 37
+      Width = 121
+      Height = 23
+      TabOrder = 5
+      Text = 'gemini-3.1-flash-lite'
+    end
+    object APIKey: TEdit
+      Left = 240
+      Top = 37
+      Width = 121
+      Height = 23
+      PasswordChar = '*'
+      TabOrder = 6
     end
   end
   object Memo1: TMemo
@@ -116,9 +177,15 @@ object frmAnalytics: TfrmAnalytics
     Align = alClient
     TabOrder = 2
     ExplicitTop = 124
-    ExplicitHeight = 433
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
+    object Series1: TBarSeries
+      Marks.OnTop = True
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Bar'
+      YValues.Order = loNone
+    end
   end
   object StringGrid1: TStringGrid
     Left = 0
@@ -127,5 +194,23 @@ object frmAnalytics: TfrmAnalytics
     Height = 247
     Align = alBottom
     TabOrder = 3
+  end
+  object AIConnection1: TAIConnection
+    Left = 256
+    Top = 504
+  end
+  object AIChatAgent1: TAIChatAgent
+    Connection = AIConnection1
+    Tools.Functions = <>
+    Tools.Agents = <>
+    Tools.MCPServers = <>
+    Skills = <>
+    OnError = AIChatAgent1Error
+    OnCancelled = AIChatAgent1Cancelled
+    OnStarted = AIChatAgent1Started
+    OnPartial = AIChatAgent1Partial
+    OnComplete = AIChatAgent1Complete
+    Left = 368
+    Top = 504
   end
 end

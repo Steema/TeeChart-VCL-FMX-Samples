@@ -29,7 +29,8 @@ uses
   VCLTee.Chart, VCLTee.Series, VCLTee.TeeProcs, VCLTee.TeEngine,
 
   // Demo
-  uAnalyticsData, uAnalyticsSample;
+  uAnalyticsData, uAnalyticsSample, System.JSON.Types, SmartCoreAI.Exceptions,
+  SmartCoreAI.Mapping, SmartCoreAI.Driver.Models;
 
 type
   TfrmAnalytics = class(TForm)
@@ -40,28 +41,36 @@ type
     BSample: TButton;
     BAsk: TButton;
     BCancel: TButton;
+    AIConnection1: TAIConnection;
+    Series1: TBarSeries;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    AIChatAgent1: TAIChatAgent;
+    Provider: TComboBox;
+    Prompt: TEdit;
+    Model: TEdit;
+    APIKey: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure BSampleClick(Sender: TObject);
     procedure BAskClick(Sender: TObject);
     procedure BCancelClick(Sender: TObject);
-  private
-    FConnection: TAIConnection;
-    FAgent: TAIChatAgent;
-    FData: TAnalyticsData;
-    FSeries: TBarSeries;
-    FProvider: TComboBox;
-    FModel, FApiKey, FPrompt: TEdit;
-    procedure BuildUI;
+    procedure AIChatAgent1Started(Sender: TObject);
+    procedure AIChatAgent1Partial(Sender: TObject; const AText: string;
+      AKind: TAIProgressKind);
+    procedure AIChatAgent1Complete(Sender: TObject; const AText: string;
+      AKind: TAIProgressKind);
+    procedure AIChatAgent1Error(Sender: TObject; AException: Exception);
+    procedure AIChatAgent1Cancelled(Sender: TObject);
     procedure ProviderChange(Sender: TObject);
-    procedure AgentStarted(Sender: TObject);
-    procedure AgentPartial(Sender: TObject; const AText: string; AKind: TAIProgressKind);
-    procedure AgentComplete(Sender: TObject; const AText: string; AKind: TAIProgressKind);
-    procedure AgentError(Sender: TObject; AException: Exception);
-    procedure AgentCancelled(Sender: TObject);
+  private
+    FData: TAnalyticsData;
+
+    procedure AddSample;
+    procedure BuildUI;
     procedure ConfigureConnection;
     procedure RefreshViews;
     procedure SetBusy(ABusy: Boolean);
-    procedure AddSample;
   end;
 
 var
@@ -74,20 +83,12 @@ implementation
 procedure TfrmAnalytics.FormCreate(Sender: TObject);
 begin
   FData := TAnalyticsData.Create(Self);
-  FConnection := TAIConnection.Create(Self);
 
-  FAgent := TAIChatAgent.Create(Self);
-  FAgent.Connection := FConnection;
-  FAgent.Stream := True;
-  FAgent.AutoRegisterInvokables := False;
-  FAgent.Options.MaxOutputTokens := 1400;
-  FAgent.Instructions.Text :=
+  AIChatAgent1.Stream := True;
+  AIChatAgent1.AutoRegisterInvokables := False;
+  AIChatAgent1.Options.MaxOutputTokens := 1400;
+  AIChatAgent1.Instructions.Text :=
     'You are a careful business data analyst. Reply first with one valid JSON array of metric objects, no markdown fences. Each object has metric (short name), value (number), unit (short unit), notes (short explanation). Example: [{"metric":"Revenue","value":1250.5,"unit":"USD","notes":"Q1 estimate"}]. Then add a short plain-English explanation after the array. Use numerical values grounded in the user request; when data is missing, clearly state assumptions and use an illustrative estimate.';
-  FAgent.OnStarted := AgentStarted;
-  FAgent.OnPartial := AgentPartial;
-  FAgent.OnComplete := AgentComplete;
-  FAgent.OnError := AgentError;
-  FAgent.OnCancelled := AgentCancelled;
 
   BuildUI;
   ConfigureConnection;
@@ -99,22 +100,23 @@ var P: string;
 begin
   ConfigureConnection;
 
-  FAgent.NewSession;
+  AIChatAgent1.NewSession;
 
-  P := Trim(FPrompt.Text);
+  P := Trim(Prompt.Text);
   if P.IsEmpty then Exit;
-  FAgent.Prompt := P + sLineBreak + sLineBreak +
+
+  AIChatAgent1.Prompt := P + sLineBreak + sLineBreak +
     'Return your metric array first, then a short explanation. Keep numeric values JSON-compatible.';
 
   Memo1.Lines.Add('User: ' + P);
   Memo1.Lines.Add('Agent: ');
 
-  TTask.Run(procedure begin FAgent.Execute; end);
+  TTask.Run(procedure begin AIChatAgent1.Execute; end);
 end;
 
 procedure TfrmAnalytics.BCancelClick(Sender: TObject);
 begin
-  FAgent.Cancel;
+  AIChatAgent1.Cancel;
 end;
 
 procedure TfrmAnalytics.BSampleClick(Sender: TObject);
@@ -124,28 +126,11 @@ begin
 end;
 
 procedure TfrmAnalytics.BuildUI;
-var
-  L: TLabel;
-  P : TPanel;
 begin
-  P:=Panel1;
-
-  L := TLabel.Create(Self); L.Parent := P; L.SetBounds(12, 10, 75, 20); L.Caption := 'Provider';
-  FProvider := TComboBox.Create(Self); FProvider.Parent := P; FProvider.SetBounds(12, 32, 150, 27);
-  FProvider.Style := csDropDownList; FProvider.Items.AddStrings(['Gemini','OpenAI','Claude','Ollama']); FProvider.ItemIndex := 0; FProvider.OnChange := ProviderChange;
-  L := TLabel.Create(Self); L.Parent := P; L.SetBounds(174, 10, 70, 20); L.Caption := 'Model';
-  FModel := TEdit.Create(Self); FModel.Parent := P; FModel.SetBounds(174, 32, 205, 27); FModel.Text := 'gemini-3.1-flash-lite';
-  L := TLabel.Create(Self); L.Parent := P; L.SetBounds(391, 10, 95, 20); L.Caption := 'API key (optional)';
-  FApiKey := TEdit.Create(Self); FApiKey.Parent := P; FApiKey.SetBounds(391, 32, 240, 27); FApiKey.PasswordChar := '*';
-
-  FPrompt := TEdit.Create(Self); FPrompt.Parent := P; FPrompt.SetBounds(12, 75, 980, 27); FPrompt.Text := 'Compare revenue, cost and margin for a fictional Q1 business. Return 4 illustrative metrics.';
+  Prompt.Text := 'Compare revenue, cost and margin for a fictional Q1 business. Return 4 illustrative metrics.';
 
   Chart1.Title.Text.Text := 'Agent Metrics';
   Chart1.Legend.Visible := False;
-  FSeries := TBarSeries.Create(Self);
-  Chart1.AddSeries(FSeries);
-
-  Chart1.Parent:=Self;
 
   StringGrid1.FixedRows := 1;
   StringGrid1.ColCount := 5;
@@ -168,11 +153,11 @@ end;
 
 procedure TfrmAnalytics.ProviderChange(Sender: TObject);
 begin
-  case FProvider.ItemIndex of
-    0: FModel.Text := 'gemini-3.1-flash-lite';
-    1: FModel.Text := 'gpt-5.6-luna';
-    2: FModel.Text := 'claude-haiku-4-5';
-    3: FModel.Text := 'qwen3-vl:2b';
+  case Provider.ItemIndex of
+    0: Model.Text := 'gemini-3.1-flash-lite';
+    1: Model.Text := 'gpt-5.6-luna';
+    2: Model.Text := 'claude-haiku-4-5';
+    3: Model.Text := 'qwen3-vl:2b';
   end;
 
   ConfigureConnection;
@@ -180,17 +165,17 @@ end;
 
 procedure TfrmAnalytics.ConfigureConnection;
 begin
-  case FProvider.ItemIndex of
-    0: FConnection.DriverName := 'Gemini';
-    1: FConnection.DriverName := 'OpenAI';
-    2: FConnection.DriverName := 'Claude';
-    3: FConnection.DriverName := 'Ollama';
+  case Provider.ItemIndex of
+    0: AIConnection1.DriverName := 'Gemini';
+    1: AIConnection1.DriverName := 'OpenAI';
+    2: AIConnection1.DriverName := 'Claude';
+    3: AIConnection1.DriverName := 'Ollama';
   end;
 
-  FConnection.Params.APIKey := FApiKey.Text;
-  FConnection.Params.Model := FModel.Text;
+  AIConnection1.Params.APIKey := ApiKey.Text;
+  AIConnection1.Params.Model := Model.Text;
 
-  FAgent.Model := FModel.Text;
+  AIChatAgent1.Model := Model.Text;
 end;
 
 procedure TfrmAnalytics.SetBusy(ABusy: Boolean);
@@ -200,23 +185,13 @@ begin
   BCancel.Enabled := ABusy;
 end;
 
-procedure TfrmAnalytics.AgentStarted(Sender: TObject);
+procedure TfrmAnalytics.AIChatAgent1Cancelled(Sender: TObject);
 begin
-  TThread.Queue(nil, procedure begin SetBusy(True); end);
+  TThread.Queue(nil, procedure begin Memo1.Lines.Add('[Cancelled]'); SetBusy(False); end);
 end;
 
-procedure TfrmAnalytics.AgentPartial(Sender: TObject; const AText: string; AKind: TAIProgressKind);
-begin
-  if AKind in [TAIProgressKind.ContentStarted, TAIProgressKind.Content] then
-    TThread.Queue(nil,
-       procedure
-       begin
-         Memo1.Lines[Memo1.Lines.Count-1] :=
-         Memo1.Lines[Memo1.Lines.Count-1] + AText;
-       end);
-end;
-
-procedure TfrmAnalytics.AgentComplete(Sender: TObject; const AText: string; AKind: TAIProgressKind);
+procedure TfrmAnalytics.AIChatAgent1Complete(Sender: TObject;
+  const AText: string; AKind: TAIProgressKind);
 var
   S: string;
   N: Integer;
@@ -231,7 +206,7 @@ begin
   begin
     try
       FData.Clear;
-      LoadSampleData(FData, FProvider.Text + ' agent', S);
+      LoadSampleData(FData, Provider.Text + ' agent', S);
 
       RefreshViews;
       Memo1.Lines.Add('Structured metrics added from response.');
@@ -243,16 +218,29 @@ begin
   end);
 end;
 
-procedure TfrmAnalytics.AgentError(Sender: TObject; AException: Exception);
+procedure TfrmAnalytics.AIChatAgent1Error(Sender: TObject;
+  AException: Exception);
 var M: string;
 begin
   M := AException.Message;
   TThread.Queue(nil, procedure begin Memo1.Lines.Add('[Error] ' + M); SetBusy(False); end);
 end;
 
-procedure TfrmAnalytics.AgentCancelled(Sender: TObject);
+procedure TfrmAnalytics.AIChatAgent1Partial(Sender: TObject;
+  const AText: string; AKind: TAIProgressKind);
 begin
-  TThread.Queue(nil, procedure begin Memo1.Lines.Add('[Cancelled]'); SetBusy(False); end);
+  if AKind in [TAIProgressKind.ContentStarted, TAIProgressKind.Content] then
+    TThread.Queue(nil,
+       procedure
+       begin
+         Memo1.Lines[Memo1.Lines.Count-1] :=
+         Memo1.Lines[Memo1.Lines.Count-1] + AText;
+       end);
+end;
+
+procedure TfrmAnalytics.AIChatAgent1Started(Sender: TObject);
+begin
+  TThread.Queue(nil, procedure begin SetBusy(True); end);
 end;
 
 procedure TfrmAnalytics.AddSample;
@@ -269,7 +257,7 @@ end;
 procedure TfrmAnalytics.RefreshViews;
 var I: Integer; R: TMetricRow;
 begin
-  FSeries.Clear;
+  Series1.Clear;
 
   StringGrid1.RowCount := FData.Count + 1;
 
@@ -282,7 +270,7 @@ begin
     StringGrid1.Cells[3,I+1] := R.UnitName;
     StringGrid1.Cells[4,I+1] := R.Notes;
 
-    FSeries.Add(R.Value, R.Metric);
+    Series1.Add(R.Value, R.Metric);
   end;
 end;
 
